@@ -1,5 +1,6 @@
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MenuItem } from 'types'
 
 interface NavbarProps {
@@ -14,7 +15,12 @@ export function Navbar({ menuItems }: NavbarProps) {
         className={`text-lg font-extrabold text-black hover:text-black md:text-xl`}
         href={'/'}
       >
-        Home
+        <Image
+          src={require('../../public/images/releafe_app_icon_logo.png')}
+          alt="Releafe App Icon Logo"
+          width={60}
+          height={60}
+        />
       </Link>
       {menuItems &&
         menuItems.map((menuItem) => {
