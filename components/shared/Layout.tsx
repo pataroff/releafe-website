@@ -18,9 +18,9 @@ export default function Layout({
   settings = fallbackSettings,
 }: LayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-black">
+    <div className="flex min-h-screen flex-col bg-white text-black overflow-hidden">
       <Navbar menuItems={settings?.menuItems} />
-      <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">{children}</div>
+      <div>{children}</div>
       <Footer footer={settings?.footer} />
     </div>
   )
