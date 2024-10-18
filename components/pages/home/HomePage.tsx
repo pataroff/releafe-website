@@ -25,7 +25,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         {/* Main Section */}
         <section>
-          <div className="relative w-full h-[600px] z-0">
+          <div className="relative w-full h-[480px] z-0 mb-[40px]">
             {/* Hero Image Container */}
             <span className="absolute w-full h-full">
               <Image
@@ -34,12 +34,13 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 fill
                 className="object-cover object-bottom"
               />
+              {/* Bottom Blur */}
               <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white to-transparent" />
             </span>
           </div>
           {/* Header Container */}
           {/* @TODO: Is there a better way of doing this? */}
-          <div className="mt-[3rem] px-8">
+          <div className="mt-[2rem] px-8">
             {title && <Header centered title={title} description={overview} />}
           </div>
         </section>

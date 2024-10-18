@@ -9,8 +9,10 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="fixed top-0 z-[100] flex items-center justify-between w-full px-4 py-4 md:px-16 md:py-5 lg:px-32">
-      <div className="flex items-center gap-x-6">
+    <div className="fixed top-0 z-[100] flex items-center justify-between w-full px-4 py-4 md:px-16 md:py-5 lg:px-20">
+      {/* Top Shadow */}
+      <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-80" />
+      <div className="flex items-center gap-x-5 z-10">
         {/* Logo */}
         <Link key="home" href={'/'}>
           <Image
@@ -29,9 +31,9 @@ export function Navbar({ menuItems }: NavbarProps) {
             return (
               <Link
                 key={href}
-                className={`text-lg font-sofia font-extrabold text-white md:text-md ${
+                className={`text-lg font-sofia font-bold text-white md:text-md ${
                   menuItem?._type === 'home'
-                    ? 'font-extrabold text-black'
+                    ? 'font-bold text-black'
                     : 'text-gray-600'
                 }`}
                 href={href}
@@ -42,7 +44,7 @@ export function Navbar({ menuItems }: NavbarProps) {
           })}
       </div>
 
-      <div className="flex items-center gap-x-6">
+      <div className="flex items-center gap-x-5 z-10">
         {menuItems &&
           menuItems.slice(3, 6).map((menuItem, index) => {
             const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -52,14 +54,14 @@ export function Navbar({ menuItems }: NavbarProps) {
 
             return index == 2 ? (
               <Link key={href} href={href}>
-                <button className="text-lg font-sofia font-extrabold text-white rounded-full h-[3rem] w-[16rem] bg-[#96a68d]">
+                <button className="text-lg font-sofia font-bold text-white rounded-full h-[50px] w-[16rem] bg-[#96a68d] leading-none">
                   {menuItem.title}
                 </button>
               </Link>
             ) : (
               <Link
                 key={href}
-                className={`text-lg font-sofia font-extrabold text-white md:text-md ${
+                className={`text-lg font-sofia font-bold text-white md:text-md ${
                   menuItem?._type === 'home'
                     ? 'font-extrabold text-black'
                     : 'text-gray-600'
