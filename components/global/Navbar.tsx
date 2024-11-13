@@ -9,7 +9,7 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="fixed top-0 z-[100] flex items-center justify-between w-full px-4 py-4 md:px-16 md:py-5 lg:px-20">
+    <div className="fixed top-0 z-[100] flex items-center justify-between w-full px-4 py-4 md:px-16 md:py-8 lg:px-20">
       {/* Top Shadow */}
       <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-80" />
       <div className="flex items-center gap-x-5 z-10">
@@ -54,7 +54,7 @@ export function Navbar({ menuItems }: NavbarProps) {
 
             return index == 2 ? (
               <Link key={href} href={href}>
-                <button className="text-lg font-sofia font-bold text-white rounded-full h-[50px] w-[16rem] bg-[#96a68d] leading-none">
+                <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
                   {menuItem.title}
                 </button>
               </Link>

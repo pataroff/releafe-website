@@ -1,3 +1,5 @@
+import React, { useState } from 'react'
+
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
@@ -10,22 +12,81 @@ import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
+
 export interface HomePageProps {
   settings?: SettingsPayload
   page?: HomePagePayload
   preview?: boolean
 }
 
+const featuresData = [
+  [
+    'Dagboek',
+    'Het dagboek gebruik je om bij te houden hoe het gaat met je mentale welzijn. Je scoort dagelijks op een makkelijke manier een aantal onderwerpen zoals algemene stemming, zorgen, stress, energie, focus en slaap. Daarnaast heb je de mogelijkheid om extra informatie vast te leggen over relevante dingen die zijn gebeurd. Deze informatie wordt gebruikt om je persoonlijke welzijnsoverzicht op te stellen.',
+  ],
+  [
+    'Welzijnsoverzight',
+    'Aan het dagboek is een persoonlijk welzijnsoverzicht gekoppeld waar je duidelijk in een grafiek weergegeven ziet hoe het met je is gegaan de afgelopen tijd. Je kan hierbij zelf kiezen welke onderwerpen je ziet en over welke periode je de gegevens wil zien. Dit overzicht helpt je om patronen te leren herkennen en dit geeft je aanwijzingen over wat je kunt doen om je beter te voelen.',
+  ],
+  ['Toolkit', ''],
+  [
+    'Persoonlijke doelen',
+    'Het stellen van persoonlijke doelen stelt je in staat om je op specifieke gebieden te richten die je mentale welzijn bevorderen. Het helpt je om hier gemotiveerd en bewust mee aan de slag te gaan en een positieve gedragsverandering te bewerkstelligen. Voor het behalen van deze doelstellingen ontvang je beloningen in de app.',
+  ],
+  [
+    'Zorgenbakje',
+    'Het zorgenbakje biedt je een veilige ruimte om je zorgen en angsten van je af te schrijven en even op te bergen. Wat helpt bij het loslaten van zorgen is het visueel en symbolisch opbergen van deze zorgen. Je kan de opgeborgen zorgen op een later moment, of direct reframen.',
+  ],
+]
+
+const companyLogos = [
+  '/images/company_logos/Menzis_Logo.png',
+  '/images/company_logos/Lentis_Logo.png',
+  '/images/company_logos/UMCG_Logo.png',
+  '/images/company_logos/Hanze_Logo.png',
+  '/images/company_logos/RUG_Logo.png',
+]
+
+const testimonialsData = [
+  [
+    'De dagboekfunctie van Releafe heeft me geholpen mijn emoties beter te begrijpen en mijn vooruitgang bij te houden. Het is een onmisbaar hulpmiddel geweest voor mijn mentale welzijn.',
+    'Merijn, Nederland',
+    'over de kracht van emotionele reflectie en groei',
+  ],
+  [
+    'De zorgenbox is fantastisch om mijn dagelijkse stress van me af te zetten. Het is als een mentale opruiming en helpt me gefocust te blijven.',
+    'Kristiyan, Bulgarije',
+    'over de verlichting van het beheersen van dagelijkse stress',
+  ],
+  [
+    'De dagelijkse mindfulness-routines in Releafe zijn een essentieel onderdeel van mijn dag geworden. Ik voel me meer in balans en minder overweldigd door de uitdagingen van het leven.',
+    'Hanna, Duitsland',
+    'over de voordelen van mindfulness in het dagelijks leven integreren',
+  ],
+  [
+    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
+    'Ivan, Bulgarije',
+    'over het vinden van balans en verlichting van angst.',
+  ],
+]
+
 export function HomePage({ page, settings, preview }: HomePageProps) {
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
+
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
 
   return (
     <>
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} preview={preview}>
         {/* Main Section */}
-        <section>
-          <div className="relative w-full h-[480px] z-0 mb-[40px]">
+        <section className="h-full">
+          <div className="relative w-full h-[480px] 2xl:h-[600px] z-0 mb-[40px]">
             {/* Hero Image Container */}
             <span className="absolute w-full h-full">
               <Image
@@ -40,8 +101,195 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
           {/* Header Container */}
           {/* @TODO: Is there a better way of doing this? */}
-          <div className="mt-[2rem] px-8">
+          <div className="mt-[2rem] px-32 2xl:px-64">
             {title && <Header centered title={title} description={overview} />}
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="mt-[6rem] px-64 flex flex-col justify-center items-center">
+          {/* Title */}
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen.
+          </h1>
+
+          {/* Features Box */}
+          <div className="relative mt-[4rem] rounded-[2.5rem] w-[1000px] 2xl:w-[1250px] h-[700px] bg-[#f0f4ed]">
+            {/* Features Selection Row Container */}
+            <div className="flex flex-row gap-x-4 justify-center absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
+              {/* Feature Selection Box */}
+              {featuresData.map((feature, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedIndex(index)}
+                    className={`${selectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
+                  >
+                    {feature[0]}
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Features Data Container */}
+            <div className="flex flex-row w-full h-full items-center">
+              <div className="w-1/2 h-[900px] xl:h-[950px] relative">
+                <Image
+                  className="object-cover"
+                  src="/images/releafe_worrybox_screen_mockup.png"
+                  alt="Releafe Worrybox Screen Mockup"
+                  fill
+                />
+              </div>
+              <div className="w-1/2 font-sofia font-light text-lg text-center mx-16">
+                {featuresData[selectedIndex][1]}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Credibility Section */}
+        <section className="mt-[6rem]">
+          {/* Custom Image  */}
+          <div className="w-full h-[350px] relative">
+            <div className="absolute inset-x-0 top-0 z-10 h-14 bg-gradient-to-b from-white to-transparent" />
+            <Image
+              className="object-cover object-top"
+              src="/images/hero_image.jpeg"
+              alt="Custom Image"
+              fill
+            />
+            <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white to-transparent" />
+          </div>
+
+          {/* Credibility Container */}
+          <div className="mt-[4rem] flex flex-col gap-y-14">
+            <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+              Aanbevolen door experts en belanghebbenden.
+            </h1>
+
+            {/* Credibity Logo Row Container */}
+            <div className="flex flex-row gap-x-32 justify-center items-center px-32 2xl:px-64">
+              {companyLogos.map((logo, index) => {
+                return (
+                  <Image
+                    key={index}
+                    src={logo}
+                    alt=""
+                    className="w-full h-full"
+                    width={100}
+                    height={100}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="mt-[6rem]">
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            Echte verhalen, echte impact.
+          </h1>
+
+          {/* Testimonials Container */}
+          <div className="mt-[4rem] flex flex-row gap-x-14 overflow-x-hidden pl-40">
+            {/* Testimonial Box */}
+            {testimonialsData.map((testimonial, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`rounded-[2.5rem] w-[350px] h-[450px] bg-[#c5d5bc] ${
+                    index === testimonialsData.length - 1 ? 'mr-[-250px]' : ''
+                  } px-8 py-10 flex flex-col justify-between`}
+                >
+                  {/* Quotation Mark Icon + Quote */}
+                  <div>
+                    {/* Quotation Mark Icon Container */}
+                    <div className="w-[25%]">
+                      <Image
+                        src="/images/quotation_mark_icon.png"
+                        alt="Quotation Mark Icon"
+                        className="w-full h-full"
+                        width={512}
+                        height={512}
+                      />
+                    </div>
+
+                    {/* Quote */}
+                    <h2 className="mt-4 font-sofia font-normal text-lg leading-tight">
+                      {testimonial[0]}
+                    </h2>
+                  </div>
+
+                  <div>
+                    <h3 className="font-sofia font-normal text-md">
+                      {testimonial[1]}
+                    </h3>
+
+                    <h4 className="font-sofia font-light text-sm leading-tight">
+                      {testimonial[2]}
+                    </h4>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Testimonial Control Buttons */}
+          <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end pr-32 2xl:pr-64">
+            <button className="flex justify-center items-center rounded-full w-14 h-14 bg-[#c5d6bc]">
+              <FontAwesomeIcon icon={faChevronLeft} color="white" size="xl" />
+            </button>
+            <button className="flex justify-center items-center rounded-full w-14 h-14 bg-[#96a78d]">
+              <FontAwesomeIcon icon={faChevronRight} color="white" size="xl" />
+            </button>
+          </div>
+        </section>
+
+        {/* Upselling Section */}
+        <section className="mt-[6rem]">
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            Probeer Releafe nu gratis.
+          </h1>
+
+          {/* Upselling Wrapper */}
+          <div className="mt-[4rem] flex flex-col justify-center items-center gap-y-8">
+            {/* Offer Container */}
+            <div className="rounded-2xl h-[90px] w-[390px] border-2 border-[#516523] px-6 py-4 relative">
+              {/* Offer Decoration Box */}
+              <div className="rounded-lg h-[35px] w-[240px] bg-[#c5d6bc] absolute -top-5 right-4 px-3 py-1">
+                <h4 className="font-sofia font-medium text-md text-white text-nowrap">
+                  30 dagen gratis proefperiode
+                </h4>
+              </div>
+              {/* Offer Content Container */}
+              <div className="flex flex-row justify-between items-center h-full w-full">
+                <div className="flex flex-col justify-between h-full">
+                  <h3 className="font-sofia text-lg font-normal">Jaarlijks</h3>
+                  <h4 className="font-sofia text-md font-normal">
+                    €47.88/jaar
+                  </h4>
+                </div>
+                <h2 className="font-sofia text-lg font-medium">€3.99/maand</h2>
+              </div>
+            </div>
+
+            <p className="font-sofia font-normal text-sm text-center">
+              Na je gratis proefperiode kost het jaarabonnement €47,88 en wordt
+              elk jaar automatisch verlengd <br /> totdat je het opzegt.{' '}
+              <Link className="underline" href="#">
+                Voorwarden
+              </Link>{' '}
+              |{' '}
+              <Link className="underline" href="#">
+                Op elk moment opzegbaar
+              </Link>
+            </p>
+
+            <button className='flex justify-center items-center rounded-full h-[50px] w-[32rem] mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg leading-none"'>
+              Doorgaan
+            </button>
           </div>
         </section>
 
