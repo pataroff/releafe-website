@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronLeft,
   faChevronRight,
+  faChevronDown,
+  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons'
 
 export interface HomePageProps {
@@ -75,10 +77,74 @@ const testimonialsData = [
   ],
 ]
 
+const articlesData = [
+  [
+    'Stressmanagement',
+    '5 eenvoudige technieken om racende gedachten te kalmeren tijdens',
+  ],
+  [
+    'Mindfulness',
+    'Hoe je negatieve gedachten kunt herstructureren met de “Zorgenbox”',
+  ],
+  [
+    'Angstverlichting',
+    'De wetenschap achter dagelijkse mindfulness en de impact ervan op angst',
+  ],
+]
+
+const faqData = [
+  {
+    question: 'Wat is Releafe?',
+    answer:
+      'Releafe is een app voor stressverlichting en het aanpakken van paniekaanvallen.',
+  },
+  {
+    question: 'Wat is inbegrepen bij een Releafe-abonnement?',
+    answer: 'Het abonnement omvat toegang tot alle stressverlichtingsfuncties.',
+  },
+  {
+    question: 'Waar moet ik beginnen zodra ik de app heb gedownload?',
+    answer: 'Start met het onboarding-proces dat je begeleidt door de app.',
+  },
+  {
+    question: 'Welke apparaten ondersteunen de Releafe-app?',
+    answer: 'Releafe wordt ondersteund op iOS en Android-apparaten.',
+  },
+  {
+    question: 'Hoe kan ik opzeggen?',
+    answer: 'Je kunt het abonnement opzeggen via je accountinstellingen.',
+  },
+]
+
 export function HomePage({ page, settings, preview }: HomePageProps) {
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
+
+  const FAQItem: React.FC<{ question: string; answer: string }> = ({
+    question,
+    answer,
+  }) => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    return (
+      <div className="border-b-2 flex flex-row justify-between items-center">
+        <div className="flex flex-col">
+          <h1 className="font-sofia font-normal text-lg my-4">{question}</h1>
+          {isOpen && (
+            <h2 className="font-sofia font-light text-lg mb-4">{answer}</h2>
+          )}
+        </div>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? (
+            <FontAwesomeIcon icon={faChevronUp} size="xl" />
+          ) : (
+            <FontAwesomeIcon icon={faChevronDown} size="xl" />
+          )}
+        </button>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -110,7 +176,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         <section className="mt-[6rem] px-64 flex flex-col justify-center items-center">
           {/* Title */}
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen.
+            Wij zijn hier om jou in staat te stellen je <br /> welzijn te
+            bevorderen.
           </h1>
 
           {/* Features Box */}
@@ -193,7 +260,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </h1>
 
           {/* Testimonials Container */}
-          <div className="mt-[4rem] flex flex-row gap-x-14 overflow-x-hidden pl-40">
+          <div className="mt-[4rem] flex flex-row gap-x-14 pl-40">
             {/* Testimonial Box */}
             {testimonialsData.map((testimonial, index) => {
               return (
@@ -201,7 +268,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   key={index}
                   className={`rounded-[2.5rem] w-[350px] h-[450px] bg-[#c5d5bc] ${
                     index === testimonialsData.length - 1 ? 'mr-[-250px]' : ''
-                  } px-8 py-10 flex flex-col justify-between`}
+                  } px-8 py-10 flex flex-col justify-between drop-shadow-md`}
                 >
                   {/* Quotation Mark Icon + Quote */}
                   <div>
@@ -238,11 +305,11 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
           {/* Testimonial Control Buttons */}
           <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end pr-32 2xl:pr-64">
-            <button className="flex justify-center items-center rounded-full w-14 h-14 bg-[#c5d6bc]">
-              <FontAwesomeIcon icon={faChevronLeft} color="white" size="xl" />
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc]">
+              <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
             </button>
-            <button className="flex justify-center items-center rounded-full w-14 h-14 bg-[#96a78d]">
-              <FontAwesomeIcon icon={faChevronRight} color="white" size="xl" />
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d]">
+              <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
             </button>
           </div>
         </section>
@@ -290,6 +357,79 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             <button className='flex justify-center items-center rounded-full h-[50px] w-[32rem] mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg leading-none"'>
               Doorgaan
             </button>
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <section className="mt-[6rem]">
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            Ontdek meer hulpmiddelen over <br />
+            angstverlichting, mindfulness en welzijn.
+          </h1>
+
+          {/* Articles Container */}
+          <div className="mt-[4rem] flex flex-row gap-x-14  pl-32">
+            {/* Article Box */}
+            {articlesData.map((article, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`rounded-[2.5rem] w-[600px] h-[400px] bg-[#96a68e] ${
+                    index === articlesData.length - 1 ? 'mr-[-450px]' : ''
+                  } px-8 py-10 flex flex-col justify-between relative drop-shadow-md`}
+                >
+                  <div className="rounded-[2.5rem] rounded-t-none bg-white h-[110px] w-full absolute bottom-0 left-0 px-8 py-7">
+                    <h2 className="font-sofia font-light text-md">
+                      {article[0]}
+                    </h2>
+                    <h3 className="font-sofia font-normal text-md text-nowrap">
+                      {article[1]}
+                    </h3>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Articles Control Buttons */}
+          <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end items-center pr-32 2xl:pr-64">
+            <Link
+              className="absolute left-1/2 transform -translate-x-1/2 underline font-sofia font-normal text-lg"
+              href="#"
+            >
+              Bekijk alle blogs
+            </Link>
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc]">
+              <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
+            </button>
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d]">
+              <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
+            </button>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="my-[6rem] px-32 flex flex-col justify-center items-center">
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            Veel gestelde vragen
+          </h1>
+
+          {/* FAQ Container */}
+          <div className="mt-[4rem] w-full">
+            <div className="border-b-2">
+              <h1 className="font-sofia font-normal uppercase text-2xl my-4">
+                Algemeen
+              </h1>
+            </div>
+            {faqData.map((faq, index) => {
+              return (
+                <FAQItem
+                  key={index}
+                  question={faq.question}
+                  answer={faq.answer}
+                />
+              )
+            })}
           </div>
         </section>
 

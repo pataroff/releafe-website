@@ -1,7 +1,7 @@
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
-import 'styles/index.css'
 // https://stackoverflow.com/questions/66539699/fontawesome-icons-not-working-properly-in-react-next-app
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
+import 'styles/index.css'
 
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
 import { AppProps } from 'next/app'
