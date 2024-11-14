@@ -11,7 +11,7 @@ export function Navbar({ menuItems }: NavbarProps) {
   return (
     <div className="fixed top-0 z-[100] flex items-center justify-between w-full px-4 py-4 md:px-16 md:py-8 lg:px-20">
       {/* Top Shadow */}
-      <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-80" />
+      <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-50" />
       <div className="flex items-center gap-x-5 z-10">
         {/* Logo */}
         <Link key="home" href={'/'}>
