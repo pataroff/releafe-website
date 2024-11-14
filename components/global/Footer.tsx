@@ -62,6 +62,12 @@ const linkColumns = [
   },
 ]
 
+const socialLinks = [
+  { icon: faFacebookF, href: '#', label: 'Facebook' },
+  { icon: faInstagram, href: '#', label: 'Instagram' },
+  { icon: faXTwitter, href: '#', label: 'Twitter' },
+]
+
 function LinkColumn({
   title,
   links,
@@ -105,25 +111,25 @@ export function Footer({ footer }: { footer: PortableTextBlock[] }) {
   return (
     <footer className="bottom-0 w-full h-[400px] bg-[#96a58d] px-32 flex flex-col justify-between pt-4 pb-8">
       <div className="flex flex-row gap-x-28 2xl:gap-x-48 mt-[2rem]">
+        {/* Column Links */}
         {linkColumns.map((column, index) => (
           <LinkColumn key={index} title={column.title} links={column.links} />
         ))}
-        {/* Social Media Links Row Container*/}
+        {/* Social Media Links */}
         <div className="flex flex-row items-center gap-x-6 h-8">
-          <Link href="#">
-            <FontAwesomeIcon icon={faFacebookF} color="white" size="lg" />
-          </Link>
-          <Link href="#">
-            <FontAwesomeIcon icon={faInstagram} color="white" size="lg" />
-          </Link>
-          <Link href="#">
-            <FontAwesomeIcon icon={faXTwitter} color="white" size="lg" />
-          </Link>
+          {socialLinks.map((social, index) => {
+            return (
+              <Link key={index} href={social.href} aria-label={social.label}>
+                <FontAwesomeIcon icon={social.icon} color="white" size="lg" />
+              </Link>
+            )
+          })}
         </div>
       </div>
 
       <h3 className="font-sofia font-light text-white text-sm text-center">
-        Copyright © 2024 Releafe. Alle rechten voorbehouden.
+        Copyright © {new Date().getFullYear()} Releafe. Alle rechten
+        voorbehouden.
       </h3>
     </footer>
   )

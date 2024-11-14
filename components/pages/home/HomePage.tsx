@@ -181,7 +181,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </h1>
 
           {/* Features Box */}
-          <div className="relative mt-[4rem] rounded-[2.5rem] w-[1000px] 2xl:w-[1250px] h-[700px] bg-[#f0f4ed]">
+          <div className="relative mt-[4rem] rounded-[2.5rem] w-[1000px] 2xl:w-[1250px] h-[700px] bg-[#f0f4ed] drop-shadow-sm">
             {/* Features Selection Row Container */}
             <div className="flex flex-row gap-x-4 justify-center absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
               {/* Feature Selection Box */}
@@ -305,10 +305,10 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
           {/* Testimonial Control Buttons */}
           <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end pr-32 2xl:pr-64">
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc]">
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out">
               <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
             </button>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d]">
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out">
               <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
             </button>
           </div>
@@ -399,10 +399,10 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             >
               Bekijk alle blogs
             </Link>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc]">
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out">
               <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
             </button>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d]">
+            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out">
               <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
             </button>
           </div>
