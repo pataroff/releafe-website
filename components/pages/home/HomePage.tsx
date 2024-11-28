@@ -75,6 +75,22 @@ const testimonialsData = [
     'Ivan, Bulgarije',
     'over het vinden van balans en verlichting van angst.',
   ],
+  // TEST DATA
+  [
+    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
+    'Ivan, Bulgarije',
+    'over het vinden van balans en verlichting van angst.',
+  ],
+  [
+    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
+    'Ivan, Bulgarije',
+    'over het vinden van balans en verlichting van angst.',
+  ],
+  [
+    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
+    'Ivan, Bulgarije',
+    'over het vinden van balans en verlichting van angst.',
+  ],
 ]
 
 const articlesData = [
@@ -120,6 +136,29 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  const [testimonialsActiveIndex, setTestimonialsActiveIndex] =
+    useState<number>(0)
+  const [articlesActiveIndex, setArticlesActiveIndex] = useState<number>(0)
+
+  const handleTestimonialsNext = () => {
+    setTestimonialsActiveIndex((prev) => (prev + 1) % testimonialsData.length)
+  }
+
+  const handleTestimonialsPrev = () => {
+    setTestimonialsActiveIndex((prev) =>
+      prev === 0 ? testimonialsData.length - 1 : prev - 1,
+    )
+  }
+
+  const handleArticlesNext = () => {
+    setArticlesActiveIndex((prev) => (prev + 1) % articlesData.length)
+  }
+
+  const handleArticlesPrev = () => {
+    setArticlesActiveIndex((prev) =>
+      prev === 0 ? articlesData.length - 1 : prev - 1,
+    )
+  }
 
   const FAQItem: React.FC<{ question: string; answer: string }> = ({
     question,
@@ -128,20 +167,22 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-      <div className="border-b-2 flex flex-row justify-between items-center">
-        <div className="flex flex-col">
+      <div className="border-b-2 flex flex-col w-full">
+        <div className="flex flex-row justify-between items-center w-full">
           <h1 className="font-sofia font-normal text-lg my-4">{question}</h1>
-          {isOpen && (
-            <h2 className="font-sofia font-light text-lg mb-4">{answer}</h2>
-          )}
+          <button onClick={() => setIsOpen(!isOpen)}>
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              size="xl"
+              className={`transform transition-transform duration-300 ease-out ${
+                isOpen ? 'rotate-180' : 'rotate-0'
+              }`}
+            />
+          </button>
         </div>
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <FontAwesomeIcon icon={faChevronUp} size="xl" />
-          ) : (
-            <FontAwesomeIcon icon={faChevronDown} size="xl" />
-          )}
-        </button>
+        {isOpen && (
+          <h2 className="font-sofia font-light text-lg mb-4">{answer}</h2>
+        )}
       </div>
     )
   }
@@ -152,9 +193,9 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         {/* Main Section */}
         <section className="h-full">
-          <div className="relative w-full h-[480px] 2xl:h-[600px] z-0 mb-[40px]">
+          <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[600px] z-0 mb-[40px]">
             {/* Hero Image Container */}
-            <span className="absolute w-full h-full">
+            <span className="absolute w-full h-[200px] lg:h-full">
               <Image
                 src="/images/hero_image.jpeg"
                 alt="Hero Image"
@@ -167,30 +208,29 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
           {/* Header Container */}
           {/* @TODO: Is there a better way of doing this? */}
-          <div className="mt-[2rem] px-32 2xl:px-64">
+          <div className="mt-[2rem] px-5 lg:px-32 2xl:px-64">
             {title && <Header centered title={title} description={overview} />}
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="mt-[6rem] px-64 flex flex-col justify-center items-center">
+        <section className="mt-[6rem] px-5 lg:px-64 2xl:px-96 flex flex-col justify-center items-center">
           {/* Title */}
-          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Wij zijn hier om jou in staat te stellen je <br /> welzijn te
-            bevorderen.
+          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
+            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen.
           </h1>
 
           {/* Features Box */}
-          <div className="relative mt-[4rem] rounded-[2.5rem] w-[1000px] 2xl:w-[1250px] h-[700px] bg-[#f0f4ed] drop-shadow-sm">
+          <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
             {/* Features Selection Row Container */}
-            <div className="flex flex-row gap-x-4 justify-center absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
               {/* Feature Selection Box */}
               {featuresData.map((feature, index) => {
                 return (
                   <button
                     key={index}
                     onClick={() => setSelectedIndex(index)}
-                    className={`${selectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
+                    className={`${selectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-sm lg:text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
                   >
                     {feature[0]}
                   </button>
@@ -199,8 +239,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             </div>
 
             {/* Features Data Container */}
-            <div className="flex flex-row w-full h-full items-center">
-              <div className="w-1/2 h-[900px] xl:h-[950px] relative">
+            <div className="flex flex-col-reverse lg:flex-row w-full h-full items-center pt-8 lg:px-8">
+              <div className="w-full h-[800px] relative">
                 <Image
                   className="object-cover"
                   src="/images/releafe_worrybox_screen_mockup.png"
@@ -208,8 +248,10 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   fill
                 />
               </div>
-              <div className="w-1/2 font-sofia font-light text-lg text-center mx-16">
-                {featuresData[selectedIndex][1]}
+              <div className="w-full h-[300px] flex flex-col justify-center">
+                <p className="font-sofia font-light text-md lg:text-lg text-center">
+                  {featuresData[selectedIndex][1]}
+                </p>
               </div>
             </div>
           </div>
@@ -218,25 +260,25 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         {/* Credibility Section */}
         <section className="mt-[6rem]">
           {/* Custom Image  */}
-          <div className="w-full h-[350px] relative">
-            <div className="absolute inset-x-0 top-0 z-10 h-14 bg-gradient-to-b from-white to-transparent" />
+          <div className="w-full h-[140px] lg:h-[350px] relative">
+            <div className="absolute inset-x-0 top-0 z-10 h-7 lg:h-14 bg-gradient-to-b from-white to-transparent" />
             <Image
               className="object-cover object-top"
               src="/images/hero_image.jpeg"
               alt="Custom Image"
               fill
             />
-            <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-7 lg:h-14 bg-gradient-to-t from-white to-transparent" />
           </div>
 
           {/* Credibility Container */}
-          <div className="mt-[4rem] flex flex-col gap-y-14">
-            <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+          <div className="mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
+            <h1 className="text-2xl font-sofia font-bold md:text-4xl 2xl:text-6xl text-center">
               Aanbevolen door experts en belanghebbenden.
             </h1>
 
             {/* Credibity Logo Row Container */}
-            <div className="flex flex-row gap-x-32 justify-center items-center px-32 2xl:px-64">
+            <div className="flex flex-col lg:flex-row lg:gap-x-32 2xl:gap-x-64 gap-y-32 justify-center items-center px-32 2xl:px-64">
               {companyLogos.map((logo, index) => {
                 return (
                   <Image
@@ -254,76 +296,115 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Testimonials Section */}
-        <section className="mt-[6rem]">
+        <section className="mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Echte verhalen, echte impact.
           </h1>
 
-          {/* Testimonials Container */}
-          <div className="mt-[4rem] flex flex-row gap-x-14 pl-40">
-            {/* Testimonial Box */}
-            {testimonialsData.map((testimonial, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`rounded-[2.5rem] w-[350px] h-[450px] bg-[#c5d5bc] ${
-                    index === testimonialsData.length - 1 ? 'mr-[-250px]' : ''
-                  } px-8 py-10 flex flex-col justify-between drop-shadow-md`}
-                >
-                  {/* Quotation Mark Icon + Quote */}
-                  <div>
-                    {/* Quotation Mark Icon Container */}
-                    <div className="w-[25%]">
-                      <Image
-                        src="/images/quotation_mark_icon.png"
-                        alt="Quotation Mark Icon"
-                        className="w-full h-full"
-                        width={512}
-                        height={512}
-                      />
+          {/* Testimonials Wrapper */}
+          <div className="mt-[4rem] mx-auto max-w-[1440px]">
+            {/* Testimonials Container */}
+            <ul className="relative h-[450px]">
+              {/* Testimonial Box */}
+              {testimonialsData.map((testimonial, index) => {
+                // Calculate the relative position of the element
+                const relativeIndex = index - testimonialsActiveIndex
+
+                // Dynamically compute the translateX value
+                const translateXValue = `calc(${relativeIndex * 100}% + ${
+                  relativeIndex * 36
+                }px)`
+                return (
+                  <li
+                    key={index}
+                    style={{
+                      transform: `translateX(${translateXValue})`,
+                      transition: 'transform 0.2s ease-in-out',
+                    }}
+                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-[#c5d5bc] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                  >
+                    {/* Quotation Mark Icon + Quote */}
+                    <div>
+                      {/* Quotation Mark Icon Container */}
+                      <div className="w-[25%]">
+                        <Image
+                          src="/images/quotation_mark_icon.png"
+                          alt="Quotation Mark Icon"
+                          className="w-full h-full"
+                          width={512}
+                          height={512}
+                        />
+                      </div>
+
+                      {/* Quote */}
+                      <h2 className="mt-4 font-sofia font-normal text-lg leading-tight">
+                        {testimonial[0]}
+                      </h2>
                     </div>
 
-                    {/* Quote */}
-                    <h2 className="mt-4 font-sofia font-normal text-lg leading-tight">
-                      {testimonial[0]}
-                    </h2>
-                  </div>
+                    <div>
+                      <h3 className="font-sofia font-normal text-md">
+                        {testimonial[1]}
+                      </h3>
 
-                  <div>
-                    <h3 className="font-sofia font-normal text-md">
-                      {testimonial[1]}
-                    </h3>
-
-                    <h4 className="font-sofia font-light text-sm leading-tight">
-                      {testimonial[2]}
-                    </h4>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Testimonial Control Buttons */}
-          <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end pr-32 2xl:pr-64">
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out">
-              <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
-            </button>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out">
-              <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
-            </button>
+                      <h4 className="font-sofia font-light text-sm leading-tight">
+                        {testimonial[2]}
+                      </h4>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+            {/* Testimonial Control Buttons */}
+            <ul className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-center lg:justify-end">
+              <li
+                className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out ${testimonialsActiveIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
+              >
+                <button
+                  className="h-[2.5rem] w-[2.5rem] rounded-full"
+                  disabled={testimonialsActiveIndex === 0 ? true : false}
+                  onClick={() => handleTestimonialsPrev()}
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    color="white"
+                    size="lg"
+                  />
+                </button>
+              </li>
+              <li
+                className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${testimonialsActiveIndex === testimonialsData.length - 1 ? 'opacity-50' : 'opacity-100'}`}
+              >
+                <button
+                  className="h-[2.5rem] w-[2.5rem] rounded-full"
+                  disabled={
+                    testimonialsActiveIndex === testimonialsData.length - 1
+                      ? true
+                      : false
+                  }
+                  onClick={() => handleTestimonialsNext()}
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    color="white"
+                    size="lg"
+                  />
+                </button>
+              </li>
+            </ul>
           </div>
         </section>
 
         {/* Upselling Section */}
-        <section className="mt-[6rem]">
+        <section className="mt-[6rem] px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Probeer Releafe nu gratis.
           </h1>
 
           {/* Upselling Wrapper */}
-          <div className="mt-[4rem] flex flex-col justify-center items-center gap-y-8">
+          <div className="mt-[4rem] flex flex-col w-full justify-center items-center gap-y-8">
             {/* Offer Container */}
-            <div className="rounded-2xl h-[90px] w-[390px] border-2 border-[#516523] px-6 py-4 relative">
+            <div className="rounded-2xl h-[90px] w-full lg:w-1/2 border-2 border-[#516523] px-6 py-4 relative">
               {/* Offer Decoration Box */}
               <div className="rounded-lg h-[35px] w-[240px] bg-[#c5d6bc] absolute -top-5 right-4 px-3 py-1">
                 <h4 className="font-sofia font-medium text-md text-white text-nowrap">
@@ -342,9 +423,9 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               </div>
             </div>
 
-            <p className="font-sofia font-normal text-sm text-center">
+            <p className="font-sofia font-normal text-xs lg:text-sm text-center">
               Na je gratis proefperiode kost het jaarabonnement €47,88 en wordt
-              elk jaar automatisch verlengd <br /> totdat je het opzegt.{' '}
+              elk jaar automatisch verlengd totdat je het opzegt.{' '}
               <Link className="underline" href="#">
                 Voorwarden
               </Link>{' '}
@@ -354,62 +435,105 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               </Link>
             </p>
 
-            <button className='flex justify-center items-center rounded-full h-[50px] w-[32rem] mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg leading-none"'>
+            <button className='flex justify-center items-center rounded-full h-[50px] w-full lg:w-1/2 mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-lg leading-none"'>
               Doorgaan
             </button>
           </div>
         </section>
 
         {/* Blog Section */}
-        <section className="mt-[6rem]">
+        <section className="mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Ontdek meer hulpmiddelen over <br />
-            angstverlichting, mindfulness en welzijn.
+            Ontdek meer hulpmiddelen over angstverlichting, mindfulness en
+            welzijn.
           </h1>
 
-          {/* Articles Container */}
-          <div className="mt-[4rem] flex flex-row gap-x-14  pl-32">
-            {/* Article Box */}
-            {articlesData.map((article, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`rounded-[2.5rem] w-[600px] h-[400px] bg-[#96a68e] ${
-                    index === articlesData.length - 1 ? 'mr-[-450px]' : ''
-                  } px-8 py-10 flex flex-col justify-between relative drop-shadow-md`}
-                >
-                  <div className="rounded-[2.5rem] rounded-t-none bg-white h-[110px] w-full absolute bottom-0 left-0 px-8 py-7">
-                    <h2 className="font-sofia font-light text-md">
-                      {article[0]}
-                    </h2>
-                    <h3 className="font-sofia font-normal text-md text-nowrap">
-                      {article[1]}
-                    </h3>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          {/* Articles Wrapper */}
+          <div className="mt-[4rem] mx-auto max-w-[1440px] ">
+            {/* Articles Container */}
+            <ul className="relative h-[400px]">
+              {/* Article Box */}
+              {articlesData.map((article, index) => {
+                // Calculate the relative position of the element
+                const relativeIndex = index - articlesActiveIndex
 
-          {/* Articles Control Buttons */}
-          <div className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-end items-center pr-32 2xl:pr-64">
-            <Link
-              className="absolute left-1/2 transform -translate-x-1/2 underline font-sofia font-normal text-lg"
-              href="#"
-            >
-              Bekijk alle blogs
-            </Link>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out">
-              <FontAwesomeIcon icon={faChevronLeft} color="white" size="lg" />
-            </button>
-            <button className="flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out">
-              <FontAwesomeIcon icon={faChevronRight} color="white" size="lg" />
-            </button>
+                // Dynamically compute the translateX value
+                const translateXValue = `calc(${relativeIndex * 100}% + ${
+                  relativeIndex * 36
+                }px)`
+                return (
+                  <li
+                    key={index}
+                    style={{
+                      transform: `translateX(${translateXValue})`,
+                      transition: 'transform 0.2s ease-in-out',
+                    }}
+                    className={`rounded-[2.5rem] absolute w-full lg:w-[600px] h-full lg:h-[400px] bg-[#96a68e] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                  >
+                    <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
+                      <h2 className="font-sofia font-light text-md">
+                        {article[0]}
+                      </h2>
+                      <h3 className="font-sofia font-normal text-md">
+                        {article[1]}
+                      </h3>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+            {/* Articles Control Buttons */}
+            <ul className="mt-[4rem] w-full h-14 flex flex-col-reverse lg:flex-row justify-center lg:justify-end items-center">
+              <li className="relative h-full w-full mt-[2rem]">
+                <Link
+                  className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-[56px] underline font-sofia font-normal text-lg"
+                  href="#"
+                >
+                  Bekijk alle blogs
+                </Link>
+              </li>
+              <ul className="flex flex-row gap-x-4">
+                <li
+                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out ${articlesActiveIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
+                >
+                  <button
+                    className="h-[2.5rem] w-[2.5rem] rounded-full"
+                    disabled={articlesActiveIndex === 0 ? true : false}
+                    onClick={() => handleArticlesPrev()}
+                  >
+                    <FontAwesomeIcon
+                      icon={faChevronLeft}
+                      color="white"
+                      size="lg"
+                    />
+                  </button>
+                </li>
+                <li
+                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${articlesActiveIndex === articlesData.length - 1 ? 'opacity-50' : 'opacity-100'}`}
+                >
+                  <button
+                    className="h-[2.5rem] w-[2.5rem] rounded-full"
+                    disabled={
+                      articlesActiveIndex === articlesData.length - 1
+                        ? true
+                        : false
+                    }
+                    onClick={() => handleArticlesNext()}
+                  >
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      color="white"
+                      size="lg"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </ul>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="my-[6rem] px-32 flex flex-col justify-center items-center">
+        <section className="my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Veel gestelde vragen
           </h1>

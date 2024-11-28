@@ -25,8 +25,8 @@ export function Header(props: HeaderProps) {
       )}
       <button
         className="
-        flex justify-center items-center rounded-full h-[60px] w-[18rem] mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
-        font-sofia font-bold text-white text-xl leading-none"
+        flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
+        font-sofia font-bold text-white text-lg lg:text-xl leading-none"
       >
         Probeer Releafe gratis
       </button>

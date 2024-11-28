@@ -109,14 +109,14 @@ function LinkColumn({
 
 export function Footer({ footer }: { footer: PortableTextBlock[] }) {
   return (
-    <footer className="bottom-0 w-full h-[400px] bg-[#96a58d] px-32 flex flex-col justify-between pt-4 pb-8">
-      <div className="flex flex-row gap-x-28 2xl:gap-x-48 mt-[2rem]">
+    <footer className="bottom-0 w-full h-full lg:h-[400px] bg-[#96a58d] px-5 lg:px-32 flex flex-col justify-between py-12">
+      <div className="flex flex-col gap-y-8 lg:flex-row gap-x-28 2xl:gap-x-48">
         {/* Column Links */}
         {linkColumns.map((column, index) => (
           <LinkColumn key={index} title={column.title} links={column.links} />
         ))}
         {/* Social Media Links */}
-        <div className="flex flex-row items-center gap-x-6 h-8">
+        <div className="flex flex-row justify-center items-center gap-x-6 h-8">
           {socialLinks.map((social, index) => {
             return (
               <Link key={index} href={social.href} aria-label={social.label}>
@@ -127,7 +127,7 @@ export function Footer({ footer }: { footer: PortableTextBlock[] }) {
         </div>
       </div>
 
-      <h3 className="font-sofia font-light text-white text-sm text-center">
+      <h3 className="font-sofia font-light text-white text-md lg:text-sm text-center my-[1.25rem] lg:mb-0">
         Copyright © {new Date().getFullYear()} Releafe. Alle rechten
         voorbehouden.
       </h3>
