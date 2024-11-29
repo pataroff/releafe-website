@@ -7,6 +7,7 @@ import {
   faFacebookF,
   faInstagram,
   faXTwitter,
+  faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons'
 
 import Link from 'next/link'
@@ -14,36 +15,26 @@ import Image from 'next/image'
 
 const linkColumns = [
   {
-    title: 'Bedrijf',
-    links: [
-      'Over',
-      'Carrieres',
-      'Pers',
-      'Blog',
-      'Ontmoet onze instructeur',
-      'Releafe Wetenschap',
-    ],
-  },
-  {
-    title: 'Aanbiedingen',
-    links: [
-      'Koop een cadeau',
-      'Verzilveren cadeau',
-      'Gezinsplan',
-      'Releafe Business',
-    ],
+    title: 'Abonneren',
+    links: ['Gratis proberen', 'Abonnement', 'Reviews', 'Voor bedrijven'],
   },
   {
     title: 'Hulp',
     links: [
       'Veelgestelde vragen',
-      'Neem contact met ons op',
-      'Voorwaarden',
+      'Contact',
+      'Algemene voorwaarden',
       'Privacybeleid',
-      'Afmelden voor gerichte advertenties',
-      'Cookies',
-      'Toegankelijkheidsverklaring',
+      'Cookies wijzigen',
     ],
+  },
+  {
+    title: 'Over',
+    links: ['Releafe', 'De app', 'In de media'],
+  },
+  {
+    title: 'Informatie over mentaal welzijn',
+    links: ['Mentale klachten', 'Mentaal fit', 'Artikelen'],
   },
   {
     title: 'Download de app',
@@ -63,9 +54,10 @@ const linkColumns = [
 ]
 
 const socialLinks = [
-  { icon: faFacebookF, href: '#', label: 'Facebook' },
-  { icon: faInstagram, href: '#', label: 'Instagram' },
-  { icon: faXTwitter, href: '#', label: 'Twitter' },
+  // { icon: faFacebookF, href: '#', label: 'Facebook' },
+  // { icon: faInstagram, href: '#', label: 'Instagram' },
+  // { icon: faXTwitter, href: '#', label: 'Twitter' },
+  { icon: faLinkedinIn, href: '#', label: 'LinkedIn' },
 ]
 
 function LinkColumn({
@@ -110,7 +102,7 @@ function LinkColumn({
 export function Footer({ footer }: { footer: PortableTextBlock[] }) {
   return (
     <footer className="bottom-0 w-full h-full lg:h-[400px] bg-[#96a58d] px-5 lg:px-32 flex flex-col justify-between py-12">
-      <div className="flex flex-col gap-y-8 lg:flex-row gap-x-28 2xl:gap-x-48">
+      <div className="flex flex-col gap-y-8 lg:flex-row gap-x-20 2xl:gap-x-48">
         {/* Column Links */}
         {linkColumns.map((column, index) => (
           <LinkColumn key={index} title={column.title} links={column.links} />
