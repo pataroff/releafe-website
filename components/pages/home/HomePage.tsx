@@ -273,7 +273,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
           {/* Credibility Container */}
           <div className="mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
-            <h1 className="text-2xl font-sofia font-bold md:text-4xl 2xl:text-6xl text-center">
+            <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
               Aanbevolen door experts en belanghebbenden.
             </h1>
 

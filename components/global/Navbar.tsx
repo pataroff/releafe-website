@@ -10,23 +10,38 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 interface NavbarProps {
   menuItems?: MenuItem[]
+  route?: string
 }
 
-export function Navbar({ menuItems }: NavbarProps) {
+export function Navbar({ menuItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
+
+  // @TODO: Is there a better way of doing this?
+  const checkRoute = (route: string) => {
+    if (route == 'Mentale klachten' || route == 'Mentaal fit') {
+      return true
+    } else {
+      return false
+    }
+  }
 
   return (
     <>
       {/* Navbar Container */}
-      <div className="fixed top-0 z-50 w-full">
+      <div
+        className={`${checkRoute(route) ? 'sticky' : 'fixed'} top-0 z-50 w-full`}
+      >
         {/* Navbar (desktop) */}
         <nav className="hidden lg:flex items-center justify-between px-4 py-4 md:px-16 md:py-8 lg:px-20">
           {/* Top Shadow */}
-          <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-50" />
+          <div
+            className={`absolute inset-x-0 top-0 h-28 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
+          />
           <div className="flex items-center gap-x-5 z-10">
             {/* Logo */}
             <Link key="home" href={'/'}>
               <Image
+                className="drop-shadow-lg"
                 src="/images/releafe_app_icon_logo.png"
                 alt="Releafe App Icon Logo"
                 width={60}
@@ -42,11 +57,7 @@ export function Navbar({ menuItems }: NavbarProps) {
                 return (
                   <Link
                     key={href}
-                    className={`text-lg font-sofia font-bold text-white md:text-md ${
-                      menuItem?._type === 'home'
-                        ? 'font-bold text-black'
-                        : 'text-gray-600'
-                    }`}
+                    className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
                     href={href}
                   >
                     {menuItem.title}
@@ -72,11 +83,7 @@ export function Navbar({ menuItems }: NavbarProps) {
                 ) : (
                   <Link
                     key={href}
-                    className={`text-lg font-sofia font-bold text-white md:text-md ${
-                      menuItem?._type === 'home'
-                        ? 'font-extrabold text-black'
-                        : 'text-gray-600'
-                    }`}
+                    className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
                     href={href}
                   >
                     {menuItem.title}

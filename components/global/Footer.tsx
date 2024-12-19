@@ -102,7 +102,7 @@ function LinkColumn({
 export function Footer({ footer }: { footer: PortableTextBlock[] }) {
   return (
     <footer className="bottom-0 w-full h-full lg:h-[400px] bg-[#96a58d] px-5 lg:px-32 flex flex-col justify-between py-12">
-      <div className="flex flex-col gap-y-8 lg:flex-row gap-x-20 2xl:gap-x-48">
+      <div className="flex flex-col gap-y-8 lg:flex-row gap-x-20 2xl:gap-x-40">
         {/* Column Links */}
         {linkColumns.map((column, index) => (
           <LinkColumn key={index} title={column.title} links={column.links} />
