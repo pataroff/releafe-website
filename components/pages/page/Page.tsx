@@ -235,7 +235,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                                 return (
                                   <button
                                     key={index}
-                                    className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-300 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
+                                    className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
                                     onClick={() =>
                                       setPanicSubdisorderIndex(index)
                                     }
@@ -325,7 +325,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc] hover:bg-[#b7c6ae]' : 'bg-gray-300 hover:bg-[#c5d4bc]'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc] hover:bg-[#b7c6ae]' : 'bg-gray-200 hover:bg-[#c5d4bc]'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>
