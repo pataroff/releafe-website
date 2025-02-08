@@ -193,7 +193,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
       <Layout settings={settings} preview={preview}>
         {/* Main Section */}
         <section className="h-full">
-          <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[600px] z-0 mb-[40px]">
+          <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[580px] z-0 mb-[40px]">
             {/* Hero Image Container */}
             <span className="absolute w-full h-[200px] lg:h-full">
               <Image
