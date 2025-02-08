@@ -285,9 +285,9 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                     key={index}
                     src={logo}
                     alt=""
-                    className="w-full h-auto"
-                    width={100}
-                    height={100}
+                    className="max-w-[125px] h-auto"
+                    width={150}
+                    height={150}
                   />
                 )
               })}

@@ -70,7 +70,7 @@ const mentalDisordersData = [
   {
     title: 'Depressie',
     description:
-      'Bij een depressie ben je langer dan 2 weken somber en/of heb je nergens zin in. Ook kun je je moe, onrustig, schuldig en waardeloos voelen. Een depressie verstoort je dagelijks leven. Je hebt er veel last van: thuis, in je vrije tijd en/of op je werk.',
+      'Bij een depressie ben je langer dan 2 weken somber en/of heb je nergens zin in. Ook kun je je moe, onrustig, schuldig en waardeloos voelen. Een depressie verstoort je dagelijks leven. Je hebt er veel last van: thuis, in je vrije tijd en/of op je werk. Depressieve klachten kunnen zich op verschillende manieren uiten en zijn voor iedereen anders.',
     linkText: 'Meer informatie over een depressie vind je hier.',
     href: 'https://www.thuisarts.nl/depressie/ik-heb-depressie',
     image: '/images/depression.jpg',
@@ -81,7 +81,7 @@ const mentalDisordersData = [
     description:
       'Bij paniek is het goed om onderscheid te maken tussen een paniekaanval en een paniekstoornis.',
     linkText: '',
-    image: '/images/panic.jpg',
+    image: '/images/panic.jpeg',
     additionalData: [
       {
         title: 'Paniekaanval',
@@ -130,18 +130,23 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 lg:px-24 pb-8 pt-28 lg:pt-16">
               <h1 className="text-3xl font-sofia font-bold lg:text-5xl">
-                Mentale klachten toegelicht
+                Ervaar je mentale klachten? Gebruik Releafe om jouw mentale
+                welzijn te verbeteren.
               </h1>
               <h3 className="text-md lg:text-xl font-sofia font-light">
                 Mentale klachten kunnen iedereen treffen, en ze variëren van
                 lichte ongemakken tot ernstigere aandoeningen. Het is belangrijk
                 om te begrijpen dat hulp beschikbaar is en dat je niet alleen
-                bent. Releafe kan je ondersteunen om je mentaal fitter en
-                sterker te voelen. De app biedt tools en oefeningen om je
-                geestelijke gezondheid te verbeteren. Klik hier om erachter te
-                komen wat je kan doen om je mentaal fitter te voelen en op welke
-                manier Releafe jou kan helpen!
+                bent. Releafe kan je ondersteunen wanneer je onderstaande
+                klachten hebt. Klik hier om erachter te komen hoe Releafe jou
+                kan helpen mentaal gezond te worden en te blijven!
               </h3>
+              <p className="text-sm lg:text-lg font-sofia font-light ">
+                *Releafe biedt verschillende technieken en oefeningen die je
+                kunnen helpen om je mentale fitheid te verbeteren en beter om te
+                acan met de onder genoemoe klachten. Vergeet echter niet om bij
+                hevige klachten altijd professionele hulp te zoeken.
+              </p>
 
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
