@@ -214,14 +214,14 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Features Section */}
-        <section className="mt-[6rem] px-5 lg:px-64 2xl:px-96 flex flex-col justify-center items-center">
+        <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-64 2xl:px-96 flex flex-col justify-center items-center">
           {/* Title */}
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
             Wij zijn hier om jou in staat te stellen je welzijn te bevorderen.
           </h1>
 
           {/* Features Box */}
-          <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
+          <div className="relative mt-[2rem] lg:mt-[4rem] rounded-[2.5rem] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
             {/* Features Selection Row Container */}
             <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
               {/* Feature Selection Box */}
@@ -258,7 +258,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Credibility Section */}
-        <section className="mt-[6rem]">
+        <section className="my-[4rem] lg:my-[6rem]">
           {/* Custom Image  */}
           <div className="w-full h-[140px] lg:h-[350px] relative">
             <div className="absolute inset-x-0 top-0 z-10 h-7 lg:h-14 bg-gradient-to-b from-white to-transparent" />
@@ -272,20 +272,20 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
 
           {/* Credibility Container */}
-          <div className="mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
+          <div className="mt-[2rem] lg:mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
             <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
               Aanbevolen door experts en belanghebbenden.
             </h1>
 
             {/* Credibity Logo Row Container */}
-            <div className="flex flex-col lg:flex-row lg:gap-x-32 2xl:gap-x-64 gap-y-32 justify-center items-center px-32 2xl:px-64">
+            <div className="flex flex-col lg:flex-row lg:gap-x-32 xl:gap-x-48 gap-y-28 lg:gap-y-32 justify-center items-center px-32 xl:px-64">
               {companyLogos.map((logo, index) => {
                 return (
                   <Image
                     key={index}
                     src={logo}
                     alt=""
-                    className="w-full h-full"
+                    className="w-full h-auto"
                     width={100}
                     height={100}
                   />
@@ -296,13 +296,13 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Testimonials Section */}
-        <section className="mt-[6rem] w-full px-5 lg:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Echte verhalen, echte impact.
           </h1>
 
           {/* Testimonials Wrapper */}
-          <div className="mt-[4rem] mx-auto max-w-[1440px]">
+          <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px]">
             {/* Testimonials Container */}
             <ul className="relative h-[450px]">
               {/* Testimonial Box */}
@@ -356,7 +356,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               })}
             </ul>
             {/* Testimonial Control Buttons */}
-            <ul className="mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-center lg:justify-end">
+            <ul className="mt-[2rem] lg:mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-center lg:justify-end">
               <li
                 className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out ${testimonialsActiveIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
               >
@@ -396,13 +396,13 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Upselling Section */}
-        <section className="mt-[6rem] px-5 lg:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Probeer Releafe nu gratis.
           </h1>
 
           {/* Upselling Wrapper */}
-          <div className="mt-[4rem] flex flex-col w-full justify-center items-center gap-y-8">
+          <div className="mt-[2rem] lg:mt-[4rem] flex flex-col w-full justify-center items-center gap-y-8">
             {/* Offer Container */}
             <div className="rounded-2xl h-[90px] w-full lg:w-1/2 border-2 border-[#516523] px-6 py-4 relative">
               {/* Offer Decoration Box */}
@@ -442,14 +442,14 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Blog Section */}
-        <section className="mt-[6rem] w-full px-5 lg:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Ontdek meer hulpmiddelen over angstverlichting, mindfulness en
             welzijn.
           </h1>
 
           {/* Articles Wrapper */}
-          <div className="mt-[4rem] mx-auto max-w-[1440px] ">
+          <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px] ">
             {/* Articles Container */}
             <ul className="relative h-[400px]">
               {/* Article Box */}
@@ -483,7 +483,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               })}
             </ul>
             {/* Articles Control Buttons */}
-            <ul className="mt-[4rem] w-full h-14 flex flex-col-reverse lg:flex-row justify-center lg:justify-end items-center">
+            <ul className="mt-[2rem] lg:mt-[4rem] w-full h-14 flex flex-col-reverse lg:flex-row justify-center lg:justify-end items-center">
               <li className="relative h-full w-full mt-[2rem]">
                 <Link
                   className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-[56px] underline font-sofia font-normal text-lg"
@@ -533,13 +533,13 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* FAQ Section */}
-        <section className="my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
+        <section className="my-[4rem] lg:my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Veel gestelde vragen
           </h1>
 
           {/* FAQ Container */}
-          <div className="mt-[4rem] w-full">
+          <div className="mt-[2rem] lg:mt-[4rem] w-full">
             <div className="border-b-2">
               <h1 className="font-sofia font-normal uppercase text-2xl my-4">
                 Algemeen
