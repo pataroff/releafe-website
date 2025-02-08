@@ -185,7 +185,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
         </section>
 
         {/* Gradient Background Container */}
-        <div className="bg-gradient-to-b from-white via-[#c5d5bc80] to-white h-full">
+        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
           {/* Mental Disorders Section */}
           <section
             id="mental-disorders-section"
