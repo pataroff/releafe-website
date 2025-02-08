@@ -95,7 +95,9 @@ export function Navbar({ menuItems, route }: NavbarProps) {
         {/* Navbar (mobile + tablet) */}
         <nav className="lg:hidden fixed top-0 w-full z-50">
           {/* Top Shadow */}
-          <div className="absolute inset-x-0 top-0 h-14 z-0 bg-gradient-to-b from-black to-transparent opacity-50" />
+          <div
+            className={`absolute inset-x-0 top-0 h-20 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
+          />
           <div className="absolute flex flex-row w-full justify-between items-center p-2">
             {/* Logo */}
             <Link key="home" href={'/'}>
@@ -132,7 +134,7 @@ export function Navbar({ menuItems, route }: NavbarProps) {
                 {/* Hamburger Icon */}
                 <FontAwesomeIcon
                   icon={faBars}
-                  color="white"
+                  color={`${checkRoute(route) ? 'gray' : 'white'}`}
                   size="2xl"
                   className={`absolute top-0 left-0 transition-opacity transform duration-300 ease-out ${
                     isHamburgerMenuOpen ? 'opacity-0 z-0' : 'opacity-100 z-10'
@@ -142,7 +144,7 @@ export function Navbar({ menuItems, route }: NavbarProps) {
                 {/* Close Icon */}
                 <FontAwesomeIcon
                   icon={faXmark}
-                  color="white"
+                  color={`${checkRoute(route) ? 'gray' : 'white'}`}
                   size="2xl"
                   className={`absolute top-0 left-[2px] left transition-opacity transform duration-300 ease-out ${
                     isHamburgerMenuOpen ? 'opacity-100 z-10' : 'opacity-0 z-0'

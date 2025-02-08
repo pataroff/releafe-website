@@ -124,15 +124,15 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
 
       <Layout settings={settings} preview={preview} route={title}>
         {/* Main Section */}
-        <section className="h-[calc(-120px+100vh)]">
+        <section className="min-h-[calc(100vh-120px)] lg:flex">
           {/* Main Wrapper */}
-          <div className="flex flex-row w-full h-full">
+          <div className="flex flex-col lg:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-24 pb-8 pt-16">
-              <h1 className="text-2xl font-sofia font-bold lg:text-5xl">
+            <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 lg:px-24 pb-8 pt-28 lg:pt-16">
+              <h1 className="text-3xl font-sofia font-bold lg:text-5xl">
                 Mentale klachten toegelicht
               </h1>
-              <h3 className="text-xl font-sofia font-light 2xl:text-2xl">
+              <h3 className="text-md lg:text-xl font-sofia font-light">
                 Mentale klachten kunnen iedereen treffen, en ze variëren van
                 lichte ongemakken tot ernstigere aandoeningen. Het is belangrijk
                 om te begrijpen dat hulp beschikbaar is en dat je niet alleen
@@ -149,7 +149,14 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                   Voel je better, gratis
                 </button>
 
-                <button className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out">
+                <button
+                  onClick={() => {
+                    document
+                      .getElementById('mental-disorders-section')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
+                >
                   <Image
                     src="/images/chevron_down.png"
                     alt="Chevron Down"
@@ -161,7 +168,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             </div>
 
             {/* Hero Image Container */}
-            <div className="relative h-full w-1/2">
+            <div className="relative h-[400px] lg:min-h-full w-full lg:w-1/2">
               <Image
                 src="/images/mentale_klachten_hero_image.jpg"
                 alt="Mentale Klachten Hero Image"
@@ -175,9 +182,12 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc80] to-white h-full">
           {/* Mental Disorders Section */}
-          <section className="mt-[6rem] w-full">
+          <section
+            id="mental-disorders-section"
+            className="mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+          >
             <div className="px-5 md:px-32 lg:px-64">
-              <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5 lg:px-64 text-nowrap">
+              <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5 lg:px-64 lg:text-nowrap">
                 Veelvoorkomende mentale klachten
               </h1>
               <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
@@ -190,7 +200,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             </div>
 
             {/* Mental Disorder Wrapper */}
-            <div className="my-[4rem] flex flex-col gap-y-32 px-32">
+            <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 lg:px-32">
               {mentalDisordersData.map((item, index) => {
                 const {
                   title,
@@ -205,27 +215,27 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                 return (
                   <div key={index} className="flex flex-col">
                     <div
-                      className={`flex ${isEven ? 'flex-row' : 'flex-row-reverse'}  items-center gap-x-12`}
+                      className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'}  items-center gap-x-12 gap-y-8`}
                     >
                       {/* Mental Disorder Text Container */}
-                      <div className="flex flex-col gap-y-4 w-1/2">
-                        <h2 className="text-4xl font-sofia font-bold">
+                      <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
+                        <h2 className="text-2xl lg:text-5xl font-sofia font-bold">
                           {title}
                         </h2>
 
-                        <p className="text-xl font-sofia font-light">
+                        <p className="text-md lg:text-xl font-sofia font-light">
                           {description}
                         </p>
 
                         {/* Panic Subdisorders Selection Row */}
                         {title === 'Paniek' && additionalData && (
-                          <div className="flex flex-col w-full gap-y-8">
-                            <div className="flex flex-row w-full justify-center">
+                          <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
+                            <div className="flex flex-row w-full justify-center gap-x-2">
                               {additionalData.map((subdisorder, index) => {
                                 return (
                                   <button
                                     key={index}
-                                    className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-100 text-black'} font-sofia font-medium text-lg py-2 transition duration-300 ease-in-out`}
+                                    className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-300 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
                                     onClick={() =>
                                       setPanicSubdisorderIndex(index)
                                     }
@@ -236,7 +246,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                               })}
                             </div>
 
-                            <p className="text-xl font-sofia font-light">
+                            <p className="text-md lg:text-lg font-sofia font-light">
                               {
                                 additionalData[panicSubdisorderIndex]
                                   .description
@@ -245,7 +255,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
 
                             {/* @TODO: Replace all instances with a `LinkText` component! */}
                             <div className="flex items-center">
-                              <p className="text-xl font-sofia font-light">
+                              <p className="text-md lg:text-lg font-sofia font-light">
                                 {
                                   additionalData[
                                     panicSubdisorderIndex
@@ -273,7 +283,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                         )}
 
                         {linkText !== '' && (
-                          <p className="text-xl font-sofia font-light">
+                          <p className="text-md lg:text-xl font-sofia font-light">
                             {linkText?.split('hier')[0]}{' '}
                             <Link
                               href={href}
@@ -294,7 +304,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                       </div>
 
                       {/* Mental Disorder Image Container */}
-                      <div className="relative rounded-3xl overflow-hidden h-[350px] xl:h-[450px] w-1/2">
+                      <div className="relative rounded-3xl overflow-hidden h-[350px] xl:h-[400px] w-full lg:w-1/2">
                         <Image
                           src={image}
                           alt="Angst"
@@ -307,7 +317,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                     {title === 'Angst' && additionalData && (
                       <>
                         {/* Fear Subdisorders Box */}
-                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-[250px] bg-white drop-shadow-sm p-8 lg:p-0 flex items-center">
+                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full lg:h-[250px] bg-white drop-shadow-sm p-8 lg:p-0 flex flex-col lg:flex-row items-center gap-y-8">
                           {/* Fear Subdisorders Selection Row */}
                           <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
                             {additionalData.map((subdisorder, index) => {
@@ -315,7 +325,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc] hover:bg-[#b7c6ae]' : 'bg-gray-100 hover:bg-[#c5d4bc]'} rounded-lg text-sm lg:text-lg font-sofia font-normal ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc] hover:bg-[#b7c6ae]' : 'bg-gray-300 hover:bg-[#c5d4bc]'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>
@@ -324,11 +334,11 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                           </div>
 
                           {/* Subdisorders Body Container */}
-                          <div className="flex flex-col px-16 gap-y-4">
-                            <p className="text-xl font-sofia font-light">
+                          <div className="flex flex-col lg:px-16 gap-y-4">
+                            <p className="text-md lg:text-lg font-sofia font-light">
                               {additionalData[fearSubdisorderIndex].description}
                             </p>
-                            <p className="text-xl font-sofia font-light">
+                            <p className="text-md lg:text-lg font-sofia font-light">
                               {
                                 additionalData[
                                   fearSubdisorderIndex
@@ -345,7 +355,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                                   width={20}
                                   height={20}
                                   alt="External Link Icon"
-                                  className="ml-2 mt-1"
+                                  className="ml-2.5 mt-1"
                                 />
                               </Link>
                             </p>
