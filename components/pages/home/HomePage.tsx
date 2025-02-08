@@ -285,7 +285,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                     key={index}
                     src={logo}
                     alt=""
-                    className="max-w-[125px] h-auto"
+                    className="max-w-[125px] lg:max-w-[150px] h-auto"
                     width={150}
                     height={150}
                   />

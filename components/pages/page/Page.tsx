@@ -128,8 +128,8 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
           {/* Main Wrapper */}
           <div className="flex flex-col lg:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 lg:px-24 pb-8 pt-28 lg:pt-16">
-              <h1 className="text-3xl font-sofia font-bold lg:text-5xl">
+            <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-16">
+              <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-5xl/[4rem]">
                 Ervaar je mentale klachten? Gebruik Releafe om jouw mentale
                 welzijn te verbeteren.
               </h1>
@@ -192,7 +192,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
             className="mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             <div className="px-5 md:px-32 lg:px-64">
-              <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5 lg:px-64 lg:text-nowrap">
+              <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center px-5 lg:px-64 lg:text-nowrap">
                 Veelvoorkomende mentale klachten
               </h1>
               <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
@@ -223,8 +223,8 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                       className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'}  items-center gap-x-12 gap-y-8`}
                     >
                       {/* Mental Disorder Text Container */}
-                      <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
-                        <h2 className="text-2xl lg:text-5xl font-sofia font-bold">
+                      <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full lg:w-1/2">
+                        <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
                           {title}
                         </h2>
 
@@ -232,57 +232,60 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                           {description}
                         </p>
 
-                        {/* Panic Subdisorders Selection Row */}
+                        {/* Panic Subdisorders Box */}
                         {title === 'Paniek' && additionalData && (
-                          <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
-                            <div className="flex flex-row w-full justify-center gap-x-2">
-                              {additionalData.map((subdisorder, index) => {
-                                return (
-                                  <button
-                                    key={index}
-                                    className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
-                                    onClick={() =>
-                                      setPanicSubdisorderIndex(index)
-                                    }
-                                  >
-                                    {subdisorder.title}
-                                  </button>
-                                )
-                              })}
-                            </div>
+                          <div className="relative rounded-[2.5rem] w-full h-full lg:h-[320px] bg-white drop-shadow-sm p-8">
+                            {/* Panic Subdisorders Selection Row */}
+                            <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
+                              <div className="flex flex-row w-full justify-center gap-x-2">
+                                {additionalData.map((subdisorder, index) => {
+                                  return (
+                                    <button
+                                      key={index}
+                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
+                                      onClick={() =>
+                                        setPanicSubdisorderIndex(index)
+                                      }
+                                    >
+                                      {subdisorder.title}
+                                    </button>
+                                  )
+                                })}
+                              </div>
 
-                            <p className="text-md lg:text-lg font-sofia font-light">
-                              {
-                                additionalData[panicSubdisorderIndex]
-                                  .description
-                              }
-                            </p>
-
-                            {/* @TODO: Replace all instances with a `LinkText` component! */}
-                            <div className="flex items-center">
                               <p className="text-md lg:text-lg font-sofia font-light">
                                 {
-                                  additionalData[
-                                    panicSubdisorderIndex
-                                  ].linkText?.split('hier')[0]
-                                }{' '}
-                                <Link
-                                  href={
-                                    additionalData[panicSubdisorderIndex].href
-                                  }
-                                  target="_blank"
-                                  className="inline-flex items-center underline"
-                                >
-                                  hier.
-                                  <Image
-                                    src="/images/external_link.png"
-                                    width={20}
-                                    height={20}
-                                    alt="External Link Icon"
-                                    className="ml-2 mt-1"
-                                  />
-                                </Link>
+                                  additionalData[panicSubdisorderIndex]
+                                    .description
+                                }
                               </p>
+
+                              {/* @TODO: Replace all instances with a `LinkText` component! */}
+                              <div className="flex items-center">
+                                <p className="text-md lg:text-lg font-sofia font-light">
+                                  {
+                                    additionalData[
+                                      panicSubdisorderIndex
+                                    ].linkText?.split('hier')[0]
+                                  }{' '}
+                                  <Link
+                                    href={
+                                      additionalData[panicSubdisorderIndex].href
+                                    }
+                                    target="_blank"
+                                    className="inline-flex items-center underline"
+                                  >
+                                    hier.
+                                    <Image
+                                      src="/images/external_link.png"
+                                      width={20}
+                                      height={20}
+                                      alt="External Link Icon"
+                                      className="ml-2 mt-1"
+                                    />
+                                  </Link>
+                                </p>
+                              </div>
                             </div>
                           </div>
                         )}
@@ -309,10 +312,10 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                       </div>
 
                       {/* Mental Disorder Image Container */}
-                      <div className="relative rounded-3xl overflow-hidden h-[350px] xl:h-[400px] w-full lg:w-1/2">
+                      <div className="relative rounded-3xl overflow-hidden h-[350px] lg:h-[400px] w-full lg:w-1/2">
                         <Image
                           src={image}
-                          alt="Angst"
+                          alt=""
                           fill
                           className="object-cover"
                         />
@@ -330,7 +333,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc] hover:bg-[#b7c6ae]' : 'bg-gray-200 hover:bg-[#c5d4bc]'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc]' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>
@@ -375,14 +378,20 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
           </section>
         </div>
 
-        {/* Disclaimer Section */}
-        <section className="my-[6rem] px-5 md:px-32 lg:px-64">
-          <p className="mt-4 font-sofia font-light text-center text-md">
-            *Releafe biedt verschillende technieken en oefeningen die je kunnen
-            helpen om je mentale fitheid te verbeteren en beter om te acan met
-            de hierboven genoemoe klachten. Vergeet echter niet om bij hevige
-            klachten altijd professionele hulp te zoeken.
+        {/* Call-to-Action Section */}
+        <section className="my-[4rem] lg:my-[6rem] px-8 md:px-32 lg:px-64 flex flex-col justify-center items-center gap-y-8">
+          <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
+            Ontdek hoe Releafe je kan helpen mentaal fit te blijven
+          </h2>
+          <p className="mt-4 text-center font-sofia font-light text-lg lg:text-xl">
+            Op de <strong>Mentaal fit</strong> pagina ontdek je hoe onze app
+            werkt en hoe deze je kan ondersteunen bij het verminderen van
+            klachten die je op de
+            <strong> Mentale klachten</strong> pagina hebt gezien.
           </p>
+          <button className="rounded-full h-[50px] lg:h-[60px] w-full lg:w-1/2 mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none">
+            Ga naar Mentaal fit
+          </button>
         </section>
 
         {/* Workaround: scroll to top on route change */}
