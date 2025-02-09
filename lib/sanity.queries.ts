@@ -56,11 +56,10 @@ export const pagePaths = groq`
 
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
-    footer,
-    menuItems[]->{
+    navbarItems[]->{
       _type,
+      title,
       "slug": slug.current,
-      title
     },
     ogImage,
   }

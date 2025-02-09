@@ -3,8 +3,7 @@ import { Navbar } from 'components/global/Navbar'
 import { SettingsPayload } from 'types'
 
 const fallbackSettings: SettingsPayload = {
-  menuItems: [],
-  footer: [],
+  navbarItems: [],
 }
 
 export interface LayoutProps {
@@ -21,9 +20,9 @@ export default function Layout({
 }: LayoutProps) {
   return (
     <div className="flex min-h-screen flex-col bg-white text-black overflow-hidden">
-      <Navbar menuItems={settings?.menuItems} route={route} />
+      <Navbar navbarItems={settings?.navbarItems} route={route} />
       <div>{children}</div>
-      <Footer footer={settings?.footer} />
+      <Footer />
     </div>
   )
 }

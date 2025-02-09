@@ -71,12 +71,12 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   }
 }
 
-// export const getStaticPaths = async () => {
-//   const client = getClient()
-//   const paths = await client.fetch<string[]>(pagePaths)
+export const getStaticPaths = async () => {
+  const client = getClient()
+  const paths = await client.fetch<string[]>(pagePaths)
 
-//   return {
-//     paths: paths?.map((slug) => resolveHref('page', slug)) || [],
-//     fallback: true, // check if slug created since last build
-//   }
-// }
+  return {
+    paths: paths?.map((slug) => resolveHref('navbarItem', slug)) || [],
+    fallback: true, // check if slug created since last build
+  }
+}

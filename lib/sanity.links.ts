@@ -5,12 +5,10 @@ export function resolveHref(
   switch (documentType) {
     case 'home':
       return '/'
-    case 'page':
-      return slug ? `/${slug}` : undefined
-    case 'project':
-      return slug ? `/projects/${slug}` : undefined
+    case 'navbarItem': {
+      return `/${slug}`
+    }
     default:
-      console.warn('Invalid document type:', documentType)
-      return undefined
+      return '/'
   }
 }

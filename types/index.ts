@@ -1,10 +1,10 @@
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Image } from 'sanity'
 
-export interface MenuItem {
+export interface NavbarItem {
   _type: string
-  slug?: string
-  title?: string
+  title: string
+  slug: string
 }
 
 export interface MilestoneItem {
@@ -60,7 +60,6 @@ export interface ProjectPayload {
 }
 
 export interface SettingsPayload {
-  footer?: PortableTextBlock[]
-  menuItems?: MenuItem[]
+  navbarItems?: NavbarItem[]
   ogImage?: Image
 }

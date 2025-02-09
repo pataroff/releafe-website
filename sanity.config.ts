@@ -20,6 +20,8 @@ import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
 import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-secrets'
 
+import navbarItem from 'schemas/objects/navbarItem'
+
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
 export default defineConfig({
@@ -41,6 +43,7 @@ export default defineConfig({
       milestone,
       timeline,
       youtube,
+      navbarItem,
     ],
   },
   plugins: [

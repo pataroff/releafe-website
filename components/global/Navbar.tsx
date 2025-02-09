@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MenuItem } from 'types'
+import { NavbarItem } from 'types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 
 interface NavbarProps {
-  menuItems?: MenuItem[]
+  navbarItems?: NavbarItem[]
   route?: string
 }
 
-export function Navbar({ menuItems, route }: NavbarProps) {
+export function Navbar({ navbarItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
 
   // @TODO: Is there a better way of doing this?
@@ -48,8 +48,8 @@ export function Navbar({ menuItems, route }: NavbarProps) {
                 height={60}
               />
             </Link>
-            {menuItems &&
-              menuItems.slice(0, 3).map((menuItem) => {
+            {navbarItems &&
+              navbarItems.slice(0, 3).map((menuItem) => {
                 const href = resolveHref(menuItem?._type, menuItem?.slug)
                 if (!href) {
                   return null
@@ -67,8 +67,8 @@ export function Navbar({ menuItems, route }: NavbarProps) {
           </div>
 
           <div className="flex items-center gap-x-5 z-10">
-            {menuItems &&
-              menuItems.slice(3, 6).map((menuItem, index) => {
+            {navbarItems &&
+              navbarItems.slice(3, 6).map((menuItem, index) => {
                 const href = resolveHref(menuItem?._type, menuItem?.slug)
                 if (!href) {
                   return null
@@ -111,10 +111,10 @@ export function Navbar({ menuItems, route }: NavbarProps) {
 
             <div className="flex flex-row gap-x-4 items-center">
               {/* Menu Item (CTA) */}
-              {menuItems &&
-                menuItems[menuItems.length - 1] &&
+              {navbarItems &&
+                navbarItems[navbarItems.length - 1] &&
                 (() => {
-                  const menuItem = menuItems[menuItems.length - 1]
+                  const menuItem = navbarItems[navbarItems.length - 1]
                   const href = resolveHref(menuItem?._type, menuItem?.slug)
                   if (href) {
                     return (
@@ -163,9 +163,9 @@ export function Navbar({ menuItems, route }: NavbarProps) {
             } pt-[76px]`}
           >
             <ul className="flex flex-col gap-y-8 pl-[1rem]">
-              {menuItems &&
-                menuItems
-                  .slice(0, menuItems.length - 1)
+              {navbarItems &&
+                navbarItems
+                  .slice(0, navbarItems.length - 1)
                   .map((menuItem, index) => {
                     const href = resolveHref(menuItem?._type, menuItem?.slug)
                     if (!href) {
