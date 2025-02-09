@@ -107,7 +107,7 @@ const MentaleKlachtenPage = ({ settings }) => {
   return (
     <>
       {/* @TODO Are 'preview' and 'route' needed and where do we get them from? */}
-      <Layout settings={settings} preview={false} route={'Mentale klachten'}>
+      <Layout settings={settings} route={'Mentale klachten'}>
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] lg:flex">
           {/* Main Wrapper */}
@@ -177,7 +177,7 @@ const MentaleKlachtenPage = ({ settings }) => {
             className="mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             <div className="px-5 md:px-32 lg:px-64">
-              <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center px-5 lg:px-64 lg:text-nowrap">
+              <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
                 Veelvoorkomende mentale klachten
               </h1>
               <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
