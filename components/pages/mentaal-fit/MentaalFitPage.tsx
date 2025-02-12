@@ -161,7 +161,7 @@ const MentaalFitPage = ({ settings }) => {
 
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
-                <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none">
+                <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none">
                   Verbeter je mentale fitheid, gratis
                 </button>
 

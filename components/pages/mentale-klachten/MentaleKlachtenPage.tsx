@@ -219,7 +219,7 @@ const MentaleKlachtenPage = ({ settings }) => {
 
                         {/* Panic Subdisorders Box */}
                         {title === 'Paniek' && additionalData && (
-                          <div className="relative rounded-[2.5rem] w-full h-full lg:h-[320px] bg-white drop-shadow-sm p-8">
+                          <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-sm p-8">
                             {/* Panic Subdisorders Selection Row */}
                             <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
                               <div className="flex flex-row w-full justify-center gap-x-2">

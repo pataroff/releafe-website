@@ -278,7 +278,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             </h1>
 
             {/* Credibity Logo Row Container */}
-            <div className="flex flex-col lg:flex-row lg:gap-x-32 xl:gap-x-48 gap-y-28 lg:gap-y-32 justify-center items-center px-32 xl:px-64">
+            <div className="flex flex-col lg:flex-row lg:gap-x-32 2xl:gap-x-48 gap-y-28 lg:gap-y-32 justify-center items-center px-32 xl:px-64">
               {companyLogos.map((logo, index) => {
                 return (
                   <Image
