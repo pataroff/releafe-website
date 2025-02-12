@@ -314,12 +314,13 @@ const MentaalFitPage = ({ settings }) => {
                 }
 
                 if (index % 2 == 1 && index <= mentalExercisesData.length - 2) {
-                  const nextExercise = mentalExercisesData[index + 1]
+                  const nextIndex = index + 1
+                  const nextExercise = mentalExercisesData[nextIndex]
 
                   return (
                     <div
                       key={index}
-                      className={`flex flex-col ${(index + 1) % 4 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
+                      className={`flex flex-col ${nextIndex % 4 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
                     >
                       {/* Mental Exercise Text Containers Wrapper */}
                       <div className="flex flex-col gap-y-8 lg:w-1/2">

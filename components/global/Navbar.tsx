@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
@@ -23,6 +24,80 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
     } else {
       return false
     }
+  }
+
+  const FlyoutLink = ({ route, children, href, FlyoutContent }) => {
+    const [open, setOpen] = useState(false)
+    const showFlyout = open && FlyoutContent
+
+    return (
+      <div
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        className="relative h-fit w-fit"
+      >
+        <Link
+          href={href}
+          className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
+        >
+          {children}
+          <span
+            style={{
+              transform: showFlyout ? 'scaleX(1)' : 'scaleX(0)',
+            }}
+            className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-3xl bg-[#96a68d] transition-transform duration-300 ease-out"
+          />
+        </Link>
+        {/* Transparent Hit Area */}
+        <div className="absolute top-7 left-1/2 right-0 w-64 -translate-x-1/2 h-7 bg-transparent"></div>
+        <AnimatePresence>
+          {showFlyout && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              style={{ x: '-50%' }}
+              className="absolute left-1/2 top-14 bg-white text-black"
+            >
+              {/* @TODO: The anchor of the content is not being shown when 'motion.div' is using 'rounded-3xl' due to 'overflow-hidden'! */}
+              <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white"></div>
+              <OverContent />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    )
+  }
+
+  const OverContent = () => {
+    return (
+      <div className="w-64 bg-white px-6 py-4 shadow-xl">
+        <div className="my-2 space-y-4">
+          <Link
+            href="/releafe"
+            className="block font-sofia font-medium text-lg"
+          >
+            Releafe
+          </Link>
+          <Link href="/de-app" className="block font-sofia font-medium text-lg">
+            De app
+          </Link>
+          <Link
+            href="/in-de-media"
+            className="block font-sofia font-medium text-lg"
+          >
+            In de media
+          </Link>
+          <Link
+            href="/artikeln"
+            className="block font-sofia font-medium text-lg"
+          >
+            Artikeln
+          </Link>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -74,13 +149,29 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   return null
                 }
 
-                return index == 2 ? (
-                  <Link key={href} href={href}>
-                    <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
+                if (index == 1) {
+                  return (
+                    <FlyoutLink
+                      route={route}
+                      href="/over"
+                      FlyoutContent={OverContent}
+                    >
                       {menuItem.title}
-                    </button>
-                  </Link>
-                ) : (
+                    </FlyoutLink>
+                  )
+                }
+
+                if (index == 2) {
+                  return (
+                    <Link key={href} href={href}>
+                      <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
+                        {menuItem.title}
+                      </button>
+                    </Link>
+                  )
+                }
+
+                return (
                   <Link
                     key={href}
                     className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
