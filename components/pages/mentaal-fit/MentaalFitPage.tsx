@@ -7,29 +7,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 // @TODO: This needs to be moved in 'mentaal-fit.tsx'!
-const releafeFeaturesData = [
+const mentalExercisesData = [
   {
     title: 'Bewegen',
     description:
-      'Regelmatig bewegen is goed voor zowel je fysieke als mentale gezondheid. Voldoende beweging verlaagt de kans op hart- en vaatziekten, diabetes, somberheid en zelfs dementie. Streef naar minimaal 2,5 uur actieve beweging per week. Dit kan wandelen, fietsen of sporten zijn. Maak het zo intensief als je zelf wilt. ',
+      'Regelmatig bewegen is goed voor zowel je fysieke als mentale gezondheid. Voldoende beweging verlaagt de kans op hart- en vaatziekten, diabetes, somberheid en zelfs dementie. Streef naar minimaal 2,5 uur actieve beweging per week. Dit kan wandelen, fietsen of sporten zijn. Maak het zo intensief als je zelf wilt.',
     featureText:
       'Met Releafe kun je persoonlijke doelen stellen op het gebied van beweging. Door het stellen van een beweegdoel in de app, kun je je voortgang bijhouden en ontvang je beloningen voor het behalen van je doelen terwijl je aan je mentale gezondheid werk',
+    ctaText: 'Stel je beweegdoelen in',
     linkText: 'Meer informatie over gezond bewegen vind je hier.',
     href: 'https://www.thuisarts.nl/gezond-leven/ik-wil-gezond-bewegen',
     href2: '',
-    image: '/images/beweging_perspective_image.png',
-  },
-
-  {
-    title: 'Dagboek bijhouden',
-    description:
-      'Het bijhouden van een dagboek kan je helpen om je gedachten te ordenen en je emoties beter te begrijpen. Dit kan een goede manier zijn om patronen te herkennen, inzicht te krijgen in wat er speelt en hoe je hiermee om kunt gaan.',
-    featureText:
-      'In de Releafe app kun je een dagboek bijhouden waarin je dagelijks je stemming, zorgen en energie kunt scoren. Dit helpt je om patronen te herkennen en geeft inzicht in je welzijn in het persoonlijke welzijnsoverzicht. Daarnaast kun je je zorgen van je afschrijven en in je eigen zorgenbakje opslaan.',
-    linkText: '',
-    href: '',
-    href2: '',
-    image: '/images/dagboek_portrait_image.png',
+    image: '/images/mentaal_fit/bewegen.jpeg',
   },
 
   {
@@ -38,23 +27,10 @@ const releafeFeaturesData = [
       'Actief blijven en betrokken zijn bij activiteiten kunnen je een gevoel van voldoening geven. Of het nu gaat om werk, hobby’s of sociale activiteiten, het helpt om je mentaal fit te voelen.',
     featureText:
       'Met Releafe kun je doelen stellen om actief te blijven, bijvoorbeeld door meer te ondernemen of betrokken te blijven bij sociale activiteiten.',
+    ctaText: 'Blijf actief met Releafe',
     linkText: '',
     href: '',
     href2: '',
-    image: '/images/personal_goals_perspective_image.png',
-  },
-
-  {
-    title: 'Drugs, alcohol en cafeïne',
-    description:
-      'Het beperken van alcohol- en druggebruik, en het matigen van cafeïne, draagt bij aan je mentale fitheid. Deze stoffen kunnen je stemming beïnvloeden en bijdragen aan stress of angst.',
-    featureText:
-      'Met Releafe kun je persoonlijke doelen stellen om je gebruik van alcohol, drugs en cafeïne te beperken. Dit helpt je om bewust bezig te zijn met je consumptie en hoe dit je mentale gezondheid beïnvloedt.',
-    linkText:
-      'Meer informatie over het verminderen van alcoholgebruik vind je hier. Wil je meer weten over hoe je drugsgebruik kan verminderen? Klik dan hier.',
-    href: 'https://www.thuisarts.nl/alcohol/ik-wil-minder-alcohol-drinken-of-stoppen-met-drinken',
-    href2:
-      'https://www.thuisarts.nl/drugs/ik-wil-stoppen-met-drugs-of-minder-gebruiken',
     image: '/images/stress.jpg',
   },
 
@@ -64,8 +40,76 @@ const releafeFeaturesData = [
       'Praten met anderen over je ervaringen kan een gevoel van verlichting geven. Het uiten van je gedachten en emoties helpt je om situaties beter te verwerken.',
     featureText:
       'Met Releafe kun je doelen stellen om jezelf te motiveren je persoonlijke ervaringen met anderen te delen. Dit helpt je om te leren over je gevoelens te praten waardoor je je beter gaat voelen.',
+    ctaText: 'Deel je ervaringen met Releafe',
     linkText: '',
     href: '',
+    href2: '',
+    image: '/images/mentaal_fit/ervaringen_delen.jpeg',
+  },
+
+  {
+    title: 'Beperk drugs, alcohol en cafeïnegebruik',
+    description:
+      'Het beperken van alcohol- en druggebruik, en het matigen van cafeïne, draagt bij aan je mentale fitheid. Deze stoffen kunnen je stemming beïnvloeden en bijdragen aan stress of angst.',
+    featureText:
+      'Met Releafe kun je persoonlijke doelen stellen om je gebruik van alcohol, drugs en cafeïne te beperken. Dit helpt je om bewust bezig te zijn met je consumptie en hoe dit je mentale gezondheid beïnvloedt.',
+    ctaText: 'Beperk alcohol, drugs en cafeïne',
+    linkText:
+      'Meer informatie over het verminderen van alcoholgebruik vind je hier. Wil je meer weten over hoe je drugsgebruik kan verminderen? Klik dan hier.',
+    href: 'https://www.thuisarts.nl/alcohol/ik-wil-minder-alcohol-drinken-of-stoppen-met-drinken',
+    href2:
+      'https://www.thuisarts.nl/drugs/ik-wil-stoppen-met-drugs-of-minder-gebruiken',
+    image: '/images/stress.jpg',
+  },
+
+  {
+    title: 'Gezonde voeding',
+    description:
+      'Gezonde voeding heeft een positieve invloed op je lichaam en geest. Een gebalanceerd dieet helpt je om je energieker en beter in je vel te voelen.',
+    featureText:
+      'Met Releafe kun je persoonlijke doelen stellen rondom gezonde voeding en zo bijdragen aan een gebalanceerd eetpatroon dat je mentale fitheid ondersteunt.',
+    ctaText: 'Stel gezonde voedingsdoelen in',
+    linkText: 'Meer informatie over gezonde voeding vind je hier.',
+    href: 'https://www.thuisarts.nl/gezond-eten/ik-wil-gezond-eten',
+    href2: '',
+    image: '/images/mentaal_fit/gezonde_voeding.jpeg',
+  },
+
+  {
+    title: 'Positief (leren) denken',
+    description:
+      'Het ontwikkelen van een positieve mindset kan bijdragen aan je mentale fitheid. Door te focussen op positieve gedachten en situaties leer je veerkrachtiger om te gaan met tegenslagen.',
+    featureText:
+      'Met Releafe kun je werken aan positief en realistisch denken met de reframing oefening. Daarnaast kun je berichten aan jezelf opslaan, waarin je ondersteunende boodschappen aan jezelf kunt vastleggen en teruglezen wanneer je ze nodig hebt.',
+    ctaText: 'Werk aan positief denken',
+    linkText: '',
+    href: '',
+    href2: '',
+    image: '/images/stress.jpg',
+  },
+
+  {
+    title: 'Dagboek bijhouden',
+    description:
+      'Het bijhouden van een dagboek kan je helpen om je gedachten te ordenen en je emoties beter te begrijpen. Dit kan een goede manier zijn om patronen te herkennen, inzicht te krijgen in wat er speelt en hoe je hiermee om kunt gaan.',
+    featureText:
+      'In de Releafe app kun je een dagboek bijhouden waarin je dagelijks je stemming, zorgen en energie kunt scoren. Dit helpt je om patronen te herkennen en geeft inzicht in je welzijn in het persoonlijke welzijnsoverzicht. Daarnaast kun je je zorgen van je afschrijven en in je eigen zorgenbakje opslaan.',
+    ctaText: 'Ontdek hoe je een dagboek bijhoudt',
+    linkText: '',
+    href: '',
+    href2: '',
+    image: '/images/mentaal_fit/dagboek_bijhouden.jpeg',
+  },
+
+  {
+    title: 'Slapen',
+    description:
+      'Een goede nachtrust is essentieel voor je mentale welzijn. Wanneer je goed slaapt, herstel je zowel fysiek als mentaal. Als je moeite hebt met slapen, kan het helpen om vaste bedtijden aan te houden en ontspanningstechnieken te gebruiken.',
+    featureText:
+      'Met Releafe kun je slaapdoelen instellen om je slaappatronen te verbeteren en beter te begrijpen hoe slaap invloed heeft op je mentale fitheid. Je kunt deze doelen personaliseren en de voortgang ervan bijhouden in de app.',
+    ctaText: 'Verbeter je slaap met Releafe',
+    linkText: 'Meer informatie over slaapadviezen vind je hier.',
+    href: 'https://www.thuisarts.nl/slecht-slapen/ik-wil-beter-slapen-slaapadviezen',
     href2: '',
     image: '/images/stress.jpg',
   },
@@ -76,46 +120,12 @@ const releafeFeaturesData = [
       'Ontspanning is cruciaal om je mentale fitheid te behouden. Er zijn verschillende technieken en oefeningen die je kunnen helpen ontspannen.',
     featureText:
       'Releafe biedt ontspanningsoefeningen, zoals meditatie- en mindfulness video’s en audio, die je helpen om stress te beheersen en je beter te ontspannen. Daarnaast kun je doelen stellen om ontspanningsoefeningen een vast onderdeel van je routine te maken.',
+    ctaText: 'Ontspan met Releafe oefeningen',
     linkText:
       'Meer informatie over hoe je je beter kunt ontspannen vind je hier.',
     href: 'https://www.thuisarts.nl/stress/ik-wil-me-beter-kunnen-ontspannen',
     href2: '',
-    image: '/images/relaxation_portrait_image.png',
-  },
-
-  {
-    title: 'Positief (leren) denken',
-    description:
-      'Het ontwikkelen van een positieve mindset kan bijdragen aan je mentale fitheid. Door te focussen op positieve gedachten en situaties leer je veerkrachtiger om te gaan met tegenslagen.',
-    featureText:
-      'Met Releafe kun je werken aan positief en realistisch denken met de reframing oefening. Daarnaast kun je berichten aan jezelf opslaan, waarin je ondersteunende boodschappen aan jezelf kunt vastleggen en teruglezen wanneer je ze nodig hebt.',
-    linkText: '',
-    href: '',
-    href2: '',
-    image: '/images/reframing_perspective_image.png',
-  },
-
-  {
-    title: 'Slapen',
-    description:
-      'Een goede nachtrust is essentieel voor je mentale welzijn. Wanneer je goed slaapt, herstel je zowel fysiek als mentaal. Als je moeite hebt met slapen, kan het helpen om vaste bedtijden aan te houden en ontspanningstechnieken te gebruiken.',
-    featureText:
-      'Met Releafe kun je slaapdoelen instellen om je slaappatronen te verbeteren en beter te begrijpen hoe slaap invloed heeft op je mentale fitheid. Je kunt deze doelen personaliseren en de voortgang ervan bijhouden in de app.',
-    linkText: 'Meer informatie over slaapadviezen vind je hier.',
-    href: 'https://www.thuisarts.nl/slecht-slapen/ik-wil-beter-slapen-slaapadviezen',
-    href2: '',
-    image: '/images/slapen_portrait_image.png',
-  },
-  {
-    title: 'Voeding',
-    description:
-      'Gezonde voeding heeft een positieve invloed op je lichaam en geest. Een gebalanceerd dieet helpt je om je energieker en beter in je vel te voelen.',
-    featureText:
-      'Met Releafe kun je persoonlijke doelen stellen rondom gezonde voeding en zo bijdragen aan een gebalanceerd eetpatroon dat je mentale fitheid ondersteunt.',
-    linkText: 'Meer informatie over gezonde voeding vind je hier.',
-    href: 'https://www.thuisarts.nl/gezond-eten/ik-wil-gezond-eten',
-    href2: '',
-    image: '/images/stress.jpg',
+    image: '/images/mentaal_fit/ontspanning.jpeg',
   },
 ]
 
@@ -208,24 +218,25 @@ const MentaalFitPage = ({ settings }) => {
 
             {/* Releafe Features Wrapper */}
             <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 lg:px-32">
-              {releafeFeaturesData.map((item, index) => {
+              {mentalExercisesData.map((item, index) => {
                 const {
                   title,
                   description,
                   featureText,
+                  ctaText,
                   linkText,
                   href,
                   href2,
                   image,
                 } = item
-                const isEven = index % 2 == 0
 
-                return (
-                  <div key={index} className="flex flex-col">
+                if (index == 0) {
+                  return (
                     <div
-                      className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'}  items-center gap-x-12 gap-y-8`}
+                      key={index}
+                      className={`flex flex-col lg:flex-row  items-center gap-x-12 gap-y-8`}
                     >
-                      {/* Mental Disorder Text Container */}
+                      {/* Mental Exercise Text Container */}
                       <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full lg:w-1/2">
                         <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
                           {title}
@@ -238,6 +249,13 @@ const MentaalFitPage = ({ settings }) => {
                         <p className="text-md lg:text-xl font-sofia font-light">
                           {featureText}
                         </p>
+
+                        <Link
+                          href={'/ontdek-releafe'}
+                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+                        >
+                          {ctaText}
+                        </Link>
 
                         {linkText !== '' && (
                           <p className="text-md lg:text-xl font-sofia font-light">
@@ -282,18 +300,177 @@ const MentaalFitPage = ({ settings }) => {
 
                       {/* Releafe Feature Image Container */}
                       {image !== '' && image !== '/images/stress.jpg' && (
-                        <div className="relative rounded-3xl h-[350px] lg:h-[500px] w-full lg:w-1/2 my-20 lg:my-0 2xl:my-0">
+                        <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[800px] w-full lg:w-1/2">
                           <Image
                             src={image}
                             alt=""
                             fill
-                            className="object-contain scale-150 lg:scale-125 2xl:scale-125"
+                            className="object-cover"
                           />
                         </div>
                       )}
                     </div>
-                  </div>
-                )
+                  )
+                }
+
+                if (index % 2 == 1 && index <= mentalExercisesData.length - 2) {
+                  const nextExercise = mentalExercisesData[index + 1]
+
+                  return (
+                    <div
+                      key={index}
+                      className={`flex flex-col ${(index + 1) % 4 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
+                    >
+                      {/* Mental Exercise Text Containers Wrapper */}
+                      <div className="flex flex-col gap-y-8 lg:w-1/2">
+                        {/* Mental Exercise Text Container */}
+                        <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
+                          <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
+                            {title}
+                          </h2>
+
+                          <p className="text-md lg:text-xl font-sofia font-light">
+                            {description}
+                          </p>
+
+                          <p className="text-md lg:text-xl font-sofia font-light">
+                            {featureText}
+                          </p>
+
+                          <Link
+                            href={'/ontdek-releafe'}
+                            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+                          >
+                            {ctaText}
+                          </Link>
+
+                          {linkText !== '' && (
+                            <p className="text-md lg:text-xl font-sofia font-light">
+                              {linkText?.split('hier')[0]}{' '}
+                              <Link
+                                href={href}
+                                target="_blank"
+                                className="inline-flex items-center underline"
+                              >
+                                hier.
+                                <Image
+                                  src="/images/external_link.png"
+                                  width={20}
+                                  height={20}
+                                  alt="External Link Icon"
+                                  className="ml-2 mt-1"
+                                />
+                              </Link>
+                              {linkText?.split('hier')[1] &&
+                                linkText?.split('hier')[1].length > 1 && (
+                                  <>
+                                    {
+                                      linkText
+                                        ?.split('hier')[1]
+                                        .split('hier')[0]
+                                    }{' '}
+                                    <Link
+                                      href={href2}
+                                      target="_blank"
+                                      className="inline-flex items-center underline"
+                                    >
+                                      hier.
+                                      <Image
+                                        src="/images/external_link.png"
+                                        width={20}
+                                        height={20}
+                                        alt="External Link Icon"
+                                        className="ml-2 mt-1"
+                                      />
+                                    </Link>
+                                  </>
+                                )}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Next Mental Exercise Text Container */}
+                        {nextExercise && (
+                          <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
+                            <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
+                              {nextExercise.title}
+                            </h2>
+
+                            <p className="text-md lg:text-xl font-sofia font-light">
+                              {nextExercise.description}
+                            </p>
+
+                            <p className="text-md lg:text-xl font-sofia font-light">
+                              {nextExercise.featureText}
+                            </p>
+
+                            <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none">
+                              {nextExercise.ctaText}
+                            </button>
+
+                            {nextExercise.linkText !== '' && (
+                              <p className="text-md lg:text-xl font-sofia font-light">
+                                {nextExercise.linkText?.split('hier')[0]}{' '}
+                                <Link
+                                  href={nextExercise.href}
+                                  target="_blank"
+                                  className="inline-flex items-center underline"
+                                >
+                                  hier.
+                                  <Image
+                                    src="/images/external_link.png"
+                                    width={20}
+                                    height={20}
+                                    alt="External Link Icon"
+                                    className="ml-2 mt-1"
+                                  />
+                                </Link>
+                                {nextExercise.linkText?.split('hier')[1] &&
+                                  nextExercise.linkText?.split('hier')[1]
+                                    .length > 1 && (
+                                    <>
+                                      {
+                                        nextExercise.linkText
+                                          ?.split('hier')[1]
+                                          .split('hier')[0]
+                                      }{' '}
+                                      <Link
+                                        href={nextExercise.href2}
+                                        target="_blank"
+                                        className="inline-flex items-center underline"
+                                      >
+                                        hier.
+                                        <Image
+                                          src="/images/external_link.png"
+                                          width={20}
+                                          height={20}
+                                          alt="External Link Icon"
+                                          className="ml-2 mt-1"
+                                        />
+                                      </Link>
+                                    </>
+                                  )}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Releafe Feature Image Container */}
+                      {nextExercise.image !== '' &&
+                        nextExercise.image !== '/images/stress.jpg' && (
+                          <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[800px] w-full lg:w-1/2">
+                            <Image
+                              src={nextExercise.image}
+                              alt=""
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        )}
+                    </div>
+                  )
+                }
               })}
             </div>
           </section>

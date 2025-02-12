@@ -99,7 +99,7 @@ function LinkColumn({
   )
 }
 
-export function Footer({ footer }: { footer: PortableTextBlock[] }) {
+export function Footer() {
   return (
     <footer className="bottom-0 w-full h-full lg:h-[400px] bg-[#96a58d] px-5 lg:px-32 flex flex-col justify-between pt-12 pb-8">
       <div className="flex flex-col gap-y-8 lg:flex-row gap-x-20 2xl:gap-x-40">

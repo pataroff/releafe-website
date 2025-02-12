@@ -374,9 +374,12 @@ const MentaleKlachtenPage = ({ settings }) => {
             klachten die je op de
             <strong> Mentale klachten</strong> pagina hebt gezien.
           </p>
-          <button className="rounded-full h-[50px] lg:h-[60px] w-full lg:w-1/2 mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none">
+          <Link
+            href={'/mentaal-fit'}
+            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-1/2 mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+          >
             Ga naar Mentaal fit
-          </button>
+          </Link>
         </section>
 
         {/* Workaround: scroll to top on route change */}
