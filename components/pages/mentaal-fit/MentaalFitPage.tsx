@@ -135,11 +135,11 @@ const MentaalFitPage = ({ settings }) => {
       {/* @TODO Are 'preview' and 'route' needed and where do we get them from? */}
       <Layout settings={settings} route={'Mentaal fit'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] lg:flex">
+        <section className="min-h-[calc(100vh-120px)] xl:flex">
           {/* Main Wrapper */}
-          <div className="flex flex-col lg:flex-row min-h-full w-full">
+          <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Verbeter je mentale fitheid, stap voor stap
               </h1>
@@ -168,7 +168,7 @@ const MentaalFitPage = ({ settings }) => {
                 <button
                   onClick={() => {
                     document
-                      .getElementById('mental-disorders-section')
+                      .getElementById('mental-exercises-section')
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }}
                   className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
@@ -184,7 +184,7 @@ const MentaalFitPage = ({ settings }) => {
             </div>
 
             {/* Hero Image Container */}
-            <div className="relative h-[400px] lg:min-h-full w-full lg:w-1/2">
+            <div className="relative h-[400px] lg:min-h-full w-full xl:w-1/2">
               <Image
                 src="/images/mentaal_fit_hero_image.jpg"
                 alt="Mentaal Fit Hero Image"
@@ -197,10 +197,10 @@ const MentaalFitPage = ({ settings }) => {
 
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
-          {/* Mental Disorders Section */}
+          {/* Mental Exercises Section */}
           <section
-            id="mental-disorders-section"
-            className="mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+            id="mental-exercises-section"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             <div className="px-5 lg:px-48 2xl:px-64">
               <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
@@ -216,7 +216,7 @@ const MentaalFitPage = ({ settings }) => {
               </p>
             </div>
 
-            {/* Releafe Features Wrapper */}
+            {/* Mental Exercises Wrapper */}
             <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 lg:px-32">
               {mentalExercisesData.map((item, index) => {
                 const {

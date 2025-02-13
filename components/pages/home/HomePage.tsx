@@ -17,7 +17,6 @@ import {
   faChevronLeft,
   faChevronRight,
   faChevronDown,
-  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons'
 
 export interface HomePageProps {
@@ -30,19 +29,32 @@ const featuresData = [
   [
     'Dagboek',
     'Het dagboek gebruik je om bij te houden hoe het gaat met je mentale welzijn. Je scoort dagelijks op een makkelijke manier een aantal onderwerpen zoals algemene stemming, zorgen, stress, energie, focus en slaap. Daarnaast heb je de mogelijkheid om extra informatie vast te leggen over relevante dingen die zijn gebeurd. Deze informatie wordt gebruikt om je persoonlijke welzijnsoverzicht op te stellen.',
+    '/images/home/dagboek_image_portrait.png',
+    'Houd je dagboek bij',
   ],
   [
     'Welzijnsoverzight',
     'Aan het dagboek is een persoonlijk welzijnsoverzicht gekoppeld waar je duidelijk in een grafiek weergegeven ziet hoe het met je is gegaan de afgelopen tijd. Je kan hierbij zelf kiezen welke onderwerpen je ziet en over welke periode je de gegevens wil zien. Dit overzicht helpt je om patronen te leren herkennen en dit geeft je aanwijzingen over wat je kunt doen om je beter te voelen.',
+    '/images/home/wellbeing_overview_image_portrait.png',
+    'Bekijk je welzijnsoverzicht',
   ],
-  ['Toolkit', ''],
+  [
+    'Toolkit',
+    'De toolkit bevat verschillende tools die je helpen bij het verbeteren van je mentale welzijn. Hier vind je functies zoals het stellen van persoonlijke doelen, het noteren en loslaten van zorgen, reframing van negatieve gedachten en het schrijven van berichten aan jezelf. Elke tool is ontworpen om je te ondersteunen in je groeiproces en bewust met je emoties om te gaan.',
+    '/images/home/toolkit_image_portrait.png',
+    'Ontdek de tools in de toolkit',
+  ],
   [
     'Persoonlijke doelen',
     'Het stellen van persoonlijke doelen stelt je in staat om je op specifieke gebieden te richten die je mentale welzijn bevorderen. Het helpt je om hier gemotiveerd en bewust mee aan de slag te gaan en een positieve gedragsverandering te bewerkstelligen. Voor het behalen van deze doelstellingen ontvang je beloningen in de app.',
+    '/images/home/personal_goals_image_portrait.png',
+    'Stel je persoonlijke doelen in',
   ],
   [
     'Zorgenbakje',
     'Het zorgenbakje biedt je een veilige ruimte om je zorgen en angsten van je af te schrijven en even op te bergen. Wat helpt bij het loslaten van zorgen is het visueel en symbolisch opbergen van deze zorgen. Je kan de opgeborgen zorgen op een later moment, of direct reframen.',
+    '/images/home/worrybox_image_portrait.png',
+    'Schrijf je zorgen van je af',
   ],
 ]
 
@@ -239,19 +251,29 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             </div>
 
             {/* Features Data Container */}
-            <div className="flex flex-col-reverse lg:flex-row w-full h-full items-center pt-8 lg:px-8">
-              <div className="w-full h-[800px] relative">
+            <div className="flex flex-col-reverse lg:flex-row w-full h-full items-center xl:py-12 2xl:py-14 pr-0 xl:pr-14 2xl:pr-16">
+              <div className="w-full h-[600px] xl:h-[600px] 2xl:h-[700px] relative">
                 <Image
-                  className="object-cover"
-                  src="/images/releafe_worrybox_screen_mockup.png"
-                  alt="Releafe Worrybox Screen Mockup"
+                  className="object-contain"
+                  src={featuresData[selectedIndex][2]}
+                  alt=""
                   fill
                 />
               </div>
-              <div className="w-full h-[300px] flex flex-col justify-center">
-                <p className="font-sofia font-light text-md lg:text-lg text-center">
-                  {featuresData[selectedIndex][1]}
-                </p>
+
+              <div className="flex flex-col items-center gap-y-4 w-full">
+                <div className="h-[300px] flex flex-col justify-center">
+                  <p className="font-sofia font-light text-md xl:text-lg text-center">
+                    {featuresData[selectedIndex][1]}
+                  </p>
+                </div>
+
+                <Link
+                  href={'/ontdek-releafe'}
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#96a68d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg xl:text-lg leading-none"
+                >
+                  {featuresData[selectedIndex][3]}
+                </Link>
               </div>
             </div>
           </div>
@@ -404,7 +426,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           {/* Upselling Wrapper */}
           <div className="mt-[2rem] lg:mt-[4rem] flex flex-col w-full justify-center items-center gap-y-8">
             {/* Offer Container */}
-            <div className="rounded-2xl h-[90px] w-full lg:w-1/2 border-2 border-[#516523] px-6 py-4 relative">
+            <div className="rounded-2xl h-[90px] w-full xl:w-1/2 2xl:w-1/3 border-2 border-[#516523] px-6 py-4 relative">
               {/* Offer Decoration Box */}
               <div className="rounded-lg h-[35px] w-[240px] bg-[#c5d6bc] absolute -top-5 right-4 px-3 py-1">
                 <h4 className="font-sofia font-medium text-md text-white text-nowrap">
@@ -423,7 +445,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               </div>
             </div>
 
-            <p className="font-sofia font-normal text-xs lg:text-sm text-center">
+            <p className="font-sofia font-normal text-xs lg:text-sm text-center w-full xl:w-2/3 2xl:w-1/2">
               Na je gratis proefperiode kost het jaarabonnement €47,88 en wordt
               elk jaar automatisch verlengd totdat je het opzegt.{' '}
               <Link className="underline" href="#">
@@ -435,7 +457,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               </Link>
             </p>
 
-            <button className='flex justify-center items-center rounded-full h-[50px] w-full lg:w-1/2 mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-lg leading-none"'>
+            <button className='flex justify-center items-center rounded-full h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-lg leading-none"'>
               Doorgaan
             </button>
           </div>

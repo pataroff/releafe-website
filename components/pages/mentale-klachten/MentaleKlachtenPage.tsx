@@ -109,7 +109,7 @@ const MentaleKlachtenPage = ({ settings }) => {
       {/* @TODO Are 'preview' and 'route' needed and where do we get them from? */}
       <Layout settings={settings} route={'Mentale klachten'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] lg:flex">
+        <section className="min-h-[calc(100vh-120px)] xl:flex">
           {/* Main Wrapper */}
           <div className="flex flex-col lg:flex-row min-h-full w-full">
             {/* Hero Text Container */}
@@ -174,7 +174,7 @@ const MentaleKlachtenPage = ({ settings }) => {
           {/* Mental Disorders Section */}
           <section
             id="mental-disorders-section"
-            className="mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             <div className="px-5 md:px-32 lg:px-64">
               <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
@@ -227,7 +227,7 @@ const MentaleKlachtenPage = ({ settings }) => {
                                   return (
                                     <button
                                       key={index}
-                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-md lg:text-lg py-2 transition duration-300 ease-in-out`}
+                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-sm xl:text-lg py-2 transition duration-300 ease-in-out`}
                                       onClick={() =>
                                         setPanicSubdisorderIndex(index)
                                       }
@@ -318,7 +318,7 @@ const MentaleKlachtenPage = ({ settings }) => {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc]' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-md lg:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc]' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-sm xl:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>

@@ -120,7 +120,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
   const OverContent = () => {
     return (
-      <div className="w-full lg:w-64 bg-white px-6 py-4 shadow-xl">
+      <div className="w-full xl:w-64 bg-white px-6 py-4 shadow-xl">
         <div className="my-2 space-y-4">
           <Link
             href="/releafe"
@@ -158,7 +158,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
         className={`${checkRoute(route) ? 'sticky' : 'fixed'} top-0 z-50 w-full`}
       >
         {/* Navbar (desktop) */}
-        <nav className="hidden lg:flex items-center justify-between px-4 py-4 md:px-16 md:py-8 lg:px-20">
+        <nav className="hidden xl:flex items-center justify-between px-4 py-4 md:py-8 md:px-8 lg:px-16 2xl:px-20">
           {/* Top Shadow */}
           <div
             className={`absolute inset-x-0 top-0 h-28 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
@@ -235,7 +235,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
           </div>
         </nav>
         {/* Navbar (mobile + tablet) */}
-        <nav className="lg:hidden fixed top-0 w-full z-50">
+        <nav className="xl:hidden fixed top-0 w-full z-50">
           {/* Top Shadow */}
           <div
             className={`absolute inset-x-0 top-0 h-20 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
@@ -304,7 +304,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                 : 'translate-x-full opacity-0 invisible'
             } pt-[76px]`}
           >
-            <ul className="flex flex-col gap-y-8 px-[1rem]">
+            <ul className="flex flex-col gap-y-8 px-[1rem] md:pl-[2rem]">
               {navbarItems &&
                 navbarItems
                   .slice(0, navbarItems.length - 1)
