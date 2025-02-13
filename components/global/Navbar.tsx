@@ -31,7 +31,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   }
 
   const FlyoutLink = ({ route, children, href, FlyoutContent }) => {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const showFlyout = open && FlyoutContent
 
     return (
