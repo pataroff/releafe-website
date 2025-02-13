@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
+import HomePageHead from '../home/HomePageHead'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -129,10 +130,10 @@ const mentalExercisesData = [
   },
 ]
 
-const MentaalFitPage = ({ settings }) => {
+const MentaalFitPage = ({ settings, page }) => {
   return (
     <>
-      {/* @TODO Are 'preview' and 'route' needed and where do we get them from? */}
+      <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Mentaal fit'}>
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] xl:flex">

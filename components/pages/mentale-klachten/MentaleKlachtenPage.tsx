@@ -6,6 +6,8 @@ import ScrollUp from 'components/shared/ScrollUp'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import HomePageHead from '../home/HomePageHead'
+
 // @TODO: This needs to be moved in 'mentale-klachten.tsx'!
 const mentalDisordersData = [
   {
@@ -100,13 +102,13 @@ const mentalDisordersData = [
   },
 ]
 
-const MentaleKlachtenPage = ({ settings }) => {
+const MentaleKlachtenPage = ({ settings, page }) => {
   const [fearSubdisorderIndex, setFearSubdisorderIndex] = useState<number>(0)
   const [panicSubdisorderIndex, setPanicSubdisorderIndex] = useState<number>(0)
 
   return (
     <>
-      {/* @TODO Are 'preview' and 'route' needed and where do we get them from? */}
+      <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Mentale klachten'}>
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] xl:flex">

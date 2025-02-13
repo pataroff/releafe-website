@@ -261,7 +261,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 />
               </div>
 
-              <div className="flex flex-col items-center gap-y-4 w-full">
+              <div className="flex flex-col items-center gap-y-4 my-8 w-full">
                 <div className="h-[300px] flex flex-col justify-center">
                   <p className="font-sofia font-light text-md xl:text-lg text-center">
                     {featuresData[selectedIndex][1]}
