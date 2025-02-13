@@ -7,7 +7,11 @@ import Image from 'next/image'
 import { NavbarItem } from 'types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
+import {
+  faBars,
+  faXmark,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons'
 
 interface NavbarProps {
   navbarItems?: NavbarItem[]
@@ -27,7 +31,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   }
 
   const FlyoutLink = ({ route, children, href, FlyoutContent }) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
     const showFlyout = open && FlyoutContent
 
     return (
@@ -58,11 +62,55 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{ x: '-50%' }}
-              className="absolute left-1/2 top-14 bg-white text-black"
+              className="absolute left-1/2 top-14 bg-transparent text-black"
             >
-              {/* @TODO: The anchor of the content is not being shown when 'motion.div' is using 'rounded-3xl' due to 'overflow-hidden'! */}
               <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white"></div>
-              <OverContent />
+              <div className="rounded-3xl overflow-hidden">
+                <OverContent />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    )
+  }
+
+  const FlyoutLinkMobile = ({ route, children, href, FlyoutContent }) => {
+    const [open, setOpen] = useState(false)
+    const showFlyout = open && FlyoutContent
+
+    return (
+      <div className="relative">
+        <div className="flex w-full justify-between items-center">
+          <Link
+            href={href}
+            className={`text-lg font-sofia font-bold text-white md:text-md`}
+          >
+            {children}
+          </Link>
+          <button onClick={() => setOpen(!open)}>
+            <FontAwesomeIcon
+              className={`transform transition-transform duration-300 ease-out ${
+                open ? 'rotate-180' : 'rotate-0'
+              }`}
+              icon={faChevronDown}
+              color={`${checkRoute(route) ? 'gray' : 'white'}`}
+              size="xl"
+            />
+          </button>
+        </div>
+        <AnimatePresence>
+          {showFlyout && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="absolute left-0 right-0 top-14 bg-transparent text-black"
+            >
+              <div className="rounded-3xl overflow-hidden">
+                <OverContent />
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -72,26 +120,29 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
   const OverContent = () => {
     return (
-      <div className="w-64 bg-white px-6 py-4 shadow-xl">
+      <div className="w-full lg:w-64 bg-white px-6 py-4 shadow-xl">
         <div className="my-2 space-y-4">
           <Link
             href="/releafe"
-            className="block font-sofia font-medium text-lg"
+            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             Releafe
           </Link>
-          <Link href="/de-app" className="block font-sofia font-medium text-lg">
+          <Link
+            href="/de-app"
+            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
+          >
             De app
           </Link>
           <Link
             href="/in-de-media"
-            className="block font-sofia font-medium text-lg"
+            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             In de media
           </Link>
           <Link
             href="/artikeln"
-            className="block font-sofia font-medium text-lg"
+            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             Artikeln
           </Link>
@@ -253,7 +304,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                 : 'translate-x-full opacity-0 invisible'
             } pt-[76px]`}
           >
-            <ul className="flex flex-col gap-y-8 pl-[1rem]">
+            <ul className="flex flex-col gap-y-8 px-[1rem]">
               {navbarItems &&
                 navbarItems
                   .slice(0, navbarItems.length - 1)
@@ -261,6 +312,23 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                     const href = resolveHref(menuItem?._type, menuItem?.slug)
                     if (!href) {
                       return null
+                    }
+
+                    if (index === navbarItems.length - 2) {
+                      return (
+                        <FlyoutLinkMobile
+                          route={route}
+                          href={href}
+                          FlyoutContent={OverContent}
+                        >
+                          <li
+                            key={index}
+                            className="text-2xl font-sofia font-medium text-white"
+                          >
+                            {menuItem.title}
+                          </li>
+                        </FlyoutLinkMobile>
+                      )
                     }
 
                     return (
