@@ -22,7 +22,7 @@ export default function Layout({
     <div className="flex min-h-screen flex-col bg-white text-black overflow-hidden">
       <Navbar navbarItems={settings?.navbarItems} route={route} />
       <div>{children}</div>
-      <Footer />
+      {route !== 'Probeer Releafe gratis' && <Footer />}
     </div>
   )
 }

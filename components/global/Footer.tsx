@@ -57,7 +57,11 @@ const socialLinks = [
   // { icon: faFacebookF, href: '#', label: 'Facebook' },
   // { icon: faInstagram, href: '#', label: 'Instagram' },
   // { icon: faXTwitter, href: '#', label: 'Twitter' },
-  { icon: faLinkedinIn, href: '#', label: 'LinkedIn' },
+  {
+    icon: faLinkedinIn,
+    href: 'https://www.linkedin.com/company/releafeapp/',
+    label: 'LinkedIn',
+  },
 ]
 
 function LinkColumn({

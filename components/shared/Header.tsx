@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 interface HeaderProps {
@@ -23,13 +24,14 @@ export function Header(props: HeaderProps) {
           <CustomPortableText value={description} />
         </div>
       )}
-      <button
+      <Link
+        href="/probeer-releafe-gratis"
         className="
         flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
         font-sofia font-bold text-white text-lg lg:text-xl leading-none"
       >
         Probeer Releafe gratis
-      </button>
+      </Link>
     </div>
   )
 }

@@ -202,7 +202,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
   return (
     <>
       <HomePageHead page={page} settings={settings} />
-      <Layout settings={settings} preview={preview}>
+      <Layout settings={settings} preview={preview} route={'Home'}>
         {/* Main Section */}
         <section className="h-full">
           <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[580px] z-0 mb-[40px]">

@@ -20,15 +20,8 @@ interface NavbarProps {
 
 export function Navbar({ navbarItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
-
-  // @TODO: Is there a better way of doing this?
-  const checkRoute = (route: string) => {
-    if (route == 'Mentale klachten' || route == 'Mentaal fit') {
-      return true
-    } else {
-      return false
-    }
-  }
+  const isHomePage = route === 'Home'
+  const isProbeerReleafeGratisPage = route === 'Probeer Releafe gratis'
 
   const FlyoutLink = ({ route, children, href, FlyoutContent }) => {
     const [open, setOpen] = useState(false)
@@ -42,7 +35,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
       >
         <Link
           href={href}
-          className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
+          className={`text-lg font-sofia font-bold ${isHomePage ? 'text-white' : 'text-black'} md:text-md`}
         >
           {children}
           <span
@@ -94,7 +87,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                 open ? 'rotate-180' : 'rotate-0'
               }`}
               icon={faChevronDown}
-              color={`${checkRoute(route) ? 'gray' : 'white'}`}
+              color={'white'}
               size="xl"
             />
           </button>
@@ -154,91 +147,117 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   return (
     <>
       {/* Navbar Container */}
-      <div
-        className={`${checkRoute(route) ? 'sticky' : 'fixed'} top-0 z-50 w-full`}
-      >
+      <div className={`${isHomePage ? 'fixed' : 'sticky'} top-0 z-50 w-full`}>
         {/* Navbar (desktop) */}
-        <nav className="hidden xl:flex items-center justify-between px-4 py-4 md:py-8 md:px-8 lg:px-16 2xl:px-20">
-          {/* Top Shadow */}
-          <div
-            className={`absolute inset-x-0 top-0 h-28 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
-          />
-          <div className="flex items-center gap-x-5 z-10">
-            {/* Logo */}
-            <Link key="home" href={'/'}>
-              <Image
-                className="drop-shadow-lg"
-                src="/images/releafe_app_icon_logo.png"
-                alt="Releafe App Icon Logo"
-                width={60}
-                height={60}
-              />
-            </Link>
-            {navbarItems &&
-              navbarItems.slice(0, 3).map((menuItem) => {
-                const href = resolveHref(menuItem?._type, menuItem?.slug)
-                if (!href) {
-                  return null
-                }
-                return (
-                  <Link
-                    key={href}
-                    className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
-                    href={href}
-                  >
-                    {menuItem.title}
-                  </Link>
-                )
-              })}
-          </div>
-
-          <div className="flex items-center gap-x-5 z-10">
-            {navbarItems &&
-              navbarItems.slice(3, 6).map((menuItem, index) => {
-                const href = resolveHref(menuItem?._type, menuItem?.slug)
-                if (!href) {
-                  return null
-                }
-
-                if (index == 1) {
+        {!isProbeerReleafeGratisPage && (
+          <nav
+            className={`hidden xl:flex items-center justify-between px-4 py-4 md:py-8 md:px-8 lg:px-16 2xl:px-20 ${isHomePage ? 'bg-transparent' : 'bg-white'}`}
+          >
+            {/* Top Shadow  */}
+            {isHomePage && (
+              <div className="absolute inset-x-0 top-0 h-28 z-0 bg-gradient-to-b from-black to-transparent opacity-50" />
+            )}
+            <div className="flex items-center gap-x-5 z-10">
+              {/* Logo */}
+              <Link key="home" href={'/'}>
+                <Image
+                  className="drop-shadow-xl"
+                  src="/images/releafe_app_icon_logo.png"
+                  alt="Releafe App Icon Logo"
+                  width={60}
+                  height={60}
+                />
+              </Link>
+              {navbarItems &&
+                navbarItems.slice(0, 3).map((menuItem) => {
+                  const href = resolveHref(menuItem?._type, menuItem?.slug)
+                  if (!href) {
+                    return null
+                  }
                   return (
-                    <FlyoutLink
-                      route={route}
-                      href="/over"
-                      FlyoutContent={OverContent}
+                    <Link
+                      key={href}
+                      className={`text-lg font-sofia font-bold ${isHomePage ? 'text-white' : 'text-black'} md:text-md`}
+                      href={href}
                     >
                       {menuItem.title}
-                    </FlyoutLink>
-                  )
-                }
-
-                if (index == 2) {
-                  return (
-                    <Link key={href} href={href}>
-                      <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
-                        {menuItem.title}
-                      </button>
                     </Link>
                   )
-                }
+                })}
+            </div>
 
-                return (
-                  <Link
-                    key={href}
-                    className={`text-lg font-sofia font-bold ${checkRoute(route) ? 'text-black' : 'text-white'} md:text-md`}
-                    href={href}
-                  >
-                    {menuItem.title}
-                  </Link>
-                )
-              })}
-          </div>
-        </nav>
+            {/* Navbar Links */}
+            <div className="flex items-center gap-x-5 z-10">
+              {navbarItems &&
+                navbarItems.slice(3, 6).map((menuItem, index) => {
+                  const href = resolveHref(menuItem?._type, menuItem?.slug)
+                  if (!href) {
+                    return null
+                  }
+
+                  if (index == 1) {
+                    return (
+                      <FlyoutLink
+                        key={index}
+                        route={route}
+                        href="/over"
+                        FlyoutContent={OverContent}
+                      >
+                        {menuItem.title}
+                      </FlyoutLink>
+                    )
+                  }
+
+                  if (index == 2) {
+                    return (
+                      <Link key={href} href={href}>
+                        <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
+                          {menuItem.title}
+                        </button>
+                      </Link>
+                    )
+                  }
+
+                  return (
+                    <Link
+                      key={href}
+                      className={`text-lg font-sofia font-bold ${isHomePage ? 'text-white' : 'text-black'} md:text-md`}
+                      href={href}
+                    >
+                      {menuItem.title}
+                    </Link>
+                  )
+                })}
+            </div>
+          </nav>
+        )}
+
+        {/* Navbar (probeer releafe gratis) */}
+        {isProbeerReleafeGratisPage && (
+          <nav className="hidden xl:flex items-center justify-center xl:py-6 bg-white">
+            <div className="flex flex-row items-center justify-between xl:min-w-[1280px] 2xl:min-w-[1440px]">
+              {/* Logo */}
+              <Link href="/">
+                <Image
+                  className="drop-shadow-xl"
+                  src="/images/releafe_app_icon_logo.png"
+                  alt="Releafe App Icon Logo"
+                  width={60}
+                  height={60}
+                />
+              </Link>
+              <Link href="/">
+                <FontAwesomeIcon icon={faXmark} size="2xl" color="gray" />
+              </Link>
+            </div>
+          </nav>
+        )}
+
         {/* Navbar (mobile + tablet) */}
         <nav className="xl:hidden fixed top-0 w-full z-50">
           {/* Top Shadow */}
           <div
-            className={`absolute inset-x-0 top-0 h-20 z-0 ${checkRoute(route) ? 'bg-white' : 'bg-gradient-to-b from-black to-transparent opacity-50'}`}
+            className={`absolute inset-x-0 top-0 h-20 z-0 ${isHomePage ? 'bg-gradient-to-b from-black to-transparent opacity-50' : 'bg-white'}`}
           />
           <div className="absolute flex flex-row w-full justify-between items-center p-2">
             {/* Logo */}
@@ -276,7 +295,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                 {/* Hamburger Icon */}
                 <FontAwesomeIcon
                   icon={faBars}
-                  color={`${checkRoute(route) ? 'gray' : 'white'}`}
+                  color={`${isHomePage ? 'white' : 'gray'}`}
                   size="2xl"
                   className={`absolute top-0 left-0 transition-opacity transform duration-300 ease-out ${
                     isHamburgerMenuOpen ? 'opacity-0 z-0' : 'opacity-100 z-10'
@@ -286,7 +305,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                 {/* Close Icon */}
                 <FontAwesomeIcon
                   icon={faXmark}
-                  color={`${checkRoute(route) ? 'gray' : 'white'}`}
+                  color={'white'}
                   size="2xl"
                   className={`absolute top-0 left-[2px] left transition-opacity transform duration-300 ease-out ${
                     isHamburgerMenuOpen ? 'opacity-100 z-10' : 'opacity-0 z-0'
