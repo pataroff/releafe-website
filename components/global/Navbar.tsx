@@ -293,7 +293,9 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                     if (href) {
                       return (
                         <Link key={href} href={href}>
-                          <button className="text-md font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[13rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
+                          <button
+                            className={`relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-[13rem] bg-gradient-to-b ${isMentaleKlachtenPage ? 'from-[#d4e3c4] to-[#849b6f]' : isMentaalFitPage ? 'from-[#a8d5ba] to-[#5c946e]' : 'from-[#c5d5bc] to-[#8fa58b]'}  text-white font-sofia font-bold text-md leading-none`}
+                          >
                             {menuItem.title}
                           </button>
                         </Link>
