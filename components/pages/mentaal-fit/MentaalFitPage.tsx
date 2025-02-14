@@ -162,9 +162,18 @@ const MentaalFitPage = ({ settings, page }) => {
 
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
-                <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none">
-                  Verbeter je mentale fitheid, gratis
-                </button>
+                <Link
+                  href="/probeer-releafe-gratis"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none"
+                >
+                  {/* Pseudo-element for the hover effect */}
+                  <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                  {/* Text above the overlay */}
+                  <p className="relative z-10 pointer-events-none">
+                    Verbeter je mentale fitheid, gratis
+                  </p>
+                </Link>
 
                 <button
                   onClick={() => {

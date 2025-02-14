@@ -21,6 +21,8 @@ interface NavbarProps {
 export function Navbar({ navbarItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
   const isHomePage = route === 'Home'
+  const isMentaleKlachtenPage = route === 'Mentale klachten'
+  const isMentaalFitPage = route === 'Mentaal fit'
   const isProbeerReleafeGratisPage = route === 'Probeer Releafe gratis'
 
   const FlyoutLink = ({ children, href, FlyoutContent }) => {
@@ -209,10 +211,21 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
                   if (index == 2) {
                     return (
-                      <Link key={href} href={href}>
-                        <button className="text-lg font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[16rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
-                          {menuItem.title}
-                        </button>
+                      <Link
+                        key={index}
+                        href={href}
+                        className={`
+                  relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full lg:w-[16rem] 
+                  bg-gradient-to-b ${isMentaleKlachtenPage ? 'from-[#d4e3c4] to-[#849b6f]' : isMentaalFitPage ? 'from-[#a8d5ba] to-[#5c946e]' : 'from-[#c5d5bc] to-[#8fa58b]'}  text-white font-sofia font-bold text-lg lg:text-lg 
+                  leading-none`}
+                      >
+                        {/* Pseudo-element for the hover effect */}
+                        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                        {/* Text above the overlay */}
+                        <p className="relative z-10 pointer-events-none">
+                          Probeer Releafe gratis
+                        </p>
                       </Link>
                     )
                   }
@@ -336,13 +349,11 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                       if (index === navbarItems.length - 2) {
                         return (
                           <FlyoutLinkMobile
+                            key={index}
                             href={href}
                             FlyoutContent={OverContent}
                           >
-                            <li
-                              key={index}
-                              className="text-2xl font-sofia font-medium text-white"
-                            >
+                            <li className="text-2xl font-sofia font-medium text-white">
                               {menuItem.title}
                             </li>
                           </FlyoutLinkMobile>

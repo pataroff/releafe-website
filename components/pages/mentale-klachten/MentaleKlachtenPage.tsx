@@ -137,9 +137,18 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
-                <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none">
-                  Voel je better, gratis
-                </button>
+                <Link
+                  href="/probeer-releafe-gratis"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+                >
+                  {/* Pseudo-element for the hover effect */}
+                  <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                  {/* Text above the overlay */}
+                  <p className="relative z-10 pointer-events-none">
+                    Voel je better, gratis
+                  </p>
+                </Link>
 
                 <button
                   onClick={() => {

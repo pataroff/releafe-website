@@ -24,13 +24,21 @@ export function Header(props: HeaderProps) {
           <CustomPortableText value={description} />
         </div>
       )}
+
       <Link
         href="/probeer-releafe-gratis"
         className="
-        flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
-        font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+    relative flex justify-center items-center rounded-full overflow-hidden h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
+    leading-none"
       >
-        Probeer Releafe gratis
+        {/* Pseudo-element for the hover effect */}
+        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+        {/* Text above the overlay */}
+        <p className="relative z-10 pointer-events-none">
+          Probeer Releafe gratis
+        </p>
       </Link>
     </div>
   )
