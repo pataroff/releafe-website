@@ -18,11 +18,11 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
     <>
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Probeer Releafe gratis'}>
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7]">
-          <div className="flex flex-row justify-center items-center xl:gap-x-16 2xl:gap-x-32 xl:max-w-screen-xl 2xl:max-w-[1440px] h-full mx-auto xl:py-14">
+        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex">
+          <div className="flex flex-col-reverse xl:flex-row xl:justify-center xl:items-center xl:gap-x-16 2xl:gap-x-32 xl:max-w-screen-xl 2xl:max-w-[1440px] min-h-full mx-auto pt-20 px-4 pb-8 xl:pt-12 xl:py-14">
             {/* Text Container */}
-            <div className="flex flex-col xl:gap-y-6 2xl:gap-y-10 w-2/3 2xl:w-2/3 bg-white p-12 rounded-3xl shadow-xl">
-              <h1 className="font-sofia font-bold xl:text-4xl 2xl:text-5xl">
+            <div className="flex flex-col gap-y-6 xl:gap-y-6 2xl:gap-y-10 w-full xl:w-3/4 2xl:w-2/3 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
+              <h1 className="font-sofia font-bold text-2xl xl:text-4xl 2xl:text-5xl">
                 Releafe komt eraan!
               </h1>
 
@@ -43,16 +43,15 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
 
               {/* Email Container */}
               <div className="space-y-6">
-                <h2 className="font-sofia font-bold xl:text-2xl 2xl:text-3xl">
+                <h2 className="font-sofia font-bold text-xl xl:text-2xl 2xl:text-3xl">
                   📩 Blijf op de hoogte:
                 </h2>
-                {/* Email entry field + button 'Meld je aan' */}
                 <form
                   className="flex flex-col items-center lg:flex-row gap-x-2 gap-y-3 w-full"
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <input
-                    className="rounded-full bg-gray-100 w-2/3 font-sofia text-md xl:text-lg h-[50px] xl:h-[60px] p-6 outline-none z-10"
+                    className="rounded-full bg-gray-100 w-full xl:w-2/3 font-sofia text-md xl:text-lg h-[50px] xl:h-[60px] p-6 outline-none z-10"
                     type="email"
                     placeholder="email@example.com"
                     required={true}
@@ -60,7 +59,7 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <input
-                    className="cursor-pointer flex justify-center items-center rounded-full h-[50px] xl:h-[60px] w-1/2 lg:w-1/3 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
+                    className="cursor-pointer flex justify-center items-center rounded-full h-[50px] xl:h-[60px] w-full xl:w-1/2 lg:w-1/3 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
                     font-sofia font-bold text-white text-lg lg:text-xl leading-none"
                     type="submit"
                     value="Meld je aan"
@@ -69,7 +68,7 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
               </div>
 
               <div className="space-y-6">
-                <h1 className="font-sofia font-bold xl:text-2xl 2xl:text-3xl">
+                <h1 className="font-sofia font-bold text-xl xl:text-2xl 2xl:text-3xl">
                   🔗 Volg ons op social media voor de laatste updates:
                 </h1>
                 <Link
@@ -79,7 +78,7 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
                 >
                   <FontAwesomeIcon
                     icon={faLinkedin}
-                    className="xl:text-4xl 2xl:text-5xl"
+                    className="text-3xl xl:text-4xl 2xl:text-5xl"
                   />
                 </Link>
               </div>
@@ -88,7 +87,7 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
             {/* Image Container */}
             <div className="xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[600px] 2xl:h-[700px] relative">
               <Image
-                className="object-contain xl:scale-110 mt-4"
+                className="object-contain xl:scale-110"
                 src="/images/probeer_releafe_gratis_perspective_image.png"
                 alt=""
                 fill

@@ -23,7 +23,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   const isHomePage = route === 'Home'
   const isProbeerReleafeGratisPage = route === 'Probeer Releafe gratis'
 
-  const FlyoutLink = ({ route, children, href, FlyoutContent }) => {
+  const FlyoutLink = ({ children, href, FlyoutContent }) => {
     const [open, setOpen] = useState(false)
     const showFlyout = open && FlyoutContent
 
@@ -68,7 +68,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
     )
   }
 
-  const FlyoutLinkMobile = ({ route, children, href, FlyoutContent }) => {
+  const FlyoutLinkMobile = ({ children, href, FlyoutContent }) => {
     const [open, setOpen] = useState(false)
     const showFlyout = open && FlyoutContent
 
@@ -199,7 +199,6 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                     return (
                       <FlyoutLink
                         key={index}
-                        route={route}
                         href="/over"
                         FlyoutContent={OverContent}
                       >
@@ -254,121 +253,141 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
         )}
 
         {/* Navbar (mobile + tablet) */}
-        <nav className="xl:hidden fixed top-0 w-full z-50">
-          {/* Top Shadow */}
-          <div
-            className={`absolute inset-x-0 top-0 h-20 z-0 ${isHomePage ? 'bg-gradient-to-b from-black to-transparent opacity-50' : 'bg-white'}`}
-          />
-          <div className="absolute flex flex-row w-full justify-between items-center p-2">
-            {/* Logo */}
-            <Link key="home" href={'/'}>
-              <Image
-                src="/images/releafe_app_icon_logo.png"
-                alt="Releafe App Icon Logo"
-                width={60}
-                height={60}
-              />
-            </Link>
-
-            <div className="flex flex-row gap-x-4 items-center">
-              {/* Menu Item (CTA) */}
-              {navbarItems &&
-                navbarItems[navbarItems.length - 1] &&
-                (() => {
-                  const menuItem = navbarItems[navbarItems.length - 1]
-                  const href = resolveHref(menuItem?._type, menuItem?.slug)
-                  if (href) {
-                    return (
-                      <Link key={href} href={href}>
-                        <button className="text-md font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[13rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
-                          {menuItem.title}
-                        </button>
-                      </Link>
-                    )
-                  }
-                })()}
-
-              <button
-                className="w-8 h-8 relative"
-                onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
-              >
-                {/* Hamburger Icon */}
-                <FontAwesomeIcon
-                  icon={faBars}
-                  color={`${isHomePage ? 'white' : 'gray'}`}
-                  size="2xl"
-                  className={`absolute top-0 left-0 transition-opacity transform duration-300 ease-out ${
-                    isHamburgerMenuOpen ? 'opacity-0 z-0' : 'opacity-100 z-10'
-                  }`}
+        {!isProbeerReleafeGratisPage && (
+          <nav className="xl:hidden fixed top-0 w-full z-50">
+            {/* Top Shadow */}
+            <div
+              className={`absolute inset-x-0 top-0 h-20 z-0 ${isHomePage ? 'bg-gradient-to-b from-black to-transparent opacity-50' : 'bg-white'}`}
+            />
+            <div className="absolute flex flex-row w-full justify-between items-center p-2">
+              {/* Logo */}
+              <Link key="home" href={'/'}>
+                <Image
+                  src="/images/releafe_app_icon_logo.png"
+                  alt="Releafe App Icon Logo"
+                  width={60}
+                  height={60}
                 />
+              </Link>
 
-                {/* Close Icon */}
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  color={'white'}
-                  size="2xl"
-                  className={`absolute top-0 left-[2px] left transition-opacity transform duration-300 ease-out ${
-                    isHamburgerMenuOpen ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                  }`}
-                />
-              </button>
-            </div>
-          </div>
-
-          {/* Navbar Links (mobile + tablet) */}
-          <div
-            className={`absolute top-0 right-0 h-screen w-screen bg-[#c5d4bc] transition-all duration-300 ease-in-out ${
-              isHamburgerMenuOpen
-                ? 'translate-x-0 opacity-100 visible'
-                : 'translate-x-full opacity-0 invisible'
-            } pt-[76px]`}
-          >
-            <ul className="flex flex-col gap-y-8 px-[1rem] md:pl-[2rem]">
-              {navbarItems &&
-                navbarItems
-                  .slice(0, navbarItems.length - 1)
-                  .map((menuItem, index) => {
+              <div className="flex flex-row gap-x-4 items-center">
+                {/* Menu Item (CTA) */}
+                {navbarItems &&
+                  navbarItems[navbarItems.length - 1] &&
+                  (() => {
+                    const menuItem = navbarItems[navbarItems.length - 1]
                     const href = resolveHref(menuItem?._type, menuItem?.slug)
-                    if (!href) {
-                      return null
-                    }
-
-                    if (index === navbarItems.length - 2) {
+                    if (href) {
                       return (
-                        <FlyoutLinkMobile
-                          route={route}
-                          href={href}
-                          FlyoutContent={OverContent}
-                        >
-                          <li
-                            key={index}
-                            className="text-2xl font-sofia font-medium text-white"
-                          >
+                        <Link key={href} href={href}>
+                          <button className="text-md font-sofia font-bold text-white leading-none rounded-full h-[50px] w-[13rem] bg-[#96a68d] hover:bg-[#8d9b81] transition duration-300 ease-in-out">
                             {menuItem.title}
-                          </li>
-                        </FlyoutLinkMobile>
+                          </button>
+                        </Link>
                       )
                     }
+                  })()}
 
-                    return (
-                      <li
-                        key={index}
-                        className="text-2xl font-sofia font-medium text-white"
-                      >
-                        <Link
-                          href={href}
-                          onClick={() =>
-                            setIsHamburgerMenuOpen(!isHamburgerMenuOpen)
-                          }
+                <button
+                  className="w-8 h-8 relative"
+                  onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
+                >
+                  {/* Hamburger Icon */}
+                  <FontAwesomeIcon
+                    icon={faBars}
+                    color={`${isHomePage ? 'white' : 'gray'}`}
+                    size="2xl"
+                    className={`absolute top-0 left-0 transition-opacity transform duration-300 ease-out ${
+                      isHamburgerMenuOpen ? 'opacity-0 z-0' : 'opacity-100 z-10'
+                    }`}
+                  />
+
+                  {/* Close Icon */}
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    color={'white'}
+                    size="2xl"
+                    className={`absolute top-0 left-[2px] left transition-opacity transform duration-300 ease-out ${
+                      isHamburgerMenuOpen ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+
+            {/* Navbar Links (mobile + tablet) */}
+            <div
+              className={`absolute top-0 right-0 h-screen w-screen bg-[#c5d4bc] transition-all duration-300 ease-in-out ${
+                isHamburgerMenuOpen
+                  ? 'translate-x-0 opacity-100 visible'
+                  : 'translate-x-full opacity-0 invisible'
+              } pt-[76px]`}
+            >
+              <ul className="flex flex-col gap-y-8 px-[1rem] md:pl-[2rem]">
+                {navbarItems &&
+                  navbarItems
+                    .slice(0, navbarItems.length - 1)
+                    .map((menuItem, index) => {
+                      const href = resolveHref(menuItem?._type, menuItem?.slug)
+                      if (!href) {
+                        return null
+                      }
+
+                      if (index === navbarItems.length - 2) {
+                        return (
+                          <FlyoutLinkMobile
+                            href={href}
+                            FlyoutContent={OverContent}
+                          >
+                            <li
+                              key={index}
+                              className="text-2xl font-sofia font-medium text-white"
+                            >
+                              {menuItem.title}
+                            </li>
+                          </FlyoutLinkMobile>
+                        )
+                      }
+
+                      return (
+                        <li
+                          key={index}
+                          className="text-2xl font-sofia font-medium text-white"
                         >
-                          {menuItem.title}
-                        </Link>
-                      </li>
-                    )
-                  })}
-            </ul>
-          </div>
-        </nav>
+                          <Link
+                            href={href}
+                            onClick={() =>
+                              setIsHamburgerMenuOpen(!isHamburgerMenuOpen)
+                            }
+                          >
+                            {menuItem.title}
+                          </Link>
+                        </li>
+                      )
+                    })}
+              </ul>
+            </div>
+          </nav>
+        )}
+
+        {isProbeerReleafeGratisPage && (
+          <nav className="xl:hidden fixed top-0 w-full z-50 bg-white">
+            <div className="flex flex-row w-full justify-between items-center py-2 px-4">
+              {/* Logo */}
+              <Link key="home" href={'/'}>
+                <Image
+                  src="/images/releafe_app_icon_logo.png"
+                  alt="Releafe App Icon Logo"
+                  width={60}
+                  height={60}
+                />
+              </Link>
+              <Link href="/">
+                <FontAwesomeIcon icon={faXmark} size="2xl" color="gray" />
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </>
   )
