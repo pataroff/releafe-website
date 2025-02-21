@@ -238,7 +238,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                                   return (
                                     <button
                                       key={index}
-                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-[#c5d4bc] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-sm xl:text-lg py-2 transition duration-300 ease-in-out`}
+                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-sm xl:text-lg py-2 transition duration-300 ease-in-out`}
                                       onClick={() =>
                                         setPanicSubdisorderIndex(index)
                                       }
@@ -329,7 +329,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-[#c5d4bc]' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-sm xl:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-sm xl:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>
@@ -385,11 +385,21 @@ const MentaleKlachtenPage = ({ settings, page }) => {
             klachten die je op de
             <strong> Mentale klachten</strong> pagina hebt gezien.
           </p>
+
           <Link
-            href={'/mentaal-fit'}
-            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-1/2 mt-4 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+            href="/mentaal-fit"
+            className="
+    relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
+    bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white font-sofia font-bold text-lg xl:text-lg 
+    leading-none"
           >
-            Ga naar Mentaal fit
+            {/* Pseudo-element for the hover effect */}
+            <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+            {/* Text above the overlay */}
+            <p className="relative z-10 pointer-events-none">
+              Ga naar Mentaal fit
+            </p>
           </Link>
         </section>
 

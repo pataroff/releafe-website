@@ -269,10 +269,19 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 </div>
 
                 <Link
-                  href={'/ontdek-releafe'}
-                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#96a68d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg xl:text-lg leading-none"
+                  href="/probeer-releafe-gratis"
+                  className="
+    relative flex justify-center items-center rounded-full overflow-hidden h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
+    leading-none"
                 >
-                  {featuresData[selectedIndex][3]}
+                  {/* Pseudo-element for the hover effect */}
+                  <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                  {/* Text above the overlay */}
+                  <p className="relative z-10 pointer-events-none">
+                    {featuresData[selectedIndex][3]}
+                  </p>
                 </Link>
               </div>
             </div>
@@ -343,7 +352,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-[#c5d5bc] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
                   >
                     {/* Quotation Mark Icon + Quote */}
                     <div>
@@ -428,7 +437,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             {/* Offer Container */}
             <div className="rounded-2xl h-[90px] w-full xl:w-1/2 2xl:w-1/3 border-2 border-[#516523] px-6 py-4 relative">
               {/* Offer Decoration Box */}
-              <div className="rounded-lg h-[35px] w-[240px] bg-[#c5d6bc] absolute -top-5 right-4 px-3 py-1">
+              <div className="rounded-lg h-[35px] w-[240px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] absolute -top-5 right-4 px-3 py-1">
                 <h4 className="font-sofia font-medium text-md text-white text-nowrap">
                   30 dagen gratis proefperiode
                 </h4>
@@ -457,9 +466,19 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               </Link>
             </p>
 
-            <button className='flex justify-center items-center rounded-full h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2 bg-[#96a58d] hover:bg-[#8d9b81] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-lg leading-none"'>
-              Doorgaan
-            </button>
+            <Link
+              href="/probeer-releafe-gratis"
+              className="
+    relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
+    leading-none"
+            >
+              {/* Pseudo-element for the hover effect */}
+              <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+              {/* Text above the overlay */}
+              <p className="relative z-10 pointer-events-none">Doorgaan</p>
+            </Link>
           </div>
         </section>
 
@@ -490,7 +509,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-full lg:w-[600px] h-full lg:h-[400px] bg-[#96a68e] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-full lg:w-[600px] h-full lg:h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
                   >
                     <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
                       <h2 className="font-sofia font-light text-md">

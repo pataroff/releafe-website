@@ -86,10 +86,10 @@ const OntdekReleafePage = ({ settings, page }) => {
           {/* Features Box */}
           <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
             <div className="px-5 xl:px-32">
-              <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
+              <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Hoe Releafe jou helpt
               </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
+              <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
                 Releafe biedt een veelzijdige set aan praktische en effectieve
                 tools die jou in staat stelt je mentale gezondheid een boost te
                 geven! Hieronder vind je een overzicht van alle functies die de
@@ -112,32 +112,32 @@ const OntdekReleafePage = ({ settings, page }) => {
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col lg:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-x-12 gap-y-24`}
+                    className={`flex flex-col-reverse lg:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-x-12`}
                   >
                     {/* Feature Text Container */}
-                    <div className="flex flex-col gap-y-4 lg:gap-y-12 w-full lg:w-1/2">
-                      <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
+                    <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full lg:w-1/2">
+                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
                         {title}
                       </h2>
 
-                      <h3 className="text-md lg:text-xl font-sofia font-bold">
+                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
                         Doel:{' '}
-                        <span className="text-md lg:text-xl font-sofia font-light">
+                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                           {goalText}
                         </span>
                       </h3>
 
-                      <h3 className="text-md lg:text-xl font-sofia font-bold">
+                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
                         Hoe werk het?:{' '}
-                        <span className="text-md lg:text-xl font-sofia font-light">
+                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                           {descriptionText}
                         </span>
                       </h3>
 
                       {tipText !== '' && (
-                        <h3 className="text-md lg:text-xl font-sofia font-bold">
+                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
                           Tip:{' '}
-                          <span className="text-md lg:text-xl font-sofia font-light">
+                          <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                             {tipText}
                           </span>
                         </h3>
@@ -145,9 +145,15 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                       <Link
                         href={'/probeer-releafe-gratis'}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl leading-none"
+                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
                       >
-                        {ctaText}
+                        {/* Pseudo-element for the hover effect */}
+                        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                        {/* Text above the overlay */}
+                        <p className="relative z-10 pointer-events-none">
+                          {ctaText}
+                        </p>
                       </Link>
                     </div>
 
@@ -155,7 +161,7 @@ const OntdekReleafePage = ({ settings, page }) => {
                     {image !== '' && (
                       <div className="w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mt-4">
                         <Image
-                          className="object-contain xl:scale-110"
+                          className={`object-contain ${index % 2 == 0 ? 'xl:scale-125' : 'xl: scale-100'}`}
                           src={image}
                           alt=""
                           fill
