@@ -159,9 +159,9 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                     {/* Releafe Feature Image Container */}
                     {image !== '' && (
-                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mt-4">
+                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mb-16">
                         <Image
-                          className={`object-contain ${index % 2 == 0 ? 'xl:scale-125' : 'xl: scale-100'}`}
+                          className={`object-contain ${index % 2 == 0 ? 'scale-125' : 'scale-110'}`}
                           src={image}
                           alt=""
                           fill
