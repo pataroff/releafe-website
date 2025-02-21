@@ -14,7 +14,7 @@ const mentalExercisesData = [
     description:
       'Regelmatig bewegen is goed voor zowel je fysieke als mentale gezondheid. Voldoende beweging verlaagt de kans op hart- en vaatziekten, diabetes, somberheid en zelfs dementie. Streef naar minimaal 2,5 uur actieve beweging per week. Dit kan wandelen, fietsen of sporten zijn. Maak het zo intensief als je zelf wilt.',
     featureText:
-      'Met Releafe kun je persoonlijke doelen stellen op het gebied van beweging. Door het stellen van een beweegdoel in de app, kun je je voortgang bijhouden en ontvang je beloningen voor het behalen van je doelen terwijl je aan je mentale gezondheid werk',
+      'Met Releafe kun je persoonlijke doelen stellen op het gebied van beweging. Door het stellen van een beweegdoel in de app, kun je je voortgang bijhouden en ontvang je beloningen voor het behalen van je doelen terwijl je aan je mentale gezondheid werk.',
     ctaText: 'Stel je beweegdoelen in',
     linkText: 'Meer informatie over gezond bewegen vind je hier.',
     href: 'https://www.thuisarts.nl/gezond-leven/ik-wil-gezond-bewegen',
@@ -49,6 +49,19 @@ const mentalExercisesData = [
   },
 
   {
+    title: 'Gezonde voeding',
+    description:
+      'Gezonde voeding heeft een positieve invloed op je lichaam en geest. Een gebalanceerd dieet helpt je om je energieker en beter in je vel te voelen.',
+    featureText:
+      'Met Releafe kun je persoonlijke doelen stellen rondom gezonde voeding en zo bijdragen aan een gebalanceerd eetpatroon dat je mentale fitheid ondersteunt.',
+    ctaText: 'Stel gezonde voedingsdoelen in',
+    linkText: 'Meer informatie over gezonde voeding vind je hier.',
+    href: 'https://www.thuisarts.nl/gezond-eten/ik-wil-gezond-eten',
+    href2: '',
+    image: '',
+  },
+
+  {
     title: 'Beperk drugs, alcohol en cafeïnegebruik',
     description:
       'Het beperken van alcohol- en druggebruik, en het matigen van cafeïne, draagt bij aan je mentale fitheid. Deze stoffen kunnen je stemming beïnvloeden en bijdragen aan stress of angst.',
@@ -60,19 +73,6 @@ const mentalExercisesData = [
     href: 'https://www.thuisarts.nl/alcohol/ik-wil-minder-alcohol-drinken-of-stoppen-met-drinken',
     href2:
       'https://www.thuisarts.nl/drugs/ik-wil-stoppen-met-drugs-of-minder-gebruiken',
-    image: '/images/stress.jpg',
-  },
-
-  {
-    title: 'Gezonde voeding',
-    description:
-      'Gezonde voeding heeft een positieve invloed op je lichaam en geest. Een gebalanceerd dieet helpt je om je energieker en beter in je vel te voelen.',
-    featureText:
-      'Met Releafe kun je persoonlijke doelen stellen rondom gezonde voeding en zo bijdragen aan een gebalanceerd eetpatroon dat je mentale fitheid ondersteunt.',
-    ctaText: 'Stel gezonde voedingsdoelen in',
-    linkText: 'Meer informatie over gezonde voeding vind je hier.',
-    href: 'https://www.thuisarts.nl/gezond-eten/ik-wil-gezond-eten',
-    href2: '',
     image: '/images/mentaal_fit/gezonde_voeding.jpeg',
   },
 
@@ -103,19 +103,6 @@ const mentalExercisesData = [
   },
 
   {
-    title: 'Slapen',
-    description:
-      'Een goede nachtrust is essentieel voor je mentale welzijn. Wanneer je goed slaapt, herstel je zowel fysiek als mentaal. Als je moeite hebt met slapen, kan het helpen om vaste bedtijden aan te houden en ontspanningstechnieken te gebruiken.',
-    featureText:
-      'Met Releafe kun je slaapdoelen instellen om je slaappatronen te verbeteren en beter te begrijpen hoe slaap invloed heeft op je mentale fitheid. Je kunt deze doelen personaliseren en de voortgang ervan bijhouden in de app.',
-    ctaText: 'Verbeter je slaap met Releafe',
-    linkText: 'Meer informatie over slaapadviezen vind je hier.',
-    href: 'https://www.thuisarts.nl/slecht-slapen/ik-wil-beter-slapen-slaapadviezen',
-    href2: '',
-    image: '/images/stress.jpg',
-  },
-
-  {
     title: 'Ontspanning',
     description:
       'Ontspanning is cruciaal om je mentale fitheid te behouden. Er zijn verschillende technieken en oefeningen die je kunnen helpen ontspannen.',
@@ -125,6 +112,19 @@ const mentalExercisesData = [
     linkText:
       'Meer informatie over hoe je je beter kunt ontspannen vind je hier.',
     href: 'https://www.thuisarts.nl/stress/ik-wil-me-beter-kunnen-ontspannen',
+    href2: '',
+    image: '',
+  },
+
+  {
+    title: 'Slapen',
+    description:
+      'Een goede nachtrust is essentieel voor je mentale welzijn. Wanneer je goed slaapt, herstel je zowel fysiek als mentaal. Als je moeite hebt met slapen, kan het helpen om vaste bedtijden aan te houden en ontspanningstechnieken te gebruiken.',
+    featureText:
+      'Met Releafe kun je slaapdoelen instellen om je slaappatronen te verbeteren en beter te begrijpen hoe slaap invloed heeft op je mentale fitheid. Je kunt deze doelen personaliseren en de voortgang ervan bijhouden in de app.',
+    ctaText: 'Verbeter je slaap met Releafe',
+    linkText: 'Meer informatie over slaapadviezen vind je hier.',
+    href: 'https://www.thuisarts.nl/slecht-slapen/ik-wil-beter-slapen-slaapadviezen',
     href2: '',
     image: '/images/mentaal_fit/ontspanning.jpeg',
   },
