@@ -77,15 +77,14 @@ const featuresData = [
 ]
 
 const OntdekReleafePage = ({ settings, page }) => {
-  const [email, setEmail] = useState<string>('')
-
   return (
     <>
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Ontdek Releafe'}>
-        <div className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex">
-          {/* Features Section */}
-          <section className="my-[2rem] xl:my-[4rem] w-full bg-white rounded-3xl mx-8 xl:mx-16 2xl:mx-64 py-16 shadow-xl">
+        {/* Features Section */}
+        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
+          {/* Features Box */}
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
             <div className="px-5 xl:px-32">
               <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
                 Hoe Releafe jou helpt
@@ -98,7 +97,7 @@ const OntdekReleafePage = ({ settings, page }) => {
               </p>
             </div>
 
-            {/* Features Wrapper */}
+            {/* Features Data Container */}
             <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-12 xl:gap-y-28 2xl:gap-y-32 px-8 xl:px-24 2xl:px-32">
               {featuresData.map((item, index) => {
                 const {
@@ -113,7 +112,7 @@ const OntdekReleafePage = ({ settings, page }) => {
                 return (
                   <div
                     key={index}
-                    className={`flex flex-col lg:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-x-12 gap-y-8`}
+                    className={`flex flex-col lg:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-x-12 gap-y-24`}
                   >
                     {/* Feature Text Container */}
                     <div className="flex flex-col gap-y-4 lg:gap-y-12 w-full lg:w-1/2">
@@ -146,7 +145,7 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                       <Link
                         href={'/probeer-releafe-gratis'}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
+                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl leading-none"
                       >
                         {ctaText}
                       </Link>
@@ -154,7 +153,7 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                     {/* Releafe Feature Image Container */}
                     {image !== '' && (
-                      <div className="xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mt-4">
+                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mt-4">
                         <Image
                           className="object-contain xl:scale-110"
                           src={image}
@@ -167,8 +166,8 @@ const OntdekReleafePage = ({ settings, page }) => {
                 )
               })}
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </Layout>
     </>
   )
