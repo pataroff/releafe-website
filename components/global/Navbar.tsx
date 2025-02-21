@@ -267,7 +267,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
         {/* Navbar (mobile + tablet) */}
         {!isProbeerReleafeGratisPage && (
-          <nav className="xl:hidden fixed top-0 w-full z-50">
+          <nav className="lg:hidden fixed top-0 w-full z-50">
             {/* Top Shadow */}
             <div
               className={`absolute inset-x-0 top-0 h-20 z-0 ${isHomePage ? 'bg-gradient-to-b from-black to-transparent opacity-50' : 'bg-white'}`}
