@@ -216,7 +216,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                 return (
                   <div key={index} className="flex flex-col">
                     <div
-                      className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'}  items-center gap-x-12 gap-y-8`}
+                      className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
                     >
                       {/* Mental Disorder Text Container */}
                       <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full lg:w-1/2">

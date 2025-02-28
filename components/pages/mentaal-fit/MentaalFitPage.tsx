@@ -199,7 +199,7 @@ const MentaalFitPage = ({ settings, page }) => {
                 src="/images/mentaal_fit_hero_image.jpg"
                 alt="Mentaal Fit Hero Image"
                 fill // fill = absolute positioning, therefore container needs relative
-                className="object-cover object-center"
+                className="object-cover object-left"
               />
             </div>
           </div>

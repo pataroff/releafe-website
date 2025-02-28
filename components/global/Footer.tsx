@@ -30,11 +30,11 @@ const linkColumns = [
   },
   {
     title: 'Over',
-    links: ['Releafe', 'De app', 'In de media'],
+    links: ['Over ons', 'In de media', 'Artikelen', 'Onderzoek'],
   },
   {
     title: 'Informatie over mentaal welzijn',
-    links: ['Mentale klachten', 'Mentaal fit', 'Artikelen'],
+    links: ['Mentale klachten', 'Mentaal fit', 'Ontdek Releafe'],
   },
   {
     title: 'Download de app',

@@ -107,7 +107,7 @@ const OntdekReleafePage = ({ settings, page }) => {
             </div>
 
             {/* Features Data Container */}
-            <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-12 xl:gap-y-28 2xl:gap-y-32 px-8 xl:px-24 2xl:px-32">
+            <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-12 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
               {featuresData.map((item, index) => {
                 const {
                   title,
@@ -168,7 +168,9 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                     {/* Releafe Feature Image Container */}
                     {image !== '' && (
-                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative mb-16">
+                      <div
+                        className={`w-full xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[700px] 2xl:h-[600px] relative  ${index % 2 == 0 ? 'mt-0 xl:my-[4rem]' : 'my-[4rem]'}`}
+                      >
                         <Image
                           className={`object-contain ${index % 2 == 0 ? 'scale-125' : 'scale-110'}`}
                           src={image}
