@@ -143,22 +143,22 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
 
           <section className="mt-[4rem] lg:mt-[6rem] px-5 xl:px-32 2xl:px-64 flex flex-col justify-center items-center">
             <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-lg p-8">
+              {/* Bedrijven Selection Row Container */}
+              <div className="flex flex-row flex-wrap xl:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
+                {bedrijvenData.map((item, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-sm xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
+                      onClick={() => setBedrijvenIndex(index)}
+                    >
+                      {item.buttonText}
+                    </button>
+                  )
+                })}
+              </div>
               {/* Bedrijven Data Container */}
-              <div className="flex flex-row items-center w-full gap-x-8 p-8">
-                {/* Bedrijven Selection Buttons Container */}
-                <div className="flex flex-row flex-wrap xl:flex-nowrap gap-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
-                  {bedrijvenData.map((item, index) => {
-                    return (
-                      <button
-                        key={index}
-                        className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-sm xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
-                        onClick={() => setBedrijvenIndex(index)}
-                      >
-                        {item.buttonText}
-                      </button>
-                    )
-                  })}
-                </div>
+              <div className="flex flex-col-reverse xl:flex-row items-center w-full gap-x-8 gap-y-8 xl:p-8">
                 <div className="flex flex-col gap-y-8 w-full lg:w-1/2">
                   <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
                     {bedrijvenData[bedrijvenIndex].title}
@@ -171,7 +171,10 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                   {bedrijvenData[bedrijvenIndex].features.map(
                     (feature, index) => {
                       return (
-                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                        <h3
+                          key={index}
+                          className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"
+                        >
                           • {feature}
                         </h3>
                       )
@@ -201,7 +204,7 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
 
                 {/* Image Container */}
                 {bedrijvenData[bedrijvenIndex].image !== '' && (
-                  <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2">
+                  <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
                     <Image
                       src={bedrijvenData[bedrijvenIndex].image}
                       alt=""

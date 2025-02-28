@@ -57,7 +57,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{ x: '-50%' }}
-              className="absolute left-1/2 top-14 bg-transparent text-black"
+              className="absolute left-1/2 top-14 bg-transparent text-black drop-shadow-xl"
             >
               <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white"></div>
               <div className="rounded-3xl overflow-hidden">
