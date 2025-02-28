@@ -118,16 +118,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
       <div className="w-full xl:w-64 bg-white px-6 py-4 shadow-xl">
         <div className="my-2 space-y-4">
           <Link
-            href="/releafe"
+            href="/over-ons"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
-            Releafe
-          </Link>
-          <Link
-            href="/de-app"
-            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
-          >
-            De app
+            Over ons
           </Link>
           <Link
             href="/in-de-media"
@@ -136,10 +130,16 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             In de media
           </Link>
           <Link
-            href="/artikeln"
+            href="/artikelen"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
-            Artikeln
+            Artikelen
+          </Link>
+          <Link
+            href="/onderzoek"
+            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
+          >
+            Onderzoek
           </Link>
         </div>
       </div>

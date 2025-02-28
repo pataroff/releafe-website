@@ -74,6 +74,15 @@ const featuresData = [
     ctaText: 'Ontdek ontspanningsoefeningen',
     image: '/images/ontdek_releafe/exercises_perspective_image.png',
   },
+  {
+    title: 'Bonsaiboom',
+    goalText: 'Jou motiveren om met je mentale welzijn bezig te blijven.',
+    descriptionText:
+      'Voor elke stap die je zet binnen de app – of het nu het bijhouden van je dagboek is, het behalen van een doel of een moment van ontspanning – verdien je beloningen waarmee je jouw bonsai kunt laten groeien en bloeien. Zo wordt zelfzorg niet alleen waardevol, maar ook leuk en motiverend.',
+    tipText: '',
+    ctaText: 'Ontdek de Bonsaiboom',
+    image: '/images/ontdek_releafe/bonsai_tree_portrait_image.png',
+  },
 ]
 
 const OntdekReleafePage = ({ settings, page }) => {

@@ -377,13 +377,12 @@ const MentaleKlachtenPage = ({ settings, page }) => {
         {/* Call-to-Action Section */}
         <section className="my-[4rem] lg:my-[6rem] px-8 md:px-32 lg:px-64 flex flex-col justify-center items-center gap-y-8">
           <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
-            Ontdek hoe Releafe je kan helpen mentaal fit te blijven
+            Ontdek hoe je jouw mentale gezondheid een boost kunt geven
           </h2>
           <p className="mt-4 text-center font-sofia font-light text-lg lg:text-xl">
-            Op de <strong>Mentaal fit</strong> pagina ontdek je hoe onze app
-            werkt en hoe deze je kan ondersteunen bij het verminderen van
-            klachten die je op de
-            <strong> Mentale klachten</strong> pagina hebt gezien.
+            Benieuwd wat je kan doen wanneer je een van bovenstaande klachten
+            ervaart? Op de Mentaal fit pagina ontdek je wat je zelf kan doen om
+            je mentale gezondheid een boost te geven en te onderhouden.
           </p>
 
           <Link

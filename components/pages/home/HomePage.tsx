@@ -28,33 +28,27 @@ export interface HomePageProps {
 const featuresData = [
   [
     'Dagboek',
-    'Het dagboek gebruik je om bij te houden hoe het gaat met je mentale welzijn. Je scoort dagelijks op een makkelijke manier een aantal onderwerpen zoals algemene stemming, zorgen, stress, energie, focus en slaap. Daarnaast heb je de mogelijkheid om extra informatie vast te leggen over relevante dingen die zijn gebeurd. Deze informatie wordt gebruikt om je persoonlijke welzijnsoverzicht op te stellen.',
+    'Gebruik het dagboek om eenvoudig bij te houden hoe je je voelt. Scoor dagelijks je stemming, stress, energie en slaap. Heb je iets bijzonders meegemaakt? Voeg dit als extra notitie toe. Zo krijg je een persoonlijk welzijnsoverzicht dat je verder helpt je welzijn beter te begrijpen.',
     '/images/home/dagboek_image_portrait.png',
     'Houd je dagboek bij',
   ],
   [
-    'Welzijnsoverzight',
-    'Aan het dagboek is een persoonlijk welzijnsoverzicht gekoppeld waar je duidelijk in een grafiek weergegeven ziet hoe het met je is gegaan de afgelopen tijd. Je kan hierbij zelf kiezen welke onderwerpen je ziet en over welke periode je de gegevens wil zien. Dit overzicht helpt je om patronen te leren herkennen en dit geeft je aanwijzingen over wat je kunt doen om je beter te voelen.',
+    'Welzijnsoverzicht',
+    'Je dagboek heeft een persoonlijk welzijnsoverzicht met een handige grafiek. Hierin zie je in één oogopslag hoe het de afgelopen tijd met je is gegaan. Kies zelf welke onderwerpen je wilt weergeven en over welke periode je de gegevens wil zien. Zo herken je patronen en ontdek je wat jou helpt om je beter te voelen.',
     '/images/home/wellbeing_overview_image_portrait.png',
     'Bekijk je welzijnsoverzicht',
   ],
   [
     'Toolkit',
-    'De toolkit bevat verschillende tools die je helpen bij het verbeteren van je mentale welzijn. Hier vind je functies zoals het stellen van persoonlijke doelen, het noteren en loslaten van zorgen, reframing van negatieve gedachten en het schrijven van berichten aan jezelf. Elke tool is ontworpen om je te ondersteunen in je groeiproces en bewust met je emoties om te gaan.',
+    'Wil je je mentale welzijn verbeteren? Deze toolkit helpt je daarbij. Stel je persoonlijke doelen op, laat je zorgen los, buig negatieve gedachten om, geef jezelf een boost en schrijf een motiverende boodschap aan jezelf. Ontdek met de verschillende tools hoe je kunt groeien en je emoties beter kunt begrijpen.',
     '/images/home/toolkit_image_portrait.png',
     'Ontdek de tools in de toolkit',
   ],
   [
-    'Persoonlijke doelen',
-    'Het stellen van persoonlijke doelen stelt je in staat om je op specifieke gebieden te richten die je mentale welzijn bevorderen. Het helpt je om hier gemotiveerd en bewust mee aan de slag te gaan en een positieve gedragsverandering te bewerkstelligen. Voor het behalen van deze doelstellingen ontvang je beloningen in de app.',
-    '/images/home/personal_goals_image_portrait.png',
-    'Stel je persoonlijke doelen in',
-  ],
-  [
-    'Zorgenbakje',
-    'Het zorgenbakje biedt je een veilige ruimte om je zorgen en angsten van je af te schrijven en even op te bergen. Wat helpt bij het loslaten van zorgen is het visueel en symbolisch opbergen van deze zorgen. Je kan de opgeborgen zorgen op een later moment, of direct reframen.',
-    '/images/home/worrybox_image_portrait.png',
-    'Schrijf je zorgen van je af',
+    'Bonsaiboom',
+    'Werk aan je mentale welzijn en zie je vooruitgang terug in je eigen bonsaiboom. Voor elke stap die je zet – of het nu het bijhouden van je dagboek is, het behalen van een doel of een moment van ontspanning – verdien je beloningen waarmee je jouw bonsai kunt laten groeien en bloeien. Zo wordt zelfzorg niet alleen waardevol, maar ook leuk en motiverend.',
+    '/images/home/bonsai_tree_image_portrait.png',
+    'Laat je bonsai groeien',
   ],
 ]
 
