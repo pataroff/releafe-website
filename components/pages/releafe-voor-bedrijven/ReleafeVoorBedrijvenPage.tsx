@@ -23,6 +23,7 @@ const bedrijvenData = [
     linkText: 'Meer weten over de Releafe app? Klik hier!',
     href: '/ontdek-releafe',
     image: '/images/releafe_voor_bedrijven/medewerkers_image.jpg',
+    video: '',
   },
 
   {
@@ -40,6 +41,7 @@ const bedrijvenData = [
     linkText: '',
     href: '',
     image: '/images/releafe_voor_bedrijven/bedrijven_image.jpg',
+    video: '/videos/Video-presentatie-Releafe-met-contactgegevens-DEF.mp4',
   },
 ]
 
@@ -202,8 +204,17 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                   )}
                 </div>
 
-                {/* Image Container */}
-                {bedrijvenData[bedrijvenIndex].image !== '' && (
+                {/* Media Container */}
+                {bedrijvenData[bedrijvenIndex].video !== '' ? (
+                  <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
+                    <video
+                      src={bedrijvenData[bedrijvenIndex].video}
+                      className="object-cover w-full h-full"
+                      controls
+                      playsInline
+                    />
+                  </div>
+                ) : bedrijvenData[bedrijvenIndex].image !== '' ? (
                   <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
                     <Image
                       src={bedrijvenData[bedrijvenIndex].image}
@@ -212,7 +223,7 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                       className="object-cover"
                     />
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           </section>

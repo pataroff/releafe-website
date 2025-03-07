@@ -94,7 +94,7 @@ const OntdekReleafePage = ({ settings, page }) => {
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
           {/* Features Box */}
           <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
-            <div className="px-5 xl:px-32">
+            <div className="px-8 xl:px-32">
               <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Hoe Releafe jou helpt
               </h1>

@@ -40,6 +40,7 @@
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
     "react-lite-youtube-embed": "2.4.0",
+    "react-social-media-embed": "^2.5.18",
     "sanity": "3.31.0",
     "sanity-plugin-asset-source-unsplash": "1.1.2",
     "styled-components": "6.1.8"
