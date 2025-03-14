@@ -211,6 +211,7 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                       src={bedrijvenData[bedrijvenIndex].video}
                       className="object-cover w-full h-full"
                       controls
+                      autoPlay
                       playsInline
                     />
                   </div>
