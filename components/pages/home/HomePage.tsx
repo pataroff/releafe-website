@@ -426,7 +426,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </h1>
 
           {/* Articles Wrapper */}
-          <div className="my-[2rem] lg:my-[4rem] mx-auto max-w-[1440px] ">
+          <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px] ">
             {/* Articles Container */}
             <ul className="relative h-[400px]">
               {/* Article Box */}
@@ -510,11 +510,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* FAQ Section */}
-        {/* <section className="my-[4rem] lg:my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
+        <section className="my-[4rem] lg:my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Veel gestelde vragen
           </h1>
 
+          {/* FAQ Container */}
           <div className="mt-[2rem] lg:mt-[4rem] w-full">
             <div className="border-b-2">
               <h1 className="font-sofia font-normal uppercase text-2xl my-4">
@@ -531,7 +532,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               )
             })}
           </div>
-        </section> */}
+        </section>
 
         {/* Showcase projects */}
         {/* {showcaseProjects && showcaseProjects.length > 0 && (

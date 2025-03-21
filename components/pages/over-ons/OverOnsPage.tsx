@@ -169,7 +169,7 @@ const OverOnsPage = ({ settings, page }) => {
                     <div className="relative rounded-3xl overflow-hidden xl:w-[300px] xl:h-[300px] h-[300px] w-full drop-shadow-md">
                       <Image
                         // @TODO: object-[60%_50%] doesn't work on the vertical axis?
-                        className={`object-cover ${index == 0 ? 'scale-125 object-[60%_60%]' : 'object-top'}`}
+                        className={`object-cover ${index == 0 ? 'scale-125 object-[60%_0%]' : 'object-top'}`}
                         src={teamMember.photo}
                         alt={`${teamMember.name}'s Photo`}
                         fill

@@ -49,7 +49,8 @@ const researchData = [
         findingDescription:
           'Zelfmonitoring, zoals het bijhouden van emoties en activiteiten, helpt individuen om patronen in hun gedrag en gemoedstoestand te herkennen. Dit verhoogde inzicht verbetert zelfregulatie, wat kan leiden tot minder stress en een beter mentaal evenwicht.',
         findingLinkCitation: 'pubmed.ncbi.nlm.nih.gov',
-        findingLinkHref: 'https://pubmed.ncbi.nlm.nih.gov/28375728/',
+        findingLinkHref:
+          'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5659495/',
       },
       {
         findingTitle: 'Verbetering van mentale gezondheid',
@@ -269,7 +270,6 @@ const OnderzoekPage = ({ settings, page }) => {
                                 <Link
                                   href={findingLinkHref}
                                   className="underline"
-                                  target="_blank"
                                 >
                                   {findingLinkCitation}
                                 </Link>

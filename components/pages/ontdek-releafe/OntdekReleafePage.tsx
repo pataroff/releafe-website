@@ -55,8 +55,9 @@ const featuresData = [
     goalText:
       'verander negatieve gedachten in helpende en realistische gedachten',
     descriptionText:
-      'Bekijk je zorgen eens vanuit een andere invalshoek. De reframing-oefening helpt je om je gedachten stap voor stap te veranderen. Door je gedachten anders te bekijken, ontdek je nieuwe mogelijkheden. Daardoor voel je je rustiger en zekerder, en kun je beter omgaan met moeilijke situaties.',
-    descriptionText2: '',
+      'De reframing-oefening helpt je om je zorgen vanuit een andere invalshoek te bekijken. Door stapsgewijs je gedachten te herformuleren helpt deze oefening je om meer positieve en realistische gedachten te ontdekken. Hierdoor krijg je meer grip op je emoties en situaties waardoor je je rustiger en zelfverzekerder voelt.',
+    descriptionText2:
+      'Zit je met zorgen? Bekijk ze eens vanuit een andere invalshoek. De reframing-oefening helpt je om je gedachten stap voor stap te veranderen. Door je gedachten anders te bekijken, ontdek je nieuwe mogelijkheden. Daardoor voel je je rustiger en zekerder, en kun je beter omgaan met moeilijke situaties.',
     tipText: '',
     ctaText: 'Probeer een reframing-oefening',
     image: '/images/ontdek_releafe/reframing_perspective_image.png',
@@ -84,7 +85,7 @@ const featuresData = [
   },
   {
     title: 'Bonsaiboom',
-    goalText: 'jou motiveren om met je mentale welzijn bezig te blijven.',
+    goalText: 'Jou motiveren om met je mentale welzijn bezig te blijven.',
     descriptionText:
       'Voor elke stap die je zet binnen de app – of het nu het bijhouden van je dagboek is, het behalen van een doel of een moment van ontspanning – verdien je beloningen waarmee je jouw bonsai kunt laten groeien en bloeien. Zo wordt zelfzorg niet alleen waardevol, maar ook leuk en motiverend.',
     descriptionText2: '',
@@ -122,6 +123,13 @@ const OntdekReleafePage = ({ settings, page }) => {
                 eerste stap naar meer balans en veerkracht.{' '}
               </h3>
 
+              <p className="text-sm lg:text-md 2xl:text-lg font-sofia font-light ">
+                *Releafe geeft je praktische tools en oefeningen om mentaal
+                sterker te worden en beter om te gaan met deze klachten. Maar
+                onthoud: bij ernstige klachten is professionele hulp altijd de
+                beste stap.
+              </p>
+
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
                 <Link
@@ -133,7 +141,7 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                   {/* Text above the overlay */}
                   <p className="relative z-10 pointer-events-none">
-                    Klaar om aan de slag te gaan?
+                    Klaar om aan de slag te gaan
                   </p>
                 </Link>
 

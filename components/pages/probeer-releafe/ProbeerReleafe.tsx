@@ -28,11 +28,12 @@ const ProbeerReleafePage = ({ settings, page }) => {
 
               <div className="space-y-6">
                 <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  We zijn gestart met de uitrol van Releafe bij organisaties,
-                  zoals bedrijven, onderwijsinstellingen en gemeentes. Zo kunnen
-                  medewerkers, studenten en bewoners hun mentale welzijn
-                  versterken. Vanaf het <strong>najaar van 2025</strong> is de
-                  app beschikbaar voor iedereen.
+                  We zijn gestart met de uitrol van de Releafe-app bij
+                  organisaties, zoals bedrijven, onderwijsinstellingen en
+                  gemeentes. Zo kunnen medewerkers, studenten en bewoners hun
+                  mentale welzijn versterken. Vanaf het{' '}
+                  <strong>najaar van 2025</strong> is de app beschikbaar voor
+                  iedereen.
                 </h3>
                 <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
                   Wil jij graag gebruik maken van Releafe? Breng je werkgever,
