@@ -419,7 +419,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Blog Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
+        <section className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Ontdek meer hulpmiddelen over angstverlichting, mindfulness en
             welzijn
@@ -510,12 +510,11 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* FAQ Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
+        {/* <section className="my-[4rem] lg:my-[6rem] px-5 lg:px-32 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Veel gestelde vragen
           </h1>
 
-          {/* FAQ Container */}
           <div className="mt-[2rem] lg:mt-[4rem] w-full">
             <div className="border-b-2">
               <h1 className="font-sofia font-normal uppercase text-2xl my-4">
@@ -532,7 +531,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               )
             })}
           </div>
-        </section>
+        </section> */}
 
         {/* Showcase projects */}
         {/* {showcaseProjects && showcaseProjects.length > 0 && (

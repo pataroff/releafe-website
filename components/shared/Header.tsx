@@ -36,7 +36,7 @@ export function Header(props: HeaderProps) {
         <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
 
         {/* Text above the overlay */}
-        <p className="relative z-10 pointer-events-none">Probeer Releafe nu</p>
+        <p className="relative z-10 pointer-events-none">Probeer Releafe</p>
       </Link>
     </div>
   )

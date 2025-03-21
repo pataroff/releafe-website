@@ -151,12 +151,12 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
                 Mentale gezondheid op het werk is belangrijk. Stress, burn-out
                 en andere mentale klachten komen steeds vaker voor. Dit heeft
-                niet alleen invloed op je medewerkers, maar ook op je bedrijf.
-                Gelukkige en gezonde medewerkers presteren beter, zijn minder
-                vaak ziek en blijven langer bij je werken. Releafe helpt jouw
-                organisatie om medewerkers te ondersteunen, een positieve
-                werkomgeving te creëren en geeft waardevolle inzichten om het
-                werkklimaat te verbeteren.
+                niet alleen invloed op je medewerkers, maar ook op je
+                organisatie. Gelukkige en gezonde medewerkers presteren beter,
+                zijn minder vaak ziek en blijven langer bij je werken. Releafe
+                helpt jouw organisatie om medewerkers te ondersteunen, een
+                positieve werkomgeving te creëren en geeft waardevolle inzichten
+                om het werkklimaat te verbeteren.
               </h3>
 
               {/* Buttons Container */}
@@ -206,26 +206,6 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
 
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
-          {/*  Voor Bedrijven Section */}
-          <section
-            id="voor-bedrijven-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
-          >
-            <div className="px-5 lg:px-24 2xl:px-64">
-              <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
-                Ontdek hoe Releafe jouw medewerkers en organisatie helpt
-              </h1>
-              <p className="mt-4 font-sofia font-light text-center lg:text-md xl:text-lg 2xl:text-xl">
-                Releafe biedt medewerkers de tools om grip te krijgen op hun
-                mentale welzijn en geeft bedrijven waardevolle inzichten om een
-                gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
-                tot geanonimiseerde groepsanalyses: ontdek hoe Releafe bijdraagt
-                aan een veerkrachtige en productieve organisatie. Klik op de
-                links voor meer informatie!
-              </p>
-            </div>
-          </section>
-
           {/* Facts Section */}
           <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
             {/* <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
@@ -301,6 +281,26 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                   </button>
                 </li>
               </ul>
+            </div>
+          </section>
+
+          {/*  Voor Bedrijven Section */}
+          <section
+            id="voor-bedrijven-section"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+          >
+            <div className="px-5 lg:px-24 2xl:px-64">
+              <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
+                Ontdek hoe Releafe jouw medewerkers en organisatie helpt
+              </h1>
+              <p className="mt-4 font-sofia font-light text-center lg:text-md xl:text-lg 2xl:text-xl">
+                Releafe biedt medewerkers de tools om grip te krijgen op hun
+                mentale welzijn en geeft bedrijven waardevolle inzichten om een
+                gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
+                tot geanonimiseerde groepsanalyses: ontdek hoe Releafe bijdraagt
+                aan een veerkrachtige en productieve organisatie. Klik op de
+                links voor meer informatie!
+              </p>
             </div>
           </section>
 
@@ -403,8 +403,8 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             Benieuwd wat Releafe voor jouw organisatie kan betekenen?
           </h2>
           <p className="mt-4 text-center font-sofia font-light text-lg lg:text-xl">
-            Wil je als bedrijf bijdragen aan een mentaal gezonde werkomgeving?
-            Wij helpen je graag! Neem vrijblijvend contact op via{' '}
+            Wil je als organisaties bijdragen aan een mentaal gezonde
+            werkomgeving? Wij helpen je graag! Neem vrijblijvend contact op via{' '}
             <strong>info@releafe.nl</strong>. Samen zorgen we voor minder stress
             en meer werkplezier.
           </p>
