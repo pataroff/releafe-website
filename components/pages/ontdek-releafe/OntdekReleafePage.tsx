@@ -148,7 +148,7 @@ const OntdekReleafePage = ({ settings, page }) => {
                 <button
                   onClick={() => {
                     document
-                      .getElementById('mental-exercises-section')
+                      .getElementById('features-section')
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }}
                   className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
@@ -176,9 +176,12 @@ const OntdekReleafePage = ({ settings, page }) => {
         </section>
 
         {/* Features Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
+        <section
+          id="features-section"
+          className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 "
+        >
           {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
             <div className="px-8 xl:px-32">
               <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Hoe Releafe jou helpt
