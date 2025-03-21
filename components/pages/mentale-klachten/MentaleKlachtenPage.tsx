@@ -13,15 +13,15 @@ const mentalDisordersData = [
   {
     title: 'Angst',
     description:
-      'Angst is normaal en nuttig bij gevaar, omdat het lichaam je helpt te vechten of te vluchten. Bij langdurige problemen, zoals op werk of met familie, kunnen angstklachten ontstaan, maar deze verdwijnen vaak wanneer de problemen opgelost zijn of je ermee om leert gaan. Als je zonder duidelijke oorzaak vaak bang bent en situaties gaat vermijden, kan dit uitmonden in een angststoornis. ',
-    linkText: 'Voor meer algemene informatie over angst, klik hier.',
+      'Iedereen is weleens bang. Dat is normaal. Maar als angst je dagelijks leven beheerst, is het tijd om actie te ondernemen. Heb je stress op je werk of gedoe thuis? Dan kan die angst blijven hangen. Meestal verdwijnt het weer als de problemen zijn opgelost, of als je leert ermee om te gaan. Maar als je vaak bang bent zonder reden, en je gaat dingen vermijden, dan kan het een angststoornis worden.',
+    linkText: 'Meer informatie over angst vind je hier.',
     href: 'https://www.thuisarts.nl/angst/ik-ben-vaak-bang',
     image: '/images/fear.jpeg',
     additionalData: [
       {
         title: 'Angst- en piekerstoornis',
         description:
-          'Als je een angst- en piekerstoornis hebt, ben je eigenlijk altijd bang. Daarom wordt dit ook wel een gegeneraliseerde angststoornis genoemd. Je maakt je steeds zorgen over allerlei dingen uit het dagelijks leven. Vaak gebeurt dit onbewust en je hebt er ook veel last van in het dagelijks leven.',
+          'Het gevoel dat je constant bang bent, zonder dat je precies weet waarvoor. Dat kan een gegeneraliseerde angststoornis zijn, ook wel een piekerstoornis genoemd. Je maakt je zorgen over alles: je relatie, je werk, je geld... noem maar op. Vaak gaat het automatisch en heb je er ook veel last van in het dagelijkse leven.',
         linkText:
           'Meer informatie over een angst- en piekerstoornis vind je hier.',
         href: 'https://www.thuisarts.nl/angststoornis/ik-heb-gegeneraliseerde-angststoornis',
@@ -29,7 +29,7 @@ const mentalDisordersData = [
       {
         title: 'Sociale-angststoornis',
         description:
-          'Bij een sociale-angststoornis ben je bang voor kritiek of afwijzing van anderen, bijvoorbeeld tijdens een gesprek, op een feestje, of bij het spreken voor een groep. Hoewel je weet dat je angst overdreven is, blijf je situaties vermijden, waardoor je angst tijdelijk minder wordt, maar je niet leert er gezond mee om te gaan. Dit kan leiden tot problemen op school of werk, en de angst kan zich beperken tot specifieke situaties of aanwezig zijn in veel sociale contexten.',
+          'Krijg je al klamme handen bij het idee van een presentatie of om te praten in gezelschap? En vind je het lastig om naar feestjes te gaan? Bij een sociale-angststoornis ben je bang voor kritiek of afwijzing van anderen. Het  kan je onzeker maken en ervoor zorgen dat je situaties uit de weg gaat. Dit geeft even rust, maar houdt de angst op lange termijn in stand. Dit kan je dagelijks leven beïnvloeden, op school, werk of in sociale kringen.',
         linkText:
           'Meer informatie over een sociale-angststoornis vind je hier.',
         href: 'https://www.thuisarts.nl/sociale-angststoornis/ik-heb-sociale-angststoornis',
@@ -37,14 +37,14 @@ const mentalDisordersData = [
       {
         title: 'Fobie',
         description:
-          'Als je heel bang bent voor iets dan heet dit een fobie. Waar je precies heel erg bang voor bent kan van alles zijn, zoals spinnen, vliegen, autorijden of kleine ruimtes.',
+          'Een fobie is een intense angst voor iets specifieks. Dit kan van alles zijn: spinnen, vliegen, autorijden of kleine ruimtes. Je weet misschien wel dat je angst niet logisch is, maar toch voelt het overweldigend.',
         linkText: 'Meer informatie over een fobie vind je hier.',
         href: 'https://www.thuisarts.nl/fobie/ik-ben-heel-bang-voor-iets-fobie',
       },
       {
         title: 'Hypochondrie',
         description:
-          'Bij hypochondrie ben je steeds bang dat je een erge ziekte hebt. Ook als een arts je goed heeft onderzocht en alles in orde is. Mensen met hypochondrie hebben veel last van deze angst.',
+          'Hypochondrie betekent dat je constant bang bent voor erge ziektes. Zelfs als dokters zeggen dat je niks hebt, blijft die angst knagen. Deze angst kan je dagelijks leven flink beïnvloeden en is een serieuze mentale last.',
         linkText: 'Meer informatie over hypochondrie vind je hier.',
         href: 'https://www.thuisarts.nl/hypochondrie/ik-heb-last-van-hypochondrie#adviezen-bij-hypochondrie',
       },
@@ -61,7 +61,7 @@ const mentalDisordersData = [
   {
     title: 'Depressie',
     description:
-      'Bij een depressie ben je langer dan 2 weken somber en/of heb je nergens zin in. Ook kun je je moe, onrustig, schuldig en waardeloos voelen. Een depressie verstoort je dagelijks leven. Je hebt er veel last van: thuis, in je vrije tijd en/of op je werk. Depressieve klachten kunnen zich op verschillende manieren uiten en zijn voor iedereen anders.',
+      'Een depressie is meer dan een dip. Het is een aanhoudende somberheid en lusteloosheid die langer dan twee weken aanhoudt. Je voelt je vaak moe, onrustig, schuldig en waardeloos. Deze gevoelens verstoren je dagelijks leven, thuis, in je vrije tijd en op je werk. Hoe depressieve klachten aanvoelen en zich uiten, is voor iedereen anders.',
     linkText: 'Meer informatie over een depressie vind je hier.',
     href: 'https://www.thuisarts.nl/depressie/ik-heb-depressie',
     image: '/images/depression.jpg',
@@ -77,7 +77,7 @@ const mentalDisordersData = [
       {
         title: 'Paniekaanval',
         description:
-          'Bij een paniekaanval krijg je plotseling lichamelijke klachten zoals een snelle hartslag, snelle ademhaling, trillen en zweten, waardoor je in paniek raakt. De angst maakt de symptomen erger, en je kunt niet meer helder nadenken, waardoor je wilt vluchten of huilen. Een paniekaanval kan enkele minuten tot anderhalf uur duren.',
+          'Bij een paniekaanval reageert je lichaam alsof er gevaar is, ook al is dat er niet. Je hart gaat sneller kloppen, je ademhaling versnelt en je begint te zweten of te trillen. Door de angst worden de klachten erger, en het voelt alsof je de controle verliest. Je kunt niet helder nadenken en wilt misschien vluchten of huilen. Zo’n paniekaanval kan een paar minuten tot anderhalf uur duren.',
         linkText: 'Meer intormatie over een paniekaanval vind je hier.',
         href: 'https://www.thuisarts.nl/paniekaanvallen/ik-heb-paniekaanval',
       },
@@ -94,7 +94,7 @@ const mentalDisordersData = [
   {
     title: 'Stress',
     description:
-      'Een beetje stress is normaal en nuttig om scherp te blijven tijdens spannende situaties zoals een presentatie of examen, en verdwijnt meestal daarna. Als stress lang aanhoudt door bijvoorbeeld hoge verwachtingen, veel problemen tegelijk, of gebrek aan steun, kan het te veel worden. Dit leidt tot vermoeidheid, prikkelbaarheid, slaapproblemen, en een voortdurend gevoel van spanning, wat ongezond wordt.',
+      'Een beetje stress is normaal en helpt je om scherp te zijn in spannende situaties, zoals een presentatie of examen. Meestal verdwijnt deze stress daarna. Maar als stress lang duurt door hoge verwachtingen, veel problemen of weinig steun, dan wordt het te veel. Dit leidt tot vermoeidheid, snel boos worden, slecht slapen en een constant gevoel van spanning, wat slecht is voor je gezondheid.',
     linkText:
       'Meer informatie over wat stress is, welke klachten je ervaart en waardoor het kan komen vind je hier.',
     href: 'https://www.thuisarts.nl/stress/ik-wil-beter-omgaan-met-stress',
@@ -117,22 +117,21 @@ const MentaleKlachtenPage = ({ settings, page }) => {
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
-                Ervaar je mentale klachten? Gebruik Releafe om jouw mentale
-                welzijn te verbeteren.
+                Ervaar je mentale klachten? Boost je welzijn met Releafe
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
-                Mentale klachten kunnen iedereen treffen, en ze variëren van
-                lichte ongemakken tot ernstigere aandoeningen. Het is belangrijk
-                om te begrijpen dat hulp beschikbaar is en dat je niet alleen
-                bent. Releafe kan je ondersteunen wanneer je onderstaande
-                klachten hebt. Klik hier om erachter te komen hoe Releafe jou
-                kan helpen mentaal gezond te worden en te blijven!
+                Mentale klachten? Iedereen heeft er weleens mee te maken. Van
+                een dipje tot serieuzere dingen, het kan ons allemaal overkomen.
+                Het belangrijkste is: je staat er niet alleen voor. Releafe is
+                er om je te steunen, wat er ook speelt. Heb je last van
+                onderstaande klachten? Releafe helpt je om mentaal sterk te
+                worden én te blijven. Ontdek hier wat we voor je kunnen doen.
               </h3>
               <p className="text-sm lg:text-md 2xl:text-lg font-sofia font-light ">
-                *Releafe biedt verschillende technieken en oefeningen die je
-                kunnen helpen om je mentale fitheid te verbeteren en beter om te
-                acan met de onder genoemoe klachten. Vergeet echter niet om bij
-                hevige klachten altijd professionele hulp te zoeken.
+                *Releafe geeft je praktische tools en oefeningen om mentaal
+                sterker te worden en beter om te gaan met deze klachten. Maar
+                onthoud: bij ernstige klachten is professionele hulp altijd de
+                beste stap.
               </p>
 
               {/* Buttons Container */}
@@ -146,7 +145,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
                   {/* Text above the overlay */}
                   <p className="relative z-10 pointer-events-none">
-                    Voel je better, gratis
+                    Voel je better
                   </p>
                 </Link>
 
@@ -192,11 +191,12 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                 Veelvoorkomende mentale klachten
               </h1>
               <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
-                Hieronder vind je een overzicht van enkele veelvoorkomende
-                mentale klachten. Releafe kan ondersteuning bieden bij het
-                verbeteren van je mentale welzijn als je met een van deze
-                klachten te maken hebt. Voor uitgebreide informatie kun je de
-                bijbehorende links naar Thuisarts.nl raadplegen.
+                Voel je je soms down, gestrest of angstig? Je bent niet de
+                enige. Veel mensen van alle leeftijden worstelen met mentale
+                klachten. Check onderstaande veelvoorkomende klachten en ontdek
+                hoe Releafe je kan helpen en ondersteunen. Heb je behoefte aan
+                meer info? Klik dan door naar betrouwbare bronnen zoals
+                Thuisarts.nl.
               </p>
             </div>
 

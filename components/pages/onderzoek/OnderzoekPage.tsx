@@ -48,7 +48,7 @@ const researchData = [
         findingTitle: 'Inzicht en bewustwording',
         findingDescription:
           'Zelfmonitoring, zoals het bijhouden van emoties en activiteiten, helpt individuen om patronen in hun gedrag en gemoedstoestand te herkennen. Dit verhoogde inzicht verbetert zelfregulatie, wat kan leiden tot minder stress en een beter mentaal evenwicht.',
-        findingLinkCitation: 'Mohr et al., 2017',
+        findingLinkCitation: 'pubmed.ncbi.nlm.nih.gov',
         findingLinkHref:
           'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5659495/',
       },
@@ -86,7 +86,7 @@ const researchData = [
       {
         findingTitle: 'Positieve emotionele effecten',
         findingDescription:
-          '​ZJongeren die persoonlijke doelen stellen en bereiken, ervaren positieve emoties zoals een verhoogd gevoel van hoop en een positieve kijk op de toekomst. Dit suggereert dat doelstelling een krachtig instrument is voor het verbeteren van het emotionele welzijn.',
+          '​Jongeren die persoonlijke doelen stellen en bereiken, ervaren positieve emoties zoals een verhoogd gevoel van hoop en een positieve kijk op de toekomst. Dit suggereert dat doelstelling een krachtig instrument is voor het verbeteren van het emotionele welzijn.',
         findingLinkCitation: 'researchgate.net',
         findingLinkHref:
           'https://www.researchgate.net/publication/362287382_Goals_Give_You_Hope_An_Exploration_of_Goal_Setting_in_Young_People_Experiencing_Mental_Health_Challenges',
@@ -102,7 +102,7 @@ const researchData = [
       {
         findingTitle: 'Vermindering van depressieve symptomen en angst',
         findingDescription:
-          'Expressief schrijven, zoals het noteren van zorgen, is in verband gebracht met verbeteringen in de mentale gezondheid. Het helpt individuen om hun emoties te ordenen en te begrijpen, wat kan leiden tot een vermindering van depressieve symptomen en angst. Een meta-analyse van (Pennebaker en Chung (2011)) bevestigt dat dergelijke schrijfinterventies effectief zijn in het verbeteren van zowel fysieke als mentale gezondheid.​',
+          'Expressief schrijven, zoals het noteren van zorgen, is in verband gebracht met verbeteringen in de mentale gezondheid. Het helpt individuen om hun emoties te ordenen en te begrijpen, wat kan leiden tot een vermindering van depressieve symptomen en angst. Een meta-analyse van Pennebaker en Chung (2011) bevestigt dat dergelijke schrijfinterventies effectief zijn in het verbeteren van zowel fysieke als mentale gezondheid.​',
         findingLinkCitation: 'Pennebaker en Chung (2011)',
         findingLinkHref:
           'https://c3po.media.mit.edu/wp-content/uploads/sites/45/2016/01/PennebakerChung_FriedmanChapter.pdf#:~:text=Expressive%20writing%20and%20its%20links%20to%20mental%20and,Health%20James%20W.%20Pennebaker%20and%20Cindy%20K.%20Chung',
@@ -111,7 +111,7 @@ const researchData = [
         findingTitle:
           'Bevorderen zelfreflectie en probleemoplossende vaardigheden',
         findingDescription:
-          'Door regelmatig gebruik te maken van het Zorgenbakje kunnen gebruikers hun emotionele veerkracht vergroten. Het proces van het identificeren en opschrijven van zorgen bevordert zelfreflectie en probleemoplossende vaardigheden, wat bijdraagt aan een betere mentale fitheid. Onderzoek door (Smyth (1998)) toont aan dat deelnemers die hun emoties en zorgen opschrijven, verbeteringen vertonen in hun algehele welzijn en functioneren.',
+          'Door regelmatig gebruik te maken van het Zorgenbakje kunnen gebruikers hun emotionele veerkracht vergroten. Het proces van het identificeren en opschrijven van zorgen bevordert zelfreflectie en probleemoplossende vaardigheden, wat bijdraagt aan een betere mentale fitheid. Onderzoek door Smyth (1998) toont aan dat deelnemers die hun emoties en zorgen opschrijven, verbeteringen vertonen in hun algehele welzijn en functioneren.',
         findingLinkCitation: 'Smyth (1998)',
         findingLinkHref:
           'https://sparq.stanford.edu/sites/g/files/sbiybj19021/files/media/file/smyth_1998_-_written_emotional_expression.pdf',
@@ -243,10 +243,10 @@ const OnderzoekPage = ({ settings, page }) => {
                         {description}
                       </p>
 
-                      <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold">
+                      {/* <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold">
                         Wetenschappelijke bevindingen:{' '}
                         <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"></span>
-                      </h3>
+                      </h3> */}
 
                       {findings.map((finding, index) => {
                         const {

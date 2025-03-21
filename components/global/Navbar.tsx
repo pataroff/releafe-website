@@ -33,10 +33,9 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
       <div
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
-        className="relative h-fit w-fit"
+        className="relative h-fit w-fit cursor-pointer"
       >
-        <Link
-          href={href}
+        <div
           className={`text-lg font-sofia font-bold ${isHomePage ? 'text-white' : 'text-black'} md:text-md`}
         >
           {children}
@@ -46,7 +45,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             }}
             className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-3xl bg-[#96a68d] transition-transform duration-300 ease-out"
           />
-        </Link>
+        </div>
         {/* Transparent Hit Area */}
         <div className="absolute top-7 left-1/2 right-0 w-64 -translate-x-1/2 h-7 bg-transparent"></div>
         <AnimatePresence>
@@ -77,12 +76,9 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
     return (
       <div className="relative">
         <div className="flex w-full justify-between items-center">
-          <Link
-            href={href}
-            className={`text-lg font-sofia font-bold text-white md:text-md`}
-          >
+          <div className={`text-lg font-sofia font-bold text-white md:text-md`}>
             {children}
-          </Link>
+          </div>
           <button onClick={() => setOpen(!open)}>
             <FontAwesomeIcon
               className={`transform transition-transform duration-300 ease-out ${
@@ -224,7 +220,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
                         {/* Text above the overlay */}
                         <p className="relative z-10 pointer-events-none">
-                          Probeer Releafe gratis
+                          {menuItem.title}
                         </p>
                       </Link>
                     )

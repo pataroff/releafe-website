@@ -15,26 +15,30 @@ import Image from 'next/image'
 
 const linkColumns = [
   {
-    title: 'Abonneren',
-    links: ['Gratis proberen', 'Abonnement', 'Reviews', 'Voor bedrijven'],
-  },
-  {
     title: 'Hulp',
     links: [
-      'Veelgestelde vragen',
-      'Contact',
-      'Algemene voorwaarden',
-      'Privacybeleid',
-      'Cookies wijzigen',
+      { label: 'Contact', href: 'mailto:info@releafe.nl' },
+      { label: 'Algemene voorwaarden', href: '#' },
+      { label: 'Privacybeleid', href: '#' },
+      { label: 'Cookies wijzigen', href: '#' },
     ],
   },
   {
     title: 'Over',
-    links: ['Over ons', 'In de media', 'Artikelen', 'Onderzoek'],
+    links: [
+      { label: 'Over ons', href: '/over-ons' },
+      { label: 'In de media', href: '/in-de-media' },
+      { label: 'Artikelen', href: '/artikelen' },
+      { label: 'Onderzoek', href: '/onderzoek' },
+    ],
   },
   {
     title: 'Informatie over mentaal welzijn',
-    links: ['Mentale klachten', 'Mentaal fit', 'Ontdek Releafe'],
+    links: [
+      { label: 'Mentale klachten', href: '/mentale-klachten' },
+      { label: 'Mentaal fit', href: '/mentaal-fit' },
+      { label: 'Ontdek Releafe', href: '/ontdek-releafe' },
+    ],
   },
   {
     title: 'Download de app',
@@ -69,7 +73,7 @@ function LinkColumn({
   links,
 }: {
   title: string
-  links: (string | { label: string; href: string; iconSrc: string })[]
+  links: { label: string; href: string; iconSrc?: string }[]
 }) {
   return (
     <div className="flex flex-col gap-y-2">
@@ -77,25 +81,22 @@ function LinkColumn({
         {title}
       </h1>
       {links.map((link, index) => {
-        if (typeof link === 'string') {
-          return (
-            <Link
-              key={index}
-              className="font-sofia font-light text-md text-white text-nowrap leading-snug"
-              href="#"
-            >
-              {link}
-            </Link>
-          )
-        }
         return (
-          <Link key={index} href={link.href}>
-            <Image
-              src={link.iconSrc!} // Non-null assertion because icons are guaranteed for this column
-              alt={link.label}
-              width={150}
-              height={50}
-            />
+          <Link
+            key={index}
+            href={link.href}
+            className="font-sofia font-light text-md text-white text-nowrap leading-snug"
+          >
+            {!link.iconSrc ? (
+              link.label
+            ) : (
+              <Image
+                src={link.iconSrc!} // Non-null assertion because icons are guaranteed for this column
+                alt={link.label}
+                width={150}
+                height={50}
+              />
+            )}
           </Link>
         )
       })}

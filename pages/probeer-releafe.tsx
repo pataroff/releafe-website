@@ -4,12 +4,12 @@ import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { HomePagePayload, SettingsPayload } from 'types'
 
-import ReleafeVoorBedrijvenPage from 'components/pages/releafe-voor-bedrijven/ReleafeVoorBedrijvenPage'
+import ProbeerReleafePage from 'components/pages/probeer-releafe/ProbeerReleafe'
 
-export default function ReleafeVoorBedrijvenRoute(props) {
+export default function ProbeerReleafeGratisRoute(props) {
   const { settings, page } = props
 
-  return <ReleafeVoorBedrijvenPage settings={settings} page={page} />
+  return <ProbeerReleafePage settings={settings} page={page} />
 }
 
 const fallbackPage: HomePagePayload = {

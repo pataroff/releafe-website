@@ -28,29 +28,25 @@ const coreValues = [
       'Kleine, haalbare veranderingen maken een groot verschil op de lange termijn.',
   },
   {
-    valueTitle: 'Vertrouwelijkheid',
-    valueDescription:
-      'Jouw mentale welzijn is iets persoonlijks en verdient de hoogste mate van privacy en veiligheid.',
-  },
-  {
-    valueTitle: 'Innovatie',
-    valueDescription:
-      'Wij combineren technologie en psychologie om welzijn te verbeteren en blijven continu ontwikkelen om de beste ondersteuning te bieden.',
-  },
-  {
     valueTitle: 'Samenwerking',
     valueDescription:
       'We geloven dat de beste resultaten ontstaan door te luisteren naar gebruikers en samen te werken met experts op het gebied van psychologie en technologie.',
   },
   {
-    valueTitle: 'Duurzame groei',
-    valueDescription:
-      'Onze aanpak richt zich niet alleen op korte termijn verlichting, maar op langdurige mentale veerkracht en welzijn. We streven daarnaast ook naar duurzame samenwerkingen met onze partners.',
-  },
-  {
     valueTitle: 'Empathie',
     valueDescription:
       'We begrijpen wat onze gebruikers doormaken en ontwikkelen Releafe met hun behoeften en ervaringen in gedachten.',
+  },
+]
+
+const teamData = [
+  {
+    name: 'Jan Grobbe',
+    photo: '/images/Jan_Photo.jpeg',
+  },
+  {
+    name: 'Nynke Dijk',
+    photo: '/images/Nynke_Photo.jpg',
   },
 ]
 
@@ -70,41 +66,39 @@ const OverOnsPage = ({ settings, page }) => {
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
                 Uit eigen ervaring weet ik hoe ingrijpend mentale uitdagingen je
                 leven kunnen beïnvloeden. Jarenlang worstelde ik met hevige
-                angst- en paniekklachten. Intensieve behandeltrajecten,
-                medicatie en tijd hebben er uiteindelijk voor gezorgd dat ik
-                minder klachten ervaar en mijn leven kan leiden op een manier
-                die ik zelf kies, in plaats van gestuurd te worden door angst.
+                angst- en paniekklachten. Intensieve behandeltrajecten hebben
+                uiteindelijk hun effect gehad. Mijn klachten zijn verminderd en
+                ik kan mijn leven nu leiden op mijn eigen manier, zonder dat
+                angst de controle heeft.
               </p>
 
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Terugkijkend op deze periode miste ik een laagdrempelige manier
-                om mezelf te ondersteunen in het omgaan met deze klachten. Een
-                plek waar ik inzichten, oefeningen en begeleiding kon vinden
-                zonder overweldigd te raken. Ik zocht naar manieren om beter om
-                te gaan met mijn angsten en paniek, probeerde therapie,
-                ontspanningstechnieken en zelfhulpboeken, maar miste een plek
-                waar alles samenkwam. De tools en inzichten die mij hielpen,
-                waren verspreid over verschillende methoden en bronnen.
+                Als ik terugkijk op deze periode miste ik een toegankelijke
+                manier om mezelf te ondersteunen bij het omgaan met mijn
+                klachten. Ik had behoefte aan een plek met inzichten, oefeningen
+                en begeleiding zonder overweldigd te raken. Ik zocht naar
+                manieren om beter om te gaan met mijn angsten en paniek. Ik
+                probeerde van alles—therapie, ontspanningstechnieken,
+                zelfhulpboeken—maar nergens vond ik een centrale plek waar alles
+                samenkwam. De tools en inzichten die mij hielpen, waren
+                versnipperd over verschillende methoden en bronnen.
               </p>
 
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
                 Dat zette me aan het denken: wat als er een app bestond die niet
                 alleen inzichten biedt, maar ook helpt om dagelijkse gewoonten
-                op te bouwen? Zo ontstond Releafe. Een app die je ondersteunt in
-                het omgaan met mentale klachten, zonder dat je alles zelf hoeft
-                uit te zoeken. Een app die ik zelf had willen hebben toen ik het
-                nodig had. Releafe is gemaakt door iemand die de uitdagingen van
-                binnenuit kent – voor mensen die hiermee worstelen.
+                op te bouwen? Zo is Releafe ontstaan. Een app die je ondersteunt
+                in het omgaan met mentale klachten, zonder dat je alles zelf
+                hoeft uit te zoeken. Een app die ik zelf had willen hebben toen
+                ik het nodig had.
               </p>
 
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Naast mijn persoonlijke ervaring heb ik een achtergrond in
-                bedrijfskunde en adviseer ik organisaties in de rol van Business
-                Controller. Hierdoor combineer ik mijn kennis over mentale
-                gezondheid met een zakelijke, strategische aanpak. Mijn doel is
-                om met Releafe niet alleen een impactvolle app te ontwikkelen,
-                maar ook een betrouwbare en innovatieve organisatie op te bouwen
-                die echt het verschil maakt.
+                Ik weet uit eigen ervaring hoe belangrijk mentale gezondheid is.
+                Met mijn bedrijfskundige achtergrond bouw ik aan Releafe: een
+                innovatieve organisatie die met een strategische blik het
+                verschil maakt. Mijn doel? Een impactvolle app die niet alleen
+                helpt, maar ook een organisatie die echt het verschil maakt.
               </p>
             </div>
 
@@ -114,31 +108,29 @@ const OverOnsPage = ({ settings, page }) => {
             </h2>
             <div className="space-y-8 mt-[2rem]">
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Releafe helpt mensen grip te krijgen op hun mentale welzijn door
-                middel van praktische, bewezen tools. Onze missie is om mentale
-                zorg toegankelijker, begrijpelijker en effectiever te maken,
-                zodat niemand zich alleen hoeft te voelen in zijn of haar
-                strijd.
+                Releafe helpt mensen grip te krijgen op hun mentale welzijn met
+                praktische en bewezen tools. Onze missie? Mentale zorg
+                toegankelijker, begrijpelijker en effectief maken, zodat niemand
+                er alleen voor staat.
               </p>
 
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Met Releafe bieden we een plek waar je dagelijks kunt werken aan
-                je mentale gezondheid, op je eigen tempo en zonder oordeel. We
-                geloven dat kleine stappen leiden tot grote veranderingen, en we
-                willen iedereen de kans geven om die stap te zetten.
+                Bij Releafe vind je een plek waar je op je eigen tempo en zonder
+                oordeel aan je mentale gezondheid kunt werken. We geloven dat
+                kleine stappen grote impact hebben, en we geven iedereen de kans
+                om die eerste stap te zetten.
               </p>
             </div>
 
             <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-4xl mt-[4rem]">
-              Onze Visie: Samen Werken aan Welzijn
+              Onze visie: samen werken aan welzijn
             </h2>
 
             <p className="font-sofia font-light xl:text-lg 2xl:text-xl mt-[2rem]">
-              Onze visie is een wereld waarin mentale gezondheid net zo
-              vanzelfsprekend wordt als fysieke gezondheid. We willen dat
-              iedereen, ongeacht hun situatie, toegang heeft tot de juiste tools
-              om hun welzijn te verbeteren. Dit kunnen we alleen samen
-              realiseren.
+              Wij geloven in een wereld waarin je net zo makkelijk over je
+              mentale gezondheid praat als over een gebroken been. Samen maken
+              we het verschil door ervoor te zorgen dat iedereen, ongeacht hun
+              situatie, toegang heeft tot de juiste ondersteuning en tools.
             </p>
 
             <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-4xl mt-[4rem]">
@@ -166,50 +158,50 @@ const OverOnsPage = ({ settings, page }) => {
               Het Team
             </h2>
 
-            {/* Jan's Photo */}
+            <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8">
+              {teamData.map((teamMember, index) => {
+                return (
+                  <div key={index} className="mt-[2rem]">
+                    <h3 className="font-sofia font-bold xl:text-lg 2xl:text-xl text-lg pl-1 pb-4 text-center">
+                      {teamMember.name}
+                    </h3>
+                    {/* Image Container */}
+                    <div className="relative rounded-3xl overflow-hidden xl:w-[300px] xl:h-[300px] h-[300px] w-full drop-shadow-md">
+                      <Image
+                        className={`object-cover ${index == 0 ? 'object-[60%_50%] scale-125' : 'object-top'}`}
+                        src={teamMember.photo}
+                        alt={`${teamMember.name}'s Photo`}
+                        fill
+                      />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
             <div className="mt-[2rem]">
-              <h3 className="font-sofia font-bold xl:text-lg 2xl:text-xl text-lg pl-1 pb-4">
-                Jan Grobbe
-              </h3>
-              <Image
-                className="rounded-3xl overflow-hidden xl:w-[500px] xl:h-[400px] h-[300px] w-full object-cover"
-                src={'/images/Photo_Jan.jpeg'}
-                alt="Photo Jan"
-                width={1066}
-                height={1600}
-              />
-            </div>
-
-            <div className="space-y-8 mt-[2rem]">
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Nynke Dijk is samen met mij (co-)founder van Releafe. Haar
-                betrokkenheid, visie en uitgebreide kennis en ervaring op
-                bedrijfskundiggebied dragen bij aan de ontwikkeling en groei van
-                Releafe als duurzame organisatie waarbij we onze doelen zo
-                efficiënt en effectief mogelijk behalen.
-              </p>
-
-              <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Wij werken samen met een team van experts, ervaringsdeskundigen
-                en professionals uit de regio. We geloven in de kracht van
-                samenwerking en blijven continu in gesprek met psychologen,
-                therapeuten, belanghebbende partijen, onderwijs- en
-                onderzoeksinstellingen en technologie-experts om Releafe te
-                verbeteren en uit te breiden. Door deze samenwerkingen zorgen we
-                ervoor dat de app aansluit bij de behoeften van onze gebruikers
-                en de laatste wetenschappelijke inzichten.
+                Samen met Nynke Dijk, mijn mede oprichter, bouw ik aan Releafe.
+                Haar betrokkenheid, zakelijke visie en expertise zijn essentieel
+                om Releafe efficiënt en duurzaam te laten groeien. We werken
+                nauw samen met een team van experts, ervaringsdeskundigen en
+                professionals uit de regio. Door continu in gesprek te blijven
+                met psychologen, therapeuten en technologie-experts, zorgen we
+                ervoor dat Releafe aansluit bij de behoeften van onze gebruikers
+                en gebaseerd is op de laatste wetenschappelijke inzichten. Zo
+                maken we samen het verschil.
               </p>
             </div>
 
-            <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-4xl mt-[4rem]">
-              Je Staat Er Niet Alleen Voor
+            <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-4xl mt-[2rem] xl:mt-[4rem]">
+              Je staat er niet alleen voor
             </h2>
 
             <div className="space-y-8 mt-[2rem]">
               <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                Releafe is er om jou te helpen jouw doelen op het gebied van
-                mentale gezondheid te realiseren, stap voor stap. Je bent niet
-                alleen. Samen laten we jouw welzijn bloeien.
+                Mentale gezondheid? Daar helpen we je mee! Met Releafe pak je
+                stap voor stap je doelen aan. Samen zorgen we dat je lekkerder
+                in je vel zit.
               </p>
 
               {/* Letter Final */}

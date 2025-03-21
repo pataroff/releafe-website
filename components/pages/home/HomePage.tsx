@@ -53,11 +53,9 @@ const featuresData = [
 ]
 
 const companyLogos = [
-  '/images/company_logos/Menzis_Logo.png',
-  '/images/company_logos/Lentis_Logo.png',
-  '/images/company_logos/UMCG_Logo.png',
-  '/images/company_logos/Hanze_Logo.png',
-  '/images/company_logos/RUG_Logo.png',
+  '/images/company_logos/Indietopia_Text_Logo.png',
+  '/images/company_logos/Veer_Studios_Logo.png',
+  '/images/company_logos/Stress_Wise_Logo.png',
 ]
 
 const testimonialsData = [
@@ -223,7 +221,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-64 2xl:px-96 flex flex-col justify-center items-center">
           {/* Title */}
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
-            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen.
+            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen
           </h1>
 
           {/* Features Box */}
@@ -299,7 +297,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           {/* Credibility Container */}
           <div className="mt-[2rem] lg:mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
             <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-              Aanbevolen door experts en belanghebbenden.
+              Samenwerkingspartners
             </h1>
 
             {/* Credibity Logo Row Container */}
@@ -323,7 +321,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         {/* Testimonials Section */}
         <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Echte verhalen, echte impact.
+            Echte verhalen, echte impact
           </h1>
 
           {/* Testimonials Wrapper */}
@@ -420,67 +418,11 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
         </section>
 
-        {/* Upselling Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-64">
-          <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Probeer Releafe nu gratis.
-          </h1>
-
-          {/* Upselling Wrapper */}
-          <div className="mt-[2rem] lg:mt-[4rem] flex flex-col w-full justify-center items-center gap-y-8">
-            {/* Offer Container */}
-            <div className="rounded-2xl h-[90px] w-full xl:w-1/2 2xl:w-1/3 border-2 border-[#516523] px-6 py-4 relative">
-              {/* Offer Decoration Box */}
-              <div className="rounded-lg h-[35px] w-[240px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] absolute -top-5 right-4 px-3 py-1">
-                <h4 className="font-sofia font-medium text-md text-white text-nowrap">
-                  30 dagen gratis proefperiode
-                </h4>
-              </div>
-              {/* Offer Content Container */}
-              <div className="flex flex-row justify-between items-center h-full w-full">
-                <div className="flex flex-col justify-between h-full">
-                  <h3 className="font-sofia text-lg font-normal">Jaarlijks</h3>
-                  <h4 className="font-sofia text-md font-normal">
-                    €47.88/jaar
-                  </h4>
-                </div>
-                <h2 className="font-sofia text-lg font-medium">€3.99/maand</h2>
-              </div>
-            </div>
-
-            <p className="font-sofia font-normal text-xs lg:text-sm text-center w-full xl:w-2/3 2xl:w-1/2">
-              Na je gratis proefperiode kost het jaarabonnement €47,88 en wordt
-              elk jaar automatisch verlengd totdat je het opzegt.{' '}
-              <Link className="underline" href="#">
-                Voorwarden
-              </Link>{' '}
-              |{' '}
-              <Link className="underline" href="#">
-                Op elk moment opzegbaar
-              </Link>
-            </p>
-
-            <Link
-              href="/probeer-releafe-gratis"
-              className="
-    relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
-    leading-none"
-            >
-              {/* Pseudo-element for the hover effect */}
-              <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-              {/* Text above the overlay */}
-              <p className="relative z-10 pointer-events-none">Doorgaan</p>
-            </Link>
-          </div>
-        </section>
-
         {/* Blog Section */}
         <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Ontdek meer hulpmiddelen over angstverlichting, mindfulness en
-            welzijn.
+            welzijn
           </h1>
 
           {/* Articles Wrapper */}
@@ -524,7 +466,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-[56px] underline font-sofia font-normal text-lg"
                   href="#"
                 >
-                  Bekijk alle blogs
+                  Bekijk alle artikelen
                 </Link>
               </li>
               <ul className="flex flex-row gap-x-4">

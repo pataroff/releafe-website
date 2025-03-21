@@ -11,7 +11,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import HomePageHead from '../home/HomePageHead'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const ProbeerReleafeGratisPage = ({ settings, page }) => {
+const ProbeerReleafePage = ({ settings, page }) => {
   const [email, setEmail] = useState<string>('')
 
   return (
@@ -23,21 +23,27 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
             {/* Text Container */}
             <div className="flex flex-col gap-y-6 xl:gap-y-6 2xl:gap-y-10 w-full xl:w-3/4 2xl:w-2/3 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
               <h1 className="font-sofia font-bold text-2xl xl:text-4xl 2xl:text-5xl">
-                Releafe komt eraan!
+                Releafe is live voor organisaties!
               </h1>
 
               <div className="space-y-6">
                 <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  We zijn op dit moment hard aan het werk om de Releafe-app af
-                  te ronden. Onze planning is om de app in{' '}
-                  <strong>mei 2025</strong> te lanceren, zodat jij Releafe
-                  gratis kunt proberen en je mentale welzijn een boost kunt
-                  geven.
+                  We zijn gestart met de uitrol van de Releafe-app bij
+                  organisaties, zoals bedrijven, onderwijsinstellingen en
+                  gemeentes. Zo kunnen medewerkers, studenten en bewoners hun
+                  mentale welzijn versterken. Vanaf het{' '}
+                  <strong>najaar van 2025</strong> is de app beschikbaar voor
+                  iedereen.
                 </h3>
                 <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Wil je als eerste op de hoogte zijn van updates en de
-                  lancering? Laat hier je e-mailadres achter en we houden je op
-                  de hoogte!
+                  Wil jij graag gebruik maken van Releafe? Breng je werkgever,
+                  onderwijsinstelling of gemeente op de hoogte en vraag hen
+                  contact met ons op te nemen!
+                </h3>
+
+                <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                  Wil je op de hoogte blijven van updates en de lancering voor
+                  particulieren? Laat hier je e-mailadres achter.
                 </h3>
               </div>
 
@@ -100,4 +106,4 @@ const ProbeerReleafeGratisPage = ({ settings, page }) => {
   )
 }
 
-export default ProbeerReleafeGratisPage
+export default ProbeerReleafePage

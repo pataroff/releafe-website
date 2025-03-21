@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
@@ -7,25 +7,14 @@ import HomePageHead from '../home/HomePageHead'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const bedrijvenData = [
-  {
-    buttonText: 'Voor medewerkers',
-    title: 'Grip op hun mentale welzijn',
-    description:
-      'De Releafe-app biedt medewerkers eenvoudige en effectieve tools om zich beter te voelen. De app biedt:',
-    features: [
-      'Een dagboek en welzijnsoverzicht voor meer inzicht/Inzicht in hun mentale welzijn met een dagboek en welzijnscheck',
-      'Hulp bij het stellen van persoonlijke doelen',
-      'Praktische oefeningen en tips om stress te verminderen en energie op te bouwen',
-    ],
-    salesText:
-      'Door medewerkers zelf de regie te geven, voelen ze zich beter en meer betrokken, werken ze met meer focus en zijn ze gemotiveerder.',
-    linkText: 'Meer weten over de Releafe app? Klik hier!',
-    href: '/ontdek-releafe',
-    image: '/images/releafe_voor_bedrijven/medewerkers_image.jpg',
-    video: '',
-  },
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight,
+  faChevronDown,
+} from '@fortawesome/free-solid-svg-icons'
 
+const bedrijvenData = [
   {
     buttonText: 'Voor bedrijven',
     title: 'Waardevolle inzichten en acties',
@@ -43,10 +32,108 @@ const bedrijvenData = [
     image: '/images/releafe_voor_bedrijven/bedrijven_image.jpg',
     video: '/videos/Video-presentatie-Releafe-met-contactgegevens-DEF.mp4',
   },
+  {
+    buttonText: 'Voor medewerkers',
+    title: 'Grip op hun mentale welzijn',
+    description:
+      'De Releafe-app biedt medewerkers eenvoudige en effectieve tools om zich beter te voelen. De app biedt:',
+    features: [
+      'Een dagboek en welzijnsoverzicht voor meer inzicht/Inzicht in hun mentale welzijn met een dagboek en welzijnscheck',
+      'Hulp bij het stellen van persoonlijke doelen',
+      'Praktische oefeningen en tips om stress te verminderen en energie op te bouwen',
+    ],
+    salesText:
+      'Door medewerkers zelf de regie te geven, voelen ze zich beter en meer betrokken, werken ze met meer focus en zijn ze gemotiveerder.',
+    linkText: 'Meer weten over de Releafe app? Klik hier!',
+    href: '/ontdek-releafe',
+    image: '/images/releafe_voor_bedrijven/medewerkers_image.jpg',
+    video: '',
+  },
 ]
 
-const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
+const factsData = [
+  {
+    numberText: '20%',
+    descriptionText:
+      'van de werknemers in Nederland ervaart op dit moment mentale klachten.',
+  },
+  {
+    numberText: '€4,4 miljard',
+    descriptionText:
+      'zijn de jaarlijkse verzuimkosten voor werkgevers door mentale werkdruk.',
+  },
+  {
+    numberText: '€14.000',
+    descriptionText:
+      'zijn de gemiddelde verzuimkosten per werknemer door mentale werkdruk.',
+  },
+  {
+    numberText: '27%',
+    descriptionText:
+      'van alle verzuimdagen zijn het gevolg van mentale klachten.',
+  },
+  {
+    numberText: '57 dagen',
+    descriptionText:
+      'is het gemiddelde verzuim per jaar door mentale klachten.',
+  },
+  {
+    numberText: '30% ',
+    descriptionText:
+      'minder energie en motivatie is wat werknemers met mentale klachten ervaren.',
+  },
+  {
+    numberText: '2 uur',
+    descriptionText:
+      'per dag is het productiviteitsverlies door mentale klachten.',
+  },
+  {
+    numberText: '30%',
+    descriptionText:
+      'kostenbesparing is mogelijk door te investeren in mentale gezondheid.',
+  },
+]
+
+const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
   const [bedrijvenIndex, setBedrijvenIndex] = useState<number>(0)
+  const [factsActiveIndex, setFactsActiveIndex] = useState<number>(0)
+
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current.play()
+        } else {
+          videoRef.current.pause()
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the video is visible
+      },
+    )
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current)
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current)
+      }
+    }
+  }, [])
+
+  const handleFactsNext = () => {
+    setFactsActiveIndex((prev) => (prev + 1) % factsData.length)
+  }
+
+  const handleFactsPrev = () => {
+    setFactsActiveIndex((prev) =>
+      prev === 0 ? factsData.length - 1 : prev - 1,
+    )
+  }
 
   return (
     <>
@@ -62,24 +149,20 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                 Samen bouwen aan een mentaal sterke werkplek
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
-                Mentale gezondheid op het werk is cruciaal, maar stress en
-                burn-out komen steeds vaker voor. Dit raakt niet alleen je
-                medewerkers, maar ook je organisatie. Releafe helpt bij het
-                creëren van een positieve werkomgeving en biedt inzichten om het
-                werkklimaat te verbeteren. Klik hier en ontdek hoe Releafe jouw
-                team kan ondersteunen!
+                Mentale gezondheid op het werk is belangrijk. Stress, burn-out
+                en andere mentale klachten komen steeds vaker voor. Dit heeft
+                niet alleen invloed op je medewerkers, maar ook op je bedrijf.
+                Gelukkige en gezonde medewerkers presteren beter, zijn minder
+                vaak ziek en blijven langer bij je werken. Releafe helpt jouw
+                organisatie om medewerkers te ondersteunen, een positieve
+                werkomgeving te creëren en geeft waardevolle inzichten om het
+                werkklimaat te verbeteren.
               </h3>
-              <p className="text-sm lg:text-md 2xl:text-lg font-sofia font-light ">
-                *Releafe biedt verschillende technieken en oefeningen die je
-                kunnen helpen om je mentale fitheid te verbeteren en beter om te
-                acan met de onder genoemoe klachten. Vergeet echter niet om bij
-                hevige klachten altijd professionele hulp te zoeken.
-              </p>
 
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
                 <Link
-                  href="/probeer-releafe-gratis"
+                  href="mailto:info@releafe.nl"
                   className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
@@ -136,10 +219,88 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                 Releafe biedt medewerkers de tools om grip te krijgen op hun
                 mentale welzijn en geeft bedrijven waardevolle inzichten om een
                 gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
-                tot anonieme groepsanalyses: ontdek hoe Releafe bijdraagt aan
-                een veerkrachtige en productieve organisatie. Klik op de links
-                voor meer informatie!
+                tot geanonimiseerde groepsanalyses: ontdek hoe Releafe bijdraagt
+                aan een veerkrachtige en productieve organisatie. Klik op de
+                links voor meer informatie!
               </p>
+            </div>
+          </section>
+
+          {/* Facts Section */}
+          <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
+            {/* <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+              Echte verhalen, echte impact
+            </h1> */}
+
+            {/* Testimonials Wrapper */}
+            <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px]">
+              {/* Testimonials Container */}
+              <ul className="relative h-[450px]">
+                {/* Testimonial Box */}
+                {factsData.map((fact, index) => {
+                  // Calculate the relative position of the element
+                  const relativeIndex = index - factsActiveIndex
+
+                  // Dynamically compute the translateX value
+                  const translateXValue = `calc(${relativeIndex * 100}% + ${
+                    relativeIndex * 36
+                  }px)`
+                  return (
+                    <li
+                      key={index}
+                      style={{
+                        transform: `translateX(${translateXValue})`,
+                        transition: 'transform 0.2s ease-in-out',
+                      }}
+                      className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
+                    >
+                      {/* Number Text */}
+                      <h1 className="mt-4 font-sofia font-normal text-5xl leading-tight text-white text-center">
+                        {fact.numberText}
+                      </h1>
+
+                      <h2 className="font-sofia font-normal text-white text-xl text-center">
+                        {fact.descriptionText}
+                      </h2>
+                    </li>
+                  )
+                })}
+              </ul>
+              {/* Testimonial Control Buttons */}
+              <ul className="mt-[2rem] lg:mt-[4rem] w-full h-14 flex flex-row gap-x-4 justify-center lg:justify-end">
+                <li
+                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#c5d6bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out ${factsActiveIndex === 0 ? 'opacity-50' : 'opacity-100'}`}
+                >
+                  <button
+                    className="h-[2.5rem] w-[2.5rem] rounded-full"
+                    disabled={factsActiveIndex === 0 ? true : false}
+                    onClick={() => handleFactsPrev()}
+                  >
+                    <FontAwesomeIcon
+                      icon={faChevronLeft}
+                      color="white"
+                      size="lg"
+                    />
+                  </button>
+                </li>
+                <li
+                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${factsActiveIndex === factsData.length - 1 ? 'opacity-50' : 'opacity-100'}`}
+                >
+                  <button
+                    className="h-[2.5rem] w-[2.5rem] rounded-full"
+                    disabled={
+                      factsActiveIndex === factsData.length - 1 ? true : false
+                    }
+                    onClick={() => handleFactsNext()}
+                  >
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      color="white"
+                      size="lg"
+                    />
+                  </button>
+                </li>
+              </ul>
             </div>
           </section>
 
@@ -205,17 +366,7 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                 </div>
 
                 {/* Media Container */}
-                {bedrijvenData[bedrijvenIndex].video !== '' ? (
-                  <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
-                    <video
-                      src={bedrijvenData[bedrijvenIndex].video}
-                      className="object-cover w-full h-full"
-                      controls
-                      autoPlay
-                      playsInline
-                    />
-                  </div>
-                ) : bedrijvenData[bedrijvenIndex].image !== '' ? (
+                {bedrijvenData[bedrijvenIndex].image !== '' ? (
                   <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
                     <Image
                       src={bedrijvenData[bedrijvenIndex].image}
@@ -225,6 +376,22 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
                     />
                   </div>
                 ) : null}
+              </div>
+            </div>
+
+            {/* Video Wrapper */}
+            <div className="mt-[2rem] xl:mt-[4rem] xl:px-16">
+              {/* Video Container */}
+              <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[700px] 2xl:h-[700px] w-full drop-shadow-md">
+                <video
+                  ref={videoRef}
+                  src={
+                    '/videos/Video-presentatie-Releafe-met-contactgegevens-DEF.mp4'
+                  }
+                  className="object-contain xl:object-cover w-full h-full"
+                  controls
+                  muted
+                />
               </div>
             </div>
           </section>
@@ -253,7 +420,7 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
             <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
 
             {/* Text above the overlay */}
-            <p className="relative z-10 pointer-events-none">Neem contact nu</p>
+            <p className="relative z-10 pointer-events-none">Neem contact op</p>
           </Link>
         </section>
         <ScrollUp />
@@ -262,4 +429,4 @@ const ReleafeVoorBedrijvenPage = ({ settings, page }) => {
   )
 }
 
-export default ReleafeVoorBedrijvenPage
+export default ReleafeVoorOrganisatiesPage
