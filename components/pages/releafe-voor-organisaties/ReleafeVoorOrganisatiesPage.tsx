@@ -146,8 +146,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
-                Gezonde medewerkers, sterke organisaties: waarom
-                mentale zorg telt
+                Samen bouwen aan een mentaal sterke werkplek
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
                 Mentale gezondheid op het werk is belangrijk. Stress, burn-out
@@ -209,9 +208,9 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
           {/* Facts Section */}
           <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
-            {/* <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-              Echte verhalen, echte impact
-            </h1> */}
+            <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+              Gezonde medewerkers, sterke organisaties: waarom mentale zorg telt
+            </h1>
 
             {/* Testimonials Wrapper */}
             <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px]">

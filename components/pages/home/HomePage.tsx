@@ -79,22 +79,6 @@ const testimonialsData = [
     'Ivan, Bulgarije',
     'over het vinden van balans en verlichting van angst.',
   ],
-  // TEST DATA
-  [
-    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
-    'Ivan, Bulgarije',
-    'over het vinden van balans en verlichting van angst.',
-  ],
-  [
-    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
-    'Ivan, Bulgarije',
-    'over het vinden van balans en verlichting van angst.',
-  ],
-  [
-    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
-    'Ivan, Bulgarije',
-    'over het vinden van balans en verlichting van angst.',
-  ],
 ]
 
 const articlesData = [
@@ -360,17 +344,17 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       </div>
 
                       {/* Quote */}
-                      <h2 className="mt-4 font-sofia font-normal text-lg leading-tight">
+                      <h2 className="mt-4 font-sofia font-normal text-lg leading-tight text-white">
                         {testimonial[0]}
                       </h2>
                     </div>
 
                     <div>
-                      <h3 className="font-sofia font-normal text-md">
+                      <h3 className="font-sofia font-normal text-md text-white">
                         {testimonial[1]}
                       </h3>
 
-                      <h4 className="font-sofia font-light text-sm leading-tight">
+                      <h4 className="font-sofia font-light text-sm leading-tight text-white">
                         {testimonial[2]}
                       </h4>
                     </div>

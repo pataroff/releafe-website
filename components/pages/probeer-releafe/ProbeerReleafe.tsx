@@ -17,6 +17,7 @@ const emailRegex =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
 const ProbeerReleafePage = ({ settings, page }) => {
+  const [hasSubscribed, setHasSubscribed] = useState<boolean>(false)
   const [email, setEmail] = useState<string>('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,8 +31,10 @@ const ProbeerReleafePage = ({ settings, page }) => {
     try {
       const response = await axios.post('/api/subscribe', { email })
       console.log('Success:', response.data)
+      setHasSubscribed(true)
     } catch (error) {
       console.error('Error:', error.response?.data || 'Unknown error')
+      setHasSubscribed(false)
     }
   }
 
@@ -52,8 +55,8 @@ const ProbeerReleafePage = ({ settings, page }) => {
                   We zijn gestart met de uitrol van Releafe bij organisaties,
                   zoals bedrijven, onderwijsinstellingen en gemeentes. Zo kunnen
                   medewerkers, studenten en bewoners hun mentale welzijn
-                  versterken. Vanaf het <strong>najaar van 2025</strong> is de
-                  app beschikbaar voor iedereen.
+                  versterken. We streven ernaar om de app in{' '}
+                  <strong>2026</strong> voor iedereen beschikbaar te stellen.
                 </h3>
                 <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
                   Wil jij graag gebruik maken van Releafe? Breng je werkgever,
@@ -72,25 +75,33 @@ const ProbeerReleafePage = ({ settings, page }) => {
                 <h2 className="font-sofia font-bold text-xl xl:text-2xl 2xl:text-3xl">
                   📩 Blijf op de hoogte:
                 </h2>
-                <form
-                  className="flex flex-col items-center lg:flex-row gap-x-2 gap-y-3 w-full"
-                  onSubmit={(e) => handleSubmit(e)}
-                >
-                  <input
-                    className="rounded-full bg-gray-100 w-full xl:w-2/3 font-sofia text-md xl:text-lg h-[50px] xl:h-[60px] p-6 outline-none z-10"
-                    type="email"
-                    placeholder="email@example.com"
-                    required={true}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <input
-                    className="cursor-pointer flex justify-center items-center rounded-full h-[50px] xl:h-[60px] w-full xl:w-1/2 lg:w-1/3 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
+                {hasSubscribed ? (
+                  <>
+                    <h3 className="font-sofia font-light text-lg xl:text-xl 2xl:text-2xl">
+                      You have subscribed successfully! 🎉
+                    </h3>
+                  </>
+                ) : (
+                  <form
+                    className="flex flex-col items-center lg:flex-row gap-x-2 gap-y-3 w-full"
+                    onSubmit={(e) => handleSubmit(e)}
+                  >
+                    <input
+                      className="rounded-full bg-gray-100 w-full xl:w-2/3 font-sofia text-md xl:text-lg h-[50px] xl:h-[60px] p-6 outline-none z-10"
+                      type="email"
+                      placeholder="email@example.com"
+                      required={true}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                      className="cursor-pointer flex justify-center items-center rounded-full h-[50px] xl:h-[60px] w-full xl:w-1/2 lg:w-1/3 bg-[#c5d5bc] hover:bg-[#b7c6ae] transform duration-300 ease-in-out 
                     font-sofia font-bold text-white text-lg lg:text-xl leading-none"
-                    type="submit"
-                    value="Meld je aan"
-                  />
-                </form>
+                      type="submit"
+                      value="Meld je aan"
+                    />
+                  </form>
+                )}
               </div>
 
               <div className="space-y-6">

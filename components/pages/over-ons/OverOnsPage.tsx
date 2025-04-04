@@ -115,7 +115,7 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
               {/* Image Container */}
-              <div className="relative rounded-3xl overflow-hidden xl:w-[400px] xl:h-[400px] h-[250px] w-full drop-shadow-md">
+              <div className="relative rounded-3xl overflow-hidden xl:w-[400px] xl:h-[400px] h-[280px] w-full drop-shadow-md">
                 <Image
                   src="/images/releafe_logo_white_background.png"
                   alt={'Releafe Logo'}
@@ -165,7 +165,7 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         {/* Core Values Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-64">
           <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center">
             Onze kernwaarden:
           </h2>
