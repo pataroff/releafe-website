@@ -137,7 +137,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
                 <Link
-                  href="/probeer-releafe-gratis"
+                  href="/probeer-releafe"
                   className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] transform duration-300 ease-in-out font-sofia font-bold text-white text-lg lg:text-xl leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}

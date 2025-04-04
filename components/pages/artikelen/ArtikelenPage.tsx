@@ -35,7 +35,7 @@ const ArtikelenPage = ({ settings, page }) => {
         {/* Features Section */}
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
           {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl my-[2rem] xl:my-[4rem] mx-auto pt-14 py-8">
+          <div className="bg-white rounded-3xl shadow-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-auto pt-14 py-8">
             <div className="px-8 xl:px-32">
               <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center">
                 Artikelen
@@ -59,7 +59,7 @@ const ArtikelenPage = ({ settings, page }) => {
                   return (
                     <li key={index}>
                       <Link
-                        href={slug}
+                        href={`artikelen/${slug}`}
                         // @TODO Is there a better way of doing this?
                         className="rounded-[2.5rem] w-full xl:w-[362px] 2xl:w-[450px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md"
                       >

@@ -261,7 +261,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 </div>
 
                 <Link
-                  href="/probeer-releafe-gratis"
+                  href="/probeer-releafe"
                   className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 
     bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 

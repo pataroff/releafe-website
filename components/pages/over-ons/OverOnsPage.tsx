@@ -280,7 +280,7 @@ const OverOnsPage = ({ settings, page }) => {
                       <h3 className="font-sofia font-light text-gray-500 xl:text-md 2xl:text-lg text-md">
                         {title}
                       </h3>
-                      <h3 className="font-sofia font-light xl:text-md 2xl:text-md text-md min-h-[250px]">
+                      <h3 className="font-sofia font-light xl:text-md 2xl:text-md text-md xl:min-h-[250px]">
                         {description}
                       </h3>
                       {/* Divider Line */}

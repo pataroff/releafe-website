@@ -206,7 +206,7 @@ const OnderzoekPage = ({ settings, page }) => {
   return (
     <>
       <HomePageHead page={page} settings={settings} />
-      <Layout settings={settings} route={'Ontdek Releafe'}>
+      <Layout settings={settings} route={'Onderzoek'}>
         {/* Features Section */}
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
           {/* Features Box */}

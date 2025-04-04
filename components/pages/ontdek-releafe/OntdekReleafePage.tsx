@@ -133,7 +133,7 @@ const OntdekReleafePage = ({ settings, page }) => {
               {/* Buttons Container */}
               <div className="flex flex-col items-center gap-y-6">
                 <Link
-                  href="/probeer-releafe-gratis"
+                  href="/probeer-releafe"
                   className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4  bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
@@ -248,7 +248,7 @@ const OntdekReleafePage = ({ settings, page }) => {
                       )}
 
                       <Link
-                        href={'/probeer-releafe-gratis'}
+                        href={'/probeer-releafe'}
                         className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
                       >
                         {/* Pseudo-element for the hover effect */}
