@@ -11,8 +11,29 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import HomePageHead from '../home/HomePageHead'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import axios from 'axios'
+
+const emailRegex =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+
 const ProbeerReleafePage = ({ settings, page }) => {
   const [email, setEmail] = useState<string>('')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (!emailRegex.test(email)) {
+      console.log('Invalid email address provided')
+      return
+    }
+
+    try {
+      const response = await axios.post('/api/subscribe', { email })
+      console.log('Success:', response.data)
+    } catch (error) {
+      console.error('Error:', error.response?.data || 'Unknown error')
+    }
+  }
 
   return (
     <>
@@ -53,7 +74,7 @@ const ProbeerReleafePage = ({ settings, page }) => {
                 </h2>
                 <form
                   className="flex flex-col items-center lg:flex-row gap-x-2 gap-y-3 w-full"
-                  onSubmit={(e) => e.preventDefault()}
+                  onSubmit={(e) => handleSubmit(e)}
                 >
                   <input
                     className="rounded-full bg-gray-100 w-full xl:w-2/3 font-sofia text-md xl:text-lg h-[50px] xl:h-[60px] p-6 outline-none z-10"

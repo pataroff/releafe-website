@@ -84,7 +84,7 @@ const mentalDisordersData = [
       {
         title: 'Paniekstoornis',
         description:
-          'Bij een paniekstoornis krijg je onverwachte paniekaanvallen en ben je voortdurend bang voor een nieuwe aanval, wat je leven sterk beïnvloedt. Je vermijdt situaties waaruit je moeilijk kunt ontsnappen of geen hulp kunt krijgen, zoals bussen, treinen, winkels of drukke straten. Hierdoor beperk je jezelf en ga je zulke situaties helemaal vermijden.',
+          'Bij een paniekstoornis heb je plotselinge paniekaanvallen en leef je in angst voor de volgende. Dit kan je dagelijkse leven sterk beïnvloeden. Je gaat situaties vermijden waaruit ontsnappen lastig is, zoals drukke winkels, bussen, treinen of volle straten. Hierdoor voel je je steeds meer beperkt in wat je doet en vermijd je deze plekken helemaal.',
         linkText: 'Meer informatie over een paniekstoornis vind je hier.',
         href: 'https://www.thuisarts.nl/paniekaanvallen/ik-heb-paniekstoornis',
       },

@@ -31,6 +31,7 @@
     "@sanity/visual-editing": "1.6.0",
     "@tailwindcss/typography": "0.5.10",
     "@vercel/og": "0.6.2",
+    "axios": "^1.8.4",
     "classnames": "2.5.1",
     "get-youtube-id": "1.0.1",
     "intl-segmenter-polyfill": "0.4.4",

@@ -464,7 +464,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               <li className="relative h-full w-full mt-[2rem]">
                 <Link
                   className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-[56px] underline font-sofia font-normal text-lg"
-                  href="#"
+                  href="/artikelen"
                 >
                   Bekijk alle artikelen
                 </Link>

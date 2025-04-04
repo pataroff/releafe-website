@@ -146,7 +146,8 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
-                Samen bouwen aan een mentaal sterke werkplek
+                Gezonde medewerkers, sterke organisaties: waarom
+                mentale zorg telt
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
                 Mentale gezondheid op het werk is belangrijk. Stress, burn-out
