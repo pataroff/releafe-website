@@ -1,5 +1,7 @@
 import 'tailwindcss/tailwind.css'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 export default async function RootLayout({
   children,
 }: {
@@ -8,6 +10,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-9V9F5J3NT7" />
     </html>
   )
 }
