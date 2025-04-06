@@ -64,3 +64,28 @@ export const settingsQuery = groq`
     ogImage,
   }
 `
+
+export const articleBySlugQuery = groq`
+  *[_type == "article" && slug.current == $slug][0] {
+    _id,
+    title,
+    body,
+    excerpt,
+    publishedAt,
+    coverImage,
+    "slug": slug.current,
+    author->{
+      name,
+      image,
+      bio
+    },
+    categories[]->{
+      title,
+      "slug": slug.current
+    }
+  }
+`
+
+export const articlePathsQuery = groq`
+  *[_type == "article" && slug.current != null].slug.current
+`

@@ -157,7 +157,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             )}
             <div className="flex items-center gap-x-5 z-10">
               {/* Logo */}
-              <Link key="home" href={'/'}>
+              <Link key="home" href="/">
                 <Image
                   className="drop-shadow-xl"
                   src="/images/releafe_app_icon_logo.png"

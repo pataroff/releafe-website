@@ -82,18 +82,12 @@ const testimonialsData = [
 ]
 
 const articlesData = [
-  [
-    'Stressmanagement',
-    '5 eenvoudige technieken om racende gedachten te kalmeren tijdens',
-  ],
-  [
-    'Mindfulness',
-    'Hoe je negatieve gedachten kunt herstructureren met de “Zorgenbox”',
-  ],
-  [
-    'Angstverlichting',
-    'De wetenschap achter dagelijkse mindfulness en de impact ervan op angst',
-  ],
+  {
+    category: 'Mindfulness',
+    image: '/images/articles/mindfulness_article_image_1.jpg',
+    title: 'Wat is mindfulness en hoe werkt het precies?',
+    slug: 'wat-is-mindfulness-en-hoe-werkt-het-precies',
+  },
 ]
 
 const faqData = [
@@ -415,6 +409,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             <ul className="relative h-[400px]">
               {/* Article Box */}
               {articlesData.map((article, index) => {
+                const { category, image, title, slug } = article
+
                 // Calculate the relative position of the element
                 const relativeIndex = index - articlesActiveIndex
 
@@ -423,23 +419,34 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   relativeIndex * 36
                 }px)`
                 return (
-                  <li
+                  <Link
                     key={index}
+                    href={`/artikelen/${slug}`}
                     style={{
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-full lg:w-[600px] h-full lg:h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] overflow-hidden absolute w-full xl:w-[600px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md`}
                   >
+                    {/* Image Container */}
+                    <div className="w-full h-[260px] relative">
+                      <Image
+                        src={image}
+                        alt={`Image for article with ${title}`}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    {/* Text Container */}
                     <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
                       <h2 className="font-sofia font-light text-md">
-                        {article[0]}
+                        {category}
                       </h2>
                       <h3 className="font-sofia font-normal text-md">
-                        {article[1]}
+                        {title}
                       </h3>
                     </div>
-                  </li>
+                  </Link>
                 )
               })}
             </ul>

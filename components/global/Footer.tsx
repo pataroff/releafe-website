@@ -18,9 +18,9 @@ const linkColumns = [
     title: 'Hulp',
     links: [
       { label: 'Contact', href: 'mailto:info@releafe.nl' },
-      { label: 'Algemene voorwaarden', href: '#' },
-      { label: 'Privacybeleid', href: '#' },
-      { label: 'Cookies wijzigen', href: '#' },
+      { label: 'Algemene voorwaarden', href: '/' },
+      { label: 'Privacybeleid', href: '/' },
+      { label: 'Cookies wijzigen', href: '/' },
     ],
   },
   {
@@ -45,13 +45,13 @@ const linkColumns = [
     links: [
       {
         label: 'Google Play',
-        href: '#',
+        href: '/probeer-releafe',
         iconSrc: '/images/Google_Play_Badge_Dutch.png',
       },
       {
         label: 'App Store',
-        href: '#',
-        iconSrc: 'images/App_Store_Badge_Dutch.svg',
+        href: '/probeer-releafe',
+        iconSrc: '/images/App_Store_Badge_Dutch.svg',
       },
     ],
   },

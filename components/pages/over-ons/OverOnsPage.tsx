@@ -98,7 +98,7 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:pt-0 xl:flex xl:flex-col xl:justify-center ">
           {/* Main Wrapper */}
-          <div className="flex flex-col max-w-screen-xl mx-auto py-14 xl:pt-0 px-8 xl:px-16">
+          <div className="flex flex-col max-w-screen-xl mx-auto pt-16 px-8 xl:px-16">
             {/* Main Container */}
             <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
               {/* Text Container */}
@@ -107,7 +107,7 @@ const OverOnsPage = ({ settings, page }) => {
                   Hoe is Releafe ontstaan?
                 </h2>
                 <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
-                  Releafe is geboren uit persoonlijke ervaring met mentale
+                  Releafe is ontstaan uit persoonlijke ervaring met mentale
                   uitdagingen en de zoektocht naar toegankelijke ondersteuning.
                   Deze reis leidde tot het creëren van een app die inzichten,
                   oefeningen en begeleiding biedt om anderen te helpen grip te
@@ -123,13 +123,70 @@ const OverOnsPage = ({ settings, page }) => {
                 />
               </div>
             </div>
+            {/* Scroll Button */}
+            <button
+              onClick={() => {
+                document
+                  .getElementById('letter-section')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="mt-[2rem] xl:mt-[4rem] w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center self-center items-center transform duration-300 ease-in-out"
+            >
+              <Image
+                src="/images/chevron_down.png"
+                alt="Chevron Down"
+                width={40}
+                height={40}
+              />
+            </button>
+          </div>
+        </section>
+
+        {/* Letter Section */}
+        <section
+          id="letter-section"
+          className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 xl:px-0"
+        >
+          {/* Letter Box */}
+          <div className="rounded-3xl drop-shadow-sm w-[600px] h-full bg-white space-y-8 p-10">
+            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+              “Uit eigen ervaring weet ik hoe ingrijpend mentale uitdagingen je
+              leven kunnen beïnvloeden. Jarenlang worstelde ik met hevige angst-
+              en paniekklachten. Intensieve behandeltrajecten hebben
+              uiteindelijk hun effect gehad. Mijn klachten zijn verminderd en ik
+              kan mijn leven nu leiden op mijn eigen manier, zonder dat angst de
+              controle heeft.
+            </p>
+
+            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+              Als ik terugkijk op deze periode miste ik een toegankelijke manier
+              om mezelf te ondersteunen bij het omgaan met mijn klachten. Ik had
+              behoefte aan een plek met inzichten, oefeningen en begeleiding
+              zonder overweldigd te raken. Ik probeerde van alles—therapie,
+              ontspanningstechnieken, zelfhulpboeken—maar nergens vond ik een
+              centrale plek waar alles samenkwam. De tools en inzichten die mij
+              hielpen, waren versnipperd over verschillende methoden en bronnen.
+            </p>
+
+            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+              Dat zette me aan het denken: wat als er een app bestond die niet
+              alleen inzichten biedt, maar ook helpt om dagelijkse gewoonten op
+              te bouwen? Zo is Releafe ontstaan. Een app die je ondersteunt in
+              het omgaan met mentale klachten, zonder dat je alles zelf hoeft
+              uit te zoeken. Een app die ik zelf had willen hebben toen ik het
+              nodig had.”
+            </p>
+
+            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+              - Jan Grobbe
+            </p>
           </div>
         </section>
 
         {/* Our Mission & Our Vision Section */}
         <section>
           {/* Gradient Background */}
-          <div className="bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] py-[4rem] xl:py-[6rem]">
+          <div className="bg-[#8fa58b] py-[4rem] xl:py-[6rem]">
             <div className="max-w-screen-xl mx-auto px-8 xl:px-16">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center text-white">
                 Onze Missie
@@ -289,7 +346,11 @@ const OverOnsPage = ({ settings, page }) => {
                       <div className="flex flex-row space-x-4">
                         {socialMediaLinks.map((social, index) => {
                           return (
-                            <Link key={index} href={social.href}>
+                            <Link
+                              key={index}
+                              href={social.href}
+                              target="_blank"
+                            >
                               <FontAwesomeIcon
                                 icon={social.icon}
                                 color="#96a78d"

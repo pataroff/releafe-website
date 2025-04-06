@@ -10,20 +10,10 @@ import HomePageHead from '../home/HomePageHead'
 
 const articlesData = [
   {
-    category: 'Stressmanagement',
-    title: '5 eenvoudige technieken om racende gedachten te kalmeren tijdens',
-    slug: '5-eenvoudige-technieken-om-racende-gedachten-te-kalmeren-tijdens',
-  },
-  {
     category: 'Mindfulness',
-    title: 'Hoe je negatieve gedachten kunt herstructureren met de “Zorgenbox”',
-    slug: 'hoe-je-negatieve-gedachten-kunt-herstructureren-met-de-zorgenbox',
-  },
-  {
-    category: 'Angstverlichting',
-    title:
-      'De wetenschap achter dagelijkse mindfulness en de impact ervan op angst',
-    slug: 'de-wetenschap-achter-dagelijkse-mindfulness-en-de-impact-ervan-op-angst',
+    image: '/images/articles/mindfulness_article_image_1.jpg',
+    title: 'Wat is mindfulness en hoe werkt het precies?',
+    slug: 'wat-is-mindfulness-en-hoe-werkt-het-precies',
   },
 ]
 
@@ -54,15 +44,24 @@ const ArtikelenPage = ({ settings, page }) => {
               <ul className="flex flex-col xl:flex-row gap-x-8 gap-y-8">
                 {/* Article Box */}
                 {articlesData.map((article, index) => {
-                  const { category, title, slug } = article
+                  const { category, image, title, slug } = article
 
                   return (
                     <li key={index}>
                       <Link
-                        href={`artikelen/${slug}`}
+                        href={`/artikelen/${slug}`}
                         // @TODO Is there a better way of doing this?
-                        className="rounded-[2.5rem] w-full xl:w-[362px] 2xl:w-[450px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md"
+                        className="rounded-[2.5rem] overflow-hidden w-full xl:w-[362px] 2xl:w-[450px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md"
                       >
+                        {/* Image Container */}
+                        <div className="w-full h-[260px] relative">
+                          <Image
+                            src={image}
+                            alt={`Image for article with ${title}`}
+                            fill
+                            className="object-cover object-top"
+                          />
+                        </div>
                         {/* Text Container */}
                         <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
                           <h2 className="font-sofia font-light text-md">

@@ -145,7 +145,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
                   {/* Text above the overlay */}
                   <p className="relative z-10 pointer-events-none">
-                    Voel je better
+                    Voel je beter
                   </p>
                 </Link>
 

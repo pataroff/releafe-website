@@ -63,3 +63,22 @@ export interface SettingsPayload {
   navbarItems?: NavbarItem[]
   ogImage?: Image
 }
+
+export interface ArticlePayload {
+  _id: string
+  title?: string
+  excerpt?: string
+  body?: PortableTextBlock[]
+  publishedAt?: string
+  coverImage?: Image
+  slug?: string
+  author?: {
+    name?: string
+    image?: Image
+    bio?: string
+  }
+  categories?: {
+    title?: string
+    slug?: string
+  }[]
+}
