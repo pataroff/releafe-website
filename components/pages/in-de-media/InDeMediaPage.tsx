@@ -43,7 +43,7 @@ const InDeMediaPage = ({ settings, page }) => {
             {mediaData.map((media, index) => {
               const { title, date, src, isEmbedded } = media
               return (
-                <>
+                <React.Fragment key={index}>
                   <div className="flex flex-col space-y-2">
                     <h3 className="font-sofia font-bold text-2xl">{title}</h3>
                     <p className="font-sofia font-normal text-lg">{date}</p>
@@ -65,7 +65,7 @@ const InDeMediaPage = ({ settings, page }) => {
                       playsInline
                     />
                   )}
-                </>
+                </React.Fragment>
               )
             })}
           </div>
