@@ -126,10 +126,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             In de media
           </Link>
           <Link
-            href="/artikelen"
+            href="/blogs"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
-            Artikelen
+            Inspiratie
           </Link>
           <Link
             href="/onderzoek"

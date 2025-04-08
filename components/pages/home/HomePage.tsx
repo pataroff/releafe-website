@@ -65,7 +65,7 @@ const testimonialsData = [
     'over de kracht van emotionele reflectie en groei',
   ],
   [
-    'De zorgenbox is fantastisch om mijn dagelijkse stress van me af te zetten. Het is als een mentale opruiming en helpt me gefocust te blijven.',
+    'Het zorgenbox is fantastisch om mijn dagelijkse stress van me af te zetten. Het is als een mentale opruiming en helpt me gefocust te blijven.',
     'Kristiyan, Bulgarije',
     'over de verlichting van het beheersen van dagelijkse stress',
   ],
@@ -399,8 +399,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         {/* Blog Section */}
         <section className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-            Ontdek meer hulpmiddelen over angstverlichting, mindfulness en
-            welzijn
+            Doe meer inspiratie op in blogs speciaal voor jou geschreven door
+            professionals
           </h1>
 
           {/* Articles Wrapper */}
@@ -421,7 +421,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 return (
                   <Link
                     key={index}
-                    href={`/artikelen/${slug}`}
+                    href={`/blogs/${slug}`}
                     style={{
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
@@ -455,9 +455,9 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               <li className="relative h-full w-full mt-[2rem]">
                 <Link
                   className="absolute left-1/2 transform -translate-x-1/2 lg:-translate-x-[56px] underline font-sofia font-normal text-lg"
-                  href="/artikelen"
+                  href="/blogs"
                 >
-                  Bekijk alle artikelen
+                  Bekijk alle blogs
                 </Link>
               </li>
               <ul className="flex flex-row gap-x-4">

@@ -14,7 +14,7 @@ export interface ArticlePageProps {
   preview?: boolean
 }
 
-const ArtikelPage = ({ article, settings, preview }: ArticlePageProps) => {
+const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
   return (
     <>
       <Layout settings={settings} preview={preview} route="Wat is mindfulness?">
@@ -258,4 +258,4 @@ const ArtikelPage = ({ article, settings, preview }: ArticlePageProps) => {
   )
 }
 
-export default ArtikelPage
+export default BlogPage

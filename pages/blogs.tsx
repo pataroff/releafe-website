@@ -4,12 +4,12 @@ import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { HomePagePayload, SettingsPayload } from 'types'
 
-import ArtikelenPage from 'components/pages/artikelen/ArtikelenPage'
+import BlogsPage from 'components/pages/blogs/BlogsPage'
 
-export default function ArtikelenRoute(props) {
+export default function BlogsRoute(props) {
   const { settings, page } = props
 
-  return <ArtikelenPage settings={settings} page={page} />
+  return <BlogsPage settings={settings} page={page} />
 }
 
 const fallbackPage: HomePagePayload = {

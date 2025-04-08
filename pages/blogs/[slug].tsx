@@ -1,4 +1,4 @@
-import ArtikelPage from 'components/pages/artikelen/ArtikelPage'
+import BlogPage from 'components/pages/blogs/BlogPage'
 // import ArticlePreview from 'components/pages/artikelen/ArticlePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
@@ -22,14 +22,14 @@ interface Query {
   [key: string]: string
 }
 
-export default function ArticleSlugRoute(props: PageProps) {
+export default function BlogSlugRoute(props: PageProps) {
   const { article, settings, draftMode } = props
 
   //   if (draftMode) {
   //     return <ArticlePreview article={article} settings={settings} />
   //   }
 
-  return <ArtikelPage article={article} settings={settings} />
+  return <BlogPage article={article} settings={settings} />
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {

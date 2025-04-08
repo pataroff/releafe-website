@@ -28,7 +28,7 @@ const linkColumns = [
     links: [
       { label: 'Over ons', href: '/over-ons' },
       { label: 'In de media', href: '/in-de-media' },
-      { label: 'Artikelen', href: '/artikelen' },
+      { label: 'Inspiratie', href: '/blogs' },
       { label: 'Onderzoek', href: '/onderzoek' },
     ],
   },
