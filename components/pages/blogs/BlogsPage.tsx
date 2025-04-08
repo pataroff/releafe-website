@@ -35,7 +35,7 @@ const BlogsPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Inspiratie'}>
         {/* Features Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
+        <section className="bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
           {/* Features Box */}
           <div className="bg-white rounded-3xl shadow-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-auto pt-14 py-8">
             <div className="px-8 xl:px-32">
