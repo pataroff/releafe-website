@@ -65,7 +65,7 @@ const testimonialsData = [
     'over de kracht van emotionele reflectie en groei',
   ],
   [
-    'Het zorgenbox is fantastisch om mijn dagelijkse stress van me af te zetten. Het is als een mentale opruiming en helpt me gefocust te blijven.',
+    'Het zorgenbakje is fantastisch om mijn dagelijkse stress van me af te zetten. Het helpt me zaken te ordenen in mijn hoofd en helpt me gefocust te blijven.',
     'Kristiyan, Bulgarije',
     'over de verlichting van het beheersen van dagelijkse stress',
   ],
