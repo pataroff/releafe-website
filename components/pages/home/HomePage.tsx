@@ -71,7 +71,7 @@ const testimonialsData = [
   ],
   [
     'De dagelijkse mindfulness-routines in Releafe zijn een essentieel onderdeel van mijn dag geworden. Ik voel me meer in balans en minder overweldigd door de uitdagingen van het leven.',
-    'Hanna, Duitsland',
+    'Hanna, Nederland',
     'over de voordelen van mindfulness in het dagelijks leven integreren',
   ],
   [
@@ -345,7 +345,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
                     <div>
                       <h3 className="font-sofia font-normal text-md text-white">
-                        {testimonial[1]}
+                        {`${testimonial[1]} (Testgebruiker)`}
                       </h3>
 
                       <h4 className="font-sofia font-light text-sm leading-tight text-white">
