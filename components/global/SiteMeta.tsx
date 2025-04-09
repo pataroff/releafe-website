@@ -44,7 +44,24 @@ export function SiteMeta({
       {description && (
         <meta key="description" name="description" content={description} />
       )}
-      {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+      {imageUrl && (
+        <>
+          <meta property="og:url" content="https://releafe.nl" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:image" content={imageUrl} />
+
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="releafe.nl" />
+          <meta property="twitter:url" content="https://releafe.nl" />
+          <meta name="twitter:title" content={title} />
+          <meta name="twitter:description" content={description} />
+          <meta name="twitter:image" content={imageUrl} />
+        </>
+      )}
     </Head>
   )
 }

@@ -190,7 +190,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
           {/* Header Container */}
           {/* @TODO: Is there a better way of doing this? */}
-          <div className="mt-[2rem] px-5 lg:px-32 2xl:px-64">
+          <div className="mt-[2rem] px-5 lg:px-32 2xl:px-64 max-w-[1640px] place-self-center">
             {title && <Header centered title={title} description={overview} />}
           </div>
         </section>
@@ -203,7 +203,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </h1>
 
           {/* Features Box */}
-          <div className="relative mt-[2rem] lg:mt-[4rem] rounded-[2.5rem] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
+          <div className="relative mt-[2rem] lg:mt-[4rem] rounded-[2.5rem] max-w-[1440px] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
             {/* Features Selection Row Container */}
             <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
               {/* Feature Selection Box */}
