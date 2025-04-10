@@ -27,7 +27,7 @@ export function SiteMeta({
 
   return (
     <Head>
-      <title>Releafe - The 1# App for Your Mental Health and Well-Being </title>
+      <title>Releafe - Dé app voor jouw mentale welzijn</title>
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <link
         rel="icon"
