@@ -341,7 +341,10 @@ const MentaalFitPage = ({ settings, page }) => {
                               {nextExercise.featureText}
                             </p>
 
-                            <button className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none">
+                            <Link
+                              href={'/ontdek-releafe'}
+                              className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
+                            >
                               {/* Pseudo-element for the hover effect */}
                               <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
 
@@ -349,7 +352,7 @@ const MentaalFitPage = ({ settings, page }) => {
                               <p className="relative z-10 pointer-events-none">
                                 {nextExercise.ctaText}
                               </p>
-                            </button>
+                            </Link>
 
                             {nextExercise.linkText !== '' && (
                               <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">

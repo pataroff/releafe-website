@@ -8,7 +8,17 @@ export const CookiesConsent: React.FC<{}> = () => {
   const [hideConsent, setHideConsent] = useState<boolean>(false)
 
   useEffect(() => {
-    setHideConsent(hasCookie('localConsent'))
+    const checkConsent = () => setHideConsent(hasCookie('localConsent'))
+
+    checkConsent() // on mount
+
+    // Listen for manual reset
+    const handleReset = () => setHideConsent(false)
+    window.addEventListener('reset-cookie-consent', handleReset)
+
+    return () => {
+      window.removeEventListener('reset-cookie-consent', handleReset)
+    }
   }, [])
 
   const acceptCookie = () => {

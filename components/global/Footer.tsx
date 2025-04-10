@@ -13,6 +13,13 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { deleteCookie } from 'cookies-next'
+
+const handleResetConsent = () => {
+  deleteCookie('localConsent')
+  window.dispatchEvent(new Event('reset-cookie-consent'))
+}
+
 const linkColumns = [
   {
     title: 'Hulp',
@@ -81,7 +88,17 @@ function LinkColumn({
         {title}
       </h1>
       {links.map((link, index) => {
-        return (
+        const isCookieLink = link.label === 'Cookies wijzigen'
+
+        return isCookieLink ? (
+          <button
+            key={index}
+            onClick={handleResetConsent}
+            className="font-sofia font-light text-md text-white text-nowrap leading-snug text-left"
+          >
+            {link.label}
+          </button>
+        ) : (
           <Link
             key={index}
             href={link.href}
@@ -91,7 +108,7 @@ function LinkColumn({
               link.label
             ) : (
               <Image
-                src={link.iconSrc!} // Non-null assertion because icons are guaranteed for this column
+                src={link.iconSrc!}
                 alt={link.label}
                 width={150}
                 height={50}

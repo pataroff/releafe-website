@@ -118,10 +118,10 @@ const OntdekReleafePage = ({ settings, page }) => {
                 motiverende bonsaiboom die met je meegroeit.
               </h3>
 
-              <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-bold">
+              {/* <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-bold">
                 Ontdek hoe Releafe jou kan ondersteunen en zet vandaag nog de
                 eerste stap naar meer balans en veerkracht.{' '}
-              </h3>
+              </h3> */}
 
               <p className="text-sm lg:text-md 2xl:text-lg font-sofia font-light ">
                 *Releafe geeft je praktische tools en oefeningen om mentaal
