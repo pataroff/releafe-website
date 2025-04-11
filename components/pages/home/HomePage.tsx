@@ -196,7 +196,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Features Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-64 2xl:px-96 flex flex-col justify-center items-center">
+        <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-32 xl:px-64 2xl:px-96 flex flex-col justify-center items-center">
           {/* Title */}
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
             Wij zijn hier om jou in staat te stellen je welzijn te bevorderen
@@ -221,8 +221,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             </div>
 
             {/* Features Data Container */}
-            <div className="flex flex-col-reverse lg:flex-row w-full h-full items-center xl:py-12 2xl:py-14 pr-0 xl:pr-14 2xl:pr-16">
-              <div className="w-full h-[600px] xl:h-[600px] 2xl:h-[700px] relative">
+            <div className="flex flex-col-reverse lg:flex-row w-full h-full items-center lg:py-12 2xl:py-14 pr-0 lg:pr-14 2xl:pr-16">
+              <div className="w-full h-[600px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] relative">
                 <Image
                   className="object-contain"
                   src={featuresData[selectedIndex][2]}
@@ -297,7 +297,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Testimonials Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-32 xl:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Echte verhalen, echte impact
           </h1>
@@ -397,7 +397,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
         </section>
 
         {/* Blog Section */}
-        <section className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-64">
+        <section className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-32 xl:px-64">
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
             Doe meer inspiratie op in blogs speciaal voor jou geschreven door
             professionals

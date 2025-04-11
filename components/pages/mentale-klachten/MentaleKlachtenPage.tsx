@@ -113,10 +113,10 @@ const MentaleKlachtenPage = ({ settings, page }) => {
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] xl:flex">
           {/* Main Wrapper */}
-          <div className="flex flex-col lg:flex-row min-h-full w-full">
+          <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full lg:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
-              <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
+            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+              <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Ervaar je mentale klachten? Boost je welzijn met Releafe
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
@@ -168,7 +168,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
             </div>
 
             {/* Hero Image Container */}
-            <div className="relative h-[400px] lg:min-h-full w-full lg:w-1/2">
+            <div className="relative h-[400px] lg:h-[500px] lg:min-h-full w-full xl:w-1/2">
               <Image
                 src="/images/mentale_klachten_hero_image.jpg"
                 alt="Mentale Klachten Hero Image"
@@ -181,25 +181,23 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-32 xl:px-64">
+            <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
+              Veelvoorkomende mentale klachten
+            </h1>
+            <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
+              Voel je je soms down, gestrest of angstig? Je bent niet de enige.
+              Veel mensen van alle leeftijden worstelen met mentale klachten.
+              Check onderstaande veelvoorkomende klachten en ontdek hoe Releafe
+              je kan helpen en ondersteunen. Heb je behoefte aan meer info? Klik
+              dan door naar betrouwbare bronnen zoals Thuisarts.nl.
+            </p>
+          </div>
           {/* Mental Disorders Section */}
           <section
             id="mental-disorders-section"
             className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
-            <div className="px-5 md:px-32 lg:px-64">
-              <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
-                Veelvoorkomende mentale klachten
-              </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
-                Voel je je soms down, gestrest of angstig? Je bent niet de
-                enige. Veel mensen van alle leeftijden worstelen met mentale
-                klachten. Check onderstaande veelvoorkomende klachten en ontdek
-                hoe Releafe je kan helpen en ondersteunen. Heb je behoefte aan
-                meer info? Klik dan door naar betrouwbare bronnen zoals
-                Thuisarts.nl.
-              </p>
-            </div>
-
             {/* Mental Disorder Wrapper */}
             <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 lg:px-32">
               {mentalDisordersData.map((item, index) => {
@@ -216,10 +214,10 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                 return (
                   <div key={index} className="flex flex-col">
                     <div
-                      className={`flex ${isEven ? 'flex-col lg:flex-row' : 'flex-col lg:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
+                      className={`flex ${isEven ? 'flex-col xl:flex-row' : 'flex-col xl:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
                     >
                       {/* Mental Disorder Text Container */}
-                      <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full lg:w-1/2">
+                      <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full xl:w-1/2">
                         <h2 className="text-2xl lg:text-4xl font-sofia font-bold">
                           {title}
                         </h2>
@@ -233,7 +231,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                           <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-sm p-8">
                             {/* Panic Subdisorders Selection Row */}
                             <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
-                              <div className="flex flex-row w-full justify-center gap-x-2">
+                              <div className="flex flex-col lg:flex-row w-full justify-center gap-x-2 gap-y-4">
                                 {additionalData.map((subdisorder, index) => {
                                   return (
                                     <button
@@ -308,7 +306,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                       </div>
 
                       {/* Mental Disorder Image Container */}
-                      <div className="relative rounded-3xl overflow-hidden h-[350px] lg:h-[400px] w-full lg:w-1/2">
+                      <div className="relative rounded-3xl overflow-hidden h-[350px] lg:h-[400px] w-full xl:w-1/2">
                         <Image
                           src={image}
                           alt=""
@@ -321,9 +319,9 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                     {title === 'Angst' && additionalData && (
                       <>
                         {/* Fear Subdisorders Box */}
-                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full lg:h-[250px] bg-white drop-shadow-sm p-8 lg:p-0 flex flex-col lg:flex-row items-center gap-y-8">
+                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full xl:h-[250px] bg-white drop-shadow-sm p-8 xl:p-0 flex flex-col xl:flex-row items-center gap-y-8">
                           {/* Fear Subdisorders Selection Row */}
-                          <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
+                          <div className="flex flex-row flex-wrap xl:flex-nowrap gap-2.5 justify-center xl:absolute xl:-top-5 xl:left-1/2 xl:transform xl:-translate-x-1/2 z-10 ">
                             {additionalData.map((subdisorder, index) => {
                               return (
                                 <button
@@ -338,7 +336,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                           </div>
 
                           {/* Subdisorders Body Container */}
-                          <div className="flex flex-col lg:px-16 gap-y-4">
+                          <div className="flex flex-col xl:px-16 gap-y-4">
                             <p className="text-md lg:text-lg font-sofia font-light">
                               {additionalData[fearSubdisorderIndex].description}
                             </p>
@@ -375,7 +373,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 md:px-32 lg:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-32 xl:px-64 flex flex-col justify-center items-center gap-y-8">
           <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
             Ontdek hoe je jouw mentale gezondheid een boost kunt geven
           </h2>
