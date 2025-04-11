@@ -98,7 +98,7 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Main Section */}
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:pt-0 xl:flex xl:flex-col xl:justify-center ">
           {/* Main Wrapper */}
-          <div className="flex flex-col max-w-screen-xl mx-auto pt-16 px-8 xl:px-16">
+          <div className="flex flex-col max-w-screen-xl mx-auto pt-12 xl:pt-14 2xl:pt-16 px-8 xl:px-16">
             {/* Main Container */}
             <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
               {/* Text Container */}
@@ -115,7 +115,7 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
               {/* Image Container */}
-              <div className="relative rounded-3xl overflow-hidden xl:w-[400px] xl:h-[400px] h-[280px] w-full drop-shadow-md">
+              <div className="relative rounded-3xl overflow-hidden xl:w-[400px] xl:h-[400px] lg:h-[750px] md:h-[600px] h-[250px] w-full drop-shadow-md">
                 <Image
                   src="/images/releafe_logo_white_background.png"
                   alt={'Releafe Logo'}
@@ -320,7 +320,7 @@ const OverOnsPage = ({ settings, page }) => {
                     className="flex flex-col xl:flex-row w-full drop-shadow-md"
                   >
                     {/* Image Container */}
-                    <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full h-[300px] w-full">
+                    <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[600px] md:h-[500px] h-[300px] w-full">
                       <Image
                         className={`object-cover ${index == 0 ? 'scale-110 object-[60%_100%]' : 'object-top'}`}
                         src={photo}

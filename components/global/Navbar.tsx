@@ -20,19 +20,20 @@ interface NavbarProps {
 
 export function Navbar({ navbarItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
+  const [isFlyoutOpen, setIsFlyoutOpen] = useState<boolean>(false)
+
   const isHomePage = route === 'Home'
   const isMentaleKlachtenPage = route === 'Mentale klachten'
   const isMentaalFitPage = route === 'Mentaal fit'
   const isProbeerReleafeGratisPage = route === 'Probeer Releafe gratis'
 
   const FlyoutLink = ({ children, href, FlyoutContent }) => {
-    const [open, setOpen] = useState(false)
-    const showFlyout = open && FlyoutContent
+    const showFlyout = isFlyoutOpen && FlyoutContent
 
     return (
       <div
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
+        onMouseEnter={() => setIsFlyoutOpen(true)}
+        onMouseLeave={() => setIsFlyoutOpen(false)}
         className="relative h-fit w-fit cursor-pointer"
       >
         <div
@@ -70,8 +71,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   }
 
   const FlyoutLinkMobile = ({ children, href, FlyoutContent }) => {
-    const [open, setOpen] = useState(false)
-    const showFlyout = open && FlyoutContent
+    const showFlyout = isFlyoutOpen && FlyoutContent
 
     return (
       <div className="relative">
@@ -79,10 +79,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
           <div className={`text-lg font-sofia font-bold text-white md:text-md`}>
             {children}
           </div>
-          <button onClick={() => setOpen(!open)}>
+          <button onClick={() => setIsFlyoutOpen(!isFlyoutOpen)}>
             <FontAwesomeIcon
               className={`transform transition-transform duration-300 ease-out ${
-                open ? 'rotate-180' : 'rotate-0'
+                isFlyoutOpen ? 'rotate-180' : 'rotate-0'
               }`}
               icon={faChevronDown}
               color={'white'}
@@ -351,9 +351,18 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                             href={href}
                             FlyoutContent={OverContent}
                           >
-                            <li className="text-2xl font-sofia font-medium text-white">
-                              {menuItem.title}
-                            </li>
+                            {menuItem.title === 'Over' ? (
+                              <button
+                                onClick={() => setIsFlyoutOpen(!isFlyoutOpen)}
+                                className='text-2xl font-sofia font-medium text-white"'
+                              >
+                                {menuItem.title}
+                              </button>
+                            ) : (
+                              <li className="text-2xl font-sofia font-medium text-white">
+                                {menuItem.title}
+                              </li>
+                            )}
                           </FlyoutLinkMobile>
                         )
                       }
