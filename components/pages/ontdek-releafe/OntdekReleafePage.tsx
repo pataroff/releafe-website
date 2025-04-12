@@ -105,7 +105,7 @@ const OntdekReleafePage = ({ settings, page }) => {
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Releafe: jouw pad naar mentaal welzijn
               </h1>
@@ -177,102 +177,105 @@ const OntdekReleafePage = ({ settings, page }) => {
 
         {/* Features Section */}
         <section id="features-section" className="bg-[#F7F7F7] flex flex-col">
-          {/* Features Header */}
-          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64">
-            <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
-              Hoe Releafe jou helpt
-            </h1>
-            <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
-              Wil je minder stress, meer balans en weer goed in je vel zitten?
-              Releafe helpt je hierbij met praktische en handige tools. Ontdek
-              hieronder welke functies de app biedt, wat hun doel is, hoe ze
-              werken en kies wat bij jou past. Kleine stappen, groot verschil.
-            </p>
-          </div>
+          {/* Features Wrapper */}
+          <div className="max-w-[1840px] place-self-center">
+            {/* Features Header */}
+            <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64">
+              <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
+                Hoe Releafe jou helpt
+              </h1>
+              <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
+                Wil je minder stress, meer balans en weer goed in je vel zitten?
+                Releafe helpt je hierbij met praktische en handige tools. Ontdek
+                hieronder welke functies de app biedt, wat hun doel is, hoe ze
+                werken en kies wat bij jou past. Kleine stappen, groot verschil.
+              </p>
+            </div>
 
-          {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 xl:mx-32 2xl:mx-64 py-8">
-            {/* Features Data Container */}
-            <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
-              {featuresData.map((item, index) => {
-                const {
-                  title,
-                  goalText,
-                  descriptionText,
-                  descriptionText2,
-                  tipText,
-                  ctaText,
-                  image,
-                } = item
+            {/* Features Box */}
+            <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 xl:mx-32 2xl:mx-64 py-8">
+              {/* Features Data Container */}
+              <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
+                {featuresData.map((item, index) => {
+                  const {
+                    title,
+                    goalText,
+                    descriptionText,
+                    descriptionText2,
+                    tipText,
+                    ctaText,
+                    image,
+                  } = item
 
-                return (
-                  <div
-                    key={index}
-                    className={`flex flex-col-reverse xl:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-y-12 gap-x-12`}
-                  >
-                    {/* Feature Text Container */}
-                    <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full xl:w-1/2">
-                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                        {title}
-                      </h2>
+                  return (
+                    <div
+                      key={index}
+                      className={`flex flex-col-reverse xl:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-y-12 gap-x-12`}
+                    >
+                      {/* Feature Text Container */}
+                      <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full xl:w-1/2">
+                        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                          {title}
+                        </h2>
 
-                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                        Doel:{' '}
-                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {goalText}
-                        </span>
-                      </h3>
-
-                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                        Hoe werk het?{' '}
-                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {descriptionText}
-                        </span>
-                      </h3>
-
-                      {descriptionText2 !== '' && (
-                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {descriptionText2}
-                        </h3>
-                      )}
-
-                      {tipText !== '' && (
                         <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                          Tip:{' '}
+                          Doel:{' '}
                           <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                            {tipText}
+                            {goalText}
                           </span>
                         </h3>
-                      )}
 
-                      <Link
-                        href={'/probeer-releafe'}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
-                      >
-                        {/* Pseudo-element for the hover effect */}
-                        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+                          Hoe werk het?{' '}
+                          <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                            {descriptionText}
+                          </span>
+                        </h3>
 
-                        {/* Text above the overlay */}
-                        <p className="relative z-10 pointer-events-none">
-                          {ctaText}
-                        </p>
-                      </Link>
-                    </div>
+                        {descriptionText2 !== '' && (
+                          <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                            {descriptionText2}
+                          </h3>
+                        )}
 
-                    {/* Releafe Feature Image Container */}
-                    {image !== '' && (
-                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[600px] relative  my-[4rem] lg:my-[6rem] xl:my-[8rem]">
-                        <Image
-                          className={`object-contain ${index % 2 == 0 ? 'scale-125 lg:scale-150' : 'scale-110 lg:scale-125'}`}
-                          src={image}
-                          alt=""
-                          fill
-                        />
+                        {tipText !== '' && (
+                          <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+                            Tip:{' '}
+                            <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                              {tipText}
+                            </span>
+                          </h3>
+                        )}
+
+                        <Link
+                          href={'/probeer-releafe'}
+                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
+                        >
+                          {/* Pseudo-element for the hover effect */}
+                          <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+                          {/* Text above the overlay */}
+                          <p className="relative z-10 pointer-events-none">
+                            {ctaText}
+                          </p>
+                        </Link>
                       </div>
-                    )}
-                  </div>
-                )
-              })}
+
+                      {/* Releafe Feature Image Container */}
+                      {image !== '' && (
+                        <div className="w-full xl:w-1/3 2xl:w-1/3 h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[600px] relative  my-[4rem] lg:my-[6rem] xl:my-[8rem]">
+                          <Image
+                            className={`object-contain ${index % 2 == 0 ? 'scale-125 lg:scale-150' : 'scale-110 lg:scale-125'}`}
+                            src={image}
+                            alt=""
+                            fill
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </section>

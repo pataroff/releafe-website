@@ -18,8 +18,8 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
   return (
     <>
       <Layout settings={settings} preview={preview} route="Wat is mindfulness?">
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-14 xl:pt-0">
-          <div className="max-w-5xl mx-auto px-8 py-14">
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-14 xl:pt-0">
+          <div className="max-w-[1440px] mx-auto px-8 py-14">
             {/* Article Header Container */}
             <div>
               {/* Header */}
@@ -34,7 +34,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
                 <span>Psycholoog, coach & directeur StressWise</span>
               </div>
 
-              <div className="relative rounded-3xl overflow-hidden h-[250px] lg:h-[600px] xl:h-[500px] w-full my-8">
+              <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
                 <Image
                   src="/images/articles/mindfulness_article_image_1.jpg"
                   alt="Mindfulness Article Image 1"

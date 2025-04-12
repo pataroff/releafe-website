@@ -144,7 +144,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Samen bouwen aan een mentaal sterke werkplek
               </h1>
@@ -208,7 +208,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
           {/* Facts Section */}
           <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
-            <h1 className="text-2xl font-sofia font-bold xl:text-4xl text-center">
+            <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center">
               Gezonde medewerkers, sterke organisaties: waarom mentale zorg telt
             </h1>
 
@@ -287,7 +287,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           {/*  Voor Bedrijven Section */}
           <section
             id="voor-bedrijven-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64 max-w-[1840px] place-self-center"
           >
             <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
               Ontdek hoe Releafe jouw medewerkers en organisatie helpt
@@ -302,7 +302,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </p>
           </section>
 
-          <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center">
+          <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center max-w-[1840px] place-self-center">
             <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-lg p-8">
               {/* Bedrijven Selection Row Container */}
               <div className="flex flex-row flex-wrap lg:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
@@ -378,7 +378,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </div>
 
             {/* Video Wrapper */}
-            <div className="mt-[2rem] lg:mt-[4rem] xl:px-16">
+            <div className="mt-[2rem] lg:mt-[4rem] w-full">
               {/* Video Container */}
               <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full drop-shadow-md">
                 <video
@@ -396,7 +396,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8 max-w-[1840px] place-self-center">
           <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Benieuwd wat Releafe voor jouw organisatie kan betekenen?
           </h2>

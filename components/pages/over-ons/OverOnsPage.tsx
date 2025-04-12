@@ -98,7 +98,7 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Main Section */}
         <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex xl:flex-col xl:justify-center">
           {/* Main Wrapper */}
-          <div className="flex flex-col min-h-full w-full px-8 xl:px-64 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+          <div className="flex flex-col min-h-full w-full px-8 xl:px-64 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16 max-w-[1840px] place-self-center">
             {/* Main Container */}
             <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
               {/* Text Container */}
@@ -145,7 +145,7 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Letter Section */}
         <section
           id="letter-section"
-          className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 lg:px-32 xl:px-0"
+          className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 lg:px-32 xl:px-64"
         >
           {/* Letter Box */}
           <div className="rounded-3xl drop-shadow-sm w-full lg:w-[600px] h-full bg-white space-y-8 p-10">
@@ -187,7 +187,7 @@ const OverOnsPage = ({ settings, page }) => {
         <section>
           {/* Gradient Background */}
           <div className="bg-[#8fa58b] py-[4rem] xl:py-[6rem]">
-            <div className="max-w-screen-xl mx-auto px-8 xl:px-16">
+            <div className="max-w-[1440px] mx-auto px-8 xl:px-16">
               <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center text-white">
                 Onze Missie
               </h2>
@@ -222,7 +222,7 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         {/* Core Values Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 xl:px-32 2xl:px-64">
           <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center">
             Onze kernwaarden:
           </h2>
@@ -308,7 +308,7 @@ const OverOnsPage = ({ settings, page }) => {
           <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center">
             Het Team
           </h2>
-          <div className="mt-[4rem] max-w-screen-xl mx-auto px-8 xl:px-16 2xl:px-0">
+          <div className="mt-[4rem] max-w-[1840px] mx-auto px-8 xl:px-16 2xl:px-64">
             <div className="flex flex-col xl:flex-row gap-8">
               {teamData.map((teamMember, index) => {
                 const { name, title, photo, description, socialMediaLinks } =

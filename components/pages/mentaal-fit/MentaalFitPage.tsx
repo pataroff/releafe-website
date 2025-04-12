@@ -140,7 +140,7 @@ const MentaalFitPage = ({ settings, page }) => {
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Verbeter je mentale fitheid, stap voor stap
               </h1>
@@ -209,7 +209,7 @@ const MentaalFitPage = ({ settings, page }) => {
           {/* Mental Exercises Section */}
           <section
             id="mental-exercises-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] max-w-[1840px] place-self-center"
           >
             <div className="px-8 lg:px-16 2xl:px-64">
               <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
@@ -512,7 +512,7 @@ const MentaalFitPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8 max-w-[1840px] place-self-center">
           <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Ontdek hoe Releafe je kan helpen mentaal fit te blijven
           </h2>

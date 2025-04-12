@@ -115,7 +115,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Ervaar je mentale klachten? Boost je welzijn met Releafe
               </h1>
@@ -181,7 +181,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
-          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64">
+          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64 max-w-[1840px] place-self-center">
             <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
               Veelvoorkomende mentale klachten
             </h1>
@@ -196,10 +196,10 @@ const MentaleKlachtenPage = ({ settings, page }) => {
           {/* Mental Disorders Section */}
           <section
             id="mental-disorders-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem]"
           >
             {/* Mental Disorder Wrapper */}
-            <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-16 px-8 xl:px-32">
+            <div className="my-[2rem] lg:my-[4rem] flex flex-col place-self-center gap-y-12 lg:gap-y-16 px-8 xl:px-32 max-w-[1840px]">
               {mentalDisordersData.map((item, index) => {
                 const {
                   title,
@@ -218,11 +218,11 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                     >
                       {/* Mental Disorder Text Container */}
                       <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full xl:w-1/2">
-                        <h2 className="text-2xl font-sofia font-bold">
+                        <h2 className="text-2xl xl:text-3xl font-sofia font-bold">
                           {title}
                         </h2>
 
-                        <p className="text-md font-sofia font-light">
+                        <p className="text-md xl:text-lg font-sofia font-light">
                           {description}
                         </p>
 
@@ -373,7 +373,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center place-self-center gap-y-8 max-w-[1840px]">
           <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Ontdek hoe je jouw mentale gezondheid een boost kunt geven
           </h2>
