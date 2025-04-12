@@ -334,7 +334,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   : 'translate-x-full opacity-0 invisible'
               } pt-[76px]`}
             >
-              <ul className="flex flex-col gap-y-8 px-[1rem] md:pl-[2rem]">
+              <ul className="flex flex-col gap-y-8 px-[1rem]">
                 {navbarItems &&
                   navbarItems
                     .slice(0, navbarItems.length - 1)

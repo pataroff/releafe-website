@@ -111,12 +111,12 @@ const MentaleKlachtenPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Mentale klachten'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] xl:flex">
+        <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
-              <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
+              <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Ervaar je mentale klachten? Boost je welzijn met Releafe
               </h1>
               <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
@@ -168,7 +168,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
             </div>
 
             {/* Hero Image Container */}
-            <div className="relative h-[400px] lg:h-[500px] lg:min-h-full w-full xl:w-1/2">
+            <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
               <Image
                 src="/images/mentale_klachten_hero_image.jpg"
                 alt="Mentale Klachten Hero Image"
@@ -181,8 +181,8 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
-          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-32 xl:px-64">
-            <h1 className="text-2xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
+          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64">
+            <h1 className="text-3xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
               Veelvoorkomende mentale klachten
             </h1>
             <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
@@ -199,7 +199,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
             className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             {/* Mental Disorder Wrapper */}
-            <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 lg:px-32">
+            <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 xl:px-32">
               {mentalDisordersData.map((item, index) => {
                 const {
                   title,
@@ -373,7 +373,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-32 xl:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
           <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
             Ontdek hoe je jouw mentale gezondheid een boost kunt geven
           </h2>
