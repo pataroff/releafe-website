@@ -328,7 +328,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
             {/* Navbar Links (mobile + tablet) */}
             <div
-              className={`absolute top-0 right-0 h-screen w-screen bg-[#c5d4bc] transition-all duration-300 ease-in-out ${
+              className={`absolute top-0 left-0 right-0 h-screen bg-[#c5d4bc] transition-all duration-300 ease-in-out ${
                 isHamburgerMenuOpen
                   ? 'translate-x-0 opacity-100 visible'
                   : 'translate-x-full opacity-0 invisible'

@@ -236,7 +236,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                                   return (
                                     <button
                                       key={index}
-                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-sm xl:text-lg py-2 transition duration-300 ease-in-out`}
+                                      className={`rounded-xl w-full ${panicSubdisorderIndex == index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-sm lg:text-xl xl:text-lg py-2 transition duration-300 ease-in-out`}
                                       onClick={() =>
                                         setPanicSubdisorderIndex(index)
                                       }
@@ -306,7 +306,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                       </div>
 
                       {/* Mental Disorder Image Container */}
-                      <div className="relative rounded-3xl overflow-hidden h-[350px] lg:h-[400px] w-full xl:w-1/2">
+                      <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] w-full xl:w-1/2 drop-shadow-sm">
                         <Image
                           src={image}
                           alt=""
@@ -327,7 +327,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                                 <button
                                   key={index}
                                   onClick={() => setFearSubdisorderIndex(index)}
-                                  className={`${fearSubdisorderIndex === index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-sm xl:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
+                                  className={`${fearSubdisorderIndex === index ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white' : 'bg-gray-200 hover:bg-gray-300'} rounded-lg text-md lg:text-xl xl:text-lg font-sofia font-semibold ${fearSubdisorderIndex === index ? 'text-white' : 'text-black'} text-nowrap py-2 px-10 2xl:px-20 transition duration-300 ease-in-out`}
                                 >
                                   {subdisorder.title}
                                 </button>
