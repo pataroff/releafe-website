@@ -145,10 +145,10 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
-              <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
+              <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Samen bouwen aan een mentaal sterke werkplek
               </h1>
-              <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
+              <h3 className="text-md 2xl:text-xl font-sofia font-light">
                 Mentale gezondheid op het werk is belangrijk. Stress, burn-out
                 en andere mentale klachten komen steeds vaker voor. Dit heeft
                 niet alleen invloed op je medewerkers, maar ook op je
@@ -163,7 +163,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               <div className="flex flex-col items-center gap-y-6">
                 <Link
                   href="mailto:info@releafe.nl"
-                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
                   <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -208,7 +208,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
           {/* Facts Section */}
           <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
-            <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
+            <h1 className="text-2xl font-sofia font-bold xl:text-4xl text-center">
               Gezonde medewerkers, sterke organisaties: waarom mentale zorg telt
             </h1>
 
@@ -287,12 +287,12 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           {/*  Voor Bedrijven Section */}
           <section
             id="voor-bedrijven-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64"
           >
-            <h1 className="text-3xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
+            <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
               Ontdek hoe Releafe jouw medewerkers en organisatie helpt
             </h1>
-            <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
+            <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
               Releafe biedt medewerkers de tools om grip te krijgen op hun
               mentale welzijn en geeft bedrijven waardevolle inzichten om een
               gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
@@ -310,7 +310,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                   return (
                     <button
                       key={index}
-                      className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-md lg:text-xl xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
+                      className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-md xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
                       onClick={() => setBedrijvenIndex(index)}
                     >
                       {item.buttonText}
@@ -321,11 +321,11 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               {/* Bedrijven Data Container */}
               <div className="flex flex-col-reverse xl:flex-row items-center w-full gap-x-8 gap-y-8 xl:p-8">
                 <div className="flex flex-col gap-y-8 w-full xl:w-1/2">
-                  <h2 className="text-3xl 2xl:text-4xl font-sofia font-bold">
+                  <h2 className="text-2xl 2xl:text-4xl font-sofia font-bold">
                     {bedrijvenData[bedrijvenIndex].title}
                   </h2>
 
-                  <h3 className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                  <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                     {bedrijvenData[bedrijvenIndex].description}
                   </h3>
 
@@ -334,7 +334,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                       return (
                         <h3
                           key={index}
-                          className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light"
+                          className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"
                         >
                           • {feature}
                         </h3>
@@ -344,7 +344,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
 
                   {bedrijvenData[bedrijvenIndex].linkText !== '' && (
                     <>
-                      <h3 className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                         {bedrijvenData[bedrijvenIndex].linkText}
                       </h3>
                       <Link
@@ -397,10 +397,10 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
 
         {/* Call-to-Action Section */}
         <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
-          <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
+          <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Benieuwd wat Releafe voor jouw organisatie kan betekenen?
           </h2>
-          <p className="mt-4 text-center font-sofia font-light text-lg lg:text-xl">
+          <p className="mt-4 text-center font-sofia font-light text-lg xl:text-xl">
             Wil je als organisaties bijdragen aan een mentaal gezonde
             werkomgeving? Wij helpen je graag! Neem vrijblijvend contact op via{' '}
             <strong>info@releafe.nl</strong>. Samen zorgen we voor minder stress
@@ -411,7 +411,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             href="mailto:info@releafe.nl"
             className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg lg:text-xl xl:text-lg 
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
     leading-none"
           >
             {/* Pseudo-element for the hover effect */}

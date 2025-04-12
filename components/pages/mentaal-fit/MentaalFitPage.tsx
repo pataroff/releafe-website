@@ -141,10 +141,10 @@ const MentaalFitPage = ({ settings, page }) => {
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
             <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
-              <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
+              <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Verbeter je mentale fitheid, stap voor stap
               </h1>
-              <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-light">
+              <h3 className="text-md 2xl:text-xl font-sofia font-light">
                 Je mentale fitheid is net als je fysieke gezondheid: soms heb je
                 een boost nodig. Stress, vermoeidheid, het hoort er allemaal
                 bij. Maar je kunt er wel degelijk iets aan doen. Releafe biedt
@@ -152,7 +152,7 @@ const MentaalFitPage = ({ settings, page }) => {
                 lekkerder in je vel te voelen. Ontdek hier hoe Releafe jou helpt
                 om mentaal gezond te blijven.
               </h3>
-              <p className="text-sm lg:text-md 2xl:text-lg font-sofia font-light ">
+              <p className="text-sm 2xl:text-lg font-sofia font-light ">
                 *Releafe geeft je praktische tools en oefeningen om mentaal
                 sterker te worden en beter om te gaan met deze klachten. Maar
                 onthoud: bij ernstige klachten is professionele hulp altijd de
@@ -163,7 +163,7 @@ const MentaalFitPage = ({ settings, page }) => {
               <div className="flex flex-col items-center gap-y-6">
                 <Link
                   href="/probeer-releafe"
-                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl 2xl:text-xl leading-none"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
                   <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -212,10 +212,10 @@ const MentaalFitPage = ({ settings, page }) => {
             className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
           >
             <div className="px-8 lg:px-16 2xl:px-64">
-              <h1 className="text-3xl font-sofia font-bold lg:text-5xl text-center lg:text-nowrap">
+              <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Mentaal fit worden en blijven
               </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
+              <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
                 Mentale fitheid is net zo belangrijk als fysieke gezondheid.
                 Door goed voor jezelf te zorgen – met beweging, gezonde voeding,
                 ontspanning en sociale verbinding – kun je stress beter
@@ -256,21 +256,21 @@ const MentaalFitPage = ({ settings, page }) => {
                       <div className="flex flex-col gap-y-8 xl:w-1/2">
                         {/* Mental Exercise Text Container */}
                         <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
-                          <h2 className="text-3xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                          <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
                             {title}
                           </h2>
 
-                          <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                             {description}
                           </p>
 
-                          <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                             {featureText}
                           </p>
 
                           <Link
                             href={'/ontdek-releafe'}
-                            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white lg:text-xl xl:text-lg 2xl:text-xl leading-none"
+                            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
                           >
                             {/* Pseudo-element for the hover effect */}
                             <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -282,7 +282,7 @@ const MentaalFitPage = ({ settings, page }) => {
                           </Link>
 
                           {linkText !== '' && (
-                            <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                            <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                               {linkText?.split('hier')[0]}{' '}
                               <Link
                                 href={href}
@@ -329,21 +329,21 @@ const MentaalFitPage = ({ settings, page }) => {
                         {/* Next Mental Exercise Text Container */}
                         {nextExercise && (
                           <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
-                            <h2 className="text-3xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                            <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
                               {nextExercise.title}
                             </h2>
 
-                            <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                            <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                               {nextExercise.description}
                             </p>
 
-                            <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                            <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                               {nextExercise.featureText}
                             </p>
 
                             <Link
                               href={'/ontdek-releafe'}
-                              className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white lg:text-xl xl:text-lg 2xl:text-xl leading-none"
+                              className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
                             >
                               {/* Pseudo-element for the hover effect */}
                               <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -355,7 +355,7 @@ const MentaalFitPage = ({ settings, page }) => {
                             </Link>
 
                             {nextExercise.linkText !== '' && (
-                              <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                              <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                                 {nextExercise.linkText?.split('hier')[0]}{' '}
                                 <Link
                                   href={nextExercise.href}
@@ -430,17 +430,17 @@ const MentaalFitPage = ({ settings, page }) => {
                           {title}
                         </h2>
 
-                        <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                        <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                           {description}
                         </p>
 
-                        <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                        <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                           {featureText}
                         </p>
 
                         <Link
                           href={'/ontdek-releafe'}
-                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white lg:text-xl xl:text-lg 2xl:text-xl leading-none"
+                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
                         >
                           {/* Pseudo-element for the hover effect */}
                           <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -452,7 +452,7 @@ const MentaalFitPage = ({ settings, page }) => {
                         </Link>
 
                         {linkText !== '' && (
-                          <p className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
+                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
                             {linkText?.split('hier')[0]}{' '}
                             <Link
                               href={href}
@@ -513,10 +513,10 @@ const MentaalFitPage = ({ settings, page }) => {
 
         {/* Call-to-Action Section */}
         <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
-          <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
+          <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Ontdek hoe Releafe je kan helpen mentaal fit te blijven
           </h2>
-          <p className="mt-4 text-center font-sofia font-light text-lg lg:text-xl">
+          <p className="mt-4 text-center font-sofia font-light text-lg">
             Mentale fitheid is een doorlopend proces, en kleine stappen kunnen
             een groot verschil maken. Wil je meer inzicht in je mentale welzijn
             en actief werken aan je veerkracht? In de Releafe-app vind je tools
@@ -527,7 +527,7 @@ const MentaalFitPage = ({ settings, page }) => {
             href="/mentaal-fit"
             className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[60px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-   bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] text-white font-sofia font-bold text-lg lg:text-xl xl:text-lg 
+   bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] text-white font-sofia font-bold text-lg xl:text-lg 
     leading-none"
           >
             {/* Pseudo-element for the hover effect */}

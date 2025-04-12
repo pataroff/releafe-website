@@ -42,8 +42,8 @@ const ProbeerReleafePage = ({ settings, page }) => {
     <>
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Probeer Releafe gratis'}>
-        <section className="min-h-screen bg-[#F7F7F7] xl:flex">
-          <div className="flex flex-col-reverse xl:flex-row xl:justify-center xl:items-center xl:gap-x-16 2xl:gap-x-32 xl:max-w-screen-xl 2xl:max-w-[1440px] min-h-full mx-auto pt-20 px-4 pb-8 xl:pt-12 xl:py-14">
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex">
+          <div className="flex flex-col-reverse justify-between xl:flex-row xl:justify-center xl:items-center xl:gap-x-16 2xl:gap-x-32 xl:max-w-screen-xl 2xl:max-w-[1440px] min-h-screen mx-auto pt-20 px-4 pb-8 xl:pt-12 xl:py-14">
             {/* Text Container */}
             <div className="flex flex-col gap-y-6 xl:gap-y-6 2xl:gap-y-10 w-full xl:w-3/4 2xl:w-2/3 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
               <h1 className="font-sofia font-bold text-2xl xl:text-4xl 2xl:text-5xl">
@@ -122,7 +122,7 @@ const ProbeerReleafePage = ({ settings, page }) => {
             </div>
 
             {/* Image Container */}
-            <div className="xl:w-1/3 2xl:w-1/3 h-[600px] xl:h-[600px] 2xl:h-[700px] relative">
+            <div className="xl:w-1/3 2xl:w-1/3 h-[600px] lg:h-[700px] xl:h-[600px] 2xl:h-[700px] relative">
               <Image
                 className="object-contain xl:scale-110"
                 src="/images/probeer_releafe_gratis_perspective_image.png"

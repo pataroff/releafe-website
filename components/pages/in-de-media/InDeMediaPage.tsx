@@ -45,12 +45,8 @@ const InDeMediaPage = ({ settings, page }) => {
               return (
                 <div key={index} className="flex flex-col gap-y-8">
                   <div className="flex flex-col gap-y-4">
-                    <h3 className="font-sofia font-bold text-xl lg:text-2xl">
-                      {title}
-                    </h3>
-                    <p className="font-sofia font-normal text-md lg:text-lg">
-                      {date}
-                    </p>
+                    <h3 className="font-sofia font-bold text-xl">{title}</h3>
+                    <p className="font-sofia font-normal text-md">{date}</p>
                   </div>
 
                   {isEmbedded ? (
