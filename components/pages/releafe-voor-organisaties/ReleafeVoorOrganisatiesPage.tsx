@@ -140,11 +140,11 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Releafe voor bedjriven'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] xl:flex">
+        <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
           {/* Main Wrapper */}
           <div className="flex flex-col xl:flex-row min-h-full w-full">
             {/* Hero Text Container */}
-            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 lg:px-24 pb-4 lg:pb-8 pt-28 lg:pt-12 2xl:pt-16">
+            <div className="flex flex-col justify-between h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-8 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
               <h1 className="text-3xl/[2.5rem] font-sofia font-bold lg:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                 Samen bouwen aan een mentaal sterke werkplek
               </h1>
@@ -193,7 +193,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </div>
 
             {/* Hero Image Container */}
-            <div className="relative h-[400px] lg:min-h-full w-full xl:w-1/2">
+            <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
               <Image
                 src="/images/bedrijven_hero_image.jpg"
                 alt="Bedrijven Hero Image"
@@ -207,7 +207,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         {/* Gradient Background Container */}
         <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
           {/* Facts Section */}
-          <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-64">
+          <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
             <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
               Gezonde medewerkers, sterke organisaties: waarom mentale zorg telt
             </h1>
@@ -287,32 +287,30 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           {/*  Voor Bedrijven Section */}
           <section
             id="voor-bedrijven-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem]"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64"
           >
-            <div className="px-5 lg:px-24 2xl:px-64">
-              <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
-                Ontdek hoe Releafe jouw medewerkers en organisatie helpt
-              </h1>
-              <p className="mt-4 font-sofia font-light text-center lg:text-md xl:text-lg 2xl:text-xl">
-                Releafe biedt medewerkers de tools om grip te krijgen op hun
-                mentale welzijn en geeft bedrijven waardevolle inzichten om een
-                gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
-                tot geanonimiseerde groepsanalyses: ontdek hoe Releafe bijdraagt
-                aan een veerkrachtige en productieve organisatie. Klik op de
-                links voor meer informatie!
-              </p>
-            </div>
+            <h1 className="text-3xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
+              Ontdek hoe Releafe jouw medewerkers en organisatie helpt
+            </h1>
+            <p className="mt-4 font-sofia font-light text-center text-md md:text-xl">
+              Releafe biedt medewerkers de tools om grip te krijgen op hun
+              mentale welzijn en geeft bedrijven waardevolle inzichten om een
+              gezonde werkomgeving te creëren. Van persoonlijke ondersteuning
+              tot geanonimiseerde groepsanalyses: ontdek hoe Releafe bijdraagt
+              aan een veerkrachtige en productieve organisatie. Klik op de links
+              voor meer informatie!
+            </p>
           </section>
 
-          <section className="mt-[4rem] lg:mt-[6rem] px-5 xl:px-32 2xl:px-64 flex flex-col justify-center items-center">
+          <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center">
             <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-lg p-8">
               {/* Bedrijven Selection Row Container */}
-              <div className="flex flex-row flex-wrap xl:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
+              <div className="flex flex-row flex-wrap lg:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
                 {bedrijvenData.map((item, index) => {
                   return (
                     <button
                       key={index}
-                      className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-sm xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
+                      className={`rounded-xl w-full ${bedrijvenIndex == index ? 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white' : 'bg-gray-200 hover:bg-gray-300 text-black'} font-sofia font-semibold text-nowrap text-md lg:text-xl xl:text-lg py-2 px-12 transition duration-300 ease-in-out`}
                       onClick={() => setBedrijvenIndex(index)}
                     >
                       {item.buttonText}
@@ -322,12 +320,12 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               </div>
               {/* Bedrijven Data Container */}
               <div className="flex flex-col-reverse xl:flex-row items-center w-full gap-x-8 gap-y-8 xl:p-8">
-                <div className="flex flex-col gap-y-8 w-full lg:w-1/2">
-                  <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                <div className="flex flex-col gap-y-8 w-full xl:w-1/2">
+                  <h2 className="text-3xl 2xl:text-4xl font-sofia font-bold">
                     {bedrijvenData[bedrijvenIndex].title}
                   </h2>
 
-                  <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                  <h3 className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
                     {bedrijvenData[bedrijvenIndex].description}
                   </h3>
 
@@ -336,7 +334,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                       return (
                         <h3
                           key={index}
-                          className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"
+                          className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light"
                         >
                           • {feature}
                         </h3>
@@ -346,12 +344,12 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
 
                   {bedrijvenData[bedrijvenIndex].linkText !== '' && (
                     <>
-                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+                      <h3 className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light">
                         {bedrijvenData[bedrijvenIndex].linkText}
                       </h3>
                       <Link
                         href={bedrijvenData[bedrijvenIndex].href}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
+                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md lg:text-xl xl:text-lg 2xl:text-xl leading-none"
                       >
                         {/* Pseudo-element for the hover effect */}
                         <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -367,7 +365,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
 
                 {/* Media Container */}
                 {bedrijvenData[bedrijvenIndex].image !== '' ? (
-                  <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[500px] 2xl:h-[500px] w-full lg:w-1/2 mt-[2rem] xl:mt-0">
+                  <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[600px] w-full xl:w-1/2 mt-[2rem] xl:mt-0">
                     <Image
                       src={bedrijvenData[bedrijvenIndex].image}
                       alt=""
@@ -380,9 +378,9 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </div>
 
             {/* Video Wrapper */}
-            <div className="mt-[2rem] xl:mt-[4rem] xl:px-16">
+            <div className="mt-[2rem] lg:mt-[4rem] xl:px-16">
               {/* Video Container */}
-              <div className="relative rounded-3xl overflow-hidden h-[400px] xl:h-[700px] 2xl:h-[700px] w-full drop-shadow-md">
+              <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full drop-shadow-md">
                 <video
                   ref={videoRef}
                   src={
@@ -398,7 +396,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 md:px-32 lg:px-64 flex flex-col justify-center items-center gap-y-8">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8">
           <h2 className="text-3xl text-center font-sofia font-bold lg:text-5xl ">
             Benieuwd wat Releafe voor jouw organisatie kan betekenen?
           </h2>
@@ -413,7 +411,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             href="mailto:info@releafe.nl"
             className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg lg:text-xl xl:text-lg 
     leading-none"
           >
             {/* Pseudo-element for the hover effect */}

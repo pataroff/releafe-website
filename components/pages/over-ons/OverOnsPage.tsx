@@ -96,17 +96,17 @@ const OverOnsPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Over Ons'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:pt-0 xl:flex xl:flex-col xl:justify-center ">
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex xl:flex-col xl:justify-center">
           {/* Main Wrapper */}
-          <div className="flex flex-col max-w-screen-xl mx-auto pt-12 xl:pt-14 2xl:pt-16 px-8 xl:px-16">
+          <div className="flex flex-col min-h-full w-full px-8 xl:px-64 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
             {/* Main Container */}
             <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
               {/* Text Container */}
               <div className="space-y-8 xl:w-1/2 w-full">
-                <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl">
+                <h2 className="font-sofia font-bold text-3xl 2xl:text-5xl">
                   Hoe is Releafe ontstaan?
                 </h2>
-                <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                <p className="font-sofia font-light text-md lg:text-xl xl:text-lg 2xl:text-xl">
                   Releafe is ontstaan uit persoonlijke ervaring met mentale
                   uitdagingen en de zoektocht naar toegankelijke ondersteuning.
                   Deze reis leidde tot het creëren van een app die inzichten,
@@ -115,7 +115,7 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
               {/* Image Container */}
-              <div className="relative rounded-3xl overflow-hidden xl:w-[400px] xl:h-[400px] lg:h-[750px] md:h-[600px] h-[250px] w-full drop-shadow-md">
+              <div className="relative rounded-3xl overflow-hidden w-full xl:w-[400px] xl:h-[400px] lg:h-[881px] md:h-[600px] h-[300px] drop-shadow-md">
                 <Image
                   src="/images/releafe_logo_white_background.png"
                   alt={'Releafe Logo'}
@@ -145,11 +145,11 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Letter Section */}
         <section
           id="letter-section"
-          className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 xl:px-0"
+          className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 lg:px-32 xl:px-0"
         >
           {/* Letter Box */}
-          <div className="rounded-3xl drop-shadow-sm w-[600px] h-full bg-white space-y-8 p-10">
-            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+          <div className="rounded-3xl drop-shadow-sm w-full lg:w-[600px] h-full bg-white space-y-8 p-10">
+            <p className="font-sofia font-light italic text-md lg:text-xl xl:text-lg 2xl:text-xl">
               “Uit eigen ervaring weet ik hoe ingrijpend mentale uitdagingen je
               leven kunnen beïnvloeden. Jarenlang worstelde ik met hevige angst-
               en paniekklachten. Intensieve behandeltrajecten hebben
@@ -158,7 +158,7 @@ const OverOnsPage = ({ settings, page }) => {
               controle heeft.
             </p>
 
-            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+            <p className="font-sofia font-light italic text-md lg:text-xl xl:text-lg 2xl:text-xl">
               Als ik terugkijk op deze periode miste ik een toegankelijke manier
               om mezelf te ondersteunen bij het omgaan met mijn klachten. Ik had
               behoefte aan een plek met inzichten, oefeningen en begeleiding
@@ -168,7 +168,7 @@ const OverOnsPage = ({ settings, page }) => {
               hielpen, waren versnipperd over verschillende methoden en bronnen.
             </p>
 
-            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+            <p className="font-sofia font-light italic text-md lg:text-xl xl:text-lg 2xl:text-xl">
               Dat zette me aan het denken: wat als er een app bestond die niet
               alleen inzichten biedt, maar ook helpt om dagelijkse gewoonten op
               te bouwen? Zo is Releafe ontstaan. Een app die je ondersteunt in
@@ -177,7 +177,7 @@ const OverOnsPage = ({ settings, page }) => {
               nodig had.”
             </p>
 
-            <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
+            <p className="font-sofia font-light italic text-md lg:text-xl xl:text-lg 2xl:text-xl">
               - Jan Grobbe
             </p>
           </div>
@@ -188,18 +188,18 @@ const OverOnsPage = ({ settings, page }) => {
           {/* Gradient Background */}
           <div className="bg-[#8fa58b] py-[4rem] xl:py-[6rem]">
             <div className="max-w-screen-xl mx-auto px-8 xl:px-16">
-              <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center text-white">
+              <h2 className="font-sofia font-bold text-3xl 2xl:text-5xl text-center text-white">
                 Onze Missie
               </h2>
               <div className="mt-[2rem] space-y-4 text-center text-white">
-                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                <p className="font-sofia font-light lg:text-xl xl:text-lg 2xl:text-xl">
                   Releafe helpt mensen grip te krijgen op hun mentale welzijn
                   met praktische en bewezen tools. Onze missie? Mentale zorg
                   toegankelijker, begrijpelijker en effectief maken, zodat
                   niemand er alleen voor staat.
                 </p>
 
-                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                <p className="font-sofia font-light lg:text-xl xl:text-lg 2xl:text-xl">
                   Bij Releafe vind je een plek waar je op je eigen tempo en
                   zonder oordeel aan je mentale gezondheid kunt werken. We
                   geloven dat kleine stappen grote impact hebben, en we geven
@@ -207,11 +207,11 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
 
-              <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center mt-[4rem] xl:mt-[6rem] text-white">
+              <h2 className="font-sofia font-bold text-3xl 2xl:text-5xl text-center mt-[4rem] xl:mt-[6rem] text-white">
                 Onze visie: samen werken aan welzijn
               </h2>
 
-              <p className="font-sofia font-light xl:text-lg 2xl:text-xl mt-[2rem] text-center text-white">
+              <p className="font-sofia font-light lg:text-xl xl:text-lg 2xl:text-xl mt-[2rem] text-center text-white">
                 Wij geloven in een wereld waarin je net zo makkelijk over je
                 mentale gezondheid praat als over een gebroken been. Samen maken
                 we het verschil door ervoor te zorgen dat iedereen, ongeacht hun
@@ -222,8 +222,8 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         {/* Core Values Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-64">
-          <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
+          <h2 className="font-sofia font-bold text-3xl 2xl:text-5xl text-center">
             Onze kernwaarden:
           </h2>
           {/* Core Values Wrapper */}
@@ -305,7 +305,7 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         <section className="mt-[4rem] xl:mt-[6rem]">
-          <h2 className="font-sofia font-bold text-2xl xl:text-3xl 2xl:text-5xl text-center">
+          <h2 className="font-sofia font-bold text-3xl 2xl:text-5xl text-center">
             Het Team
           </h2>
           <div className="mt-[4rem] max-w-screen-xl mx-auto px-8 xl:px-16 2xl:px-0">
@@ -320,7 +320,7 @@ const OverOnsPage = ({ settings, page }) => {
                     className="flex flex-col xl:flex-row w-full drop-shadow-md"
                   >
                     {/* Image Container */}
-                    <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[600px] md:h-[500px] h-[300px] w-full">
+                    <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[700px] md:h-[600px] h-[300px] w-full">
                       <Image
                         className={`object-cover ${index == 0 ? 'scale-110 object-[60%_100%]' : 'object-top'}`}
                         src={photo}
@@ -331,13 +331,13 @@ const OverOnsPage = ({ settings, page }) => {
 
                     {/* Text Container */}
                     <div className="bg-white rounded-3xl rounded-t-none xl:rounded-tr-3xl xl:rounded-l-none xl:w-1/2 w-full p-8 space-y-4">
-                      <h2 className="font-sofia font-bold xl:text-lg 2xl:text-xl text-lg">
+                      <h2 className="font-sofia font-bold lg:text-xl xl:text-lg 2xl:text-xl text-lg ">
                         {name}
                       </h2>
-                      <h3 className="font-sofia font-light text-gray-500 xl:text-md 2xl:text-lg text-md">
+                      <h3 className="font-sofia font-light text-gray-500 xl:text-md lg:text-xl 2xl:text-lg text-md">
                         {title}
                       </h3>
-                      <h3 className="font-sofia font-light xl:text-md 2xl:text-md text-md xl:min-h-[250px]">
+                      <h3 className="font-sofia font-light xl:text-md lg:text-xl 2xl:text-md text-md xl:min-h-[300px]">
                         {description}
                       </h3>
                       {/* Divider Line */}
@@ -365,7 +365,7 @@ const OverOnsPage = ({ settings, page }) => {
                 )
               })}
             </div>
-            <p className="py-[4rem] font-sofia font-light xl:text-lg 2xl:text-xl text-center">
+            <p className="py-[4rem] font-sofia font-light lg:text-xl xl:text-lg 2xl:text-xl text-center">
               We werken nauw samen met een team van experts,
               ervaringsdeskundigen en professionals uit de regio. Door continu
               in gesprek te blijven met psychologen, therapeuten en

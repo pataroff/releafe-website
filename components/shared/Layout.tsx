@@ -24,7 +24,7 @@ export default function Layout({
   return (
     <div className="flex min-h-screen flex-col bg-white text-black overflow-hidden">
       <Navbar navbarItems={settings?.navbarItems} route={route} />
-      <div>{children}</div>
+      <main className="flex-grow">{children}</main>
       <CookiesConsent />
       <GoogleAnalyticsWrapper />
       {route !== 'Probeer Releafe gratis' && <Footer />}

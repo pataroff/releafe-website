@@ -28,13 +28,13 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
               </h1>
 
               {/* Author */}
-              <div className="flex flex-row flex-wrap xl:items-center xl:space-x-2 text-gray-600 font-sofia text-md xl:text-lg my-8">
+              <div className="flex flex-row flex-wrap lg:items-center lg:space-x-2 text-gray-600 font-sofia text-md xl:text-lg my-8">
                 <span>Harrie Kolsteeg</span>
-                <span className="pl-2 xl:pl-0">•</span>
+                <span className="pl-2 lg:pl-0">•</span>
                 <span>Psycholoog, coach & directeur StressWise</span>
               </div>
 
-              <div className="relative rounded-3xl overflow-hidden h-[250px] xl:h-[500px] w-full my-8">
+              <div className="relative rounded-3xl overflow-hidden h-[250px] lg:h-[600px] xl:h-[500px] w-full my-8">
                 <Image
                   src="/images/articles/mindfulness_article_image_1.jpg"
                   alt="Mindfulness Article Image 1"

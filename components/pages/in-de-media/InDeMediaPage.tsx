@@ -38,15 +38,19 @@ const InDeMediaPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'In de media'}>
         {/* Main Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] max-w-screen-xl mx-auto py-14 px-8 xl:px-16 flex flex-col gap-y-8">
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] px-8 xl:flex xl:pt-0 ">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] max-w-screen-xl mx-auto px-8 py-12 xl:px-16 flex flex-col gap-y-12">
             {mediaData.map((media, index) => {
               const { title, date, src, isEmbedded } = media
               return (
-                <React.Fragment key={index}>
-                  <div className="flex flex-col space-y-2">
-                    <h3 className="font-sofia font-bold text-2xl">{title}</h3>
-                    <p className="font-sofia font-normal text-lg">{date}</p>
+                <div key={index} className="flex flex-col gap-y-8">
+                  <div className="flex flex-col gap-y-4">
+                    <h3 className="font-sofia font-bold text-xl lg:text-2xl">
+                      {title}
+                    </h3>
+                    <p className="font-sofia font-normal text-md lg:text-lg">
+                      {date}
+                    </p>
                   </div>
 
                   {isEmbedded ? (
@@ -60,12 +64,12 @@ const InDeMediaPage = ({ settings, page }) => {
                   ) : (
                     <video
                       src={src}
-                      className="object-cover w-full  h-[400px]"
+                      className="object-cover w-full h-[400px]"
                       controls
                       playsInline
                     />
                   )}
-                </React.Fragment>
+                </div>
               )
             })}
           </div>

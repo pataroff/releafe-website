@@ -210,12 +210,12 @@ const OnderzoekPage = ({ settings, page }) => {
         {/* Features Section */}
         <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
           {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] lg:my-[4rem] mx-4 xl:mx-32 2xl:mx-64 pt-14 py-8">
             <div className="px-8 xl:px-32">
-              <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center">
+              <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center">
                 Wetenschappelijk onderzoek functionaliteiten Releafe app
               </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
+              <p className="mt-4 font-sofia font-light text-center text-md lg:text-xl xl:text-lg 2xl:text-xl">
                 Hieronder wordt per functionaliteit van de Releafe-app, op basis
                 van wetenschappelijke onderzoeken, toegelicht hoe deze bijdraagt
                 aan het versterken van mentaal welzijn, mentale gezondheid en/of
@@ -234,11 +234,11 @@ const OnderzoekPage = ({ settings, page }) => {
                     className={`flex flex-col-reverse lg:flex-row justify-between items-center gap-x-12`}
                   >
                     {/* Feature Text Container */}
-                    <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full">
-                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                    <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
+                      <h2 className="text-2xl 2xl:text-4xl font-sofia font-bold">
                         {title}
                       </h2>
-                      <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                      <p className="font-sofia font-light text-md lg:text-xl xl:text-lg 2xl:text-xl">
                         {description}
                       </p>
 
@@ -256,12 +256,12 @@ const OnderzoekPage = ({ settings, page }) => {
                         } = finding
                         return (
                           <div key={index}>
-                            <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+                            <h3 className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-bold">
                               • {findingTitle}
-                              <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"></span>
+                              <span className="text-md lg:text-xl xl:text-lg 2xl:text-xl font-sofia font-light"></span>
                             </h3>
 
-                            <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                            <p className="font-sofia font-light text-md lg:text-xl xl:text-lg 2xl:text-xl">
                               {findingDescription}
                               <span>
                                 {' '}
