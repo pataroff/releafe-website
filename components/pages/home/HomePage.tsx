@@ -190,7 +190,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </div>
           {/* Header Container */}
           {/* @TODO: Is there a better way of doing this? */}
-          <div className="mt-[2rem] px-5 lg:px-32 2xl:px-64 max-w-[1640px] place-self-center">
+          <div className="mt-[2rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center">
             {title && <Header centered title={title} description={overview} />}
           </div>
         </section>
@@ -242,7 +242,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   href="/probeer-releafe"
                   className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 
-    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-lg xl:text-lg 
+    bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-md xl:text-lg
     leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
@@ -322,7 +322,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-full h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
                   >
                     {/* Quotation Mark Icon + Quote */}
                     <div>

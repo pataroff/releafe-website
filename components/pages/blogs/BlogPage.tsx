@@ -17,30 +17,31 @@ export interface ArticlePageProps {
 const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
   return (
     <>
-      <Layout settings={settings} preview={preview} route="Wat is mindfulness?">
-        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-14 xl:pt-0">
-          <div className="max-w-[1440px] mx-auto px-8 py-14">
-            {/* Article Header Container */}
-            <div>
-              {/* Header */}
-              <h1 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl">
-                Wat is mindfulness en hoe werkt het precies?
-              </h1>
+      <Layout
+        settings={settings}
+        preview={preview}
+        route="Wat is mindfulness en hoe werkt het precies?"
+      >
+        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-14 xl:pt-0">
+          <div className="max-w-[1440px] mx-auto py-14 px-8 lg:px-16 xl:px-32">
+            {/* Header */}
+            <h1 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl">
+              Wat is mindfulness en hoe werkt het precies?
+            </h1>
 
-              {/* Author */}
-              <div className="flex flex-row flex-wrap lg:items-center lg:space-x-2 text-gray-600 font-sofia text-md xl:text-lg my-8">
-                <span>Harrie Kolsteeg</span>
-                <span className="pl-2 lg:pl-0">•</span>
-                <span>Psycholoog, coach & directeur StressWise</span>
-              </div>
+            {/* Author */}
+            <div className="flex flex-row flex-wrap lg:items-center lg:space-x-2 text-gray-600 font-sofia text-md xl:text-lg my-8">
+              <span>Harrie Kolsteeg</span>
+              <span className="pl-2 lg:pl-0">•</span>
+              <span>Psycholoog, coach & directeur StressWise</span>
+            </div>
 
-              <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
-                <Image
-                  src="/images/articles/mindfulness_article_image_1.jpg"
-                  alt="Mindfulness Article Image 1"
-                  fill
-                />
-              </div>
+            <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
+              <Image
+                src="/images/articles/mindfulness_article_image_1.jpg"
+                alt="Mindfulness Article Image 1"
+                fill
+              />
             </div>
 
             {/* Introduction */}

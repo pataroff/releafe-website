@@ -98,21 +98,21 @@ const OverOnsPage = ({ settings, page }) => {
         {/* Main Section */}
         <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex xl:flex-col xl:justify-center">
           {/* Main Wrapper */}
-          <div className="flex flex-col min-h-full w-full px-8 xl:px-64 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16 max-w-[1840px] place-self-center">
+          <div className="flex flex-col min-h-full w-full px-8 lg:px-16 xl:px-32 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16 max-w-[1440px] place-self-center">
             {/* Main Container */}
             <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
               {/* Text Container */}
               <div className="space-y-8 xl:w-1/2 w-full">
-                <h1 className="font-sofia font-bold text-3xl 2xl:text-5xl">
+                <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
                   Hoe is Releafe ontstaan?
                 </h1>
-                <h3 className="text-md 2xl:text-xl font-sofia font-light">
+                <p className="text-md xl:text-lg font-sofia font-light">
                   Releafe is ontstaan uit persoonlijke ervaring met mentale
                   uitdagingen en de zoektocht naar toegankelijke ondersteuning.
                   Deze reis leidde tot het creëren van een app die inzichten,
                   oefeningen en begeleiding biedt om anderen te helpen grip te
                   krijgen op hun mentale welzijn.
-                </h3>
+                </p>
               </div>
               {/* Image Container */}
               <div className="relative rounded-3xl overflow-hidden w-full xl:w-[400px] xl:h-[400px] lg:h-[881px] md:h-[600px] h-[300px] drop-shadow-md">
@@ -187,8 +187,8 @@ const OverOnsPage = ({ settings, page }) => {
         <section>
           {/* Gradient Background */}
           <div className="bg-[#8fa58b] py-[4rem] xl:py-[6rem]">
-            <div className="max-w-[1440px] mx-auto px-8 xl:px-16">
-              <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center text-white">
+            <div className="max-w-[1440px] mx-auto px-8 lg:px-16 xl:px-32">
+              <h2 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl text-center text-white">
                 Onze Missie
               </h2>
               <div className="mt-[2rem] space-y-4 text-center text-white">
@@ -207,7 +207,7 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
 
-              <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center mt-[4rem] xl:mt-[6rem] text-white">
+              <h2 className="font-sofia font-bold text-3xl xl:text-4xl text-center mt-[4rem] xl:mt-[6rem] text-white">
                 Onze visie: samen werken aan welzijn
               </h2>
 
@@ -222,12 +222,12 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         {/* Core Values Section */}
-        <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 xl:px-32 2xl:px-64">
-          <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center">
+        <section className="mt-[4rem] lg:mt-[6rem] w-full">
+          <h2 className="font-sofia font-bold text-3xl xl:text-4xl text-center">
             Onze kernwaarden:
           </h2>
           {/* Core Values Wrapper */}
-          <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px]">
+          <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px] px-8 lg:px-16 xl:px-32">
             {/* Core Values Container */}
             <ul className="relative h-[450px]">
               {/* Core Values Box */}
@@ -305,10 +305,10 @@ const OverOnsPage = ({ settings, page }) => {
         </section>
 
         <section className="mt-[4rem] xl:mt-[6rem]">
-          <h2 className="font-sofia font-bold text-2xl 2xl:text-5xl text-center">
+          <h2 className="font-sofia font-bold text-3xl xl:text-4xl text-center">
             Het Team
           </h2>
-          <div className="mt-[4rem] max-w-[1840px] mx-auto px-8 xl:px-16 2xl:px-64">
+          <div className="mt-[4rem] max-w-[1440px] mx-auto px-8 lg:px-16 xl:px-32">
             <div className="flex flex-col xl:flex-row gap-8">
               {teamData.map((teamMember, index) => {
                 const { name, title, photo, description, socialMediaLinks } =

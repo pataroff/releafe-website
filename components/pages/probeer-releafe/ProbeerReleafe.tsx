@@ -43,28 +43,28 @@ const ProbeerReleafePage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Probeer Releafe gratis'}>
         <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex">
-          <div className="flex flex-col-reverse justify-between xl:flex-row xl:justify-center xl:items-center xl:gap-x-16 2xl:gap-x-32 xl:max-w-screen-xl 2xl:max-w-[1440px] min-h-screen mx-auto pt-20 px-4 pb-8 xl:pt-12 xl:py-14">
+          <div className="flex flex-col-reverse justify-between xl:flex-row xl:justify-center xl:items-center max-w-[1440px] min-h-full mx-auto pt-[5rem] xl:pt-0 px-8 py-12">
             {/* Text Container */}
-            <div className="flex flex-col gap-y-6 xl:gap-y-6 2xl:gap-y-10 w-full xl:w-3/4 2xl:w-2/3 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
-              <h1 className="font-sofia font-bold text-2xl xl:text-4xl 2xl:text-5xl">
+            <div className="flex flex-col gap-y-6 w-full xl:w-3/4 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
+              <h1 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl">
                 Releafe is live voor organisaties!
               </h1>
 
               <div className="space-y-6">
-                <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                <h3 className="font-sofia font-light text-md lg:text-lg xl:text-xl">
                   We zijn gestart met de uitrol van Releafe bij organisaties,
                   zoals bedrijven, onderwijsinstellingen en gemeentes. Zo kunnen
                   medewerkers, studenten en bewoners hun mentale welzijn
                   versterken. We streven ernaar om de app in{' '}
                   <strong>2026</strong> voor iedereen beschikbaar te stellen.
                 </h3>
-                <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                <h3 className="font-sofia font-light text-md lg:text-lg xl:text-xl">
                   Wil jij graag gebruik maken van Releafe? Breng je werkgever,
                   onderwijsinstelling of gemeente op de hoogte en vraag hen
                   contact met ons op te nemen!
                 </h3>
 
-                <h3 className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                <h3 className="font-sofia font-light text-md lg:text-lg xl:text-xl">
                   Wil je op de hoogte blijven van updates en de lancering voor
                   particulieren? Laat hier je e-mailadres achter.
                 </h3>
@@ -122,7 +122,7 @@ const ProbeerReleafePage = ({ settings, page }) => {
             </div>
 
             {/* Image Container */}
-            <div className="xl:w-1/3 2xl:w-1/3 h-[600px] lg:h-[700px] xl:h-[600px] 2xl:h-[700px] relative">
+            <div className="w-full xl:w-1/2 h-[600px] lg:h-[700px] xl:h-[600px] 2xl:h-[700px] relative">
               <Image
                 className="object-contain xl:scale-110"
                 src="/images/probeer_releafe_gratis_perspective_image.png"

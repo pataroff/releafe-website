@@ -163,7 +163,7 @@ const MentaalFitPage = ({ settings, page }) => {
               <div className="flex flex-col items-center gap-y-6">
                 <Link
                   href="/probeer-releafe"
-                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
                   <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -209,13 +209,13 @@ const MentaalFitPage = ({ settings, page }) => {
           {/* Mental Exercises Section */}
           <section
             id="mental-exercises-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] max-w-[1840px] place-self-center"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] max-w-[1440px] place-self-center"
           >
-            <div className="px-8 lg:px-16 2xl:px-64">
+            <div className="px-8 lg:px-16 xl:px-32">
               <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Mentaal fit worden en blijven
               </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
+              <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg">
                 Mentale fitheid is net zo belangrijk als fysieke gezondheid.
                 Door goed voor jezelf te zorgen – met beweging, gezonde voeding,
                 ontspanning en sociale verbinding – kun je stress beter
@@ -227,7 +227,7 @@ const MentaalFitPage = ({ settings, page }) => {
             </div>
 
             {/* Mental Exercises Wrapper */}
-            <div className="my-[2rem] lg:my-[4rem] flex flex-col gap-y-12 lg:gap-y-32 px-8 xl:px-32">
+            <div className="my-[2rem] xl:my-[8rem] flex flex-col gap-y-12 xl:gap-y-32 px-8 lg:px-16 xl:px-32">
               {mentalExercisesData.map((item, index) => {
                 const {
                   title,
@@ -440,7 +440,7 @@ const MentaalFitPage = ({ settings, page }) => {
 
                         <Link
                           href={'/ontdek-releafe'}
-                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
+                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
                         >
                           {/* Pseudo-element for the hover effect */}
                           <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -512,7 +512,7 @@ const MentaalFitPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8 max-w-[1840px] place-self-center">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center gap-y-8 max-w-[1440px] place-self-center">
           <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Ontdek hoe Releafe je kan helpen mentaal fit te blijven
           </h2>
@@ -527,7 +527,7 @@ const MentaalFitPage = ({ settings, page }) => {
             href="/mentaal-fit"
             className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[60px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-   bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] text-white font-sofia font-bold text-lg xl:text-lg 
+   bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] text-white font-sofia font-bold text-md lg:text-lg xl:text-xl 
     leading-none"
           >
             {/* Pseudo-element for the hover effect */}

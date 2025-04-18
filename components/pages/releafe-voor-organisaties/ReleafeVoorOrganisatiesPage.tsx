@@ -163,7 +163,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               <div className="flex flex-col items-center gap-y-6">
                 <Link
                   href="mailto:info@releafe.nl"
-                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
+                  className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-sm xl:text-lg leading-none"
                 >
                   {/* Pseudo-element for the hover effect */}
                   <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
@@ -213,7 +213,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </h1>
 
             {/* Testimonials Wrapper */}
-            <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px]">
+            <div className="mt-[2rem] lg:mt-[4rem] max-w-[1440px] mx-auto">
               {/* Testimonials Container */}
               <ul className="relative h-[450px]">
                 {/* Testimonial Box */}
@@ -232,7 +232,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                         transform: `translateX(${translateXValue})`,
                         transition: 'transform 0.2s ease-in-out',
                       }}
-                      className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
+                      className={`rounded-[2.5rem] absolute w-full h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
                     >
                       {/* Number Text */}
                       <h1 className="mt-4 font-sofia font-normal text-5xl leading-tight text-white text-center">
@@ -287,7 +287,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           {/*  Voor Bedrijven Section */}
           <section
             id="voor-bedrijven-section"
-            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem] px-8 lg:px-16 2xl:px-64 max-w-[1840px] place-self-center"
+            className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center"
           >
             <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center lg:text-nowrap">
               Ontdek hoe Releafe jouw medewerkers en organisatie helpt
@@ -302,7 +302,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             </p>
           </section>
 
-          <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center max-w-[1840px] place-self-center">
+          <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center max-w-[1440px] place-self-center">
             <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-lg p-8">
               {/* Bedrijven Selection Row Container */}
               <div className="flex flex-row flex-wrap lg:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
@@ -396,7 +396,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
         </div>
 
         {/* Call-to-Action Section */}
-        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-64 flex flex-col justify-center items-center gap-y-8 max-w-[1840px] place-self-center">
+        <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center gap-y-8 max-w-[1440px] place-self-center">
           <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
             Benieuwd wat Releafe voor jouw organisatie kan betekenen?
           </h2>

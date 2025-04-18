@@ -178,9 +178,9 @@ const OntdekReleafePage = ({ settings, page }) => {
         {/* Features Section */}
         <section id="features-section" className="bg-[#F7F7F7] flex flex-col">
           {/* Features Wrapper */}
-          <div className="max-w-[1840px] place-self-center">
+          <div className="max-w-[1440px] place-self-center">
             {/* Features Header */}
-            <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-64">
+            <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32">
               <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
                 Hoe Releafe jou helpt
               </h1>
@@ -193,7 +193,7 @@ const OntdekReleafePage = ({ settings, page }) => {
             </div>
 
             {/* Features Box */}
-            <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 xl:mx-32 2xl:mx-64 py-8">
+            <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 lg:mx-16 xl:mx-32 py-8">
               {/* Features Data Container */}
               <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
                 {featuresData.map((item, index) => {
@@ -249,7 +249,7 @@ const OntdekReleafePage = ({ settings, page }) => {
 
                         <Link
                           href={'/probeer-releafe'}
-                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg 2xl:text-xl leading-none"
+                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
                         >
                           {/* Pseudo-element for the hover effect */}
                           <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>

@@ -208,10 +208,10 @@ const OnderzoekPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Onderzoek'}>
         {/* Features Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
+        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 px-8 lg:px-16 xl:px-32">
           {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-4 xl:mx-32 2xl:mx-auto pt-14 py-8 max-w-[1440px]">
-            <div className="px-8 xl:px-32">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-auto pt-14 py-8 max-w-[1440px]">
+            <div className="px-8 lg:px-16 xl:px-32">
               <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center">
                 Wetenschappelijk onderzoek functionaliteiten Releafe app
               </h1>
@@ -224,7 +224,7 @@ const OnderzoekPage = ({ settings, page }) => {
             </div>
 
             {/* Research Data Container */}
-            <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-12 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-16">
+            <div className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16">
               {researchData.map((item, index) => {
                 const { title, description, findings } = item
 
@@ -235,7 +235,7 @@ const OnderzoekPage = ({ settings, page }) => {
                   >
                     {/* Feature Text Container */}
                     <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
-                      <h2 className="text-2xl 2xl:text-4xl font-sofia font-bold">
+                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
                         {title}
                       </h2>
                       <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">

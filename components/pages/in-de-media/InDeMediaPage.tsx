@@ -39,7 +39,7 @@ const InDeMediaPage = ({ settings, page }) => {
       <Layout settings={settings} route={'In de media'}>
         {/* Main Section */}
         <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] px-8 xl:flex xl:pt-0 ">
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] max-w-screen-xl mx-auto px-8 py-12 xl:px-16 flex flex-col gap-y-12 h-full place-self-center">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] max-w-[1440px] mx-auto px-8 py-12 xl:px-16 flex flex-col gap-y-12 h-full place-self-center">
             {mediaData.map((media, index) => {
               const { title, date, src, isEmbedded } = media
               return (

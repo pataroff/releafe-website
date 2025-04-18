@@ -35,10 +35,10 @@ const BlogsPage = ({ settings, page }) => {
       <HomePageHead page={page} settings={settings} />
       <Layout settings={settings} route={'Inspiratie'}>
         {/* Features Section */}
-        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 ">
+        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] flex flex-col xl:pt-0 px-8 lg:px-16 xl:px-32">
           {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl max-w-[1440px] my-[2rem] xl:my-[4rem] mx-4 xl:mx-auto pt-14 py-8 w-full h-full place-self-center">
-            <div className="px-8 xl:px-32">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-auto pt-14 py-8 w-full max-w-[1440px] place-self-center flex-grow flex flex-col">
+            <div className="px-8 lg:px-16 xl:px-32">
               <h1 className="text-2xl font-sofia font-bold xl:text-5xl text-center">
                 Blogs
               </h1>
@@ -49,7 +49,7 @@ const BlogsPage = ({ settings, page }) => {
             </div>
 
             {/* Articles Wrapper */}
-            <div className="mt-[2rem] xl:mt-[4rem] xl:px-16 px-8">
+            <div className="mt-[2rem] xl:mt-[4rem] px-8 xl:px-16 flex-grow flex flex-col">
               {/* Dropdown Filter */}
               <div className="relative my-6 w-fit">
                 <select
@@ -73,11 +73,13 @@ const BlogsPage = ({ settings, page }) => {
                 </div>
               </div>
               {/* Articles Container */}
-              <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8">
+              <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8 flex-grow">
                 {filteredArticles.length === 0 ? (
-                  <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl w-full">
-                    Geen artikelen gevonden voor deze categorie.
-                  </p>
+                  <div className="flex-grow flex items-center justify-center">
+                    <p className="font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
+                      Geen artikelen gevonden voor deze categorie.
+                    </p>
+                  </div>
                 ) : (
                   filteredArticles.map((article, index) => {
                     const { category, image, title, slug } = article
