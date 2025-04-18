@@ -322,7 +322,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-full h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
                   >
                     {/* Quotation Mark Icon + Quote */}
                     <div>

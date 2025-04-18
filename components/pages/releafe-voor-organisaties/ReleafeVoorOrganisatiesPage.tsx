@@ -232,7 +232,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                         transform: `translateX(${translateXValue})`,
                         transition: 'transform 0.2s ease-in-out',
                       }}
-                      className={`rounded-[2.5rem] absolute w-full h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
+                      className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
                     >
                       {/* Number Text */}
                       <h1 className="mt-4 font-sofia font-normal text-5xl leading-tight text-white text-center">
