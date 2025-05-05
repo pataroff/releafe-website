@@ -234,7 +234,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
 
                         {/* Panic Subdisorders Box */}
                         {title === 'Paniek' && additionalData && (
-                          <div className="relative rounded-[2.5rem] w-full h-full lg:h-[320px] bg-white drop-shadow-sm transform-gpu p-8">
+                          <div className="relative rounded-[2.5rem] w-full h-full lg:h-[320px] bg-white shadow-sm p-8">
                             {/* Panic Subdisorders Selection Row */}
                             <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
                               <div className="flex flex-row w-full justify-center gap-x-2">
@@ -325,7 +325,7 @@ export function Page({ page, settings, homePageTitle, preview }: PageProps) {
                     {title === 'Angst' && additionalData && (
                       <>
                         {/* Fear Subdisorders Box */}
-                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full lg:h-[250px] bg-white drop-shadow-sm transform-gpu p-8 lg:p-0 flex flex-col lg:flex-row items-center gap-y-8">
+                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full lg:h-[250px] bg-white shadow-sm p-8 lg:p-0 flex flex-col lg:flex-row items-center gap-y-8">
                           {/* Fear Subdisorders Selection Row */}
                           <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
                             {additionalData.map((subdisorder, index) => {

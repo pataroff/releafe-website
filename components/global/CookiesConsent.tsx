@@ -68,13 +68,13 @@ export const CookiesConsent: React.FC<{}> = () => {
 
       <div className="flex gap-x-4">
         <button
-          className="rounded-3xl overflow-hidden bg-white px-8 py-2 drop-shadow-md transform-gpu font-sofia"
+          className="rounded-3xl overflow-hidden bg-white px-8 py-2 shadow-md font-sofia"
           onClick={acceptCookie}
         >
           Accepteren
         </button>
         <button
-          className="rounded-3xl overflow-hidden bg-white px-8 py-2 drop-shadow-md transform-gpu font-sofia"
+          className="rounded-3xl overflow-hidden bg-white px-8 py-2 shadow-md font-sofia"
           onClick={declineCookie}
         >
           Weigeren

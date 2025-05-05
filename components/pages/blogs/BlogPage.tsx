@@ -218,7 +218,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
             </div>
 
             {/* Call to Action */}
-            <div className="bg-white p-8 rounded-3xl drop-shadow-md transform-gpu">
+            <div className="bg-white p-8 rounded-3xl shadow-md">
               <h3 className="font-sofia font-bold text-xl xl:text-2xl mb-4">
                 Gebruik de Releafe-app om het te proberen
               </h3>

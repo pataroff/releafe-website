@@ -232,7 +232,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
                         transform: `translateX(${translateXValue})`,
                         transition: 'transform 0.2s ease-in-out',
                       }}
-                      className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md transform-gpu`}
+                      className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 shadow-md`}
                     >
                       {/* Number Text */}
                       <h1 className="mt-4 font-sofia font-normal text-5xl leading-tight text-white text-center">
@@ -303,7 +303,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
           </section>
 
           <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center max-w-[1440px] place-self-center">
-            <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-lg transform-gpu p-8">
+            <div className="relative rounded-[2.5rem] w-full h-full bg-white shadow-lg p-8">
               {/* Bedrijven Selection Row Container */}
               <div className="flex flex-row flex-wrap lg:flex-nowrap gap-y-3 gap-x-5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
                 {bedrijvenData.map((item, index) => {
@@ -380,7 +380,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
             {/* Video Wrapper */}
             <div className="mt-[2rem] lg:mt-[4rem] w-full">
               {/* Video Container */}
-              <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full drop-shadow-md transform-gpu">
+              <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full shadow-md">
                 <video
                   ref={videoRef}
                   src={
