@@ -14,6 +14,18 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 const articlesData = [
   {
     category: 'Mindfulness',
+    image: '/images/articles/mindfulness_article_image_3.jpg',
+    title: 'Mindfulness en de kracht van aandacht',
+    slug: 'mindfulness-en-de-kracht-van-aandacht',
+  },
+  {
+    category: 'Mindfulness',
+    image: '/images/articles/mindfulness_article_image_2.jpg',
+    title: 'De voordelen van mindfulness: wat levert het je op?',
+    slug: 'de-voordelen-van-mindfulness-wat-levert-het-je-op',
+  },
+  {
+    category: 'Mindfulness',
     image: '/images/articles/mindfulness_article_image_1.jpg',
     title: 'Wat is mindfulness en hoe werkt het precies?',
     slug: 'wat-is-mindfulness-en-hoe-werkt-het-precies',

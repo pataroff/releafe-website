@@ -201,6 +201,22 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
               </div>
             </div>
 
+            {/* Summary */}
+            <div className="mb-12">
+              <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
+                Samengevat
+              </h2>
+              <div className="mb=12">
+                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                  Liever zelfstandig starten? Er zijn ook goede boeken, apps en
+                  online oefeningen beschikbaar die je op weg helpen. Belangrijk
+                  is dat je klein begint: vijf minuten per dag kan al een
+                  verschil maken. En misschien is dat het mooiste van
+                  mindfulness: je kunt er elk moment opnieuw mee beginnen.
+                </p>
+              </div>
+            </div>
+
             {/* Call to Action */}
             <div className="bg-white p-8 rounded-3xl drop-shadow-md">
               <h3 className="font-sofia font-bold text-xl xl:text-2xl mb-4">
