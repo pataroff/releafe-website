@@ -215,7 +215,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
           </h1>
 
           {/* Features Box */}
-          <div className="relative mt-[2rem] lg:mt-[4rem] rounded-[2.5rem] max-w-[1440px] w-full h-full bg-[#f0f4ed] drop-shadow-sm p-8 lg:p-0">
+          <div className="relative mt-[2rem] lg:mt-[4rem] rounded-[2.5rem] max-w-[1440px] w-full h-full bg-[#f0f4ed] drop-shadow-sm transform-gpu p-8 lg:p-0">
             {/* Features Selection Row Container */}
             <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
               {/* Feature Selection Box */}
@@ -334,7 +334,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-full lg:w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-between drop-shadow-md transform-gpu`}
                   >
                     {/* Quotation Mark Icon + Quote */}
                     <div>
@@ -438,7 +438,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] overflow-hidden absolute w-full xl:w-[600px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md`}
+                    className={`rounded-[2.5rem] overflow-hidden absolute w-full xl:w-[600px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between drop-shadow-md transform-gpu`}
                   >
                     {/* Image Container */}
                     <div className="w-full h-[260px] relative">

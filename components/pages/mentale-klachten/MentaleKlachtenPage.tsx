@@ -228,7 +228,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
 
                         {/* Panic Subdisorders Box */}
                         {title === 'Paniek' && additionalData && (
-                          <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-sm p-8">
+                          <div className="relative rounded-[2.5rem] w-full h-full bg-white drop-shadow-sm transform-gpu p-8">
                             {/* Panic Subdisorders Selection Row */}
                             <div className="flex flex-col w-full gap-y-4 lg:gap-y-8">
                               <div className="flex flex-col lg:flex-row w-full justify-center gap-x-2 gap-y-4">
@@ -306,7 +306,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                       </div>
 
                       {/* Mental Disorder Image Container */}
-                      <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] w-full xl:w-1/2 drop-shadow-sm">
+                      <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] w-full xl:w-1/2 drop-shadow-sm transform-gpu">
                         <Image
                           src={image}
                           alt=""
@@ -319,7 +319,7 @@ const MentaleKlachtenPage = ({ settings, page }) => {
                     {title === 'Angst' && additionalData && (
                       <>
                         {/* Fear Subdisorders Box */}
-                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full xl:h-[250px] bg-white drop-shadow-sm p-8 xl:p-0 flex flex-col xl:flex-row items-center gap-y-8">
+                        <div className="relative mt-[4rem] rounded-[2.5rem] w-full h-full xl:h-[250px] bg-white drop-shadow-sm transform-gpu p-8 xl:p-0 flex flex-col xl:flex-row items-center gap-y-8">
                           {/* Fear Subdisorders Selection Row */}
                           <div className="flex flex-row flex-wrap xl:flex-nowrap gap-2.5 justify-center xl:absolute xl:-top-5 xl:left-1/2 xl:transform xl:-translate-x-1/2 z-10 ">
                             {additionalData.map((subdisorder, index) => {

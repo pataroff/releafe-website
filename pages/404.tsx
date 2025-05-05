@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Custom404Page = () => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8">
-      <div className="rounded-3xl overflow-hidden flex flex-col text-center p-8 gap-y-8 xl:gap-y-12 bg-white drop-shadow-xl">
+      <div className="rounded-3xl overflow-hidden flex flex-col text-center p-8 gap-y-8 xl:gap-y-12 bg-white drop-shadow-xl transform-gpu">
         <h1 className="font-sofia font-bold text-2xl xl:text-5xl text-black">
           Oeps! Pagina Niet Gevonden
         </h1>

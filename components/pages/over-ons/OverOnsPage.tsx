@@ -100,7 +100,7 @@ const OverOnsPage = ({ settings, page }) => {
           {/* Main Wrapper */}
           <div className="flex flex-col min-h-full w-full px-8 lg:px-16 xl:px-32 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16 max-w-[1440px] place-self-center">
             {/* Main Container */}
-            <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg">
+            <div className="flex flex-col-reverse xl:flex-row justify-between items-center bg-white rounded-3xl xl:px-12 px-8 py-8 gap-y-8 drop-shadow-lg transform-gpu">
               {/* Text Container */}
               <div className="space-y-8 xl:w-1/2 w-full">
                 <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
@@ -115,7 +115,7 @@ const OverOnsPage = ({ settings, page }) => {
                 </p>
               </div>
               {/* Image Container */}
-              <div className="relative rounded-3xl overflow-hidden w-full xl:w-[400px] xl:h-[400px] lg:h-[881px] md:h-[600px] h-[300px] drop-shadow-md">
+              <div className="relative rounded-3xl overflow-hidden w-full xl:w-[400px] xl:h-[400px] lg:h-[881px] md:h-[600px] h-[300px] drop-shadow-md transform-gpu">
                 <Image
                   src="/images/releafe_logo_white_background.png"
                   alt={'Releafe Logo'}
@@ -148,7 +148,7 @@ const OverOnsPage = ({ settings, page }) => {
           className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 lg:px-32 xl:px-64"
         >
           {/* Letter Box */}
-          <div className="rounded-3xl drop-shadow-sm w-full lg:w-[600px] h-full bg-white space-y-8 p-10">
+          <div className="rounded-3xl -sm w-full lg:w-[600px] h-full bg-white space-y-8 p-10">
             <p className="font-sofia font-light italic text-md xl:text-lg 2xl:text-xl">
               “Uit eigen ervaring weet ik hoe ingrijpend mentale uitdagingen je
               leven kunnen beïnvloeden. Jarenlang worstelde ik met hevige angst-
@@ -248,7 +248,7 @@ const OverOnsPage = ({ settings, page }) => {
                       transform: `translateX(${translateXValue})`,
                       transition: 'transform 0.2s ease-in-out',
                     }}
-                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md`}
+                    className={`rounded-[2.5rem] absolute w-[350px] h-[450px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] px-8 py-10 flex flex-col justify-center items-center space-y-2 drop-shadow-md transform-gpu`}
                   >
                     <h2 className="mt-4 font-sofia font-normal text-5xl leading-tight text-white text-center">
                       {valueEmoji}
@@ -317,7 +317,7 @@ const OverOnsPage = ({ settings, page }) => {
                 return (
                   <div
                     key={index}
-                    className="flex flex-col xl:flex-row w-full drop-shadow-md"
+                    className="flex flex-col xl:flex-row w-full drop-shadow-md transform-gpu"
                   >
                     {/* Image Container */}
                     <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[700px] md:h-[600px] h-[300px] w-full">

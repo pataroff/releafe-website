@@ -405,7 +405,7 @@ const MentaalFitPage = ({ settings, page }) => {
                       {/* Releafe Feature Image Container */}
                       {nextExercise.image !== '' &&
                         nextExercise.image !== '/images/stress.jpg' && (
-                          <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[800px] 2xl:h-[800px] w-full xl:w-1/2 drop-shadow-sm">
+                          <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[800px] 2xl:h-[800px] w-full xl:w-1/2 drop-shadow-sm transform-gpu">
                             <Image
                               src={nextExercise.image}
                               alt=""
@@ -494,7 +494,7 @@ const MentaalFitPage = ({ settings, page }) => {
 
                       {/* Releafe Feature Image Container */}
                       {image !== '' && image !== '/images/stress.jpg' && (
-                        <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[800px] w-full xl:w-1/2 drop-shadow-sm">
+                        <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[800px] w-full xl:w-1/2 drop-shadow-sm transform-gpu">
                           <Image
                             src={image}
                             alt=""

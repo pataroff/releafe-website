@@ -249,7 +249,7 @@ const MindfulnessArticle2 = ({
             </div>
 
             {/* Call to Action */}
-            <div className="bg-white p-8 rounded-3xl drop-shadow-md">
+            <div className="bg-white p-8 rounded-3xl drop-shadow-md transform-gpu">
               <h3 className="font-sofia font-bold text-xl xl:text-2xl mb-4">
                 Gebruik de Releafe-app om het te proberen
               </h3>
