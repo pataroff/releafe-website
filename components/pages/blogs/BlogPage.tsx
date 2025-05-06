@@ -38,6 +38,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
 
             <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
               <Image
+                className="object-cover object-top"
                 src="/images/articles/mindfulness_article_image_1.jpg"
                 alt="Mindfulness Article Image 1"
                 fill
@@ -206,7 +207,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
                 Samengevat
               </h2>
-              <div className="mb=12">
+              <div className="mb-12">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
                   Liever zelfstandig starten? Er zijn ook goede boeken, apps en
                   online oefeningen beschikbaar die je op weg helpen. Belangrijk

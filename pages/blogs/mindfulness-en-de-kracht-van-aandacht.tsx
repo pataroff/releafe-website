@@ -46,6 +46,7 @@ const MindfulnessArticle3 = ({
 
             <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
               <Image
+                className="object-cover object-top"
                 src="/images/articles/mindfulness_article_image_3.jpg"
                 alt="Mindfulness Article Image 3"
                 fill
