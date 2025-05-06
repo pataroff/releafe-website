@@ -159,7 +159,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {/* Logo */}
               <Link key="home" href="/">
                 <Image
-                  className="shadow-xl"
+                  className="drop-shadow-xl transform-gpu"
                   src="/images/releafe_app_icon_logo.png"
                   alt="Releafe App Icon Logo"
                   width={60}
@@ -247,7 +247,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {/* Logo */}
               <Link href="/">
                 <Image
-                  className="shadow-xl"
+                  className="drop-shadow-xl transform-gpu"
                   src="/images/releafe_app_icon_logo.png"
                   alt="Releafe App Icon Logo"
                   width={60}
@@ -272,6 +272,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {/* Logo */}
               <Link key="home" href={'/'}>
                 <Image
+                  className="drop-shadow-xl transform-gpu"
                   src="/images/releafe_app_icon_logo.png"
                   alt="Releafe App Icon Logo"
                   width={60}
@@ -394,6 +395,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {/* Logo */}
               <Link key="home" href={'/'}>
                 <Image
+                  className="drop-shadow-xl transform-gpu"
                   src="/images/releafe_app_icon_logo.png"
                   alt="Releafe App Icon Logo"
                   width={60}
