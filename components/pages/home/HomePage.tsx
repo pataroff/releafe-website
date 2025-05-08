@@ -137,7 +137,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
 
-  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  const [featuresSelectedIndex, setFeaturesSelectedIndex] = useState<number>(0)
   const [testimonialsActiveIndex, setTestimonialsActiveIndex] =
     useState<number>(0)
   const [articlesActiveIndex, setArticlesActiveIndex] = useState<number>(0)
@@ -203,6 +203,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 alt="Hero Image"
                 fill
                 className="object-cover object-bottom"
+                priority
               />
               {/* Bottom Blur */}
               <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white to-transparent" />
@@ -231,8 +232,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                 return (
                   <button
                     key={index}
-                    onClick={() => setSelectedIndex(index)}
-                    className={`${selectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-sm lg:text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
+                    onClick={() => setFeaturesSelectedIndex(index)}
+                    className={`${featuresSelectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-sm lg:text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
                   >
                     {feature[0]}
                   </button>
@@ -245,7 +246,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               <div className="w-full h-[600px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] relative">
                 <Image
                   className="object-contain"
-                  src={featuresData[selectedIndex][2]}
+                  src={featuresData[featuresSelectedIndex][2]}
                   alt=""
                   fill
                   priority
@@ -255,7 +256,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
               <div className="flex flex-col items-center gap-y-4 my-8 w-full">
                 <div className="h-[300px] flex flex-col justify-center">
                   <p className="font-sofia font-light text-md xl:text-lg text-center">
-                    {featuresData[selectedIndex][1]}
+                    {featuresData[featuresSelectedIndex][1]}
                   </p>
                 </div>
 
@@ -271,7 +272,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
 
                   {/* Text above the overlay */}
                   <p className="relative z-10 pointer-events-none">
-                    {featuresData[selectedIndex][3]}
+                    {featuresData[featuresSelectedIndex][3]}
                   </p>
                 </Link>
               </div>
@@ -365,7 +366,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                     </div>
 
                     <div>
-                      <h3 className="font-sofia font-normal text-md text-white">
+                      <h3 className="font-sofia font-medium text-md text-white">
                         {`${testimonial[1]} (Testgebruiker)`}
                       </h3>
 
@@ -456,6 +457,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                         alt={`Image for article with ${title}`}
                         fill
                         className="object-cover object-top"
+                        priority
                       />
                     </div>
                     {/* Text Container */}
