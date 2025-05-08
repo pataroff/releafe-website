@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { ProjectListItem } from 'components/pages/home/ProjectListItem'
 import { Header } from 'components/shared/Header'
@@ -127,6 +127,14 @@ const faqData = [
 ]
 
 export function HomePage({ page, settings, preview }: HomePageProps) {
+  useEffect(() => {
+    // Preloading images for optimization
+    featuresData.forEach(([, , imagePath]) => {
+      const img = new window.Image()
+      img.src = imagePath
+    })
+  }, [])
+
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
@@ -240,6 +248,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   src={featuresData[selectedIndex][2]}
                   alt=""
                   fill
+                  priority
                 />
               </div>
 
