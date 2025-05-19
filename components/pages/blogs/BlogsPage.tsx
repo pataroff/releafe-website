@@ -14,6 +14,12 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 const articlesData = [
   {
     category: 'Mindfulness',
+    image: '/images/articles/mindfulness_article_image_4.jpg',
+    title: 'Negatieve gedachten loslaten met mindfulness',
+    slug: 'negatieve-gedachten-loslaten-met-mindfulness',
+  },
+  {
+    category: 'Mindfulness',
     image: '/images/articles/mindfulness_article_image_3.jpg',
     title: 'Mindfulness en de kracht van aandacht',
     slug: 'mindfulness-en-de-kracht-van-aandacht',
@@ -61,7 +67,7 @@ const BlogsPage = ({ settings, page }) => {
             </div>
 
             {/* Articles Wrapper */}
-            <div className="mt-[2rem] xl:mt-[4rem] px-8 xl:px-16 flex-grow flex flex-col">
+            <div className="my-[2rem] xl:my-[4rem] px-8 xl:px-16 flex-grow flex flex-col">
               {/* Dropdown Filter */}
               <div className="relative my-6 w-fit">
                 <select
@@ -85,7 +91,7 @@ const BlogsPage = ({ settings, page }) => {
                 </div>
               </div>
               {/* Articles Container */}
-              <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8 flex-grow">
+              <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8 flex-grow flex-wrap">
                 {filteredArticles.length === 0 ? (
                   <div className="flex-grow flex items-center justify-center">
                     <p className="font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
@@ -100,7 +106,7 @@ const BlogsPage = ({ settings, page }) => {
                       <Link
                         key={index}
                         href={`/blogs/${slug}`}
-                        className="relative rounded-[2.5rem] overflow-hidden w-full xl:w-[362px] 2xl:w-[450px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between shadow-md"
+                        className="relative rounded-[2.5rem] overflow-hidden w-full xl:w-[330px] 2xl:w-[415px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between shadow-md"
                       >
                         {/* Image Container */}
                         <div className="w-full h-[260px] relative">

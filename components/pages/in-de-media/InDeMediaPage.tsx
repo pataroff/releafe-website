@@ -19,6 +19,13 @@ const formatDate = (date: Date) => {
 const mediaData = [
   {
     title:
+      'Hoe paniekaanvallen leidden tot app voor mentale gezondheid: ‘Ik dacht dat ik dood ging’',
+    date: formatDate(new Date('2025-04-27')),
+    src: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7322169871675412480?collapsed=1',
+    isEmbedded: true,
+  },
+  {
+    title:
       'Hoe een diep dal leidde tot een app die helpt bij mentaal welzijn | SNN',
     date: formatDate(new Date('2025-02-27')),
     src: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7300879116768038912?collapsed=1',

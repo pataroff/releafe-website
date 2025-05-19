@@ -84,6 +84,12 @@ const testimonialsData = [
 const articlesData = [
   {
     category: 'Mindfulness',
+    image: '/images/articles/mindfulness_article_image_4.jpg',
+    title: 'Negatieve gedachten loslaten met mindfulness',
+    slug: 'negatieve-gedachten-loslaten-met-mindfulness',
+  },
+  {
+    category: 'Mindfulness',
     image: '/images/articles/mindfulness_article_image_3.jpg',
     title: 'Mindfulness en de kracht van aandacht',
     slug: 'mindfulness-en-de-kracht-van-aandacht',

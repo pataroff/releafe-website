@@ -18,7 +18,7 @@ export interface ArticlePageProps {
   preview?: boolean
 }
 
-const MindfulnessArticle3 = ({
+const MindfulnessArticle4 = ({
   article,
   settings,
   preview,
@@ -34,7 +34,7 @@ const MindfulnessArticle3 = ({
           <div className="max-w-[1440px] mx-auto py-14 px-8 lg:px-16 xl:px-32">
             {/* Header */}
             <h1 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl">
-              Mindfulness en de kracht van aandacht
+              Negatieve gedachten loslaten met mindfulness
             </h1>
 
             {/* Author */}
@@ -47,45 +47,48 @@ const MindfulnessArticle3 = ({
             <div className="relative rounded-3xl overflow-hidden h-[200px] lg:h-[600px] xl:h-[700px] w-full my-8">
               <Image
                 className="object-cover object-top"
-                src="/images/articles/mindfulness_article_image_3.jpg"
-                alt="Mindfulness Article Image 3"
+                src="/images/articles/mindfulness_article_image_4.jpg"
+                alt="Mindfulness Article Image 4"
                 fill
               />
             </div>
 
             {/* Introduction */}
-            <div className="mb-12">
+            <div className="mb-12 space-y-8">
               <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
-                We worden voortdurend afgeleid, je zou kunnen zeggen dat
-                aandacht een schaars goed is geworden. En dat terwijl aandacht
-                precies datgene wat jou verbindt met het leven zoals het
-                werkelijk is. Mindfulness helpt je om je aandacht te trainen én
-                te richten. Hieronder lees je wat aandacht precies is, waarom
-                het zo krachtig is en hoe mindfulness je kan helpen om met meer
-                aandacht te leven.
+                Soms heb je van die dagen waarop je hoofd volloopt met kritische
+                stemmen. Alsof er iemand op de achtergrond voortdurend zegt: “Je
+                had dit beter moeten doen.”, “Waarom overkomt mij dit altijd?”,
+                “Dit gaat vast mis.” Die gedachten lijken zo overtuigend, dat je
+                ze voor waar aanneemt.
+              </p>
+              <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                Negatieve gedachten kunnen zich stevig vastzetten. Ze blijven
+                malen, herhalen, zich vermommen in nieuwe vormen. Wat
+                mindfulness je leert is niet om ze het zwijgen op te leggen,
+                maar om er op een bewuste en milde manier mee om te gaan. En dat
+                verandert alles.
               </p>
             </div>
 
             {/* Why Mindfulness is Important */}
             <div className="mb-12">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
-                Wat is aandacht?
+                Wat zijn negatieve gedachten eigenlijk?
               </h2>
               <div className="mb-12 space-y-8">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Aandacht zorgt ervoor dat je bewust aanwezig bent bij wat er
-                  zich van moment tot moment afspeelt. Het is iets natuurlijks,
-                  iets dat iedereen kan genereren. De een misschien meer dan de
-                  ander, maar iedereen kan het. Je aandacht kan naar buiten
-                  gericht zijn (horen, voelen, zien) of naar binnen (gedachten,
-                  gevoelens, lichaam).
+                  Ze komen vaak automatisch: gedachten die twijfelen aan je
+                  kunnen, je waarschuwen voor wat er mis kan gaan of je streng
+                  toespreken over wat je anders had moeten doen. Ze zijn meestal
+                  niet rationeel, maar voortgekomen uit gewoonte en oude
+                  patronen. Je geest bedoelt het goed — hij probeert je te
+                  beschermen — maar de uitwerking is vaak het tegenovergestelde:
+                  stress, zelfkritiek en piekergedrag.
                 </p>
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  We zijn gewend razendsnel te schakelen tussen indrukken, taken
-                  en gedachten. We zijn fysiek aanwezig, maar mentaal ergens
-                  anders. Mindfulness nodigt je uit om aandachtig aanwezig te
-                  zijn, met openheid, nieuwsgierigheid en - zoveel als mogelijk
-                  - zonder oordeel.
+                  Mindfulness maakt je bewust van deze patronen, zodat je ruimte
+                  kunt creëren tussen jou en je gedachten.
                 </p>
               </div>
             </div>
@@ -93,36 +96,21 @@ const MindfulnessArticle3 = ({
             {/* How Mindfulness Works */}
             <div className="mb-12">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
-                De kracht van gerichte aandacht
+                Bewustzijn schept ruimte
               </h2>
               <div className="mb-12 space-y-8">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Aandacht is niet neutraal — het heeft richting en invloed.
-                  Waar je aandacht is, daar ben jij. Wat je aandacht geeft,
-                  groeit. Dat maakt aandacht een krachtig instrument in het
-                  dagelijks leven.
+                  Wat mindfulness doet, is je uitnodigen om te stoppen met
+                  vechten tegen je gedachten. In plaats daarvan word je je er
+                  simpelweg van bewust. Dat lijkt klein, maar is juist heel
+                  krachtig. Je merkt op: “Ah, daar is die gedachte weer.” En je
+                  kiest ervoor om er niet automatisch in mee te gaan.
                 </p>
-                <ul className="list-disc marker:text-gray-300 pl-6 space-y-4">
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Aandacht brengt helderheid. Door met aandacht waar te nemen,
-                    zie je dingen zoals ze werkelijk zijn.
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Aandacht creëert verbinding. Door echt aanwezig te zijn bij
-                    een ander, ervaar je meer diepgang in relaties.
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Aandacht opent ruimte. In plaats van reactief te zijn,
-                    ontstaat er ruimte voor bewuste keuzes.
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Aandacht kalmeert. Door je aandacht te richten op
-                    bijvoorbeeld je ademhaling, komt je zenuwstelsel tot rust.
-                  </li>
-                </ul>
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Kortom, aandacht geeft richting aan je ervaring. En dat maakt
-                  het tot een sleutelvaardigheid voor bewust leven.
+                  Denk aan je gedachten als verkeer op een druk kruispunt.
+                  Mindfulness nodigt je uit om even aan de kant te gaan staan en
+                  te kijken naar wat er langskomt, zonder steeds midden op de
+                  weg te gaan staan.
                 </p>
               </div>
             </div>
@@ -130,89 +118,93 @@ const MindfulnessArticle3 = ({
             {/* Benefits */}
             <div className="mb-12">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
-                Hoe helpt mindfulness bij het trainen van aandacht?
+                Gedachten zijn geen feiten
               </h2>
               <div className="mb-12 space-y-8">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Mindfulness is in essentie aandachtstraining. Je oefent om
-                  bewust op te merken waar je aandacht is. En om die aandacht
-                  (steeds weer) vriendelijk terug te brengen wanneer je bent
-                  afgeleid.
+                  Een bevrijdend inzicht in mindfulness is dat gedachten slechts
+                  (tijdelijke) mentale gebeurtenissen zijn. Niet per se de
+                  waarheid. Niet de werkelijkheid. Ze komen op, ze gaan weer
+                  weg. En jij hoeft er niets mee, behalve ze opmerken.
                 </p>
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Door mindfulness oefeningen, zoals de ademhalingsoefening, de
-                  bodyscan of mindful wandelen, te doen, train je je
-                  ‘aandachtsspier’. Je leert opmerken wanneer je afdwaalt,
-                  zonder jezelf te veroordelen, en keert steeds weer terug naar
-                  het hier en nu. Dat lijkt eenvoudig, maar het is een vrij
-                  diepgaand proces van oefenen, loslaten en weer beginnen.
+                  Door die ruimte ontstaat er een nieuwe innerlijke houding: je
+                  kijkt met mildheid naar wat zich aandient. Je hoeft jezelf
+                  niet meer te overtuigen van het tegendeel. Je hoeft alleen
+                  maar te zien dat de gedachte er is, en dat jij méér bent dan
+                  die gedachte.
                 </p>
-                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Regelmatige mindfulnessbeoefening leidt tot:
-                </p>
-                <ul className="list-disc marker:text-gray-300 pl-6 space-y-4">
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    meer focus en concentratie,
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    betere emotieregulatie,
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    bewustere keuzes in je dagelijks handelen,
-                  </li>
-                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    meer rust en stabiliteit in je geest.
-                  </li>
-                </ul>
               </div>
             </div>
 
             <div className="mb-12">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
-                Aandacht in het dagelijks leven
+                Hoe kun je anders omgaan met negatieve gedachten?
               </h2>
               <div className="mb-12 space-y-8">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Je hoeft niet op een kussen te zitten om mindfulness te
-                  beoefenen. Ook in alledaagse momenten kun je de kracht van
-                  aandacht toepassen:
+                  Mindfulness biedt eenvoudige, maar effectieve manieren om je
+                  anders te verhouden tot je denkpatronen:
                 </p>
-                <ul className="list-disc marker:text-gray-300 pl-6 space-y-4">
+                <ol className="list-decimal marker:text-gray-600 pl-6 space-y-4">
                   <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Als je eet: proef écht wat je eet.
+                    Word je bewust van het moment
                   </li>
+                  <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Het begint met herkennen: “Ik zit vast in mijn hoofd.”
+                    Alleen al dat benoemen opent de deur naar verandering.
+                  </p>
                   <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Als je luistert: wees aanwezig bij wat de ander zegt, zonder
-                    alvast een antwoord te formuleren.
+                    Breng je aandacht terug naar je lichaam
                   </li>
+                  <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Je ademhaling, je voeten op de vloer, je houding — dat alles
+                    brengt je terug in het nu. In je lijf. Weg van de verhalen
+                    in je hoofd.
+                  </p>
                   <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Als je werkt: doe één ding tegelijk, met volledige aandacht.
+                    Benoem je gedachten zachtjes
                   </li>
+                  <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Zeg bijvoorbeeld in jezelf: “Oordeel”, “Herhaling”, “Zorg”.
+                    Je maakt er zo iets tastbaars van, zonder het groter te
+                    maken dan het is.
+                  </p>
                   <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                    Als je wandelt: voel je voeten de grond raken, adem de lucht
-                    in, kijk bewust om je heen.
+                    Stel jezelf een helpende vraag
                   </li>
-                </ul>
-                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Deze momenten van bewuste aandacht maken je dag niet alleen
-                  rustiger en helderder, maar ook rijker en betekenisvoller.
-                </p>
+                  <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Wat zou je tegen een dierbare zeggen die zich zo voelde? En
+                    kun je diezelfde vriendelijkheid ook naar jezelf brengen?
+                  </p>
+                  <li className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Accepteer dat het soms blijft malen
+                  </li>
+                  <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                    Mindfulness is geen methode om je hoofd stil te krijgen. Het
+                    leert je aanwezig te zijn, ook als het stormt. Vriendelijk,
+                    geduldig en zonder verzet.
+                  </p>
+                </ol>
               </div>
             </div>
 
             {/* Getting Started */}
             <div className="mb-12">
               <h2 className="font-sofia font-bold text-2xl xl:text-3xl mb-6">
-                Aandacht en acceptatie
+                Het is een weg van oefenen
               </h2>
-              <div className="mb-12">
+              <div className="mb-12 space-y-8">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  De kracht van aandacht ligt ook in haar vermogen om ruimte te
-                  maken voor wat er is. Door aandachtig te zijn bij je ervaring,
-                  leer je deze te accepteren, ook als die ongemakkelijk is. Je
-                  hoeft niet meteen iets te veranderen. Alleen maar kijken,
-                  voelen, aanwezig zijn. Dat is vaak al genoeg om iets in
-                  beweging te brengen.
+                  Mindfulness is een gewoonte die je ontwikkelt, een andere
+                  manier van kijken die je steeds opnieuw oefent. Niet om iets
+                  te bereiken, maar om op een andere manier te zijn — met
+                  jezelf, met je gedachten, met het moment.
+                </p>
+                <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
+                  Op den duur merk je dat die onrustige stem in je hoofd zachter
+                  wordt. Misschien niet altijd. Maar vaak genoeg om een groot
+                  verschil te maken.
                 </p>
               </div>
             </div>
@@ -224,12 +216,11 @@ const MindfulnessArticle3 = ({
               </h2>
               <div className="mb-12">
                 <p className="font-sofia font-light xl:text-lg 2xl:text-xl">
-                  Aandacht is de kern van mindfulness. Het is de poort naar
-                  aanwezigheid, verbinding, helderheid en innerlijke rust. In
-                  ons drukke dagelijkse bestaan met al zijn afleidingen is
-                  aandacht een noodzaak geworden. Door mindfulness te beoefenen
-                  train je deze vaardigheid. Niet zozeer om ‘beter te worden’ in
-                  iets, maar om ten volle aanwezig te zijn in je eigen leven.
+                  Mindfulness helpt je om anders met negatieve gedachten om te
+                  gaan: met bewustzijn, afstand en vriendelijkheid. Niet door ze
+                  weg te duwen, maar door ze ruimte te geven zonder dat ze jou
+                  overnemen. Je leert kijken, luisteren en loslaten — zonder
+                  jezelf te verliezen. 
                 </p>
               </div>
             </div>
@@ -304,4 +295,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default MindfulnessArticle3
+export default MindfulnessArticle4
