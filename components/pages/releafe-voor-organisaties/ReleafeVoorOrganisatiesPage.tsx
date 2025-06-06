@@ -30,7 +30,7 @@ const bedrijvenData = [
     linkText: '',
     href: '',
     image: '/images/releafe_voor_bedrijven/bedrijven_image.jpg',
-    video: '/videos/Video-presentatie-Releafe-met-contactgegevens-DEF.mp4',
+    video: '/videos/Video-presentatie-Releafe-zonder-tekst.mp4',
   },
   {
     buttonText: 'Voor medewerkers',
@@ -383,9 +383,7 @@ const ReleafeVoorOrganisatiesPage = ({ settings, page }) => {
               <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full shadow-md">
                 <video
                   ref={videoRef}
-                  src={
-                    '/videos/Video-presentatie-Releafe-met-contactgegevens-DEF.mp4'
-                  }
+                  src={bedrijvenData[0].video}
                   className="object-contain xl:object-cover w-full h-full"
                   controls
                   muted
