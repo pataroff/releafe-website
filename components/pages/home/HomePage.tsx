@@ -7,7 +7,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import Image from 'next/image'
-import type { HomePagePayload } from 'types'
+import type { ArticlePayload, HomePagePayload } from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
@@ -18,11 +18,13 @@ import {
   faChevronRight,
   faChevronDown,
 } from '@fortawesome/free-solid-svg-icons'
+import { urlForImage } from 'lib/sanity.image'
 
 export interface HomePageProps {
   settings?: SettingsPayload
   page?: HomePagePayload
   preview?: boolean
+  articles?: ArticlePayload[]
 }
 
 const featuresData = [
@@ -81,33 +83,6 @@ const testimonialsData = [
   ],
 ]
 
-const articlesData = [
-  {
-    category: 'Mindfulness',
-    image: '/images/articles/mindfulness_article_image_4.jpg',
-    title: 'Negatieve gedachten loslaten met mindfulness',
-    slug: 'negatieve-gedachten-loslaten-met-mindfulness',
-  },
-  {
-    category: 'Mindfulness',
-    image: '/images/articles/mindfulness_article_image_3.jpg',
-    title: 'Mindfulness en de kracht van aandacht',
-    slug: 'mindfulness-en-de-kracht-van-aandacht',
-  },
-  {
-    category: 'Mindfulness',
-    image: '/images/articles/mindfulness_article_image_2.jpg',
-    title: 'De voordelen van mindfulness: wat levert het je op?',
-    slug: 'de-voordelen-van-mindfulness-wat-levert-het-je-op',
-  },
-  {
-    category: 'Mindfulness',
-    image: '/images/articles/mindfulness_article_image_1.jpg',
-    title: 'Wat is mindfulness en hoe werkt het precies?',
-    slug: 'wat-is-mindfulness-en-hoe-werkt-het-precies',
-  },
-]
-
 const faqData = [
   {
     question: 'Wat is Releafe?',
@@ -132,7 +107,7 @@ const faqData = [
   },
 ]
 
-export function HomePage({ page, settings, preview }: HomePageProps) {
+export function HomePage({ page, settings, preview, articles }: HomePageProps) {
   useEffect(() => {
     // Preloading images for optimization
     featuresData.forEach(([, , imagePath]) => {
@@ -159,12 +134,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
   }
 
   const handleArticlesNext = () => {
-    setArticlesActiveIndex((prev) => (prev + 1) % articlesData.length)
+    setArticlesActiveIndex((prev) => (prev + 1) % articles.length)
   }
 
   const handleArticlesPrev = () => {
     setArticlesActiveIndex((prev) =>
-      prev === 0 ? articlesData.length - 1 : prev - 1,
+      prev === 0 ? articles.length - 1 : prev - 1,
     )
   }
 
@@ -436,8 +411,8 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
             {/* Articles Container */}
             <ul className="relative h-[400px]">
               {/* Article Box */}
-              {articlesData.map((article, index) => {
-                const { category, image, title, slug } = article
+              {articles.map((article, index) => {
+                const { category, coverImage, title, slug } = article
 
                 // Calculate the relative position of the element
                 const relativeIndex = index - articlesActiveIndex
@@ -459,7 +434,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                     {/* Image Container */}
                     <div className="w-full h-[260px] relative">
                       <Image
-                        src={image}
+                        src={urlForImage(coverImage).url()}
                         alt={`Image for article with ${title}`}
                         fill
                         className="object-cover object-top"
@@ -469,7 +444,7 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                     {/* Text Container */}
                     <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
                       <h2 className="font-sofia font-light text-md">
-                        {category}
+                        {category?.title}
                       </h2>
                       <h3 className="font-sofia font-normal text-md">
                         {title}
@@ -506,14 +481,12 @@ export function HomePage({ page, settings, preview }: HomePageProps) {
                   </button>
                 </li>
                 <li
-                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${articlesActiveIndex === articlesData.length - 1 ? 'opacity-50' : 'opacity-100'}`}
+                  className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${articlesActiveIndex === articles.length - 1 ? 'opacity-50' : 'opacity-100'}`}
                 >
                   <button
                     className="h-[2.5rem] w-[2.5rem] rounded-full"
                     disabled={
-                      articlesActiveIndex === articlesData.length - 1
-                        ? true
-                        : false
+                      articlesActiveIndex === articles.length - 1 ? true : false
                     }
                     onClick={() => handleArticlesNext()}
                   >

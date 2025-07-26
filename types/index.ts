@@ -69,7 +69,7 @@ export interface CategoryPayload {
 }
 
 export interface ArticlePayload {
-  category: string
+  category: { title: string }
   title: string
   slug: string
   authorName: string
