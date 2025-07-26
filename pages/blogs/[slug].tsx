@@ -19,15 +19,21 @@ interface PageProps extends SharedPageProps {
 }
 
 interface Query {
-  [key: string]: string
+  slug?: string
 }
 
 export default function BlogSlugRoute(props: PageProps) {
   const { article, settings, draftMode } = props
 
-  //   if (draftMode) {
-  //     return <ArticlePreview article={article} settings={settings} />
-  //   }
+  // Uncomment if you want preview mode with a separate component
+  // if (draftMode) {
+  //   return <ArticlePreview article={article} settings={settings} />
+  // }
+
+  // Show a loading or fallback UI when fallback: true and page is not yet generated
+  if (!article) {
+    return <div>Loading article...</div>
+  }
 
   return <BlogPage article={article} settings={settings} />
 }
@@ -36,6 +42,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   const { draftMode = false, params = {} } = ctx
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
+  // Fetch settings and article by slug
   const [settings, article] = await Promise.all([
     client.fetch<SettingsPayload | null>(settingsQuery),
     client.fetch<ArticlePayload | null>(articleBySlugQuery, {
@@ -43,12 +50,13 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     }),
   ])
 
-  //   if (!article) {
-  //     return {
-  //       notFound: true,
-  //       revalidate: 1,
-  //     }
-  //   }
+  // If article not found, return 404 (optional)
+  if (!article) {
+    return {
+      notFound: true,
+      revalidate: 10,
+    }
+  }
 
   return {
     props: {
@@ -63,10 +71,14 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
 
 export const getStaticPaths = async () => {
   const client = getClient()
-  const paths = await client.fetch<string[]>(articlePathsQuery)
+  // Expect articlePathsQuery to return array of slugs (strings)
+  const slugs = await client.fetch<string[]>(articlePathsQuery)
 
   return {
-    paths: paths?.map((slug) => resolveHref('article', slug)) || [],
-    fallback: true,
+    paths:
+      slugs?.map((slug) => ({
+        params: { slug },
+      })) || [],
+    fallback: 'blocking', // blocking fallback to avoid "Loading" UI flicker
   }
 }

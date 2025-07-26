@@ -22,6 +22,9 @@ import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-sec
 
 import navbarItem from 'schemas/objects/navbarItem'
 
+import article from 'schemas/documents/article'
+import category from 'schemas/documents/category'
+
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
 export default defineConfig({
@@ -39,6 +42,8 @@ export default defineConfig({
       duration,
       page,
       project,
+      article,
+      category,
       // Objects
       milestone,
       timeline,

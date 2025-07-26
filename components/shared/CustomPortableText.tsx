@@ -1,76 +1,57 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/types'
-import ImageBox from 'components/shared/ImageBox'
-import { TimelineSection } from 'components/shared/TimelineSection'
-import getYouTubeId from 'get-youtube-id'
-import LiteYouTubeEmbed from 'react-lite-youtube-embed'
-import type { Image } from 'sanity'
+import { PortableTextBlock } from 'sanity'
 
-export function CustomPortableText({
-  paragraphClasses,
-  value,
-}: {
-  paragraphClasses?: string
+interface Props {
   value: PortableTextBlock[]
-}) {
+  paragraphClasses?: string
+  listItemClasses?: string
+  bulletClasses?: string
+  numberClasses?: string
+  headingClasses?: {
+    h2?: string
+    h3?: string
+  }
+}
+
+export const CustomPortableText = ({
+  value,
+  paragraphClasses = '',
+  listItemClasses = '',
+  bulletClasses = '',
+  numberClasses = '',
+  headingClasses = {},
+}: Props) => {
   const components: PortableTextComponents = {
     block: {
-      normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
-      },
+      normal: ({ children }) => <p className={paragraphClasses}>{children}</p>,
+      h2: ({ children }) => <h2 className={headingClasses.h2}>{children}</h2>,
+      h3: ({ children }) => <h3 className={headingClasses.h3}>{children}</h3>,
+    },
+    list: {
+      bullet: ({ children }) => <ul className={bulletClasses}>{children}</ul>,
+      number: ({ children }) => <ol className={numberClasses}>{children}</ol>,
+    },
+    listItem: {
+      bullet: ({ children }) => <li className={listItemClasses}>{children}</li>,
+      number: ({ children }) => <li className={listItemClasses}>{children}</li>,
     },
     marks: {
-      link: ({ children, value }) => {
-        return (
-          <a
-            className="underline transition hover:opacity-50"
-            href={value?.href}
-            rel="noreferrer noopener"
-          >
-            {children}
-          </a>
-        )
-      },
-    },
-    types: {
-      image: ({
-        value,
-      }: {
-        value: Image & { alt?: string; caption?: string }
-      }) => {
-        return (
-          <div className="my-6 space-y-2">
-            <ImageBox
-              image={value}
-              alt={value.alt}
-              classesWrapper="relative aspect-[16/9]"
-            />
-            {value?.caption && (
-              <div className="font-sans text-sm text-gray-600">
-                {value.caption}
-              </div>
-            )}
-          </div>
-        )
-      },
-      timeline: ({ value }) => {
-        const { items } = value || {}
-        return <TimelineSection timelines={items} />
-      },
-      youtube: ({ value }) => {
-        const { url, title, aspectHeight, aspectWidth } = value
-        const id = getYouTubeId(url)
-        return (
-          <LiteYouTubeEmbed
-            id={id}
-            title={title}
-            aspectHeight={aspectHeight}
-            aspectWidth={aspectWidth}
-          />
-        )
-      },
+      strong: ({ children }) => (
+        <strong className="font-semibold">{children}</strong>
+      ),
+      em: ({ children }) => <em className="italic">{children}</em>,
+      link: ({ value, children }) => (
+        <a
+          href={value.href}
+          target="_blank"
+          rel="noopener"
+          className="text-[#96a58d] hover:underline"
+        >
+          {children}
+        </a>
+      ),
     },
   }
 
-  return <PortableText components={components} value={value} />
+  return <PortableText value={value} components={components} />
 }

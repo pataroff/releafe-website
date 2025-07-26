@@ -65,27 +65,45 @@ export const settingsQuery = groq`
   }
 `
 
-export const articleBySlugQuery = groq`
-  *[_type == "article" && slug.current == $slug][0] {
+export const categoriesQuery = groq`
+  *[_type == "category"] | order(title asc) {
     _id,
-    title,
-    body,
-    excerpt,
-    publishedAt,
-    coverImage,
-    "slug": slug.current,
-    author->{
-      name,
-      image,
-      bio
-    },
-    categories[]->{
-      title,
-      "slug": slug.current
-    }
+    title
   }
 `
 
-export const articlePathsQuery = groq`
-  *[_type == "article" && slug.current != null].slug.current
+export const articlesQuery = groq`
+  *[_type == "article" && defined(slug.current)] | order(_createdAt desc) {
+    category-> {
+    title
+    },
+    title,
+    "slug": slug.current,
+    authorName,
+    authorRole,
+    coverImage,
+    callToActionTitle,
+    callToActionText,
+    callToActionButtonText,
+    callToActionLink,
+    externalResources
+  }
 `
+
+export const articleBySlugQuery = `
+  *[_type == "article" && slug.current == $slug][0]{
+    title,
+    "slug": slug.current,
+    authorName,
+    authorRole,
+    coverImage,
+    body,
+    callToActionTitle,
+    callToActionText,
+    callToActionButtonText,
+    callToActionLink,
+    externalResources
+  }
+`
+
+export const articlePathsQuery = `*[_type == "article" && defined(slug.current)][].slug.current`

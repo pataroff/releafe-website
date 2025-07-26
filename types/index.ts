@@ -64,21 +64,26 @@ export interface SettingsPayload {
   ogImage?: Image
 }
 
+export interface CategoryPayload {
+  title: string
+}
+
 export interface ArticlePayload {
-  _id: string
-  title?: string
-  excerpt?: string
-  body?: PortableTextBlock[]
-  publishedAt?: string
-  coverImage?: Image
-  slug?: string
-  author?: {
-    name?: string
-    image?: Image
-    bio?: string
+  category: string
+  title: string
+  slug: string
+  authorName: string
+  authorRole: string
+  coverImage?: {
+    asset: {
+      _ref: string
+      _type: 'reference'
+    }
   }
-  categories?: {
-    title?: string
-    slug?: string
-  }[]
+  body: any[] // You likely use `PortableText` rendering component for this
+  callToActionTitle?: string
+  callToActionText?: string
+  callToActionButtonText?: string
+  callToActionLink?: string
+  externalResources?: any[]
 }
