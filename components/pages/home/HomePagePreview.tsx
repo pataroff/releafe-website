@@ -7,6 +7,11 @@ import { HomePage, HomePageProps } from './HomePage'
 export default function HomePagePreview({
   page: initialPage,
   settings,
+  features,
+  partners,
+  testimonials,
+  articles,
+  faq,
 }: HomePageProps) {
   const [page] = useLiveQuery<HomePagePayload | null>(
     initialPage,
@@ -21,5 +26,16 @@ export default function HomePagePreview({
     )
   }
 
-  return <HomePage page={page} settings={settings} preview />
+  return (
+    <HomePage
+      page={page}
+      settings={settings}
+      features={features}
+      partners={partners}
+      testimonials={testimonials}
+      articles={articles}
+      faq={faq}
+      preview
+    />
+  )
 }

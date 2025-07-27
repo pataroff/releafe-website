@@ -27,6 +27,23 @@ export interface ShowcaseProject {
   title?: string
 }
 
+export interface CompanyItem {
+  _type: string
+  name: string
+  logo: Image
+  alt?: string
+  url?: string
+}
+
+export interface FeatureItem {
+  _type: string
+  title: string
+  description: string
+  image: Image
+  ctaText: string
+  ctaLink: string
+}
+
 // Page payloads
 
 export interface HomePagePayload {
@@ -42,6 +59,16 @@ export interface PagePayload {
   overview?: PortableTextBlock[]
   title?: string
   slug?: string
+}
+
+export interface PartnersPayload {
+  title?: string
+  partners?: CompanyItem[]
+}
+
+export interface FeaturesPayload {
+  title?: string
+  features?: FeatureItem[]
 }
 
 export interface ProjectPayload {
@@ -86,4 +113,17 @@ export interface ArticlePayload {
   callToActionButtonText?: string
   callToActionLink?: string
   externalResources?: any[]
+}
+
+export interface TestimonialPayload {
+  quote: string
+  authorName: string
+  authorLocation: string
+  authorRole: string
+  topic: string
+}
+
+export interface FAQPayload {
+  question: string
+  answer: string
 }

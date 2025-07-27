@@ -24,6 +24,12 @@ import navbarItem from 'schemas/objects/navbarItem'
 
 import article from 'schemas/documents/article'
 import category from 'schemas/documents/category'
+import testimonial from 'schemas/documents/testimonial'
+import faq from 'schemas/documents/faq'
+import partners from 'schemas/singletons/partners'
+import company from 'schemas/objects/company'
+import features from 'schemas/singletons/features'
+import feature from 'schemas/objects/feature'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -38,17 +44,23 @@ export default defineConfig({
       // Singletons
       home,
       settings,
+      features,
+      partners,
       // Documents
       duration,
       page,
       project,
       article,
       category,
+      testimonial,
+      faq,
       // Objects
       milestone,
       timeline,
       youtube,
       navbarItem,
+      feature,
+      company,
     ],
   },
   plugins: [
@@ -61,10 +73,10 @@ export default defineConfig({
       },
     }),
     structureTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, settings, features, partners]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, settings.name, features.name, partners.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

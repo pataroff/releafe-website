@@ -65,6 +65,31 @@ export const settingsQuery = groq`
   }
 `
 
+export const partnersQuery = groq`
+  *[_type == "partners"][0]{
+  title,
+    partners[]{
+      name,
+      logo,
+      alt,
+      url
+    }
+  }
+`
+
+export const featuresQuery = groq`
+  *[_type == "features"][0]{
+    title,
+    features[]{
+      title,
+      description,
+      image,
+      ctaText,
+      ctaLink
+    }
+  }
+`
+
 export const categoriesQuery = groq`
   *[_type == "category"] | order(title asc) {
     _id,
@@ -107,3 +132,22 @@ export const articleBySlugQuery = `
 `
 
 export const articlePathsQuery = `*[_type == "article" && defined(slug.current)][].slug.current`
+
+export const testimonialsQuery = groq`
+  *[_type == "testimonial"] | order(_createdAt desc){
+    _id,
+    quote,
+    authorName,
+    authorLocation,
+    authorRole,
+    topic
+  }
+`
+
+export const faqQuery = groq`
+  *[_type == "faq"] | order(_createdAt asc){
+    _id,
+    question,
+    answer
+  }
+`

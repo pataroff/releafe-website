@@ -7,7 +7,14 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import Image from 'next/image'
-import type { ArticlePayload, HomePagePayload } from 'types'
+import type {
+  ArticlePayload,
+  FAQPayload,
+  FeaturesPayload,
+  HomePagePayload,
+  PartnersPayload,
+  TestimonialPayload,
+} from 'types'
 import { SettingsPayload } from 'types'
 
 import HomePageHead from './HomePageHead'
@@ -23,113 +30,47 @@ import { urlForImage } from 'lib/sanity.image'
 export interface HomePageProps {
   settings?: SettingsPayload
   page?: HomePagePayload
+  features?: FeaturesPayload
+  partners?: PartnersPayload
   preview?: boolean
   articles?: ArticlePayload[]
+  testimonials?: TestimonialPayload[]
+  faq?: FAQPayload[]
 }
 
-const featuresData = [
-  [
-    'Dagboek',
-    'Gebruik het dagboek om eenvoudig bij te houden hoe je je voelt. Scoor dagelijks je stemming, stress, energie en slaap. Heb je iets bijzonders meegemaakt? Voeg dit als extra notitie toe. Zo krijg je een persoonlijk welzijnsoverzicht dat je verder helpt je welzijn beter te begrijpen.',
-    '/images/home/dagboek_image_portrait.png',
-    'Houd je dagboek bij',
-  ],
-  [
-    'Welzijnsoverzicht',
-    'Je dagboek heeft een persoonlijk welzijnsoverzicht met een handige grafiek. Hierin zie je in één oogopslag hoe het de afgelopen tijd met je is gegaan. Kies zelf welke onderwerpen je wilt weergeven en over welke periode je de gegevens wil zien. Zo herken je patronen en ontdek je wat jou helpt om je beter te voelen.',
-    '/images/home/wellbeing_overview_image_portrait.png',
-    'Bekijk je welzijnsoverzicht',
-  ],
-  [
-    'Toolkit',
-    'Wil je je mentale welzijn verbeteren? Deze toolkit helpt je daarbij. Stel je persoonlijke doelen op, laat je zorgen los, buig negatieve gedachten om, geef jezelf een boost en schrijf een motiverende boodschap aan jezelf. Ontdek met de verschillende tools hoe je kunt groeien en je emoties beter kunt begrijpen.',
-    '/images/home/toolkit_image_portrait.png',
-    'Ontdek de tools in de toolkit',
-  ],
-  [
-    'Bonsaiboom',
-    'Werk aan je mentale welzijn en zie je vooruitgang terug in je eigen bonsaiboom. Voor elke stap die je zet – of het nu het bijhouden van je dagboek is, het behalen van een doel of een moment van ontspanning – verdien je beloningen waarmee je jouw bonsai kunt laten groeien en bloeien. Zo wordt zelfzorg niet alleen waardevol, maar ook leuk en motiverend.',
-    '/images/home/bonsai_tree_image_portrait.png',
-    'Laat je bonsai groeien',
-  ],
-]
-
-const companyLogos = [
-  '/images/company_logos/Indietopia_Text_Logo.png',
-  '/images/company_logos/Veer_Studios_Logo.png',
-  '/images/company_logos/Stress_Wise_Logo.png',
-]
-
-const testimonialsData = [
-  [
-    'De dagboekfunctie van Releafe heeft me geholpen mijn emoties beter te begrijpen en mijn vooruitgang bij te houden. Het is een onmisbaar hulpmiddel geweest voor mijn mentale welzijn.',
-    'Merijn, Nederland',
-    'over de kracht van emotionele reflectie en groei',
-  ],
-  [
-    'Het zorgenbakje is fantastisch om mijn dagelijkse stress van me af te zetten. Het helpt me zaken te ordenen in mijn hoofd en helpt me gefocust te blijven.',
-    'Kristiyan, Bulgarije',
-    'over de verlichting van het beheersen van dagelijkse stress',
-  ],
-  [
-    'De dagelijkse mindfulness-routines in Releafe zijn een essentieel onderdeel van mijn dag geworden. Ik voel me meer in balans en minder overweldigd door de uitdagingen van het leven.',
-    'Hanna, Nederland',
-    'over de voordelen van mindfulness in het dagelijks leven integreren',
-  ],
-  [
-    'Ik heb jarenlang geworsteld met angst, maar de mindfulness-oefeningen in Releafe hebben me geholpen rust en balans te vinden in mijn dagelijks leven.',
-    'Ivan, Bulgarije',
-    'over het vinden van balans en verlichting van angst.',
-  ],
-]
-
-const faqData = [
-  {
-    question: 'Wat is Releafe?',
-    answer:
-      'Releafe is een app voor stressverlichting en het aanpakken van paniekaanvallen.',
-  },
-  {
-    question: 'Wat is inbegrepen bij een Releafe-abonnement?',
-    answer: 'Het abonnement omvat toegang tot alle stressverlichtingsfuncties.',
-  },
-  {
-    question: 'Waar moet ik beginnen zodra ik de app heb gedownload?',
-    answer: 'Start met het onboarding-proces dat je begeleidt door de app.',
-  },
-  {
-    question: 'Welke apparaten ondersteunen de Releafe-app?',
-    answer: 'Releafe wordt ondersteund op iOS en Android-apparaten.',
-  },
-  {
-    question: 'Hoe kan ik opzeggen?',
-    answer: 'Je kunt het abonnement opzeggen via je accountinstellingen.',
-  },
-]
-
-export function HomePage({ page, settings, preview, articles }: HomePageProps) {
+export function HomePage({
+  page,
+  settings,
+  features,
+  partners,
+  preview,
+  articles,
+  testimonials,
+  faq,
+}: HomePageProps) {
   useEffect(() => {
     // Preloading images for optimization
-    featuresData.forEach(([, , imagePath]) => {
+    features?.features.forEach(({ image }) => {
       const img = new window.Image()
-      img.src = imagePath
+      img.src = urlForImage(image).url()
     })
   }, [])
 
   const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
 
   const [featuresSelectedIndex, setFeaturesSelectedIndex] = useState<number>(0)
+
   const [testimonialsActiveIndex, setTestimonialsActiveIndex] =
     useState<number>(0)
   const [articlesActiveIndex, setArticlesActiveIndex] = useState<number>(0)
 
   const handleTestimonialsNext = () => {
-    setTestimonialsActiveIndex((prev) => (prev + 1) % testimonialsData.length)
+    setTestimonialsActiveIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const handleTestimonialsPrev = () => {
     setTestimonialsActiveIndex((prev) =>
-      prev === 0 ? testimonialsData.length - 1 : prev - 1,
+      prev === 0 ? testimonials.length - 1 : prev - 1,
     )
   }
 
@@ -201,7 +142,7 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
         <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-32 xl:px-64 2xl:px-96 flex flex-col justify-center items-center">
           {/* Title */}
           <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
-            Wij zijn hier om jou in staat te stellen je welzijn te bevorderen
+            {features?.title}
           </h1>
 
           {/* Features Box */}
@@ -209,14 +150,15 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
             {/* Features Selection Row Container */}
             <div className="flex flex-row flex-wrap lg:flex-nowrap gap-2.5 justify-center lg:absolute lg:-top-5 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-10 ">
               {/* Feature Selection Box */}
-              {featuresData.map((feature, index) => {
+              {features?.features.map((feature, index) => {
+                const { title, description, image, ctaText, ctaLink } = feature
                 return (
                   <button
                     key={index}
                     onClick={() => setFeaturesSelectedIndex(index)}
                     className={`${featuresSelectedIndex === index ? 'bg-[#96a78d] hover:bg-[#8d9b81]' : 'bg-[#c5d4bc] hover:bg-[#b7c6ae]'} rounded-lg text-sm lg:text-lg font-sofia font-bold text-white text-nowrap py-2 px-4 transition duration-300 ease-in-out`}
                   >
-                    {feature[0]}
+                    {title}
                   </button>
                 )
               })}
@@ -227,8 +169,14 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
               <div className="w-full h-[600px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] relative">
                 <Image
                   className="object-contain"
-                  src={featuresData[featuresSelectedIndex][2]}
-                  alt=""
+                  src={
+                    features?.features[featuresSelectedIndex]?.image
+                      ? urlForImage(
+                          features.features[featuresSelectedIndex].image,
+                        ).url()
+                      : ''
+                  }
+                  alt={features?.features[featuresSelectedIndex].title}
                   fill
                   priority
                 />
@@ -237,12 +185,16 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
               <div className="flex flex-col items-center gap-y-4 my-8 w-full">
                 <div className="h-[300px] flex flex-col justify-center">
                   <p className="font-sofia font-light text-md xl:text-lg text-center">
-                    {featuresData[featuresSelectedIndex][1]}
+                    {features?.features[featuresSelectedIndex].description}
                   </p>
                 </div>
 
                 <Link
-                  href="/probeer-releafe"
+                  href={
+                    features?.features[featuresSelectedIndex]?.ctaLink
+                      ? features.features[featuresSelectedIndex].ctaLink
+                      : '/'
+                  }
                   className="
     relative flex justify-center items-center rounded-full overflow-hidden h-[50px] lg:h-[60px] w-full lg:w-[18rem] mt-4 
     bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] text-white font-sofia font-bold text-md xl:text-lg
@@ -253,7 +205,7 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
 
                   {/* Text above the overlay */}
                   <p className="relative z-10 pointer-events-none">
-                    {featuresData[featuresSelectedIndex][3]}
+                    {features?.features[featuresSelectedIndex].ctaText}
                   </p>
                 </Link>
               </div>
@@ -278,17 +230,20 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
           {/* Credibility Container */}
           <div className="mt-[2rem] lg:mt-[4rem] flex flex-col gap-y-14 md:px-32 lg:px-64">
             <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
-              Samenwerkingspartners
+              {/* @OTODO: Better destructuring on the top level of the component? */}
+              {partners?.title}
             </h1>
 
             {/* Credibity Logo Row Container */}
             <div className="flex flex-col lg:flex-row lg:gap-x-32 2xl:gap-x-48 gap-y-28 lg:gap-y-32 justify-center items-center px-32 xl:px-64">
-              {companyLogos.map((logo, index) => {
+              {partners.partners.map((partner, index) => {
+                const { name, logo, alt, url } = partner
+
                 return (
                   <Image
                     key={index}
-                    src={logo}
-                    alt=""
+                    src={urlForImage(logo).url()}
+                    alt={alt}
                     className="max-w-[125px] lg:max-w-[150px] h-auto"
                     width={150}
                     height={150}
@@ -310,7 +265,9 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
             {/* Testimonials Container */}
             <ul className="relative h-[450px]">
               {/* Testimonial Box */}
-              {testimonialsData.map((testimonial, index) => {
+              {testimonials.map((testimonial, index) => {
+                const { quote, authorName, authorLocation, authorRole, topic } =
+                  testimonial
                 // Calculate the relative position of the element
                 const relativeIndex = index - testimonialsActiveIndex
 
@@ -342,17 +299,17 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
 
                       {/* Quote */}
                       <h2 className="mt-4 font-sofia font-normal text-lg leading-tight text-white">
-                        {testimonial[0]}
+                        {quote}
                       </h2>
                     </div>
 
                     <div>
                       <h3 className="font-sofia font-medium text-md text-white">
-                        {`${testimonial[1]} (Testgebruiker)`}
+                        {`${authorName}, ${authorLocation} ${authorRole}`}
                       </h3>
 
                       <h4 className="font-sofia font-light text-sm leading-tight text-white">
-                        {testimonial[2]}
+                        {topic}
                       </h4>
                     </div>
                   </li>
@@ -377,12 +334,12 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
                 </button>
               </li>
               <li
-                className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${testimonialsActiveIndex === testimonialsData.length - 1 ? 'opacity-50' : 'opacity-100'}`}
+                className={`flex justify-center items-center rounded-full w-10 h-10 bg-[#96a78d] hover:bg-[#8d9b81] transform duration-300 ease-in-out ${testimonialsActiveIndex === testimonials.length - 1 ? 'opacity-50' : 'opacity-100'}`}
               >
                 <button
                   className="h-[2.5rem] w-[2.5rem] rounded-full"
                   disabled={
-                    testimonialsActiveIndex === testimonialsData.length - 1
+                    testimonialsActiveIndex === testimonials.length - 1
                       ? true
                       : false
                   }
@@ -514,34 +471,12 @@ export function HomePage({ page, settings, preview, articles }: HomePageProps) {
                 Algemeen
               </h1>
             </div>
-            {faqData.map((faq, index) => {
-              return (
-                <FAQItem
-                  key={index}
-                  question={faq.question}
-                  answer={faq.answer}
-                />
-              )
+            {faq.map((faq, index) => {
+              const { question, answer } = faq
+              return <FAQItem key={index} question={question} answer={answer} />
             })}
           </div>
         </section> */}
-
-        {/* Showcase projects */}
-        {/* {showcaseProjects && showcaseProjects.length > 0 && (
-            <div className="mx-auto max-w-[100rem] rounded-md border">
-              {showcaseProjects.map((project, key) => {
-                const href = resolveHref(project._type, project.slug)
-                if (!href) {
-                  return null
-                }
-                return (
-                  <Link key={key} href={href}>
-                    <ProjectListItem project={project} odd={key % 2} />
-                  </Link>
-                )
-              })}
-            </div>
-          )} */}
 
         {/* Workaround: scroll to top on route change */}
         <ScrollUp />
