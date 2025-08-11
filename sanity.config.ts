@@ -16,7 +16,6 @@ import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import youtube from 'schemas/objects/youtube'
-import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
 import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-secrets'
 
@@ -31,6 +30,14 @@ import company from 'schemas/objects/company'
 import features from 'schemas/singletons/features'
 import feature from 'schemas/objects/feature'
 
+// SINGLETONS
+import home from 'schemas/singletons/home'
+import navbar from 'schemas/singletons/navbar'
+// SECTIONS
+import section from 'schemas/documents/section'
+// ELEMENTS / CUSTOM ELEMENTS
+import cta from 'schemas/documents/cta'
+
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
 export default defineConfig({
@@ -42,11 +49,16 @@ export default defineConfig({
     // If you want more content types, you can add them to this array
     types: [
       // Singletons
-      home,
       settings,
-      features,
-      partners,
+      navbar,
+      home,
+      // @TODO These need to become sections!
+      // features,
+      // partners,
+
       // Documents
+      section,
+      cta,
       duration,
       page,
       project,
@@ -73,7 +85,7 @@ export default defineConfig({
       },
     }),
     structureTool({
-      structure: pageStructure([home, settings, features, partners]),
+      structure: pageStructure([settings, navbar, home]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
     singletonPlugin([home.name, settings.name, features.name, partners.name]),

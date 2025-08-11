@@ -3,8 +3,9 @@ import HomePagePreview from 'components/pages/home/HomePagePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import {
-  homePageQuery,
   settingsQuery,
+  navbarQuery,
+  homePageQuery,
   featuresQuery,
   partnersQuery,
   testimonialsQuery,
@@ -13,8 +14,9 @@ import {
 } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import {
-  HomePagePayload,
   SettingsPayload,
+  NavbarPayload,
+  HomePagePayload,
   FeaturesPayload,
   PartnersPayload,
   TestimonialPayload,
@@ -25,8 +27,9 @@ import {
 import type { SharedPageProps } from './_app'
 
 interface PageProps extends SharedPageProps {
-  page: HomePagePayload
   settings: SettingsPayload
+  navbar: NavbarPayload
+  page: HomePagePayload
   features: FeaturesPayload
   partners: PartnersPayload
   testimonials: TestimonialPayload[]
@@ -40,8 +43,9 @@ interface Query {
 
 export default function IndexPage(props: PageProps) {
   const {
-    page,
     settings,
+    navbar,
+    page,
     features,
     partners,
     draftMode,
@@ -53,8 +57,9 @@ export default function IndexPage(props: PageProps) {
   if (draftMode) {
     return (
       <HomePagePreview
-        page={page}
         settings={settings}
+        navbar={navbar}
+        page={page}
         features={features}
         partners={partners}
         testimonials={testimonials}
@@ -66,8 +71,9 @@ export default function IndexPage(props: PageProps) {
 
   return (
     <HomePage
-      page={page}
       settings={settings}
+      navbar={navbar}
+      page={page}
       features={features}
       partners={partners}
       testimonials={testimonials}
@@ -87,22 +93,32 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   const { draftMode = false } = ctx
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
-  const [settings, page, features, partners, testimonials, articles, faq] =
-    await Promise.all([
-      client.fetch<SettingsPayload | null>(settingsQuery),
-      client.fetch<HomePagePayload | null>(homePageQuery),
-      client.fetch<FeaturesPayload | null>(featuresQuery),
-      client.fetch<PartnersPayload | null>(partnersQuery),
-      client.fetch<TestimonialPayload[] | null>(testimonialsQuery),
-      client.fetch<ArticlePayload[] | null>(articlesQuery),
-      client.fetch<FAQPayload[] | null>(faqQuery),
-    ])
+  const [
+    settings,
+    navbar,
+    page,
+    features,
+    partners,
+    testimonials,
+    articles,
+    faq,
+  ] = await Promise.all([
+    client.fetch<SettingsPayload | null>(settingsQuery),
+    client.fetch<NavbarPayload | null>(navbarQuery),
+    client.fetch<HomePagePayload | null>(homePageQuery),
+    client.fetch<FeaturesPayload | null>(featuresQuery),
+    client.fetch<PartnersPayload | null>(partnersQuery),
+    client.fetch<TestimonialPayload[] | null>(testimonialsQuery),
+    client.fetch<ArticlePayload[] | null>(articlesQuery),
+    client.fetch<FAQPayload[] | null>(faqQuery),
+  ])
 
   return {
     props: {
-      page: page ?? fallbackPage,
       // @TODO: Add proper fallbacks!
       settings: settings ?? {},
+      navbar: navbar ?? {},
+      page: page ?? fallbackPage,
       features: features ?? {},
       partners: partners ?? {},
       testimonials: testimonials ?? [],

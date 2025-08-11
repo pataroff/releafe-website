@@ -7,6 +7,7 @@ import { HomePage, HomePageProps } from './HomePage'
 export default function HomePagePreview({
   page: initialPage,
   settings,
+  navbar,
   features,
   partners,
   testimonials,
@@ -28,8 +29,9 @@ export default function HomePagePreview({
 
   return (
     <HomePage
-      page={page}
       settings={settings}
+      navbar={navbar}
+      page={page}
       features={features}
       partners={partners}
       testimonials={testimonials}

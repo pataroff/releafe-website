@@ -21,6 +21,9 @@ export function getClient(preview?: { token: string }) {
         if (props.sourcePath.at(0) === 'duration') {
           return false
         }
+        if (props.sourcePath.at(-1) === 'sectionType') {
+          return false
+        }
         switch (props.sourcePath.at(-1)) {
           case 'site':
             return false
@@ -37,7 +40,7 @@ export function getClient(preview?: { token: string }) {
       token: preview.token,
       useCdn: false,
       ignoreBrowserTokenWarning: true,
-      perspective: 'previewDrafts',
+      perspective: 'drafts',
     })
   }
   return client

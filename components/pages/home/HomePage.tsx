@@ -12,6 +12,7 @@ import type {
   FAQPayload,
   FeaturesPayload,
   HomePagePayload,
+  NavbarPayload,
   PartnersPayload,
   TestimonialPayload,
 } from 'types'
@@ -29,6 +30,7 @@ import { urlForImage } from 'lib/sanity.image'
 
 export interface HomePageProps {
   settings?: SettingsPayload
+  navbar?: NavbarPayload
   page?: HomePagePayload
   features?: FeaturesPayload
   partners?: PartnersPayload
@@ -39,8 +41,9 @@ export interface HomePageProps {
 }
 
 export function HomePage({
-  page,
   settings,
+  navbar,
+  page,
   features,
   partners,
   preview,
@@ -56,7 +59,14 @@ export function HomePage({
     })
   }, [])
 
-  const { overview, showcaseProjects, title = 'Personal website' } = page ?? {}
+  const { sections } = page
+
+  const heroSectionIndex = sections.findIndex(
+    (section) => section.sectionType === 'hero',
+  )
+
+  const title = sections[heroSectionIndex].title
+  const overview = sections[heroSectionIndex].body
 
   const [featuresSelectedIndex, setFeaturesSelectedIndex] = useState<number>(0)
 
@@ -114,7 +124,12 @@ export function HomePage({
   return (
     <>
       <HomePageHead page={page} settings={settings} />
-      <Layout settings={settings} preview={preview} route={'Home'}>
+      <Layout
+        settings={settings}
+        navbar={navbar}
+        preview={preview}
+        route={'Home'}
+      >
         {/* Main Section */}
         <section className="h-full">
           <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[580px] z-0 mb-[40px]">

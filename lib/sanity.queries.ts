@@ -1,19 +1,48 @@
 import { groq } from 'next-sanity'
 
+// SINGLETONS
+export const settingsQuery = groq`
+  *[_type == "settings"][0]{
+    siteTitle,
+    siteDescription,
+    ogImage
+  }
+`
+
+export const navbarQuery = groq`
+  *[_type == "navbar"][0]{
+    _id,
+    navbarItems[]->{
+      _id,
+      _type,
+      title,
+      slug {
+        current
+      }
+    }
+  }
+`
+
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
-    footer,
-    overview,
-    showcaseProjects[]->{
-      _type,
-      coverImage,
-      overview,
-      "slug": slug.current,
-      tags,
+    sections[]->{
+      _id,
+      sectionType,
       title,
-    },
-    title,
+      body,
+      customElement->{
+        _type,
+        ...
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
   }
 `
 
@@ -52,17 +81,6 @@ export const projectPaths = groq`
 
 export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
-`
-
-export const settingsQuery = groq`
-  *[_type == "settings"][0]{
-    navbarItems[]->{
-      _type,
-      title,
-      "slug": slug.current,
-    },
-    ogImage,
-  }
 `
 
 export const partnersQuery = groq`

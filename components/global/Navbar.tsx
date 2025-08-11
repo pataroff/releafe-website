@@ -168,7 +168,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               </Link>
               {navbarItems &&
                 navbarItems.slice(0, 3).map((menuItem) => {
-                  const href = resolveHref(menuItem?._type, menuItem?.slug)
+                  const href = resolveHref(
+                    menuItem?._type,
+                    menuItem?.slug.current,
+                  )
                   if (!href) {
                     return null
                   }
@@ -188,7 +191,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             <div className="flex items-center gap-x-5 z-10">
               {navbarItems &&
                 navbarItems.slice(3, 6).map((menuItem, index) => {
-                  const href = resolveHref(menuItem?._type, menuItem?.slug)
+                  const href = resolveHref(
+                    menuItem?._type,
+                    menuItem?.slug.current,
+                  )
                   if (!href) {
                     return null
                   }
@@ -286,7 +292,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   navbarItems[navbarItems.length - 1] &&
                   (() => {
                     const menuItem = navbarItems[navbarItems.length - 1]
-                    const href = resolveHref(menuItem?._type, menuItem?.slug)
+                    const href = resolveHref(
+                      menuItem?._type,
+                      menuItem?.slug.current,
+                    )
                     if (href) {
                       return (
                         <Link key={href} href={href}>
@@ -340,7 +349,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   navbarItems
                     .slice(0, navbarItems.length - 1)
                     .map((menuItem, index) => {
-                      const href = resolveHref(menuItem?._type, menuItem?.slug)
+                      const href = resolveHref(
+                        menuItem?._type,
+                        menuItem?.slug.current,
+                      )
                       if (!href) {
                         return null
                       }

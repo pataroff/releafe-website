@@ -127,3 +127,30 @@ export interface FAQPayload {
   question: string
   answer: string
 }
+
+export interface CTAElement {
+  _type: string
+  callToActionTitle?: string
+  callToActionText?: string
+  callToActionButtonText?: string
+  callToActionLink?: string
+}
+
+export interface Section {
+  _id: string
+  sectionType: string
+  title?: string
+  body?: PortableTextBlock[]
+  customElement?: any // you can replace with more specific type if you want
+  ctaElement?: CTAElement
+}
+
+// SINGLETONS
+
+export interface HomePagePayload {
+  sections?: Section[]
+}
+
+export interface NavbarPayload {
+  navbarItems?: NavbarItem[]
+}
