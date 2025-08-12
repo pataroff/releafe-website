@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { Header } from 'components/shared/Header'
 import ScrollUp from 'components/shared/ScrollUp'
 import Link from 'next/link'
 import Image from 'next/image'

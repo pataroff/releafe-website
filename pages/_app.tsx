@@ -16,8 +16,8 @@ import Layout from 'components/shared/Layout'
 export interface SharedPageProps {
   draftMode: boolean
   token: string
-  settings: SettingsPayload
-  navbar: NavbarPayload
+  settings?: SettingsPayload
+  navbar?: NavbarPayload
 }
 
 const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))

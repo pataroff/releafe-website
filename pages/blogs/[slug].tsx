@@ -2,13 +2,9 @@ import BlogPage from 'components/pages/blogs/BlogPage'
 // import ArticlePreview from 'components/pages/artikelen/ArticlePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import {
-  articleBySlugQuery,
-  articlePathsQuery,
-  settingsQuery,
-} from 'lib/sanity.queries'
+import { articleBySlugQuery, articlePathsQuery } from 'lib/sanity.queries'
 import type { GetStaticProps } from 'next'
-import { ArticlePayload } from 'types'
+import { ArticlePayload, SettingsPayload, NavbarPayload } from 'types'
 
 import type { SharedPageProps } from '../_app'
 
@@ -17,7 +13,7 @@ interface PageProps extends SharedPageProps {
 }
 
 interface Query {
-  slug?: string
+  [key: string]: string
 }
 
 export default function BlogSlugRoute(props: PageProps) {
