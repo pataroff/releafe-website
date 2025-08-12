@@ -5,31 +5,28 @@ import { NavbarPayload, SettingsPayload } from 'types'
 import { CookiesConsent } from 'components/global/CookiesConsent'
 import { GoogleAnalyticsWrapper } from './GoogleAnalyticsWrapper'
 
-const fallbackSettings: SettingsPayload = {
-  navbarItems: [],
-}
+import { useRouter } from 'next/router'
+import { SiteMeta } from 'components/global/SiteMeta'
 
 export interface LayoutProps {
+  settings: SettingsPayload
+  navbar: NavbarPayload
   children: React.ReactNode
-  settings: SettingsPayload | undefined
-  navbar: NavbarPayload | undefined
-  preview?: boolean
-  route?: string
 }
 
-export default function Layout({
-  children,
-  settings = fallbackSettings,
-  navbar,
-  route, // route = PageTitle
-}: LayoutProps) {
+export default function Layout({ settings, navbar, children }: LayoutProps) {
+  const router = useRouter()
+  const { route } = router
+  const { navbarItems } = navbar
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-black overflow-hidden">
-      <Navbar navbarItems={navbar?.navbarItems} route={route} />
+      <SiteMeta settings={settings} />
+      <Navbar navbarItems={navbarItems} route={route} />
       <main className="flex-grow">{children}</main>
       <CookiesConsent />
       <GoogleAnalyticsWrapper />
-      {route !== 'Probeer Releafe gratis' && <Footer />}
+      {route !== '/probeer-releafe' && <Footer />}
     </div>
   )
 }

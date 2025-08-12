@@ -16,7 +16,6 @@ import type { SharedPageProps } from './_app'
 
 interface PageProps extends SharedPageProps {
   page?: PagePayload
-  settings?: SettingsPayload
   homePageTitle?: string
 }
 

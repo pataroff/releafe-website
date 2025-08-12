@@ -2,20 +2,18 @@ import BlogPage from 'components/pages/blogs/BlogPage'
 // import ArticlePreview from 'components/pages/artikelen/ArticlePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { resolveHref } from 'lib/sanity.links'
 import {
   articleBySlugQuery,
   articlePathsQuery,
   settingsQuery,
 } from 'lib/sanity.queries'
 import type { GetStaticProps } from 'next'
-import { ArticlePayload, SettingsPayload } from 'types'
+import { ArticlePayload } from 'types'
 
 import type { SharedPageProps } from '../_app'
 
 interface PageProps extends SharedPageProps {
   article?: ArticlePayload
-  settings?: SettingsPayload
 }
 
 interface Query {
@@ -23,7 +21,7 @@ interface Query {
 }
 
 export default function BlogSlugRoute(props: PageProps) {
-  const { article, settings, draftMode } = props
+  const { article, draftMode } = props
 
   // Uncomment if you want preview mode with a separate component
   // if (draftMode) {
@@ -35,7 +33,7 @@ export default function BlogSlugRoute(props: PageProps) {
     return <div>Loading article...</div>
   }
 
-  return <BlogPage article={article} settings={settings} />
+  return <BlogPage article={article} />
 }
 
 export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
@@ -43,8 +41,7 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   // Fetch settings and article by slug
-  const [settings, article] = await Promise.all([
-    client.fetch<SettingsPayload | null>(settingsQuery),
+  const [article] = await Promise.all([
     client.fetch<ArticlePayload | null>(articleBySlugQuery, {
       slug: params.slug,
     }),
@@ -61,7 +58,6 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
   return {
     props: {
       article,
-      settings: settings ?? {},
       draftMode,
       token: draftMode ? readToken : null,
     },

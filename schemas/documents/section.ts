@@ -11,11 +11,13 @@ export default {
       validation: (Rule) => Rule.required(),
       options: {
         list: [
-          { title: 'Default', value: 'default' },
+          { title: 'Default', value: 'default' }, // GENERAL TYPE
           { title: 'Hero', value: 'hero' },
-          { title: 'Feature', value: 'feature' },
-          { title: 'Company', value: 'company' },
-          { title: 'Testimonial', value: 'testimonial' },
+          { title: 'Features', value: 'features' },
+          { title: 'Partners', value: 'partners' },
+          { title: 'Testimonials', value: 'testimonials' },
+          { title: 'Articles', value: 'articles' },
+          { title: 'FAQ', value: 'faq' },
         ],
       },
     },
@@ -32,14 +34,24 @@ export default {
       of: [{ type: 'block' }],
     },
     {
-      name: 'customElement',
-      title: 'Custom Element',
-      type: 'reference',
-      to: [
-        // Add other supported schemas you want here
-        { type: 'testimonial' },
-        { type: 'feature' },
-        { type: 'company' },
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'customElements',
+      title: 'Custom Elements',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'testimonial' },
+            { type: 'feature' },
+            { type: 'company' },
+          ],
+        },
       ],
     },
     {
@@ -51,8 +63,18 @@ export default {
   ],
   preview: {
     select: {
+      sectionType: 'sectionType',
       title: 'title',
-      subtitle: 'body',
+    },
+    prepare({ sectionType, title }) {
+      // Capitalize first letter and keep rest lowercase
+      const capitalizedType =
+        sectionType.charAt(0).toUpperCase() + sectionType.slice(1)
+
+      return {
+        title: capitalizedType,
+        subtitle: title,
+      }
     },
   },
 }

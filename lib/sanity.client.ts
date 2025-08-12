@@ -9,9 +9,9 @@ export function getClient(preview?: { token: string }) {
     useCdn: false,
     perspective: 'published',
     stega: {
-      enabled:
-        process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
-        typeof preview?.token === 'string',
+      enabled: false,
+      // process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
+      // typeof preview?.token === 'string',
       studioUrl: basePath,
       logger: console,
       filter: (props) => {

@@ -1,19 +1,18 @@
 export default {
   name: 'feature',
   title: 'Feature',
-  type: 'object',
+  type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'featureName',
+      title: 'Feature Name',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'featureDescription',
+      title: 'Feature Description',
       type: 'text',
-      rows: 5,
       validation: (Rule) => Rule.required(),
     },
     {
@@ -24,21 +23,16 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'ctaText',
-      title: 'CTA Text',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      name: 'ctaLink',
-      title: 'CTA Link',
-      type: 'url',
+      name: 'ctaElement',
+      title: 'Call to Action Element',
+      type: 'reference',
+      to: [{ type: 'cta' }],
       validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'featureName',
       media: 'image',
     },
   },

@@ -1,33 +1,18 @@
-import * as demo from 'lib/demo.data'
-import { urlForImage } from 'lib/sanity.image'
 import Head from 'next/head'
-import type { Image } from 'sanity'
 
-/**
- * All the shared stuff that goes into <head> on `(personal)` routes, can be be imported by `head.tsx` files in the /app dir or wrapped in a <Head> component in the /pages dir.
- */
-export function SiteMeta({
-  baseTitle,
-  description,
-  image,
-  title,
-}: {
-  baseTitle?: string
-  description?: string
-  image?: Image
-  title?: string
-}) {
-  const metaTitle = [
-    ...(title ? [title] : []),
-    ...(baseTitle ? [baseTitle] : []),
-  ].join(' | ')
+import { SettingsPayload } from 'types'
+
+import { urlForImage } from 'lib/sanity.image'
+
+export function SiteMeta({ settings }: { settings: SettingsPayload }) {
+  const { siteTitle, siteDescription, ogImage } = settings
 
   const imageUrl =
-    image && urlForImage(image)?.width(1200).height(627).fit('crop').url()
+    ogImage && urlForImage(ogImage)?.width(1200).height(627).fit('crop').url()
 
   return (
     <Head>
-      <title>Releafe - Dé app voor jouw mentale welzijn</title>
+      <title>{siteTitle}</title>
       <meta name="viewport" content="width=device-width,initial-scale=1.0" />
       <link
         rel="icon"
@@ -41,8 +26,8 @@ export function SiteMeta({
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" /> */}
-      {description && (
-        <meta key="description" name="description" content={description} />
+      {siteDescription && (
+        <meta key="description" name="description" content={siteDescription} />
       )}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
     </Head>

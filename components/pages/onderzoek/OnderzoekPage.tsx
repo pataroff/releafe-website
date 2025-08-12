@@ -202,90 +202,87 @@ const researchData = [
   },
 ]
 
-const OnderzoekPage = ({ settings, page }) => {
+const OnderzoekPage = ({ page }) => {
   return (
     <>
-      <HomePageHead page={page} settings={settings} />
-      <Layout settings={settings} route={'Onderzoek'}>
-        {/* Features Section */}
-        <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 px-8 lg:px-16 xl:px-32">
-          {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-auto pt-14 py-8 max-w-[1440px]">
-            <div className="px-8 lg:px-16 xl:px-32">
-              <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center">
-                Wetenschappelijk onderzoek functionaliteiten Releafe app
-              </h1>
-              <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
-                Hieronder wordt per functionaliteit van de Releafe-app, op basis
-                van wetenschappelijke onderzoeken, toegelicht hoe deze bijdraagt
-                aan het versterken van mentaal welzijn, mentale gezondheid en/of
-                mentale fitheid van de gebruiker.
-              </p>
-            </div>
+      {/* Features Section */}
+      <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] xl:flex xl:pt-0 px-8 lg:px-16 xl:px-32">
+        {/* Features Box */}
+        <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-auto pt-14 py-8 max-w-[1440px]">
+          <div className="px-8 lg:px-16 xl:px-32">
+            <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center">
+              Wetenschappelijk onderzoek functionaliteiten Releafe app
+            </h1>
+            <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
+              Hieronder wordt per functionaliteit van de Releafe-app, op basis
+              van wetenschappelijke onderzoeken, toegelicht hoe deze bijdraagt
+              aan het versterken van mentaal welzijn, mentale gezondheid en/of
+              mentale fitheid van de gebruiker.
+            </p>
+          </div>
 
-            {/* Research Data Container */}
-            <div className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16">
-              {researchData.map((item, index) => {
-                const { title, description, findings } = item
+          {/* Research Data Container */}
+          <div className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16">
+            {researchData.map((item, index) => {
+              const { title, description, findings } = item
 
-                return (
-                  <div
-                    key={index}
-                    className={`flex flex-col-reverse lg:flex-row justify-between items-center gap-x-12`}
-                  >
-                    {/* Feature Text Container */}
-                    <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
-                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                        {title}
-                      </h2>
-                      <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
-                        {description}
-                      </p>
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col-reverse lg:flex-row justify-between items-center gap-x-12`}
+                >
+                  {/* Feature Text Container */}
+                  <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
+                    <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                      {title}
+                    </h2>
+                    <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                      {description}
+                    </p>
 
-                      {/* <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold">
+                    {/* <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold">
                         Wetenschappelijke bevindingen:{' '}
                         <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"></span>
                       </h3> */}
 
-                      {findings.map((finding, index) => {
-                        const {
-                          findingTitle,
-                          findingDescription,
-                          findingLinkCitation,
-                          findingLinkHref,
-                        } = finding
-                        return (
-                          <div key={index}>
-                            <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                              • {findingTitle}
-                              <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"></span>
-                            </h3>
+                    {findings.map((finding, index) => {
+                      const {
+                        findingTitle,
+                        findingDescription,
+                        findingLinkCitation,
+                        findingLinkHref,
+                      } = finding
+                      return (
+                        <div key={index}>
+                          <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+                            • {findingTitle}
+                            <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light"></span>
+                          </h3>
 
-                            <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
-                              {findingDescription}
-                              <span>
-                                {' '}
-                                (
-                                <Link
-                                  href={findingLinkHref}
-                                  className="underline"
-                                >
-                                  {findingLinkCitation}
-                                </Link>
-                                )
-                              </span>
-                            </p>
-                          </div>
-                        )
-                      })}
-                    </div>
+                          <p className="font-sofia font-light text-md xl:text-lg 2xl:text-xl">
+                            {findingDescription}
+                            <span>
+                              {' '}
+                              (
+                              <Link
+                                href={findingLinkHref}
+                                className="underline"
+                              >
+                                {findingLinkCitation}
+                              </Link>
+                              )
+                            </span>
+                          </p>
+                        </div>
+                      )
+                    })}
                   </div>
-                )
-              })}
-            </div>
+                </div>
+              )
+            })}
           </div>
-        </section>
-      </Layout>
+        </div>
+      </section>
     </>
   )
 }

@@ -5,24 +5,24 @@ export default {
   fields: [
     {
       name: 'callToActionButtonText',
-      title: 'Button Text',
+      title: 'Call To Action Button Text',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'callToActionLink',
-      title: 'Link',
+      title: 'Call To Action Link',
       type: 'url',
       validation: (Rule) => Rule.required(),
     },
     {
       name: 'callToActionTitle',
-      title: 'Title',
+      title: 'Call To Action Title',
       type: 'string',
     },
     {
       name: 'callToActionText',
-      title: 'Text',
+      title: 'Call To Action Text',
       type: 'string',
     },
   ],

@@ -22,10 +22,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState<boolean>(false)
   const [isFlyoutOpen, setIsFlyoutOpen] = useState<boolean>(false)
 
-  const isHomePage = route === 'Home'
-  const isMentaleKlachtenPage = route === 'Mentale klachten'
-  const isMentaalFitPage = route === 'Mentaal fit'
-  const isProbeerReleafeGratisPage = route === 'Probeer Releafe gratis'
+  const isHomePage = route === '/'
+  const isMentaleKlachtenPage = route === '/mentale-klachten'
+  const isMentaalFitPage = route === '/mentaal-fit'
+  const isProbeerReleafeGratisPage = route === '/probeer-releafe'
 
   const FlyoutLink = ({ children, href, FlyoutContent }) => {
     const showFlyout = isFlyoutOpen && FlyoutContent

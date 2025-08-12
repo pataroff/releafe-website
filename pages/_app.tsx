@@ -8,9 +8,16 @@ import { AppProps } from 'next/app'
 import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 import { lazy, useSyncExternalStore } from 'react'
 
+import { fetchGlobalData } from 'lib/sanity.global'
+import { NavbarPayload, SettingsPayload } from 'types'
+
+import Layout from 'components/shared/Layout'
+
 export interface SharedPageProps {
   draftMode: boolean
   token: string
+  settings: SettingsPayload
+  navbar: NavbarPayload
 }
 
 const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))
@@ -40,7 +47,7 @@ export default function App({
   Component,
   pageProps,
 }: AppProps<SharedPageProps>) {
-  const { draftMode, token } = pageProps
+  const { draftMode, token, settings, navbar } = pageProps
   const isMaybeInsidePresentation = useSyncExternalStore(
     subscribe,
     () =>
@@ -61,15 +68,23 @@ export default function App({
         `}
       </style>
 
-      {draftMode ? (
-        <PreviewProvider token={token}>
+      <Layout settings={settings} navbar={navbar}>
+        {draftMode ? (
+          <PreviewProvider token={token}>
+            <Component {...pageProps} />
+          </PreviewProvider>
+        ) : (
           <Component {...pageProps} />
-        </PreviewProvider>
-      ) : (
-        <Component {...pageProps} />
-      )}
+        )}
 
-      {isMaybeInsidePresentation && <VisualEditing />}
+        {isMaybeInsidePresentation && <VisualEditing />}
+      </Layout>
     </>
   )
+}
+
+App.getInitialProps = async ({ ctx }: any) => {
+  const { draftMode = false } = ctx
+  const globals = await fetchGlobalData(draftMode)
+  return { pageProps: { ...globals, draftMode } }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
-import { Header } from 'components/shared/Header'
 import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
 import type { ArticlePayload, SettingsPayload } from 'types'
@@ -12,11 +11,9 @@ import Image from 'next/image'
 
 export interface ArticlePageProps {
   article: ArticlePayload | undefined
-  settings: SettingsPayload | undefined
-  preview?: boolean
 }
 
-const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
+const BlogPage = ({ article }: ArticlePageProps) => {
   if (!article) {
     return <div>Article not found.</div>
   }
@@ -35,7 +32,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
   } = article
 
   return (
-    <Layout settings={settings} preview={preview} route={title}>
+    <>
       <section className="min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-14 xl:pt-0">
         <div className="max-w-[1440px] mx-auto py-14 px-8 lg:px-16 xl:px-32">
           {/* Title */}
@@ -116,7 +113,7 @@ const BlogPage = ({ article, settings, preview }: ArticlePageProps) => {
         </div>
       </section>
       <ScrollUp />
-    </Layout>
+    </>
   )
 }
 

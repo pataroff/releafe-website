@@ -28,7 +28,7 @@ import faq from 'schemas/documents/faq'
 import partners from 'schemas/singletons/partners'
 import company from 'schemas/objects/company'
 import features from 'schemas/singletons/features'
-import feature from 'schemas/objects/feature'
+import feature from 'schemas/documents/feature'
 
 // SINGLETONS
 import home from 'schemas/singletons/home'
@@ -88,7 +88,7 @@ export default defineConfig({
       structure: pageStructure([settings, navbar, home]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name, features.name, partners.name]),
+    singletonPlugin([settings.name, navbar.name, home.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

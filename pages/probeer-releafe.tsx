@@ -7,9 +7,9 @@ import { HomePagePayload, SettingsPayload } from 'types'
 import ProbeerReleafePage from 'components/pages/probeer-releafe/ProbeerReleafe'
 
 export default function ProbeerReleafeGratisRoute(props) {
-  const { settings, page } = props
+  const { page } = props
 
-  return <ProbeerReleafePage settings={settings} page={page} />
+  return <ProbeerReleafePage page={page} />
 }
 
 const fallbackPage: HomePagePayload = {
@@ -22,15 +22,13 @@ export const getStaticProps: GetStaticProps<any, any> = async (ctx) => {
   const { draftMode = false } = ctx
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
-  const [settings, page] = await Promise.all([
-    client.fetch<SettingsPayload | null>(settingsQuery),
+  const [page] = await Promise.all([
     client.fetch<HomePagePayload | null>(homePageQuery),
   ])
 
   return {
     props: {
       page: page ?? fallbackPage,
-      settings: settings ?? {},
       draftMode,
       token: draftMode ? readToken : null,
     },

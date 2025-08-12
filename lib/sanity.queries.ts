@@ -31,9 +31,18 @@ export const homePageQuery = groq`
       sectionType,
       title,
       body,
-      customElement->{
-        _type,
-        ...
+      customElements[]->{
+        _id,
+        featureName,
+        featureDescription,
+        image,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
       },
       ctaElement->{
         _type,

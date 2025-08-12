@@ -1,4 +1,7 @@
-import type { PortableTextBlock } from '@portabletext/types'
+import type {
+  PortableTextBlock,
+  PortableTextMarkDefinition,
+} from '@portabletext/types'
 import type { Image } from 'sanity'
 
 export interface NavbarItem {
@@ -37,11 +40,10 @@ export interface CompanyItem {
 
 export interface FeatureItem {
   _type: string
-  title: string
-  description: string
+  featureName: string
+  featureDescrption: string
   image: Image
-  ctaText: string
-  ctaLink: string
+  ctaElement: CTAElement
 }
 
 // Page payloads
@@ -87,6 +89,8 @@ export interface ProjectPayload {
 }
 
 export interface SettingsPayload {
+  siteTitle?: string
+  siteDescription?: string
   navbarItems?: NavbarItem[]
   ogImage?: Image
 }
@@ -140,8 +144,8 @@ export interface Section {
   _id: string
   sectionType: string
   title?: string
-  body?: PortableTextBlock[]
-  customElement?: any // you can replace with more specific type if you want
+  body?: PortableTextMarkDefinition[]
+  customElements?: any[] // you can replace with more specific type if you want
   ctaElement?: CTAElement
 }
 
