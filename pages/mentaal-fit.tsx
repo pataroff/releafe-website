@@ -1,11 +1,10 @@
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { homePageQuery, settingsQuery } from 'lib/sanity.queries'
+import { mentaalFitPageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-import { HomePagePayload, SettingsPayload } from 'types'
+import { PagePayload } from 'types'
 
 import MentaalFitPage from 'components/pages/mentaal-fit/MentaalFitPage'
-import { fetchGlobalData } from 'lib/sanity.global'
 
 export default function MentaalFitRoute(props) {
   const { page } = props
@@ -18,7 +17,7 @@ export const getStaticProps: GetStaticProps<any, any> = async (ctx) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   const [page] = await Promise.all([
-    client.fetch<HomePagePayload | null>(homePageQuery),
+    client.fetch<PagePayload | null>(mentaalFitPageQuery),
   ])
 
   return {

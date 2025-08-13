@@ -1,37 +1,36 @@
 export default {
   name: 'company',
-  title: 'Company / Partner',
-  type: 'object',
+  title: 'Company',
+  type: 'document',
   fields: [
     {
-      name: 'name',
+      name: 'companyName',
       title: 'Company Name',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'logo',
-      title: 'Logo',
+      name: 'companyLogo',
+      title: 'Company Logo',
       type: 'image',
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'alt',
+      name: 'altText',
       title: 'Alt Text',
       type: 'string',
       description: 'For accessibility and SEO',
     },
     {
-      name: 'url',
-      title: 'Website URL',
+      name: 'companyWebsite',
+      title: 'Company Website',
       type: 'url',
     },
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'logo',
+      title: 'companyName',
+      media: 'companyLogo',
     },
   },
 }

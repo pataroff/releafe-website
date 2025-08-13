@@ -1,6 +1,6 @@
 export default {
   name: 'faq',
-  title: 'FAQ',
+  title: 'FAQ Item',
   type: 'document',
   fields: [
     {

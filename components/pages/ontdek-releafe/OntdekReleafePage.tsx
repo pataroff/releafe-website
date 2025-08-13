@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import ScrollUp from 'components/shared/ScrollUp'
+
+import { Section } from 'types'
+import { sectionRenderers } from 'components/sections'
+
 const featuresData = [
   {
     title: 'Dagboek',
@@ -88,190 +93,252 @@ const featuresData = [
   },
 ]
 
-const OntdekReleafePage = ({ page }) => {
+const OntdekReleafePage = ({ page }: { page: any }) => {
+  const { sections } = page
+
+  if (!sections || sections.length === 0) return null
+
+  // Find hero index
+  const heroIndex = sections.findIndex(
+    (section) => section.sectionType === 'hero',
+  )
+
+  const beforeHero =
+    heroIndex === -1 ? sections : sections.slice(0, heroIndex + 1)
+  const afterHero = heroIndex === -1 ? [] : sections.slice(heroIndex + 1)
+
+  // Extract mockup sections
+  const mockupSections = afterHero.filter(
+    (s) => s.sectionVariant === 'informationalMockup',
+  )
+
+  // Other sections after hero (non-mockup)
+  const otherSections = afterHero.filter(
+    (s) => s.sectionVariant !== 'informationalMockup',
+  )
+
   return (
     <>
-      {/* Main Section */}
-      <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
-        {/* Main Wrapper */}
-        <div className="flex flex-col xl:flex-row min-h-full w-full">
-          {/* Hero Text Container */}
-          <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
-            <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
-              Releafe: jouw pad naar mentaal welzijn
-            </h1>
-            <h3 className="text-md 2xl:text-xl font-sofia font-light">
-              Je mentale gezondheid verdient aandacht, en Releafe helpt je
-              daarbij. Of je nu grip wilt krijgen op je stress, beter inzicht
-              wilt in je emoties, of simpelweg bewuster wilt leven – met Releafe
-              heb je alle tools bij de hand. Van een overzichtelijk dagboek en
-              persoonlijke doelen tot ontspanningsoefeningen en een motiverende
-              bonsaiboom die met je meegroeit.
-            </h3>
+      {/* Sections before (and including) hero */}
+      {beforeHero.map((section: Section, index: number) => {
+        const renderSectionFn = sectionRenderers[section.sectionType]
+        return renderSectionFn ? renderSectionFn(section, index) : null
+      })}
 
-            {/* <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-bold">
-                Ontdek hoe Releafe jou kan ondersteunen en zet vandaag nog de
-                eerste stap naar meer balans en veerkracht.{' '}
-              </h3> */}
+      {/* Sections after hero wrapped in gradient */}
+      {afterHero.length > 0 && (
+        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+          {/* Render other sections normally */}
+          {otherSections.map((section, index) => {
+            const renderSectionFn = sectionRenderers[section.sectionType]
+            return renderSectionFn
+              ? renderSectionFn(section, index + beforeHero.length)
+              : null
+          })}
 
-            <p className="text-sm 2xl:text-lg font-sofia font-light ">
-              *Releafe geeft je praktische tools en oefeningen om mentaal
-              sterker te worden en beter om te gaan met deze klachten. Maar
-              onthoud: bij ernstige klachten is professionele hulp altijd de
-              beste stap.
-            </p>
-
-            {/* Buttons Container */}
-            <div className="flex flex-col items-center gap-y-6">
-              <Link
-                href="/probeer-releafe"
-                className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4  bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
-              >
-                {/* Pseudo-element for the hover effect */}
-                <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-                {/* Text above the overlay */}
-                <p className="relative z-10 pointer-events-none">
-                  Klaar om aan de slag te gaan
-                </p>
-              </Link>
-
-              <button
-                onClick={() => {
-                  document
-                    .getElementById('features-section')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
-              >
-                <Image
-                  src="/images/chevron_down.png"
-                  alt="Chevron Down"
-                  width={40}
-                  height={40}
-                />
-              </button>
+          {/* Wrap all mockup sections together */}
+          {mockupSections.length > 0 && (
+            <div className="max-w-[1440px] place-self-center">
+              <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 lg:mx-16 xl:mx-32 py-8">
+                {mockupSections.map((section, index) => {
+                  const renderSectionFn = sectionRenderers[section.sectionType]
+                  return renderSectionFn
+                    ? renderSectionFn(section, index + beforeHero.length)
+                    : null
+                })}
+              </div>
             </div>
-          </div>
-
-          {/* Hero Image Container */}
-          <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
-            <Image
-              src="/images/ontdek_releafe_hero_image.jpeg"
-              alt="Ontdek Releafe Hero Image"
-              fill // fill = absolute positioning, therefore container needs relative
-              className="object-cover object-left"
-            />
-          </div>
+          )}
         </div>
-      </section>
+      )}
 
-      {/* Features Section */}
-      <section id="features-section" className="bg-[#F7F7F7] flex flex-col">
-        {/* Features Wrapper */}
-        <div className="max-w-[1440px] place-self-center">
-          {/* Features Header */}
-          <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32">
-            <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
-              Hoe Releafe jou helpt
-            </h1>
-            <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
-              Wil je minder stress, meer balans en weer goed in je vel zitten?
-              Releafe helpt je hierbij met praktische en handige tools. Ontdek
-              hieronder welke functies de app biedt, wat hun doel is, hoe ze
-              werken en kies wat bij jou past. Kleine stappen, groot verschil.
-            </p>
-          </div>
-
-          {/* Features Box */}
-          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 lg:mx-16 xl:mx-32 py-8">
-            {/* Features Data Container */}
-            <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
-              {featuresData.map((item, index) => {
-                const {
-                  title,
-                  goalText,
-                  descriptionText,
-                  descriptionText2,
-                  tipText,
-                  ctaText,
-                  image,
-                } = item
-
-                return (
-                  <div
-                    key={index}
-                    className={`flex flex-col-reverse xl:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-y-12 gap-x-12`}
-                  >
-                    {/* Feature Text Container */}
-                    <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full xl:w-1/2">
-                      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                        {title}
-                      </h2>
-
-                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                        Doel:{' '}
-                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {goalText}
-                        </span>
-                      </h3>
-
-                      <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                        Hoe werk het?{' '}
-                        <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {descriptionText}
-                        </span>
-                      </h3>
-
-                      {descriptionText2 !== '' && (
-                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {descriptionText2}
-                        </h3>
-                      )}
-
-                      {tipText !== '' && (
-                        <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
-                          Tip:{' '}
-                          <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                            {tipText}
-                          </span>
-                        </h3>
-                      )}
-
-                      <Link
-                        href={'/probeer-releafe'}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
-                      >
-                        {/* Pseudo-element for the hover effect */}
-                        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-                        {/* Text above the overlay */}
-                        <p className="relative z-10 pointer-events-none">
-                          {ctaText}
-                        </p>
-                      </Link>
-                    </div>
-
-                    {/* Releafe Feature Image Container */}
-                    {image !== '' && (
-                      <div className="w-full xl:w-1/3 2xl:w-1/3 h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[600px] relative  my-[4rem] lg:my-[6rem] xl:my-[8rem]">
-                        <Image
-                          className={`object-contain ${index % 2 == 0 ? 'scale-125 lg:scale-150' : 'scale-110 lg:scale-125'}`}
-                          src={image}
-                          alt=""
-                          fill
-                        />
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      <ScrollUp />
     </>
   )
+
+  // return (
+  //   <>
+  //     {/* Main Section */}
+  //     <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
+  //       {/* Main Wrapper */}
+  //       <div className="flex flex-col xl:flex-row min-h-full w-full">
+  //         {/* Hero Text Container */}
+  //         <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
+  //           <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
+  //             Releafe: jouw pad naar mentaal welzijn
+  //           </h1>
+  //           <h3 className="text-md 2xl:text-xl font-sofia font-light">
+  //             Je mentale gezondheid verdient aandacht, en Releafe helpt je
+  //             daarbij. Of je nu grip wilt krijgen op je stress, beter inzicht
+  //             wilt in je emoties, of simpelweg bewuster wilt leven – met Releafe
+  //             heb je alle tools bij de hand. Van een overzichtelijk dagboek en
+  //             persoonlijke doelen tot ontspanningsoefeningen en een motiverende
+  //             bonsaiboom die met je meegroeit.
+  //           </h3>
+
+  //           {/* <h3 className="text-md lg:text-lg 2xl:text-xl font-sofia font-bold">
+  //               Ontdek hoe Releafe jou kan ondersteunen en zet vandaag nog de
+  //               eerste stap naar meer balans en veerkracht.{' '}
+  //             </h3> */}
+
+  //           <p className="text-sm 2xl:text-lg font-sofia font-light ">
+  //             *Releafe geeft je praktische tools en oefeningen om mentaal
+  //             sterker te worden en beter om te gaan met deze klachten. Maar
+  //             onthoud: bij ernstige klachten is professionele hulp altijd de
+  //             beste stap.
+  //           </p>
+
+  //           {/* Buttons Container */}
+  //           <div className="flex flex-col items-center gap-y-6">
+  //             <Link
+  //               href="/probeer-releafe"
+  //               className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4  bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md 2xl:text-xl leading-none"
+  //             >
+  //               {/* Pseudo-element for the hover effect */}
+  //               <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+  //               {/* Text above the overlay */}
+  //               <p className="relative z-10 pointer-events-none">
+  //                 Klaar om aan de slag te gaan
+  //               </p>
+  //             </Link>
+
+  //             <button
+  //               onClick={() => {
+  //                 document
+  //                   .getElementById('features-section')
+  //                   ?.scrollIntoView({ behavior: 'smooth' })
+  //               }}
+  //               className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
+  //             >
+  //               <Image
+  //                 src="/images/chevron_down.png"
+  //                 alt="Chevron Down"
+  //                 width={40}
+  //                 height={40}
+  //               />
+  //             </button>
+  //           </div>
+  //         </div>
+
+  //         {/* Hero Image Container */}
+  //         <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
+  //           <Image
+  //             src="/images/ontdek_releafe_hero_image.jpeg"
+  //             alt="Ontdek Releafe Hero Image"
+  //             fill // fill = absolute positioning, therefore container needs relative
+  //             className="object-cover object-left"
+  //           />
+  //         </div>
+  //       </div>
+  //     </section>
+
+  //     {/* Features Section */}
+  //     <section id="features-section" className="bg-[#F7F7F7] flex flex-col">
+  //       {/* Features Wrapper */}
+  //       <div className="max-w-[1440px] place-self-center">
+  //         {/* Features Header */}
+  //         <div className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32">
+  //           <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
+  //             Hoe Releafe jou helpt
+  //           </h1>
+  //           <p className="mt-4 font-sofia font-light text-center text-md xl:text-xl">
+  //             Wil je minder stress, meer balans en weer goed in je vel zitten?
+  //             Releafe helpt je hierbij met praktische en handige tools. Ontdek
+  //             hieronder welke functies de app biedt, wat hun doel is, hoe ze
+  //             werken en kies wat bij jou past. Kleine stappen, groot verschil.
+  //           </p>
+  //         </div>
+
+  //         {/* Features Box */}
+  //         <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 lg:mx-16 xl:mx-32 py-8">
+  //           {/* Features Data Container */}
+  //           <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
+  //             {featuresData.map((item, index) => {
+  //               const {
+  //                 title,
+  //                 goalText,
+  //                 descriptionText,
+  //                 descriptionText2,
+  //                 tipText,
+  //                 ctaText,
+  //                 image,
+  //               } = item
+
+  //               return (
+  //                 <div
+  //                   key={index}
+  //                   className={`flex flex-col-reverse xl:${index % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} justify-between items-center gap-y-12 gap-x-12`}
+  //                 >
+  //                   {/* Feature Text Container */}
+  //                   <div className="flex flex-col gap-y-8 lg:gap-y-12 w-full xl:w-1/2">
+  //                     <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+  //                       {title}
+  //                     </h2>
+
+  //                     <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+  //                       Doel:{' '}
+  //                       <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+  //                         {goalText}
+  //                       </span>
+  //                     </h3>
+
+  //                     <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+  //                       Hoe werk het?{' '}
+  //                       <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+  //                         {descriptionText}
+  //                       </span>
+  //                     </h3>
+
+  //                     {descriptionText2 !== '' && (
+  //                       <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+  //                         {descriptionText2}
+  //                       </h3>
+  //                     )}
+
+  //                     {tipText !== '' && (
+  //                       <h3 className="text-md xl:text-lg 2xl:text-xl font-sofia font-bold">
+  //                         Tip:{' '}
+  //                         <span className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
+  //                           {tipText}
+  //                         </span>
+  //                       </h3>
+  //                     )}
+
+  //                     <Link
+  //                       href={'/probeer-releafe'}
+  //                       className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
+  //                     >
+  //                       {/* Pseudo-element for the hover effect */}
+  //                       <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+
+  //                       {/* Text above the overlay */}
+  //                       <p className="relative z-10 pointer-events-none">
+  //                         {ctaText}
+  //                       </p>
+  //                     </Link>
+  //                   </div>
+
+  //                   {/* Releafe Feature Image Container */}
+  //                   {image !== '' && (
+  //                     <div className="w-full xl:w-1/3 2xl:w-1/3 h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[600px] relative  my-[4rem] lg:my-[6rem] xl:my-[8rem]">
+  //                       <Image
+  //                         className={`object-contain ${index % 2 == 0 ? 'scale-125 lg:scale-150' : 'scale-110 lg:scale-125'}`}
+  //                         src={image}
+  //                         alt=""
+  //                         fill
+  //                       />
+  //                     </div>
+  //                   )}
+  //                 </div>
+  //               )
+  //             })}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </section>
+  //   </>
+  // )
 }
 
 export default OntdekReleafePage

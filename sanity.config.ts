@@ -10,13 +10,10 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import page from 'schemas/documents/page'
-import project from 'schemas/documents/project'
 import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import youtube from 'schemas/objects/youtube'
-import settings from 'schemas/singletons/settings'
 import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-secrets'
 
 import navbarItem from 'schemas/objects/navbarItem'
@@ -25,18 +22,21 @@ import article from 'schemas/documents/article'
 import category from 'schemas/documents/category'
 import testimonial from 'schemas/documents/testimonial'
 import faq from 'schemas/documents/faq'
-import partners from 'schemas/singletons/partners'
 import company from 'schemas/objects/company'
-import features from 'schemas/singletons/features'
 import feature from 'schemas/documents/feature'
 
 // SINGLETONS
-import home from 'schemas/singletons/home'
+import settings from 'schemas/singletons/settings'
 import navbar from 'schemas/singletons/navbar'
+import mentaleKlachten from 'schemas/singletons/mentaleKlachten'
+import home from 'schemas/singletons/home'
 // SECTIONS
 import section from 'schemas/documents/section'
 // ELEMENTS / CUSTOM ELEMENTS
+import disorder from 'schemas/documents/disorder'
 import cta from 'schemas/documents/cta'
+import mentaalFit from 'schemas/singletons/mentaalFit'
+import ontdekReleafe from 'schemas/singletons/ontdekReleafe'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -52,6 +52,9 @@ export default defineConfig({
       settings,
       navbar,
       home,
+      mentaleKlachten,
+      mentaalFit,
+      ontdekReleafe,
       // @TODO These need to become sections!
       // features,
       // partners,
@@ -60,12 +63,11 @@ export default defineConfig({
       section,
       cta,
       duration,
-      page,
-      project,
       article,
       category,
       testimonial,
       faq,
+      disorder,
       // Objects
       milestone,
       timeline,
@@ -85,10 +87,24 @@ export default defineConfig({
       },
     }),
     structureTool({
-      structure: pageStructure([settings, navbar, home]),
+      structure: pageStructure([
+        settings,
+        navbar,
+        home,
+        mentaleKlachten,
+        mentaalFit,
+        ontdekReleafe,
+      ]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([settings.name, navbar.name, home.name]),
+    singletonPlugin([
+      settings.name,
+      navbar.name,
+      home.name,
+      mentaleKlachten.name,
+      mentaalFit.name,
+      ontdekReleafe.name,
+    ]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio

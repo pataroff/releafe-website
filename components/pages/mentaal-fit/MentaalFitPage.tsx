@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-
 import ScrollUp from 'components/shared/ScrollUp'
 
-import Link from 'next/link'
-import Image from 'next/image'
+import { Section } from 'types'
+import { sectionRenderers } from 'components/sections'
 
 // @TODO: This needs to be moved in 'mentaal-fit.tsx'!
 const mentalExercisesData = [
@@ -128,409 +126,64 @@ const mentalExercisesData = [
   },
 ]
 
-const MentaalFitPage = ({ page }) => {
+const MentaalFitPage = ({ page }: { page: any }) => {
+  const { sections } = page
+
+  if (!sections || sections.length === 0) return
+
+  // Find hero index
+  const heroIndex = sections.findIndex(
+    (section) => section.sectionType === 'hero',
+  )
+
+  const beforeHero =
+    heroIndex === -1 ? sections : sections.slice(0, heroIndex + 1)
+  const afterHero = heroIndex === -1 ? [] : sections.slice(heroIndex + 1)
+
+  // Extract grouped sections
+  const sectionsToGroup = afterHero.filter(
+    (s) => s.sectionVariant === 'informationalGrouped',
+  )
+
   return (
     <>
-      {/* Main Section */}
-      <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
-        {/* Main Wrapper */}
-        <div className="flex flex-col xl:flex-row min-h-full w-full">
-          {/* Hero Text Container */}
-          <div className="flex flex-col justify-center h-full w-full xl:w-1/2 bg-[#c5d5bc] bg-opacity-15 gap-y-12 px-12 xl:px-24 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16">
-            <h1 className="text-3xl/[2.5rem] font-sofia font-bold xl:text-4xl/[3rem] 2xl:text-5xl/[4rem]">
-              Verbeter je mentale fitheid, stap voor stap
-            </h1>
-            <h3 className="text-md 2xl:text-xl font-sofia font-light">
-              Je mentale fitheid is net als je fysieke gezondheid: soms heb je
-              een boost nodig. Stress, vermoeidheid, het hoort er allemaal bij.
-              Maar je kunt er wel degelijk iets aan doen. Releafe biedt je de
-              tools om je mentale gezondheid te versterken en je lekkerder in je
-              vel te voelen. Ontdek hier hoe Releafe jou helpt om mentaal gezond
-              te blijven.
-            </h3>
-            <p className="text-sm 2xl:text-lg font-sofia font-light ">
-              *Releafe geeft je praktische tools en oefeningen om mentaal
-              sterker te worden en beter om te gaan met deze klachten. Maar
-              onthoud: bij ernstige klachten is professionele hulp altijd de
-              beste stap.
-            </p>
+      {/* Render sections before (and including) hero */}
+      {beforeHero.map((section: Section, index: number) => {
+        const renderSectionFn = sectionRenderers[section.sectionType]
+        return renderSectionFn ? renderSectionFn(section, index) : null
+      })}
 
-            {/* Buttons Container */}
-            <div className="flex flex-col items-center gap-y-6">
-              <Link
-                href="/probeer-releafe"
-                className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
-              >
-                {/* Pseudo-element for the hover effect */}
-                <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
+      {/* Sections after hero wrapped in gradient */}
+      {afterHero.length > 0 && (
+        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+          {afterHero.map((section: Section, index) => {
+            const renderSectionFn = sectionRenderers[section.sectionType]
+            if (!renderSectionFn) return null
 
-                {/* Text above the overlay */}
-                <p className="relative z-10 pointer-events-none">
-                  Verbeter je mentale fitheid
-                </p>
-              </Link>
+            // If this section is part of grouped sections, only render for the first in the pair
+            if (section.sectionVariant === 'informationalGrouped') {
+              const indexInGroup = sectionsToGroup.indexOf(section)
+              if (indexInGroup % 2 === 1) return null // skip second in pair
 
-              <button
-                onClick={() => {
-                  document
-                    .getElementById('mental-exercises-section')
-                    ?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="w-16 h-16 rounded-[1.75rem] hover:bg-gray-200 flex justify-center items-center transform duration-300 ease-in-out"
-              >
-                <Image
-                  src="/images/chevron_down.png"
-                  alt="Chevron Down"
-                  width={40}
-                  height={40}
-                />
-              </button>
-            </div>
-          </div>
+              const firstSection = section
+              const secondSection = sectionsToGroup[indexInGroup + 1] || null
+              const groupIndex = Math.floor(indexInGroup / 2)
 
-          {/* Hero Image Container */}
-          <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
-            <Image
-              src="/images/mentaal_fit_hero_image.jpg"
-              alt="Mentaal Fit Hero Image"
-              fill // fill = absolute positioning, therefore container needs relative
-              className="object-cover object-left"
-            />
-          </div>
+              return renderSectionFn(
+                firstSection,
+                index + beforeHero.length,
+                firstSection,
+                secondSection,
+                groupIndex,
+              )
+            }
+
+            // Normal section rendering (CTA, header, etc.)
+            return renderSectionFn(section, index + beforeHero.length)
+          })}
         </div>
-      </section>
+      )}
 
-      {/* Gradient Background Container */}
-      <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
-        {/* Mental Exercises Section */}
-        <section
-          id="mental-exercises-section"
-          className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] max-w-[1440px] place-self-center"
-        >
-          <div className="px-8 lg:px-16 xl:px-32">
-            <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
-              Mentaal fit worden en blijven
-            </h1>
-            <p className="mt-4 font-sofia font-light text-center text-md xl:text-lg">
-              Mentale fitheid is net zo belangrijk als fysieke gezondheid. Door
-              goed voor jezelf te zorgen – met beweging, gezonde voeding,
-              ontspanning en sociale verbinding – kun je stress beter beheersen
-              en je veerkracht vergroten. Op deze pagina ontdek je praktische
-              tips en inzichten om je mentale welzijn te versterken. Kleine
-              aanpassingen in je dagelijks leven kunnen een groot verschil
-              maken!
-            </p>
-          </div>
-
-          {/* Mental Exercises Wrapper */}
-          <div className="my-[2rem] xl:my-[8rem] flex flex-col gap-y-12 xl:gap-y-32 px-8 lg:px-16 xl:px-32">
-            {mentalExercisesData.map((item, index) => {
-              const {
-                title,
-                description,
-                featureText,
-                ctaText,
-                linkText,
-                href,
-                href2,
-                image,
-              } = item
-
-              if (index % 2 == 0 && index < mentalExercisesData.length - 1) {
-                const nextIndex = index + 1
-                const nextExercise = mentalExercisesData[nextIndex]
-
-                const groupIndex = index / 2
-                const isEvenGroup = groupIndex % 2 == 0
-
-                return (
-                  <div
-                    key={index}
-                    className={`flex flex-col ${isEvenGroup ? 'xl:flex-row' : 'xl:flex-row-reverse'} items-center gap-x-12 gap-y-8`}
-                  >
-                    {/* Mental Exercise Text Containers Wrapper */}
-                    <div className="flex flex-col gap-y-8 xl:w-1/2">
-                      {/* Mental Exercise Text Container */}
-                      <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
-                        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                          {title}
-                        </h2>
-
-                        <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {description}
-                        </p>
-
-                        <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {featureText}
-                        </p>
-
-                        <Link
-                          href={'/ontdek-releafe'}
-                          className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
-                        >
-                          {/* Pseudo-element for the hover effect */}
-                          <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-                          {/* Text above the overlay */}
-                          <p className="relative z-10 pointer-events-none">
-                            {ctaText}
-                          </p>
-                        </Link>
-
-                        {linkText !== '' && (
-                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                            {linkText?.split('hier')[0]}{' '}
-                            <Link
-                              href={href}
-                              target="_blank"
-                              className="inline-flex items-center underline"
-                            >
-                              hier.
-                              <Image
-                                src="/images/external_link.png"
-                                width={20}
-                                height={20}
-                                alt="External Link Icon"
-                                className="ml-2 mt-1"
-                              />
-                            </Link>
-                            {linkText?.split('hier')[1] &&
-                              linkText?.split('hier')[1].length > 1 && (
-                                <>
-                                  {linkText?.split('hier')[1].split('hier')[0]}{' '}
-                                  <Link
-                                    href={href2}
-                                    target="_blank"
-                                    className="inline-flex items-center underline"
-                                  >
-                                    hier.
-                                    <Image
-                                      src="/images/external_link.png"
-                                      width={20}
-                                      height={20}
-                                      alt="External Link Icon"
-                                      className="ml-2 mt-1"
-                                    />
-                                  </Link>
-                                </>
-                              )}
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Next Mental Exercise Text Container */}
-                      {nextExercise && (
-                        <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full">
-                          <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                            {nextExercise.title}
-                          </h2>
-
-                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                            {nextExercise.description}
-                          </p>
-
-                          <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                            {nextExercise.featureText}
-                          </p>
-
-                          <Link
-                            href={'/ontdek-releafe'}
-                            className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white xl:text-lg 2xl:text-xl leading-none"
-                          >
-                            {/* Pseudo-element for the hover effect */}
-                            <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-                            {/* Text above the overlay */}
-                            <p className="relative z-10 pointer-events-none">
-                              {nextExercise.ctaText}
-                            </p>
-                          </Link>
-
-                          {nextExercise.linkText !== '' && (
-                            <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                              {nextExercise.linkText?.split('hier')[0]}{' '}
-                              <Link
-                                href={nextExercise.href}
-                                target="_blank"
-                                className="inline-flex items-center underline"
-                              >
-                                hier.
-                                <Image
-                                  src="/images/external_link.png"
-                                  width={20}
-                                  height={20}
-                                  alt="External Link Icon"
-                                  className="ml-2 mt-1"
-                                />
-                              </Link>
-                              {nextExercise.linkText?.split('hier')[1] &&
-                                nextExercise.linkText?.split('hier')[1].length >
-                                  1 && (
-                                  <>
-                                    {
-                                      nextExercise.linkText
-                                        ?.split('hier')[1]
-                                        .split('hier')[0]
-                                    }{' '}
-                                    <Link
-                                      href={nextExercise.href2}
-                                      target="_blank"
-                                      className="inline-flex items-center underline"
-                                    >
-                                      hier.
-                                      <Image
-                                        src="/images/external_link.png"
-                                        width={20}
-                                        height={20}
-                                        alt="External Link Icon"
-                                        className="ml-2 mt-1"
-                                      />
-                                    </Link>
-                                  </>
-                                )}
-                            </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Releafe Feature Image Container */}
-                    {nextExercise.image !== '' &&
-                      nextExercise.image !== '/images/stress.jpg' && (
-                        <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[800px] 2xl:h-[800px] w-full xl:w-1/2 shadow-sm">
-                          <Image
-                            src={nextExercise.image}
-                            alt=""
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      )}
-                  </div>
-                )
-              }
-
-              if (index == mentalExercisesData.length - 1) {
-                return (
-                  <div
-                    key={index}
-                    className={`flex flex-col xl:flex-row  items-center gap-x-12 gap-y-8`}
-                  >
-                    {/* Mental Exercise Text Container */}
-                    <div className="flex flex-col gap-y-4 lg:gap-y-8 w-full xl:w-1/2">
-                      <h2 className="text-3xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
-                        {title}
-                      </h2>
-
-                      <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                        {description}
-                      </p>
-
-                      <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                        {featureText}
-                      </p>
-
-                      <Link
-                        href={'/ontdek-releafe'}
-                        className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full lg:w-[24rem] bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
-                      >
-                        {/* Pseudo-element for the hover effect */}
-                        <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-                        {/* Text above the overlay */}
-                        <p className="relative z-10 pointer-events-none">
-                          {ctaText}
-                        </p>
-                      </Link>
-
-                      {linkText !== '' && (
-                        <p className="text-md xl:text-lg 2xl:text-xl font-sofia font-light">
-                          {linkText?.split('hier')[0]}{' '}
-                          <Link
-                            href={href}
-                            target="_blank"
-                            className="inline-flex items-center underline"
-                          >
-                            hier.
-                            <Image
-                              src="/images/external_link.png"
-                              width={20}
-                              height={20}
-                              alt="External Link Icon"
-                              className="ml-2 mt-1"
-                            />
-                          </Link>
-                          {linkText?.split('hier')[1] &&
-                            linkText?.split('hier')[1].length > 1 && (
-                              <>
-                                {linkText?.split('hier')[1].split('hier')[0]}{' '}
-                                <Link
-                                  href={href2}
-                                  target="_blank"
-                                  className="inline-flex items-center underline"
-                                >
-                                  hier.
-                                  <Image
-                                    src="/images/external_link.png"
-                                    width={20}
-                                    height={20}
-                                    alt="External Link Icon"
-                                    className="ml-2 mt-1"
-                                  />
-                                </Link>
-                              </>
-                            )}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Releafe Feature Image Container */}
-                    {image !== '' && image !== '/images/stress.jpg' && (
-                      <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[800px] w-full xl:w-1/2 shadow-sm">
-                        <Image
-                          src={image}
-                          alt=""
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-                )
-              }
-            })}
-          </div>
-        </section>
-      </div>
-
-      {/* Call-to-Action Section */}
-      <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center gap-y-8 max-w-[1440px] place-self-center">
-        <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
-          Ontdek hoe Releafe je kan helpen mentaal fit te blijven
-        </h2>
-        <p className="mt-4 text-center font-sofia font-light text-lg">
-          Mentale fitheid is een doorlopend proces, en kleine stappen kunnen een
-          groot verschil maken. Wil je meer inzicht in je mentale welzijn en
-          actief werken aan je veerkracht? In de Releafe-app vind je tools en
-          oefeningen die je hierbij helpen. Zet vandaag nog de eerste stap naar
-          een mentaal fitter leven!
-        </p>
-        <Link
-          href="/mentaal-fit"
-          className="
-    relative flex justify-center items-center rounded-full overflow-hidden h-[60px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-   bg-gradient-to-b from-[#a8d5ba] to-[#5c946e] text-white font-sofia font-bold text-md lg:text-lg xl:text-xl 
-    leading-none"
-        >
-          {/* Pseudo-element for the hover effect */}
-          <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>
-
-          {/* Text above the overlay */}
-          <p className="relative z-10 pointer-events-none">Ga naar de app</p>
-        </Link>
-      </section>
-
-      {/* Workaround: scroll to top on route change */}
       <ScrollUp />
     </>
   )

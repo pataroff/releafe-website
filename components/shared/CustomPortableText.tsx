@@ -1,16 +1,21 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextBlock } from 'sanity'
 
+import Image from 'next/image'
+import { CTAItem } from './CTAItem'
+
 interface Props {
   value: PortableTextBlock[]
   paragraphClasses?: string
   listItemClasses?: string
   bulletClasses?: string
   numberClasses?: string
+  linkClasses?: string
   headingClasses?: {
     h2?: string
     h3?: string
   }
+  components?: Partial<PortableTextComponents>
 }
 
 export const CustomPortableText = ({
@@ -19,7 +24,9 @@ export const CustomPortableText = ({
   listItemClasses = '',
   bulletClasses = '',
   numberClasses = '',
+  linkClasses = '',
   headingClasses = {},
+  components: customComponents = {},
 }: Props) => {
   const components: PortableTextComponents = {
     block: {
@@ -45,10 +52,27 @@ export const CustomPortableText = ({
           href={value.href}
           target="_blank"
           rel="noopener"
-          className="text-[#96a58d] hover:underline"
+          className={`${linkClasses} underline inline-flex items-center`}
         >
           {children}
+          <Image
+            src="/images/external_link.png"
+            width={20}
+            height={20}
+            alt="External Link Icon"
+            className="ml-2"
+          />
         </a>
+      ),
+    },
+    types: {
+      // ✅ Add custom type for inline CTA
+      cta: ({ value }) => (
+        // @TODO Make the `CTAItem` take `route` param from `useRouter` and determine gradient colors based on route!
+        <CTAItem
+          callToActionLink={value.callToActionLink}
+          callToActionButtonText={value.callToActionButtonText}
+        />
       ),
     },
   }

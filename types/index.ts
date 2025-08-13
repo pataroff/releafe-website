@@ -32,10 +32,10 @@ export interface ShowcaseProject {
 
 export interface CompanyItem {
   _type: string
-  name: string
-  logo: Image
-  alt?: string
-  url?: string
+  companyName?: string
+  companyLogo: Image
+  altText?: string
+  companyWebsite?: string
 }
 
 export interface FeatureItem {
@@ -44,55 +44,6 @@ export interface FeatureItem {
   featureDescrption: string
   image: Image
   ctaElement: CTAElement
-}
-
-// Page payloads
-
-export interface HomePagePayload {
-  footer?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
-  showcaseProjects?: ShowcaseProject[]
-  title?: string
-}
-
-export interface PagePayload {
-  body?: PortableTextBlock[]
-  name?: string
-  overview?: PortableTextBlock[]
-  title?: string
-  slug?: string
-}
-
-export interface PartnersPayload {
-  title?: string
-  partners?: CompanyItem[]
-}
-
-export interface FeaturesPayload {
-  title?: string
-  features?: FeatureItem[]
-}
-
-export interface ProjectPayload {
-  client?: string
-  coverImage?: Image
-  description?: PortableTextBlock[]
-  duration?: {
-    start?: string
-    end?: string
-  }
-  overview?: PortableTextBlock[]
-  site?: string
-  slug: string
-  tags?: string[]
-  title?: string
-}
-
-export interface SettingsPayload {
-  siteTitle?: string
-  siteDescription?: string
-  navbarItems?: NavbarItem[]
-  ogImage?: Image
 }
 
 export interface CategoryPayload {
@@ -143,18 +94,26 @@ export interface CTAElement {
 export interface Section {
   _id: string
   sectionType: string
+  sectionVariant: string
   title?: string
   body?: PortableTextMarkDefinition[]
+  image: Image
   customElements?: any[] // you can replace with more specific type if you want
   ctaElement?: CTAElement
 }
 
 // SINGLETONS
-
-export interface HomePagePayload {
-  sections?: Section[]
+export interface SettingsPayload {
+  siteTitle?: string
+  siteDescription?: string
+  navbarItems?: NavbarItem[]
+  ogImage?: Image
 }
 
 export interface NavbarPayload {
   navbarItems?: NavbarItem[]
+}
+
+export interface PagePayload {
+  sections?: Section[]
 }

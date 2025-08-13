@@ -29,13 +29,123 @@ export const homePageQuery = groq`
     sections[]->{
       _id,
       sectionType,
+      sectionVariant,
       title,
       body,
+      image,
       customElements[]->{
         _id,
-        featureName,
-        featureDescription,
-        image,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const mentaleKlachtenPageQuery = groq`
+  *[_type == "mentaleKlachten"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      title,
+      body,
+      image,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const mentaalFitPageQuery = groq`
+  *[_type == "mentaalFit"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const ontdekReleafePageQuery = groq`
+  *[_type == "ontdekReleafe"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      customElements[]->{
+        _id,
+        ...,
         ctaElement->{
           _type,
           callToActionTitle,
@@ -90,31 +200,6 @@ export const projectPaths = groq`
 
 export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
-`
-
-export const partnersQuery = groq`
-  *[_type == "partners"][0]{
-  title,
-    partners[]{
-      name,
-      logo,
-      alt,
-      url
-    }
-  }
-`
-
-export const featuresQuery = groq`
-  *[_type == "features"][0]{
-    title,
-    features[]{
-      title,
-      description,
-      image,
-      ctaText,
-      ctaLink
-    }
-  }
 `
 
 export const categoriesQuery = groq`
