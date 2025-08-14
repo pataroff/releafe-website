@@ -28,15 +28,21 @@ import feature from 'schemas/documents/feature'
 // SINGLETONS
 import settings from 'schemas/singletons/settings'
 import navbar from 'schemas/singletons/navbar'
-import mentaleKlachten from 'schemas/singletons/mentaleKlachten'
 import home from 'schemas/singletons/home'
+import mentaleKlachten from 'schemas/singletons/mentaleKlachten'
+import mentaalFit from 'schemas/singletons/mentaalFit'
+import ontdekReleafe from 'schemas/singletons/ontdekReleafe'
+import releafeOrganisaties from 'schemas/singletons/releafeOrganisaties'
+import overOns from 'schemas/singletons/overOns'
 // SECTIONS
 import section from 'schemas/documents/section'
 // ELEMENTS / CUSTOM ELEMENTS
+import teamMember from 'schemas/documents/teamMember'
+import coreValue from 'schemas/documents/coreValue'
+import fact from 'schemas/documents/fact'
 import disorder from 'schemas/documents/disorder'
 import cta from 'schemas/documents/cta'
-import mentaalFit from 'schemas/singletons/mentaalFit'
-import ontdekReleafe from 'schemas/singletons/ontdekReleafe'
+import socialMedia from 'schemas/documents/socialMedia'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -55,6 +61,8 @@ export default defineConfig({
       mentaleKlachten,
       mentaalFit,
       ontdekReleafe,
+      releafeOrganisaties,
+      overOns,
       // @TODO These need to become sections!
       // features,
       // partners,
@@ -66,8 +74,12 @@ export default defineConfig({
       article,
       category,
       testimonial,
+      fact,
       faq,
       disorder,
+      coreValue,
+      teamMember,
+      socialMedia,
       // Objects
       milestone,
       timeline,
@@ -94,6 +106,8 @@ export default defineConfig({
         mentaleKlachten,
         mentaalFit,
         ontdekReleafe,
+        releafeOrganisaties,
+        overOns,
       ]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
@@ -104,6 +118,8 @@ export default defineConfig({
       mentaleKlachten.name,
       mentaalFit.name,
       ontdekReleafe.name,
+      releafeOrganisaties.name,
+      overOns.name,
     ]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

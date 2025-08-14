@@ -2,7 +2,7 @@ import { DocumentIcon } from '@sanity/icons'
 
 export default {
   name: 'mentaalFit',
-  title: 'Mentaal Fit',
+  title: 'Mentaal fit',
   type: 'document',
   icon: DocumentIcon,
   fields: [
@@ -23,7 +23,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Mentaal Fit Page',
+        title: 'Mentaal fit page',
       }
     },
   },

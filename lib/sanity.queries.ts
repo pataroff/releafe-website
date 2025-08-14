@@ -165,6 +165,93 @@ export const ontdekReleafePageQuery = groq`
   }
 `
 
+export const releafeVoorOrganisatiesPageQuery = groq`
+  *[_type == "releafeOrganisaties"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      buttonText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const overOnsPageQuery = groq`
+  *[_type == "overOns"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      buttonText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        teamMemberSocialMediaLinks[]->{
+          _id,
+          platform,
+          url
+        },
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
 export const homePageTitleQuery = groq`
   *[_type == "home"][0].title
 `

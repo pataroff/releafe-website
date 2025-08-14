@@ -2,7 +2,7 @@ import { DocumentIcon } from '@sanity/icons'
 
 export default {
   name: 'mentaleKlachten',
-  title: 'Mentale Klachten',
+  title: 'Mentale klachten',
   type: 'document',
   icon: DocumentIcon,
   fields: [
@@ -23,7 +23,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Mentale Klachten Page',
+        title: 'Mentale klachten page',
       }
     },
   },

@@ -95,9 +95,11 @@ export interface Section {
   _id: string
   sectionType: string
   sectionVariant: string
+  buttonText?: string
   title?: string
   body?: PortableTextMarkDefinition[]
   image: Image
+  video?: string
   customElements?: any[] // you can replace with more specific type if you want
   ctaElement?: CTAElement
 }

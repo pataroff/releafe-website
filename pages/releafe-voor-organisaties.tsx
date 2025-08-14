@@ -1,8 +1,9 @@
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
-import { homePageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-import { HomePagePayload } from 'types'
+
+import { PagePayload } from 'types'
+import { releafeVoorOrganisatiesPageQuery } from 'lib/sanity.queries'
 
 import ReleafeVoorOrganisatiesPage from 'components/pages/releafe-voor-organisaties/ReleafeVoorOrganisatiesPage'
 
@@ -17,7 +18,7 @@ export const getStaticProps: GetStaticProps<any, any> = async (ctx) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
 
   const [page] = await Promise.all([
-    client.fetch<HomePagePayload | null>(homePageQuery),
+    client.fetch<PagePayload | null>(releafeVoorOrganisatiesPageQuery),
   ])
 
   return {

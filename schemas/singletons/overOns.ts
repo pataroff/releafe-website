@@ -1,8 +1,8 @@
 import { DocumentIcon } from '@sanity/icons'
 
 export default {
-  name: 'ontdekReleafe',
-  title: 'Ontdek Releafe',
+  name: 'overOns',
+  title: 'Over ons',
   type: 'document',
   icon: DocumentIcon,
   fields: [
@@ -10,7 +10,7 @@ export default {
       name: 'sections',
       title: 'Sections',
       description:
-        'Reorder to control the order of sections on the Ontdek Releafe page.',
+        'Reorder to control the order of sections on the Over ons page.',
       type: 'array',
       of: [
         {
@@ -23,7 +23,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Ontdek Releafe page',
+        title: 'Over ons page',
       }
     },
   },

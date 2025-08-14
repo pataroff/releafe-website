@@ -13,15 +13,19 @@ export default {
         list: [
           { title: 'Default', value: 'default' }, // GENERAL TYPE
           { title: 'Informational', value: 'informational' },
+          { title: 'Infographic', value: 'infographic' },
           { title: 'Custom Image', value: 'customImage' },
+          { title: 'Video', value: 'video' },
           { title: 'Header', value: 'header' },
           { title: 'Call To Action', value: 'cta' },
           { title: 'Hero', value: 'hero' },
           { title: 'Features', value: 'features' },
           { title: 'Companies', value: 'companies' },
           { title: 'Testimonials', value: 'testimonials' },
+          { title: 'Core Values', value: 'coreValues' },
           { title: 'Articles', value: 'articles' },
           { title: 'FAQ', value: 'faq' },
+          { title: 'Team', value: 'team' },
         ],
       },
     },
@@ -38,8 +42,24 @@ export default {
           { title: 'Informational', value: 'informational' }, // Mentale klachten and others
           { title: 'Informational (Grouped)', value: 'informationalGrouped' }, // Mentaal fit
           { title: 'Informational (Mockup)', value: 'informationalMockup' }, // Ontdek Releafe
+          {
+            title: 'Informational (Organisaties)', // Releafe voor organisaties
+            value: 'informationalOrganisaties',
+          },
+          {
+            title: 'Informational (App ontstaan)',
+            value: 'informationalOverOns',
+          }, // @TODO: Change value here!
+          { title: 'Informational (Letter)', value: 'informationalLetter' },
         ],
       },
+    },
+    {
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      hidden: ({ parent }) =>
+        parent.sectionVariant !== 'informationalOrganisaties',
     },
     {
       name: 'title',
@@ -78,6 +98,15 @@ export default {
         parent.sectionType === 'companies',
     },
     {
+      name: 'video',
+      title: 'Video',
+      type: 'file',
+      options: {
+        accept: 'video/*', // restricts to video files
+      },
+      hidden: ({ parent }) => parent.sectionType !== 'video',
+    },
+    {
       name: 'customElements',
       title: 'Custom Elements',
       type: 'array',
@@ -91,6 +120,9 @@ export default {
             { type: 'testimonial' },
             { type: 'article' },
             { type: 'faq' },
+            { type: 'fact' },
+            { type: 'coreValue' },
+            { type: 'teamMember' },
           ],
         },
       ],
@@ -125,6 +157,9 @@ export default {
           break
         case 'cta':
           displayType = 'Call To Action'
+          break
+        case 'coreValues':
+          displayType = 'Core Values'
           break
         default:
           displayType =

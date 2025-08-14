@@ -126,7 +126,7 @@ const mentalExercisesData = [
   },
 ]
 
-const MentaalFitPage = ({ page }: { page: any }) => {
+const MentaalFitPage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return
