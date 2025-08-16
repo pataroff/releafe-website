@@ -9,7 +9,7 @@ import { IBM_Plex_Mono, Inter, PT_Serif } from 'next/font/google'
 import { lazy, useSyncExternalStore } from 'react'
 
 import { fetchGlobalData } from 'lib/sanity.global'
-import { NavbarPayload, SettingsPayload } from 'types'
+import { NavbarPayload, SettingsPayload, FooterPayload } from 'types'
 
 import Layout from 'components/shared/Layout'
 
@@ -18,6 +18,7 @@ export interface SharedPageProps {
   token: string
   settings?: SettingsPayload
   navbar?: NavbarPayload
+  footer?: FooterPayload
 }
 
 const PreviewProvider = lazy(() => import('components/preview/PreviewProvider'))
@@ -47,7 +48,7 @@ export default function App({
   Component,
   pageProps,
 }: AppProps<SharedPageProps>) {
-  const { draftMode, token, settings, navbar } = pageProps
+  const { draftMode, token, settings, navbar, footer } = pageProps
   const isMaybeInsidePresentation = useSyncExternalStore(
     subscribe,
     () =>
@@ -68,7 +69,7 @@ export default function App({
         `}
       </style>
 
-      <Layout settings={settings} navbar={navbar}>
+      <Layout settings={settings} navbar={navbar} footer={footer}>
         {draftMode ? (
           <PreviewProvider token={token}>
             <Component {...pageProps} />

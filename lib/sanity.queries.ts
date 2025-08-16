@@ -97,7 +97,7 @@ export const mentaalFitPageQuery = groq`
       title,
       body[]{
         ...,
-        _type == "reference" => @-> {
+        _type == "inlineCta" => @-> {
           _type,
           callToActionLink,
           callToActionButtonText
@@ -217,11 +217,6 @@ export const overOnsPageQuery = groq`
       title,
       body[]{
         ...,
-        _type == "reference" => @-> {
-          _type,
-          callToActionLink,
-          callToActionButtonText
-        }
       },
       image,
       video,
@@ -240,6 +235,203 @@ export const overOnsPageQuery = groq`
           callToActionButtonText,
           callToActionLink
         },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const inDeMediaPageQuery = groq`
+  *[_type == "inDeMedia"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      buttonText,
+      title,
+      body[]{
+        ...,
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const blogsPageQuery = groq`
+  *[_type == "blogs"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      buttonText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        category->{
+          title
+        },
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const onderzoekPageQuery = groq`
+  *[_type == "onderzoek"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      buttonText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+           callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const probeerReleafePageQuery = groq`
+  *[_type == "probeerReleafe"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      title,
+      body[]{
+        ...,
+        _type == 'cta' => {
+          _type,
+          "callToActionLink": @->callToActionLink,
+          "callToActionButtonText": @->callToActionButtonText
+        },
+        _type == 'inlineSocialMedia' => {
+          _type,
+          "platform": @->platform,
+          "url": @->url
+        }
+      },
+      image,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const footerQuery = groq`
+  *[_type == "footer"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      title,
+      body,
+      image,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+          callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        }
       },
       ctaElement->{
         _type,

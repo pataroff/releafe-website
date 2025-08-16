@@ -34,15 +34,22 @@ import mentaalFit from 'schemas/singletons/mentaalFit'
 import ontdekReleafe from 'schemas/singletons/ontdekReleafe'
 import releafeOrganisaties from 'schemas/singletons/releafeOrganisaties'
 import overOns from 'schemas/singletons/overOns'
-// SECTIONS
+import inDeMedia from 'schemas/singletons/inDeMedia'
+import blogs from 'schemas/singletons/blogs'
+import onderzoek from 'schemas/singletons/onderzoek'
+import probeerReleafe from 'schemas/singletons/probeerReleafe'
+import footer from 'schemas/singletons/footer'
+// DOCUMENTS
 import section from 'schemas/documents/section'
-// ELEMENTS / CUSTOM ELEMENTS
 import teamMember from 'schemas/documents/teamMember'
 import coreValue from 'schemas/documents/coreValue'
 import fact from 'schemas/documents/fact'
 import disorder from 'schemas/documents/disorder'
 import cta from 'schemas/documents/cta'
 import socialMedia from 'schemas/documents/socialMedia'
+import media from 'schemas/documents/media'
+import emailSubscription from 'schemas/objects/emailSubscription'
+import link from 'schemas/documents/link'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -63,11 +70,13 @@ export default defineConfig({
       ontdekReleafe,
       releafeOrganisaties,
       overOns,
-      // @TODO These need to become sections!
-      // features,
-      // partners,
-
+      inDeMedia,
+      blogs,
+      onderzoek,
+      probeerReleafe,
+      footer,
       // Documents
+      link,
       section,
       cta,
       duration,
@@ -80,7 +89,9 @@ export default defineConfig({
       coreValue,
       teamMember,
       socialMedia,
+      media,
       // Objects
+      emailSubscription,
       milestone,
       timeline,
       youtube,
@@ -108,6 +119,11 @@ export default defineConfig({
         ontdekReleafe,
         releafeOrganisaties,
         overOns,
+        inDeMedia,
+        blogs,
+        onderzoek,
+        probeerReleafe,
+        footer,
       ]),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
@@ -120,6 +136,11 @@ export default defineConfig({
       ontdekReleafe.name,
       releafeOrganisaties.name,
       overOns.name,
+      inDeMedia.name,
+      blogs.name,
+      onderzoek.name,
+      probeerReleafe.name,
+      footer.name,
     ]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),

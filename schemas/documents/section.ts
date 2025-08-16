@@ -17,6 +17,7 @@ export default {
           { title: 'Custom Image', value: 'customImage' },
           { title: 'Video', value: 'video' },
           { title: 'Header', value: 'header' },
+          { title: 'Footer', value: 'footer' },
           { title: 'Call To Action', value: 'cta' },
           { title: 'Hero', value: 'hero' },
           { title: 'Features', value: 'features' },
@@ -39,6 +40,7 @@ export default {
         list: [
           { title: 'Default', value: 'default' }, // GENERAL TYPE
           { title: 'Landing', value: 'landing' },
+          { title: 'Call To Action', value: 'cta' }, // PROBEER RELEAFE
           { title: 'Informational', value: 'informational' }, // Mentale klachten and others
           { title: 'Informational (Grouped)', value: 'informationalGrouped' }, // Mentaal fit
           { title: 'Informational (Mockup)', value: 'informationalMockup' }, // Ontdek Releafe
@@ -51,6 +53,9 @@ export default {
             value: 'informationalOverOns',
           }, // @TODO: Change value here!
           { title: 'Informational (Letter)', value: 'informationalLetter' },
+          { title: 'Informational (Media)', value: 'informationalMedia' },
+          { title: 'Informational (Articles)', value: 'informationalArticles' },
+          { title: 'Informational (Research)', value: 'informationalResearch' },
         ],
       },
     },
@@ -74,9 +79,17 @@ export default {
       of: [
         { type: 'block' },
         {
+          name: 'inlineCta',
           title: 'Inline CTA',
           type: 'reference',
           to: [{ type: 'cta' }],
+        },
+        { type: 'emailSubscription' },
+        {
+          name: 'inlineSocialMedia',
+          title: 'Inline Social Media Link',
+          type: 'reference',
+          to: [{ type: 'socialMedia' }],
         },
       ],
       hidden: ({ parent }) =>
@@ -123,6 +136,9 @@ export default {
             { type: 'fact' },
             { type: 'coreValue' },
             { type: 'teamMember' },
+            { type: 'media' },
+            { type: 'linkItem' },
+            { type: 'socialMedia' },
           ],
         },
       ],

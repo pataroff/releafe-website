@@ -116,6 +116,10 @@ export interface NavbarPayload {
   navbarItems?: NavbarItem[]
 }
 
+export interface FooterPayload {
+  sections?: Section[]
+}
+
 export interface PagePayload {
   sections?: Section[]
 }

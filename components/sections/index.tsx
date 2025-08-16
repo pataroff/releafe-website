@@ -18,6 +18,15 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 import { FAQItem } from 'components/shared/FAQItem'
 
+// Helper functions (utils)
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('nl-NL', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  })
+}
+
 const renderHeroSection = (section: Section) => {
   const { _id, sectionVariant, title, body, image, ctaElement } = section
 
@@ -66,6 +75,40 @@ const renderHeroSection = (section: Section) => {
                   {ctaElement.callToActionButtonText}
                 </p>
               </Link>
+            </div>
+          </div>
+        </section>
+      )
+
+    case 'cta':
+      return (
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex">
+          <div className="flex flex-col-reverse justify-between xl:flex-row xl:justify-center xl:items-center max-w-[1440px] min-h-full mx-auto pt-[5rem] xl:pt-0 px-8 py-12">
+            <div className="flex flex-col gap-y-6 w-full xl:w-3/4 bg-white p-10 xl:p-12 rounded-3xl shadow-xl">
+              <h1 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl">
+                {title}
+              </h1>
+
+              <div className="space-y-6">
+                <CustomPortableText
+                  value={body}
+                  headingClasses={{
+                    h1: 'font-sofia font-bold text-xl xl:text-2xl 2xl:text-3xl',
+                    h2: 'font-sofia font-bold text-xl xl:text-2xl 2xl:text-3xl',
+                    h3: 'font-sofia font-light text-md lg:text-lg xl:text-xl',
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Image Container */}
+            <div className="w-full xl:w-1/2 h-[600px] lg:h-[700px] xl:h-[600px] 2xl:h-[700px] relative">
+              <Image
+                className="object-contain xl:scale-110"
+                src={urlForImage(image).url()}
+                alt=""
+                fill
+              />
             </div>
           </div>
         </section>
@@ -465,7 +508,7 @@ const renderHeaderSection = (section: Section) => {
           id="header-section"
           className="mt-[2rem] xl:mt-[6rem] scroll-mt-[5.5rem] lg:scroll-mt-[2.5rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center"
         >
-          <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center lg:text-nowrap">
+          <h1 className="text-3xl font-sofia font-bold xl:text-5xl text-center ">
             {title}
           </h1>
 
@@ -848,6 +891,7 @@ const renderCoreValuesSection = (section: Section) => {
 const renderInformationalSection = (
   section: Section,
   index: number,
+  selectedCategory: string,
   firstSection: any,
   secondSection: any,
   groupIndex: number,
@@ -999,6 +1043,116 @@ const renderInformationalSection = (
             />
           </div>
         </section>
+      )
+    case 'informationalMedia':
+      return (
+        <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] pt-[5rem] px-8 xl:flex xl:pt-0 ">
+          <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] max-w-[1440px] mx-auto px-8 py-12 xl:px-16 flex flex-col gap-y-12 h-full place-self-center">
+            {customElements.map((media, index) => {
+              const { title, date, src, videoFile, isEmbedded } = media
+
+              return (
+                <div key={index} className="flex flex-col gap-y-8">
+                  <div className="flex flex-col gap-y-4">
+                    <h3 className="font-sofia font-bold text-xl">{title}</h3>
+                    <p className="font-sofia font-normal text-md">
+                      {formatDate(new Date(date))}
+                    </p>
+                  </div>
+
+                  {isEmbedded ? (
+                    <iframe
+                      className="w-full"
+                      src={src}
+                      height="399"
+                      width="504"
+                      title="Embedded post"
+                    ></iframe>
+                  ) : (
+                    <video
+                      src={urlForFile(videoFile)}
+                      className="object-cover w-full h-[400px]"
+                      controls
+                      playsInline
+                    />
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+      )
+    case 'informationalArticles':
+      const filteredArticles =
+        selectedCategory === ''
+          ? customElements
+          : customElements.filter(
+              (article) => article.category?.title === selectedCategory,
+            )
+
+      return (
+        <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8 flex-grow flex-wrap">
+          {filteredArticles.length === 0 ? (
+            <div className="flex-grow flex items-center justify-center">
+              <p className="font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
+                Geen artikelen gevonden voor deze categorie.
+              </p>
+            </div>
+          ) : (
+            filteredArticles.map((article, index) => {
+              const { category, title, slug, coverImage } = article
+              return (
+                <Link
+                  key={index}
+                  href={`/blogs/${slug}`}
+                  className="relative rounded-[2.5rem] overflow-hidden w-full xl:w-[330px] 2xl:w-[415px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between shadow-md"
+                >
+                  <div className="w-full h-[260px] relative">
+                    {coverImage && (
+                      <Image
+                        src={urlForImage(coverImage).url()}
+                        alt={`Image for article with ${title}`}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    )}
+                  </div>
+                  <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
+                    <h2 className="font-sofia font-light text-md">
+                      {category?.title}
+                    </h2>
+                    <h3 className="font-sofia font-normal text-md">{title}</h3>
+                  </div>
+                </Link>
+              )
+            })
+          )}
+        </div>
+      )
+    case 'informationalResearch':
+      return (
+        <>
+          <div className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16">
+            <div
+              key={_id}
+              className={`flex flex-col-reverse lg:flex-row justify-between items-center gap-x-12`}
+            >
+              <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
+                <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
+                  {title}
+                </h2>
+
+                <CustomPortableText
+                  value={body}
+                  headingClasses={{
+                    h3: 'text-md xl:text-lg 2xl:text-xl font-sofia font-bold',
+                  }}
+                  paragraphClasses="font-sofia font-light text-md xl:text-lg 2xl:text-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </>
       )
   }
 }
@@ -1213,24 +1367,26 @@ const InformationalGrouped = ({
     >
       {/* Text column */}
       <div className="flex flex-col gap-y-8 xl:w-1/2">
-        {[firstSection, secondSection].map((section) => (
-          <div
-            key={section?._id}
-            className="flex flex-col gap-y-4 lg:gap-y-8 w-full"
-          >
-            <h2 className="text-2xl xl:text-3xl font-sofia font-bold">
-              {section?.title}
-            </h2>
+        {[firstSection, secondSection].map((section) => {
+          return (
+            <div
+              key={section?._id}
+              className="flex flex-col gap-y-4 lg:gap-y-8 w-full"
+            >
+              <h2 className="text-2xl xl:text-3xl font-sofia font-bold">
+                {section?.title}
+              </h2>
 
-            <CustomPortableText
-              value={section?.body}
-              headingClasses={{
-                h3: 'text-md xl:text-lg 2xl:text-xl font-sofia font-light',
-              }}
-              paragraphClasses="text-md xl:text-lg font-sofia font-light"
-            />
-          </div>
-        ))}
+              <CustomPortableText
+                value={section?.body}
+                headingClasses={{
+                  h3: 'text-md xl:text-lg 2xl:text-xl font-sofia font-light',
+                }}
+                paragraphClasses="text-md xl:text-lg font-sofia font-light"
+              />
+            </div>
+          )
+        })}
       </div>
 
       {/* Image column: render only if second section has image */}
