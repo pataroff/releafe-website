@@ -169,8 +169,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {navbarItems &&
                 navbarItems.slice(0, 3).map((menuItem) => {
                   const href = resolveHref(
-                    menuItem?._type,
-                    menuItem?.slug.current,
+                    menuItem._type,
+                    menuItem.slug.current,
                   )
                   if (!href) {
                     return null
@@ -192,8 +192,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               {navbarItems &&
                 navbarItems.slice(3, 6).map((menuItem, index) => {
                   const href = resolveHref(
-                    menuItem?._type,
-                    menuItem?.slug.current,
+                    menuItem._type,
+                    menuItem.slug.current,
                   )
                   if (!href) {
                     return null
@@ -293,8 +293,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   (() => {
                     const menuItem = navbarItems[navbarItems.length - 1]
                     const href = resolveHref(
-                      menuItem?._type,
-                      menuItem?.slug.current,
+                      menuItem._type,
+                      menuItem.slug.current,
                     )
                     if (href) {
                       return (
@@ -350,8 +350,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                     .slice(0, navbarItems.length - 1)
                     .map((menuItem, index) => {
                       const href = resolveHref(
-                        menuItem?._type,
-                        menuItem?.slug.current,
+                        menuItem._type,
+                        menuItem.slug.current,
                       )
                       if (!href) {
                         return null

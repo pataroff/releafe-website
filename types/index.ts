@@ -7,7 +7,7 @@ import type { Image } from 'sanity'
 export interface NavbarItem {
   _type: string
   title: string
-  slug: string
+  slug: { current: string }
 }
 
 export interface MilestoneItem {
