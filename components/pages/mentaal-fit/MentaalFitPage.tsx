@@ -47,7 +47,10 @@ const MentaalFitPage = ({ page }) => {
               const groupIndex = Math.floor(indexInGroup / 2)
 
               return (
-                <section className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center">
+                <section
+                  key={index}
+                  className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center"
+                >
                   {renderSectionFn(
                     firstSection,
                     '', // @TODO How do we properly handle the function overloads?

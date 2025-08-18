@@ -11,27 +11,24 @@ export const VideoDefault: React.FC<VideoDefaultProps> = ({ _id, video }) => {
   const videoRef = useRef(null)
 
   useEffect(() => {
+    const videoElement = videoRef.current // Capture the current ref value
+    if (!videoElement) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoRef.current.play()
+          videoElement.play()
         } else {
-          videoRef.current.pause()
+          videoElement.pause()
         }
       },
-      {
-        threshold: 0.5, // Trigger when 50% of the video is visible
-      },
+      { threshold: 0.5 },
     )
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
+    observer.observe(videoElement)
 
     return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current)
-      }
+      observer.unobserve(videoElement)
     }
   }, [])
 
