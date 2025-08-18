@@ -13,7 +13,6 @@ import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
-import youtube from 'schemas/objects/youtube'
 import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-secrets'
 
 import article from 'schemas/documents/article'
@@ -94,7 +93,6 @@ export default defineConfig({
       emailSubscription,
       milestone,
       timeline,
-      youtube,
       feature,
       company,
     ],
