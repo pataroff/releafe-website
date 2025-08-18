@@ -16,8 +16,6 @@ import timeline from 'schemas/objects/timeline'
 import youtube from 'schemas/objects/youtube'
 import { debugSecrets } from '@sanity/preview-url-secret/sanity-plugin-debug-secrets'
 
-import navbarItem from 'schemas/objects/navbarItem'
-
 import article from 'schemas/documents/article'
 import category from 'schemas/documents/category'
 import testimonial from 'schemas/documents/testimonial'
@@ -50,6 +48,7 @@ import socialMedia from 'schemas/documents/socialMedia'
 import media from 'schemas/documents/media'
 import emailSubscription from 'schemas/objects/emailSubscription'
 import link from 'schemas/documents/link'
+import navbarItem from 'schemas/documents/navbarItem'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -90,12 +89,12 @@ export default defineConfig({
       teamMember,
       socialMedia,
       media,
+      navbarItem,
       // Objects
       emailSubscription,
       milestone,
       timeline,
       youtube,
-      navbarItem,
       feature,
       company,
     ],
