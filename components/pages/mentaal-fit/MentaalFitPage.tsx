@@ -46,16 +46,19 @@ const MentaalFitPage = ({ page }) => {
               const secondSection = sectionsToGroup[indexInGroup + 1] || null
               const groupIndex = Math.floor(indexInGroup / 2)
 
-              return renderSectionFn(
-                firstSection,
-                '', // @TODO This needs to be fixed!
-                index + beforeHero.length,
-                firstSection,
-                secondSection,
-                groupIndex,
+              return (
+                <section className="mt-[2rem] xl:mt-[6rem] px-8 lg:px-16 xl:px-32 max-w-[1440px] place-self-center">
+                  {renderSectionFn(
+                    firstSection,
+                    '', // @TODO How do we properly handle the function overloads?
+                    index + beforeHero.length,
+                    firstSection,
+                    secondSection,
+                    groupIndex,
+                  )}
+                </section>
               )
             }
-
             // Normal section rendering (CTA, header, etc.)
             return renderSectionFn(section, index + beforeHero.length)
           })}

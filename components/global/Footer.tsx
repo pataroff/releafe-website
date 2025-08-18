@@ -31,7 +31,7 @@ function LinkColumn({
   links,
 }: {
   title: string
-  links: { label?: string; url: string; iconSrc?: string; platform?: string }[]
+  links: { label?: string; url: string; iconSrc?: {}; platform?: string }[]
 }) {
   const isSocialColumn = links.every((link) => !!link.platform)
 
@@ -67,11 +67,11 @@ function LinkColumn({
               }`}
             >
               {isSocialLink ? (
-                socialIcons[link.platform] || link.platform
+                socialIcons[link.platform] // @TODO Do we need a fallback here?
               ) : link.iconSrc ? (
                 <Image
                   src={urlForImage(link.iconSrc).url()}
-                  alt={link.label || ''}
+                  alt={link.label}
                   width={150}
                   height={50}
                 />

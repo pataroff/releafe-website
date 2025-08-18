@@ -19,8 +19,9 @@ const OverOnsPage = ({ page }) => {
 
   const afterHero = heroIndex === -1 ? [] : sections.slice(heroIndex + 1)
 
-  const informationalSections = afterHero.filter(
-    (s) => s.sectionVariant === 'informational',
+  const headerInformationalSections = afterHero.filter(
+    (s) =>
+      s.sectionType === 'header' && s.sectionVariant === 'informationalOverOns',
   )
 
   return (
@@ -38,7 +39,10 @@ const OverOnsPage = ({ page }) => {
           return (
             <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
               {afterHero.map((section: Section, index: number) => {
-                if (section.sectionVariant === 'informational') {
+                if (
+                  section.sectionType === 'header' &&
+                  section.sectionVariant === 'informationalOverOns'
+                ) {
                   if (renderedInformational) return null
                   renderedInformational = true
 
@@ -48,7 +52,7 @@ const OverOnsPage = ({ page }) => {
                       className="bg-[#8fa58b] py-[4rem] xl:py-[6rem]"
                     >
                       <div className="max-w-[1440px] space-y-12 mx-auto px-8 lg:px-16 xl:px-32">
-                        {informationalSections.map((s, i) => {
+                        {headerInformationalSections.map((s, i) => {
                           const renderSectionFn =
                             sectionRenderers[s.sectionType]
                           return renderSectionFn

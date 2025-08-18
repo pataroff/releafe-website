@@ -49,10 +49,9 @@ export default {
             value: 'informationalOrganisaties',
           },
           {
-            title: 'Informational (App ontstaan)',
+            title: 'Informational (Over ons)',
             value: 'informationalOverOns',
-          }, // @TODO: Change value here!
-          { title: 'Informational (Letter)', value: 'informationalLetter' },
+          },
           { title: 'Informational (Media)', value: 'informationalMedia' },
           { title: 'Informational (Articles)', value: 'informationalArticles' },
           { title: 'Informational (Research)', value: 'informationalResearch' },
