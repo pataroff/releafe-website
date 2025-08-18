@@ -1,6 +1,7 @@
 import { LinkIcon } from '@sanity/icons'
+import { defineType } from 'sanity'
 
-export default {
+export default defineType({
   name: 'navbar',
   title: 'Navbar',
   type: 'document',
@@ -29,4 +30,4 @@ export default {
       }
     },
   },
-}
+})

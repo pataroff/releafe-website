@@ -1,6 +1,7 @@
 import { DocumentIcon } from '@sanity/icons'
+import { defineType } from 'sanity'
 
-export default {
+export default defineType({
   name: 'ontdekReleafe',
   title: 'Ontdek Releafe',
   type: 'document',
@@ -27,4 +28,4 @@ export default {
       }
     },
   },
-}
+})

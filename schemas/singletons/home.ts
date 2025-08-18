@@ -1,6 +1,7 @@
 import { HomeIcon } from '@sanity/icons'
+import { defineType } from 'sanity'
 
-export default {
+export default defineType({
   name: 'home',
   title: 'Home',
   type: 'document',
@@ -26,4 +27,4 @@ export default {
       }
     },
   },
-}
+})

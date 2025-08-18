@@ -1,6 +1,7 @@
 import { LinkIcon } from '@sanity/icons'
+import { defineType } from 'sanity'
 
-export default {
+export default defineType({
   name: 'footer',
   title: 'Footer',
   type: 'document',
@@ -26,4 +27,4 @@ export default {
       }
     },
   },
-}
+})
