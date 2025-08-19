@@ -22,6 +22,13 @@ export const InformationalGrouped: React.FC<InformationalGroupedProps> = ({
 }) => {
   const isEvenGroup = groupIndex % 2 === 0
 
+  // Compute fallback image and title
+  const imageSection = firstSection?.image
+    ? firstSection
+    : secondSection?.image
+      ? secondSection
+      : null
+
   return (
     <div
       key={_id}
@@ -32,17 +39,18 @@ export const InformationalGrouped: React.FC<InformationalGroupedProps> = ({
       {/* Text column */}
       <div className="flex flex-col gap-y-8 xl:w-1/2">
         {[firstSection, secondSection].map((section) => {
+          if (!section) return null
           return (
             <div
-              key={section?._id}
+              key={section._id}
               className="flex flex-col gap-y-4 lg:gap-y-8 w-full"
             >
               <h2 className="text-2xl xl:text-3xl font-sofia font-bold">
-                {section?.title}
+                {section.title}
               </h2>
 
               <CustomPortableText
-                value={section?.body}
+                value={section.body}
                 headingClasses={{
                   h3: 'text-md xl:text-lg 2xl:text-xl font-sofia font-light',
                 }}
@@ -53,12 +61,12 @@ export const InformationalGrouped: React.FC<InformationalGroupedProps> = ({
         })}
       </div>
 
-      {/* Image column: render only if second section has image */}
-      {firstSection?.image && (
+      {/* Fallback image logic */}
+      {imageSection && (
         <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] w-full xl:w-1/2 shadow-sm">
           <Image
-            src={urlForImage(firstSection.image).url()}
-            alt={firstSection.title}
+            src={urlForImage(imageSection.image).url()}
+            alt={imageSection.title}
             fill
             className="object-cover"
           />

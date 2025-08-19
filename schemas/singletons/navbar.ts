@@ -10,6 +10,8 @@ export default defineType({
     {
       name: 'navbarItems',
       title: 'Navbar Items',
+      description:
+        'Reorder to control the order of navbar items on the Navbar.',
       type: 'array',
       of: [
         {
@@ -23,10 +25,9 @@ export default defineType({
     select: {
       title: 'navbarItems',
     },
-    prepare(selection) {
-      const count = selection.title?.length || 0
+    prepare() {
       return {
-        title: `Navbar (${count} items)`,
+        title: 'Navbar',
       }
     },
   },

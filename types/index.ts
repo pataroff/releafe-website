@@ -95,6 +95,7 @@ export interface Section {
   _id: string
   sectionType: string
   sectionVariant: string
+  customElementsVariant?: string
   buttonText?: string
   title?: string
   body?: PortableTextMarkDefinition[]

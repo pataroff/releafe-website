@@ -146,7 +146,17 @@ const renderInformationalSection = (
   secondSection: any,
   groupIndex: number,
 ) => {
-  const { _id, sectionVariant, title, body, image, customElements } = section
+  const {
+    _id,
+    sectionVariant,
+    customElementsVariant,
+    title,
+    body,
+    image,
+    customElements,
+  } = section
+
+  console.log(section)
 
   switch (sectionVariant) {
     case 'default':
@@ -156,6 +166,7 @@ const renderInformationalSection = (
           title={title}
           body={body}
           image={image}
+          customElementsVariant={customElementsVariant}
           customElements={customElements}
           index={index}
         />

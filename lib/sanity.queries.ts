@@ -62,6 +62,7 @@ export const mentaleKlachtenPageQuery = groq`
       _id,
       sectionType,
       sectionVariant,
+      customElementsVariant,
       title,
       body,
       image,
@@ -136,7 +137,7 @@ export const ontdekReleafePageQuery = groq`
       title,
       body[]{
         ...,
-        _type == "reference" => @-> {
+        _type == "inlineCta" => @-> {
           _type,
           callToActionLink,
           callToActionButtonText
@@ -176,7 +177,7 @@ export const releafeVoorOrganisatiesPageQuery = groq`
       title,
       body[]{
         ...,
-        _type == "reference" => @-> {
+        _type == "inlineCta" => @-> {
           _type,
           callToActionLink,
           callToActionButtonText

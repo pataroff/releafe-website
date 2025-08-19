@@ -13,6 +13,7 @@ interface InformationalDefaultProps {
   title: string
   body: any[]
   image: any
+  customElementsVariant: string
   customElements: any[]
   // FUNCTION OVERLOAD
   index: number
@@ -23,6 +24,7 @@ export const InformationalDefault: React.FC<InformationalDefaultProps> = ({
   title,
   body,
   image,
+  customElementsVariant,
   customElements,
   index,
 }) => {
@@ -58,7 +60,7 @@ export const InformationalDefault: React.FC<InformationalDefaultProps> = ({
               />
 
               {/* Custom Elements Only for Paniek */}
-              {title === 'Paniek' && customElements && (
+              {customElementsVariant === 'paniek' && customElements && (
                 <PanicDisorders
                   customElements={customElements}
                   selectedIndex={panicSubdisorderIndex}
@@ -79,8 +81,7 @@ export const InformationalDefault: React.FC<InformationalDefaultProps> = ({
           </div>
 
           {/* Custom Elements Only for Angst */}
-          {/* @TODO: What if Nynke changes the title? */}
-          {title === 'Angst' && customElements && (
+          {customElementsVariant === 'angst' && customElements && (
             <FearDisorders
               customElements={customElements}
               selectedIndex={fearSubdisorderIndex}
