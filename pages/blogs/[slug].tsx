@@ -1,5 +1,3 @@
-import BlogPage from 'components/pages/blogs/BlogPage'
-// import ArticlePreview from 'components/pages/artikelen/ArticlePreview'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { articleBySlugQuery, articlePathsQuery } from 'lib/sanity.queries'
@@ -7,6 +5,8 @@ import type { GetStaticProps } from 'next'
 import { ArticlePayload } from 'types'
 
 import type { SharedPageProps } from '../_app'
+
+import { BlogPage } from 'components/pages/blogs/BlogPage'
 import { BlogPagePreview } from 'components/pages/blogs/BlogPagePreview'
 
 interface PageProps extends SharedPageProps {
