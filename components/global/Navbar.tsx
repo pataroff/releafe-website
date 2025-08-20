@@ -27,6 +27,12 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
   const isMentaalFitPage = route === '/mentaal-fit'
   const isProbeerReleafeGratisPage = route === '/probeer-releafe'
 
+  const gradientVariant = isMentaleKlachtenPage
+    ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f]'
+    : isMentaalFitPage
+      ? 'bg-gradient-to-b from-[#a8d5ba] to-[#5c946e]'
+      : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
+
   const FlyoutLink = ({ children, href, FlyoutContent }) => {
     const showFlyout = isFlyoutOpen && FlyoutContent
 
@@ -57,12 +63,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               style={{ x: '-50%' }}
-              className="absolute left-1/2 top-14 bg-transparent text-black shadow-xl"
+              className="absolute left-1/2 top-14 bg-white text-black shadow-xl rounded-3xl overflow-hidden"
             >
               <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white"></div>
-              <div className="rounded-3xl overflow-hidden">
-                <OverContent />
-              </div>
+              <OverContent />
             </motion.div>
           )}
         </AnimatePresence>
@@ -99,9 +103,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="absolute left-0 right-0 top-14 bg-transparent text-black"
             >
-              <div className="rounded-3xl overflow-hidden">
-                <OverContent />
-              </div>
+              <OverContent />
             </motion.div>
           )}
         </AnimatePresence>
@@ -111,7 +113,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
 
   const OverContent = () => {
     return (
-      <div className="w-full xl:w-64 bg-white px-6 py-4 shadow-xl">
+      <div className="w-full xl:w-64 bg-white px-6 py-4">
         <div className="my-2 space-y-4">
           <Link
             href="/over-ons"
@@ -218,7 +220,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                         href={href}
                         className={`
                   relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full lg:w-[16rem] 
-                  bg-gradient-to-b ${isMentaleKlachtenPage ? 'from-[#d4e3c4] to-[#849b6f]' : isMentaalFitPage ? 'from-[#a8d5ba] to-[#5c946e]' : 'from-[#c5d5bc] to-[#8fa58b]'}  text-white font-sofia font-bold text-lg lg:text-lg 
+                  bg-gradient-to-b ${gradientVariant}  text-white font-sofia font-bold text-lg lg:text-lg 
                   leading-none`}
                       >
                         {/* Pseudo-element for the hover effect */}

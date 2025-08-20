@@ -13,6 +13,7 @@ export function HomePage({ page }: HomePageProps) {
   return (
     <>
       {sections.map((section) => {
+        console.log(section)
         const renderSectionFn = sectionRenderers[section.sectionType]
 
         if (!renderSectionFn) return null

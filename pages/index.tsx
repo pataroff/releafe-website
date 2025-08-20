@@ -1,4 +1,3 @@
-import { HomePage } from 'components/pages/home/HomePage'
 import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 
@@ -8,6 +7,9 @@ import { homePageQuery } from 'lib/sanity.queries'
 import { PagePayload } from 'types'
 
 import type { SharedPageProps } from './_app'
+
+import { HomePage } from 'components/pages/home/HomePage'
+import { HomePagePreview } from 'components/pages/home/HomePagePreview'
 
 interface PageProps extends SharedPageProps {
   page: PagePayload
@@ -19,6 +21,10 @@ interface Query {
 
 export default function IndexPage(props: PageProps) {
   const { page, draftMode } = props
+
+  if (draftMode) {
+    return <HomePagePreview page={page} />
+  }
 
   return <HomePage page={page} />
 }

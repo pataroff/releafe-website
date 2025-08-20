@@ -156,8 +156,6 @@ const renderInformationalSection = (
     customElements,
   } = section
 
-  console.log(section)
-
   switch (sectionVariant) {
     case 'default':
       return (

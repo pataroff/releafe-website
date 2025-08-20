@@ -32,7 +32,7 @@ export default function Layout({
       <main className="flex-grow">{children}</main>
       <CookiesConsent />
       <GoogleAnalyticsWrapper />
-      {route !== '/probeer-releafe' && <Footer footer={footer} />}
+      {route !== '/probeer-releafe' && <Footer footer={footer} route={route} />}
     </div>
   )
 }

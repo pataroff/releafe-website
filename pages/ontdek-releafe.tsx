@@ -4,10 +4,15 @@ import { ontdekReleafePageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { PagePayload } from 'types'
 
-import OntdekReleafePage from 'components/pages/ontdek-releafe/OntdekReleafePage'
+import { OntdekReleafePage } from 'components/pages/ontdek-releafe/OntdekReleafePage'
+import { OntdekReleafePagePreview } from 'components/pages/ontdek-releafe/OntdekReleafePagePreview'
 
 export default function ProbeerReleafeGratisRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <OntdekReleafePagePreview page={page} />
+  }
 
   return <OntdekReleafePage page={page} />
 }

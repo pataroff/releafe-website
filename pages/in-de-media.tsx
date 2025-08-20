@@ -5,10 +5,15 @@ import { GetStaticProps } from 'next'
 import { inDeMediaPageQuery } from 'lib/sanity.queries'
 import { PagePayload } from 'types'
 
-import InDeMediaPage from 'components/pages/in-de-media/InDeMediaPage'
+import { InDeMediaPage } from 'components/pages/in-de-media/InDeMediaPage'
+import { InDeMediaPagePreview } from 'components/pages/in-de-media/InDeMediaPagePreview'
 
 export default function InDeMediaRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <InDeMediaPagePreview page={page} />
+  }
 
   return <InDeMediaPage page={page} />
 }

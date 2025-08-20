@@ -3,7 +3,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { sectionRenderers } from 'components/sections'
 import { Section } from 'types'
 
-const MentaleKlachtenPage = ({ page }) => {
+export const MentaleKlachtenPage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return
@@ -43,5 +43,3 @@ const MentaleKlachtenPage = ({ page }) => {
     </>
   )
 }
-
-export default MentaleKlachtenPage

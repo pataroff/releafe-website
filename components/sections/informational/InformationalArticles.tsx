@@ -73,7 +73,7 @@ export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
             return (
               <Link
                 key={index}
-                href={`/blogs/${slug}`}
+                href={`/blogs/${slug.current}`}
                 className="relative rounded-[2.5rem] overflow-hidden w-full xl:w-[330px] 2xl:w-[415px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between shadow-md"
               >
                 <div className="w-full h-[260px] relative">

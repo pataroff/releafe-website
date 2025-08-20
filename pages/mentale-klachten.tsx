@@ -5,10 +5,15 @@ import { GetStaticProps } from 'next'
 import { mentaleKlachtenPageQuery } from 'lib/sanity.queries'
 import { PagePayload } from 'types'
 
-import MentaleKlachtenPage from 'components/pages/mentale-klachten/MentaleKlachtenPage'
+import { MentaleKlachtenPage } from 'components/pages/mentale-klachten/MentaleKlachtenPage'
+import { MentaleKlachtenPreview } from 'components/pages/mentale-klachten/MentaleKlachtenPreview'
 
 export default function MentaleKlachtenRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <MentaleKlachtenPreview page={page} />
+  }
 
   return <MentaleKlachtenPage page={page} />
 }

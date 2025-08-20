@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import { CTAElement } from 'types'
 
+import { useRouter } from 'next/router'
+
 interface CTADefaultProps {
   _id: string
   ctaElement: CTAElement
@@ -14,6 +16,18 @@ export const CTADefault: React.FC<CTADefaultProps> = ({ _id, ctaElement }) => {
     callToActionTitle,
     callToActionText,
   } = ctaElement
+
+  const router = useRouter()
+  const { route } = router
+
+  const isMentaleKlachtenPage = route === '/mentale-klachten'
+  const isMentaalFitPage = route === '/mentaal-fit'
+
+  const gradientVariant = isMentaleKlachtenPage
+    ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f]'
+    : isMentaalFitPage
+      ? 'bg-gradient-to-b from-[#a8d5ba] to-[#5c946e]'
+      : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
 
   return (
     <section
@@ -29,10 +43,10 @@ export const CTADefault: React.FC<CTADefaultProps> = ({ _id, ctaElement }) => {
 
       <Link
         href={callToActionLink}
-        className="
+        className={`
        relative flex justify-center items-center rounded-full overflow-hidden h-[50px] w-full xl:w-1/2 2xl:w-1/3 mt-2
-       bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] text-white font-sofia font-bold text-md xl:text-lg 
-       leading-none"
+       ${gradientVariant} text-white font-sofia font-bold text-md xl:text-lg 
+       leading-none`}
       >
         {/* Pseudo-element for the hover effect */}
         <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>

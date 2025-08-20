@@ -4,10 +4,15 @@ import { probeerReleafePageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { PagePayload } from 'types'
 
-import ProbeerReleafePage from 'components/pages/probeer-releafe/ProbeerReleafe'
+import { ProbeerReleafePage } from 'components/pages/probeer-releafe/ProbeerReleafePage'
+import { ProbeerReleafePagePreview } from 'components/pages/probeer-releafe/ProbeerReleafePagePreview'
 
 export default function ProbeerReleafeGratisRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <ProbeerReleafePagePreview page={page} />
+  }
 
   return <ProbeerReleafePage page={page} />
 }

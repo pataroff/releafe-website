@@ -5,7 +5,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { Section } from 'types'
 import { sectionRenderers } from 'components/sections'
 
-const ReleafeVoorOrganisatiesPage = ({ page }) => {
+export const ReleafeVoorOrganisatiesPage = ({ page }) => {
   const { sections } = page
 
   const [bedrijvenIndex, setBedrijvenIndex] = useState<number>(0)
@@ -102,5 +102,3 @@ const ReleafeVoorOrganisatiesPage = ({ page }) => {
     </>
   )
 }
-
-export default ReleafeVoorOrganisatiesPage

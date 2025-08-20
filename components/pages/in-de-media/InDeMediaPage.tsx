@@ -3,7 +3,7 @@ import { sectionRenderers } from 'components/sections'
 
 import ScrollUp from 'components/shared/ScrollUp'
 
-const InDeMediaPage = ({ page }) => {
+export const InDeMediaPage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return null
@@ -19,5 +19,3 @@ const InDeMediaPage = ({ page }) => {
     </>
   )
 }
-
-export default InDeMediaPage

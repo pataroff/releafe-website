@@ -1,8 +1,7 @@
 import React from 'react'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
-import Layout from 'components/shared/Layout'
 import ScrollUp from 'components/shared/ScrollUp'
-import type { ArticlePayload, SettingsPayload } from 'types'
+import type { ArticlePayload } from 'types'
 
 import { urlForImage } from 'lib/sanity.image'
 
@@ -13,7 +12,7 @@ export interface ArticlePageProps {
   article: ArticlePayload | undefined
 }
 
-const BlogPage = ({ article }: ArticlePageProps) => {
+export const BlogPage = ({ article }: ArticlePageProps) => {
   if (!article) {
     return <div>Article not found.</div>
   }
@@ -116,5 +115,3 @@ const BlogPage = ({ article }: ArticlePageProps) => {
     </>
   )
 }
-
-export default BlogPage

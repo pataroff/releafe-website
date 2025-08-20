@@ -5,10 +5,15 @@ import { GetStaticProps } from 'next'
 import { PagePayload } from 'types'
 import { releafeVoorOrganisatiesPageQuery } from 'lib/sanity.queries'
 
-import ReleafeVoorOrganisatiesPage from 'components/pages/releafe-voor-organisaties/ReleafeVoorOrganisatiesPage'
+import { ReleafeVoorOrganisatiesPage } from 'components/pages/releafe-voor-organisaties/ReleafeVoorOrganisatiesPage'
+import { ReleafeVoorOrganisatiesPagePreview } from 'components/pages/releafe-voor-organisaties/ReleafeVoorOrganisatiesPagePreview'
 
 export default function ReleafeVoorBedrijvenRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <ReleafeVoorOrganisatiesPagePreview page={page} />
+  }
 
   return <ReleafeVoorOrganisatiesPage page={page} />
 }

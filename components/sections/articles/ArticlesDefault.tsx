@@ -65,7 +65,7 @@ export const ArticlesDefault: React.FC<ArticlesDefaultProps> = ({
             return (
               <Link
                 key={index}
-                href={`/blogs/${slug}`}
+                href={`/blogs/${slug.current}`}
                 style={{
                   transform: `translateX(${translateXValue})`,
                   transition: 'transform 0.2s ease-in-out',
@@ -85,8 +85,7 @@ export const ArticlesDefault: React.FC<ArticlesDefaultProps> = ({
                 {/* Text Container */}
                 <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
                   <h2 className="font-sofia font-light text-md">
-                    {/* @TODO: Fix the 'category' fetching, maybe make it a list instead! */}
-                    Mindfulness
+                    {category.title}
                   </h2>
                   <h3 className="font-sofia font-normal text-md">{title}</h3>
                 </div>

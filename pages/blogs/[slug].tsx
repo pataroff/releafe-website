@@ -4,9 +4,10 @@ import { readToken } from 'lib/sanity.api'
 import { getClient } from 'lib/sanity.client'
 import { articleBySlugQuery, articlePathsQuery } from 'lib/sanity.queries'
 import type { GetStaticProps } from 'next'
-import { ArticlePayload, SettingsPayload, NavbarPayload } from 'types'
+import { ArticlePayload } from 'types'
 
 import type { SharedPageProps } from '../_app'
+import { BlogPagePreview } from 'components/pages/blogs/BlogPagePreview'
 
 interface PageProps extends SharedPageProps {
   article?: ArticlePayload
@@ -19,14 +20,8 @@ interface Query {
 export default function BlogSlugRoute(props: PageProps) {
   const { article, draftMode } = props
 
-  // Uncomment if you want preview mode with a separate component
-  // if (draftMode) {
-  //   return <ArticlePreview article={article} settings={settings} />
-  // }
-
-  // Show a loading or fallback UI when fallback: true and page is not yet generated
-  if (!article) {
-    return <div>Loading article...</div>
+  if (draftMode) {
+    return <BlogPagePreview article={article} />
   }
 
   return <BlogPage article={article} />
@@ -42,14 +37,6 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
       slug: params.slug,
     }),
   ])
-
-  // If article not found, return 404 (optional)
-  if (!article) {
-    return {
-      notFound: true,
-      revalidate: 10,
-    }
-  }
 
   return {
     props: {

@@ -3,7 +3,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { Section } from 'types'
 import { sectionRenderers } from 'components/sections'
 
-const OverOnsPage = ({ page }) => {
+export const OverOnsPage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return
@@ -78,5 +78,3 @@ const OverOnsPage = ({ page }) => {
     </>
   )
 }
-
-export default OverOnsPage

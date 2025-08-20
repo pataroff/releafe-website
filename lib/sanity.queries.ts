@@ -36,6 +36,9 @@ export const homePageQuery = groq`
       customElements[]->{
         _id,
         ...,
+        category->{
+          title
+        },
         ctaElement->{
           _type,
           callToActionTitle,

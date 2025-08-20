@@ -4,10 +4,15 @@ import { mentaalFitPageQuery } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { PagePayload } from 'types'
 
-import MentaalFitPage from 'components/pages/mentaal-fit/MentaalFitPage'
+import { MentaalFitPage } from 'components/pages/mentaal-fit/MentaalFitPage'
+import { MentaalFitPagePreview } from 'components/pages/mentaal-fit/MentaalFitPagePreview'
 
 export default function MentaalFitRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <MentaalFitPagePreview page={page} />
+  }
 
   return <MentaalFitPage page={page} />
 }

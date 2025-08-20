@@ -5,6 +5,8 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 import { urlForImage } from 'lib/sanity.image'
 
+import { useRouter } from 'next/router'
+
 interface HeroInformationalProps {
   _id: string
   title: string
@@ -20,6 +22,18 @@ export const HeroInformational: React.FC<HeroInformationalProps> = ({
   image,
   ctaElement,
 }) => {
+  const router = useRouter()
+  const { route } = router
+
+  const isMentaleKlachtenPage = route === '/mentale-klachten'
+  const isMentaalFitPage = route === '/mentaal-fit'
+
+  const gradientVariant = isMentaleKlachtenPage
+    ? 'bg-gradient-to-b from-[#d4e3c4] to-[#849b6f]'
+    : isMentaalFitPage
+      ? 'bg-gradient-to-b from-[#a8d5ba] to-[#5c946e]'
+      : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
+
   return (
     <section key={_id} className="xl:min-h-[calc(100vh-120px)] xl:flex">
       {/* Main Wrapper */}
@@ -43,7 +57,7 @@ export const HeroInformational: React.FC<HeroInformationalProps> = ({
             {/* @TODO Button color dynamic? How to? */}
             <Link
               href={ctaElement.callToActionLink}
-              className="flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 bg-gradient-to-b from-[#d4e3c4] to-[#849b6f] transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none"
+              className={`flex justify-center items-center rounded-full h-[50px] lg:h-[60px] w-full mt-4 ${gradientVariant} transform duration-300 ease-in-out font-sofia font-bold text-white text-md xl:text-lg leading-none`}
             >
               {/* Pseudo-element for the hover effect */}
               <span className="absolute inset-0 bg-black opacity-0 rounded-full transition-opacity duration-300 ease-out z-0 hover:opacity-15"></span>

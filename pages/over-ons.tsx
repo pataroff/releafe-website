@@ -5,10 +5,15 @@ import { GetStaticProps } from 'next'
 import { overOnsPageQuery } from 'lib/sanity.queries'
 import { PagePayload } from 'types'
 
-import OverOnsPage from 'components/pages/over-ons/OverOnsPage'
+import { OverOnsPage } from 'components/pages/over-ons/OverOnsPage'
+import { OverOnsPagePreview } from 'components/pages/over-ons/OverOnsPagePreview'
 
 export default function OverOnsRoute(props) {
-  const { page } = props
+  const { page, draftMode } = props
+
+  if (draftMode) {
+    return <OverOnsPagePreview page={page} />
+  }
 
   return <OverOnsPage page={page} />
 }

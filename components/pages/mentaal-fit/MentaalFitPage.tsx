@@ -3,7 +3,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { Section } from 'types'
 import { sectionRenderers } from 'components/sections'
 
-const MentaalFitPage = ({ page }) => {
+export const MentaalFitPage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return null
@@ -72,5 +72,3 @@ const MentaalFitPage = ({ page }) => {
     </>
   )
 }
-
-export default MentaalFitPage

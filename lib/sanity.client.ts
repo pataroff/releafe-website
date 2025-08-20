@@ -9,25 +9,21 @@ export function getClient(preview?: { token: string }) {
     useCdn: false,
     perspective: 'published',
     stega: {
-      enabled: false,
-      // process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
-      // typeof preview?.token === 'string',
+      enabled:
+        process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview' ||
+        typeof preview?.token === 'string',
       studioUrl: basePath,
       logger: console,
       filter: (props) => {
-        if (typeof props.sourcePath.at(-1) === 'number') {
+        // Do not encode these fields in section objects
+        if (
+          props.sourcePath.at(-1) === 'sectionType' ||
+          props.sourcePath.at(-1) === 'sectionVariant'
+        ) {
           return false
         }
-        if (props.sourcePath.at(0) === 'duration') {
-          return false
-        }
-        if (props.sourcePath.at(-1) === 'sectionType') {
-          return false
-        }
-        switch (props.sourcePath.at(-1)) {
-          case 'site':
-            return false
-        }
+
+        // Everything else: keep default behavior
         return props.filterDefault(props)
       },
     },

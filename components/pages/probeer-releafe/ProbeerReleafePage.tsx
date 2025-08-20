@@ -3,7 +3,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { Section } from 'types'
 import { sectionRenderers } from 'components/sections'
 
-const ProbeerReleafePage = ({ page }) => {
+export const ProbeerReleafePage = ({ page }) => {
   const { sections } = page
 
   if (!sections || sections.length === 0) return null
@@ -18,5 +18,3 @@ const ProbeerReleafePage = ({ page }) => {
     </>
   )
 }
-
-export default ProbeerReleafePage
