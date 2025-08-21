@@ -47,7 +47,7 @@ export const ReleafeVoorOrganisatiesPage = ({ page }) => {
           let renderedOrganisaties = false
 
           return (
-            <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+            <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white flex flex-col">
               {afterHero.map((section: Section, index: number) => {
                 if (section.sectionVariant === 'informationalOrganisaties') {
                   if (renderedOrganisaties) return null

@@ -39,7 +39,7 @@ export const MentaalFitPage = ({ page }) => {
 
       {/* Sections after hero wrapped in gradient */}
       {afterHero.length > 0 && (
-        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white flex flex-col">
           {afterHero.map((section: Section, index) => {
             const renderSectionFn = sectionRenderers[section.sectionType]
             if (!renderSectionFn) return null

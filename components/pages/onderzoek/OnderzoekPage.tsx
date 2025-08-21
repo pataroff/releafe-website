@@ -12,7 +12,7 @@ export const OnderzoekPage = ({ page }) => {
 
   return (
     <>
-      <section className="min-h-screen bg-[#F7F7F7] pt-[5rem] pb-[2rem] xl:flex xl:pt-0 px-8 lg:px-16 xl:px-32">
+      <section className="flex flex-col bg-[#F7F7F7] pt-[5rem] pb-[2rem] xl:flex xl:pt-0 px-8 lg:px-16 xl:px-32">
         <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[4rem] mx-auto max-w-[1440px] py-4 xl:py-0">
           {sections.map((section: Section, index: number) => {
             const renderSectionFn = sectionRenderers[section.sectionType]

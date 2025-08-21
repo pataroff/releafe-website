@@ -45,7 +45,7 @@ export const OverOnsPage = ({ page }) => {
           let renderedInformational = false
 
           return (
-            <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+            <div className="bg-[#f7f7f7] to-white flex flex-col">
               {afterHero.map((section: Section, index: number) => {
                 if (
                   section.sectionType === 'header' &&

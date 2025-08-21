@@ -35,7 +35,7 @@ export const MentaleKlachtenPage = ({ page }) => {
 
       {/* Wrap all sections after hero in gradient background */}
       {afterHero.length > 0 && (
-        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white h-full">
+        <div className="bg-gradient-to-b from-white via-[#c5d5bc50] to-white flex flex-col">
           {afterHero.map((section: Section, index: number) => {
             const renderSectionFn = sectionRenderers[section.sectionType]
             if (!renderSectionFn) return null
