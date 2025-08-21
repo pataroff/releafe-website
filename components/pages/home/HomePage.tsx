@@ -1,3 +1,5 @@
+import React from 'react'
+
 import ScrollUp from 'components/shared/ScrollUp'
 
 import { PagePayload } from 'types'
@@ -17,7 +19,11 @@ export function HomePage({ page }: HomePageProps) {
 
         if (!renderSectionFn) return null
 
-        return renderSectionFn(section)
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section)}
+          </React.Fragment>
+        )
       })}
 
       {/* Workaround: scroll to top on route change */}

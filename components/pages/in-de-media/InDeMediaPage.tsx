@@ -1,3 +1,4 @@
+import React from 'react'
 import { Section } from 'types'
 import { sectionRenderers } from 'components/sections'
 
@@ -12,7 +13,13 @@ export const InDeMediaPage = ({ page }) => {
     <>
       {sections.map((section: Section, index: number) => {
         const renderSectionFn = sectionRenderers[section.sectionType]
-        return renderSectionFn ? renderSectionFn(section, index) : null
+        if (!renderSectionFn) return null
+
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section, index)}
+          </React.Fragment>
+        )
       })}
 
       <ScrollUp />

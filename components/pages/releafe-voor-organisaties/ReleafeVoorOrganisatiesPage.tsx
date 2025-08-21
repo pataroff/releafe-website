@@ -33,7 +33,13 @@ export const ReleafeVoorOrganisatiesPage = ({ page }) => {
       {/* Sections before (and including) hero */}
       {beforeHero.map((section, index) => {
         const renderSectionFn = sectionRenderers[section.sectionType]
-        return renderSectionFn ? renderSectionFn(section, index) : null
+        if (!renderSectionFn) return null
+
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section, index)}
+          </React.Fragment>
+        )
       })}
 
       {afterHero.length > 0 &&
@@ -76,12 +82,17 @@ export const ReleafeVoorOrganisatiesPage = ({ page }) => {
                           if (!activeSection) return null
                           const renderSectionFn =
                             sectionRenderers[activeSection.sectionType]
-                          return renderSectionFn
-                            ? renderSectionFn(
+
+                          if (!renderSectionFn) return null
+
+                          return (
+                            <React.Fragment key={section._id}>
+                              {renderSectionFn(
                                 activeSection,
                                 index + beforeHero.length,
-                              )
-                            : null
+                              )}
+                            </React.Fragment>
+                          )
                         })()}
                       </div>
                     </section>
@@ -90,9 +101,13 @@ export const ReleafeVoorOrganisatiesPage = ({ page }) => {
 
                 // Render normal section
                 const renderSectionFn = sectionRenderers[section.sectionType]
-                return renderSectionFn
-                  ? renderSectionFn(section, index + beforeHero.length)
-                  : null
+                if (!renderSectionFn) return null
+
+                return (
+                  <React.Fragment key={section._id}>
+                    {renderSectionFn(section, index + beforeHero.length)}
+                  </React.Fragment>
+                )
               })}
             </div>
           )

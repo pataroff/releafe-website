@@ -1,28 +1,37 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
 import { CustomPortableText } from 'components/shared/CustomPortableText'
-
 import { urlForImage } from 'lib/sanity.image'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faLinkedin,
+  faFacebookF,
+  faInstagram,
+  faXTwitter,
+} from '@fortawesome/free-brands-svg-icons'
+
+const socialIcons: Record<string, JSX.Element> = {
+  linkedin: <FontAwesomeIcon icon={faLinkedin} color="#96a78d" size="2xl" />,
+  facebook: <FontAwesomeIcon icon={faFacebookF} color="#96a78d" size="2xl" />,
+  twitter: <FontAwesomeIcon icon={faXTwitter} color="#96a78d" size="2xl" />,
+  instagram: <FontAwesomeIcon icon={faInstagram} color="#96a78d" size="2xl" />,
+}
+
 interface TeamDefaultProps {
-  _id: string
   title: string
   body: any[]
   customElements: any[]
 }
 
 export const TeamDefault: React.FC<TeamDefaultProps> = ({
-  _id,
   title,
   body,
   customElements,
 }) => {
   return (
-    <section key={_id} className="mt-[4rem] xl:mt-[6rem]">
+    <section className="mt-[4rem] xl:mt-[6rem]">
       <h2 className="font-sofia font-bold text-3xl xl:text-4xl text-center">
         {title}
       </h2>
@@ -38,12 +47,9 @@ export const TeamDefault: React.FC<TeamDefaultProps> = ({
             } = teamMember
 
             return (
-              <div
-                key={index}
-                className="flex flex-col xl:flex-row w-full shadow-md"
-              >
+              <div key={index} className="flex flex-col xl:flex-row w-full">
                 {/* Image Container */}
-                <div className="relative rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[700px] md:h-[600px] h-[300px] w-full">
+                <div className="relative shadow-md rounded-3xl rounded-b-none xl:rounded-bl-3xl xl:rounded-r-none overflow-hidden xl:w-1/2 xl:h-full lg:h-[700px] md:h-[600px] h-[300px] w-full">
                   <Image
                     className={`object-cover ${index == 0 ? 'scale-110 object-[60%_100%]' : 'object-top'}`}
                     src={urlForImage(teamMemberImage).url()}
@@ -53,7 +59,7 @@ export const TeamDefault: React.FC<TeamDefaultProps> = ({
                 </div>
 
                 {/* Text Container */}
-                <div className="bg-white rounded-3xl rounded-t-none xl:rounded-tr-3xl xl:rounded-l-none xl:w-1/2 w-full p-8 space-y-4">
+                <div className="bg-white shadow-md rounded-3xl rounded-t-none xl:rounded-tr-3xl xl:rounded-l-none xl:w-1/2 w-full p-8 space-y-4">
                   <h2 className="font-sofia font-bold xl:text-lg 2xl:text-xl text-lg ">
                     {teamMemberName}
                   </h2>
@@ -74,12 +80,7 @@ export const TeamDefault: React.FC<TeamDefaultProps> = ({
                     {teamMemberSocialMediaLinks.map((social, index) => {
                       return (
                         <Link key={index} href={social.url} target="_blank">
-                          <FontAwesomeIcon
-                            // @TODO Replace with a mapping function!
-                            icon={faLinkedin}
-                            color="#96a78d"
-                            size="2xl"
-                          />
+                          {socialIcons[social.platform]}
                         </Link>
                       )
                     })}

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import ScrollUp from 'components/shared/ScrollUp'
 
 import { Section } from 'types'
@@ -24,15 +26,25 @@ export const BlogsPage = ({ page, categories }) => {
           {/* ✅ Render all sections before (and including) header */}
           {beforeHeader.map((section: Section, index: number) => {
             const renderSectionFn = sectionRenderers[section.sectionType]
-            return renderSectionFn ? renderSectionFn(section, index) : null
+            if (!renderSectionFn) return null
+
+            return (
+              <React.Fragment key={section._id}>
+                {renderSectionFn(section, index)}
+              </React.Fragment>
+            )
           })}
 
           {/* ✅ Render all sections after header */}
-          {afterHeader.map((section, index) => {
+          {afterHeader.map((section: Section, index: number) => {
             const renderSectionFn = sectionRenderers[section.sectionType]
-            return renderSectionFn
-              ? renderSectionFn(section, index, categories)
-              : null
+            if (!renderSectionFn) return null
+
+            return (
+              <React.Fragment key={section._id}>
+                {renderSectionFn(section, index, categories)}
+              </React.Fragment>
+            )
           })}
         </div>
       </section>

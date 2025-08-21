@@ -5,11 +5,10 @@ import { CTAElement } from 'types'
 import { useRouter } from 'next/router'
 
 interface CTADefaultProps {
-  _id: string
   ctaElement: CTAElement
 }
 
-export const CTADefault: React.FC<CTADefaultProps> = ({ _id, ctaElement }) => {
+export const CTADefault: React.FC<CTADefaultProps> = ({ ctaElement }) => {
   const {
     callToActionButtonText,
     callToActionLink,
@@ -30,10 +29,7 @@ export const CTADefault: React.FC<CTADefaultProps> = ({ _id, ctaElement }) => {
       : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
 
   return (
-    <section
-      key={_id}
-      className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center place-self-center gap-y-8 max-w-[1440px]"
-    >
+    <section className="my-[4rem] lg:my-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center place-self-center gap-y-8 max-w-[1440px]">
       <h2 className="text-3xl text-center font-sofia font-bold xl:text-5xl ">
         {callToActionTitle}
       </h2>

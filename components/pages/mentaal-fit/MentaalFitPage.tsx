@@ -1,3 +1,4 @@
+import React from 'react'
 import ScrollUp from 'components/shared/ScrollUp'
 
 import { Section } from 'types'
@@ -27,7 +28,13 @@ export const MentaalFitPage = ({ page }) => {
       {/* Render sections before (and including) hero */}
       {beforeHero.map((section: Section, index: number) => {
         const renderSectionFn = sectionRenderers[section.sectionType]
-        return renderSectionFn ? renderSectionFn(section, index) : null
+        if (!renderSectionFn) return null
+
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section, index)}
+          </React.Fragment>
+        )
       })}
 
       {/* Sections after hero wrapped in gradient */}
@@ -63,7 +70,11 @@ export const MentaalFitPage = ({ page }) => {
               )
             }
             // Normal section rendering (CTA, header, etc.)
-            return renderSectionFn(section, index + beforeHero.length)
+            return (
+              <React.Fragment key={section._id}>
+                {renderSectionFn(section, index + beforeHero.length)}
+              </React.Fragment>
+            )
           })}
         </div>
       )}

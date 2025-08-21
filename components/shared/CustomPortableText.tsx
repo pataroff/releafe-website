@@ -2,12 +2,10 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextBlock } from 'sanity'
 
 import Image from 'next/image'
-import { CTAItem } from './CTAItem'
 
-import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { CTAItem } from './CTAItem'
 import { EmailSubscription } from './EmailSubscription'
+import { InlineSocialMedia } from './InlineSocialMedia'
 
 interface Props {
   value: PortableTextBlock[]
@@ -86,14 +84,7 @@ export const CustomPortableText = ({
         />
       ),
       emailSubscription: ({ value }) => <EmailSubscription value={value} />,
-      inlineSocialMedia: ({ value }) => (
-        <Link href={value.url} target="_blank" className="block w-fit h-fit">
-          <FontAwesomeIcon
-            icon={value.platform === 'linkedin' ? faLinkedin : null}
-            className="text-3xl xl:text-4xl 2xl:text-5xl"
-          />
-        </Link>
-      ),
+      inlineSocialMedia: ({ value }) => <InlineSocialMedia value={value} />,
     },
   }
 

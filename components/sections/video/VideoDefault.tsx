@@ -3,11 +3,10 @@ import { useRef, useEffect } from 'react'
 import { urlForFile } from 'lib/sanity.file'
 
 interface VideoDefaultProps {
-  _id: string
   video: any
 }
 
-export const VideoDefault: React.FC<VideoDefaultProps> = ({ _id, video }) => {
+export const VideoDefault: React.FC<VideoDefaultProps> = ({ video }) => {
   const videoRef = useRef(null)
 
   useEffect(() => {
@@ -33,10 +32,7 @@ export const VideoDefault: React.FC<VideoDefaultProps> = ({ _id, video }) => {
   }, [])
 
   return (
-    <section
-      key={_id}
-      className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center max-w-[1440px] place-self-center"
-    >
+    <section className="mt-[4rem] lg:mt-[6rem] px-8 lg:px-16 xl:px-32 flex flex-col justify-center items-center max-w-[1440px] place-self-center">
       <div className="mt-[2rem] lg:mt-[4rem] w-full">
         {/* Video Container */}
         <div className="relative rounded-3xl overflow-hidden h-[400px] lg:h-[500px] xl:h-[700px] 2xl:h-[700px] w-full shadow-md">

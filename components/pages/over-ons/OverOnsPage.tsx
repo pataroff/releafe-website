@@ -1,3 +1,5 @@
+import React from 'react'
+
 import ScrollUp from 'components/shared/ScrollUp'
 
 import { Section } from 'types'
@@ -29,7 +31,13 @@ export const OverOnsPage = ({ page }) => {
       {/* Sections before (and including) hero */}
       {beforeHero.map((section, index) => {
         const renderSectionFn = sectionRenderers[section.sectionType]
-        return renderSectionFn ? renderSectionFn(section, index) : null
+        if (!renderSectionFn) return null
+
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section, index)}
+          </React.Fragment>
+        )
       })}
 
       {afterHero.length > 0 &&
@@ -55,9 +63,17 @@ export const OverOnsPage = ({ page }) => {
                         {headerInformationalSections.map((s, i) => {
                           const renderSectionFn =
                             sectionRenderers[s.sectionType]
-                          return renderSectionFn
-                            ? renderSectionFn(s, beforeHero.length + index + i)
-                            : null
+
+                          if (!renderSectionFn) return null
+
+                          return (
+                            <React.Fragment key={s._id}>
+                              {renderSectionFn(
+                                s,
+                                beforeHero.length + index + i,
+                              )}
+                            </React.Fragment>
+                          )
                         })}
                       </div>
                     </div>
@@ -66,9 +82,13 @@ export const OverOnsPage = ({ page }) => {
 
                 // Render normal sections
                 const renderSectionFn = sectionRenderers[section.sectionType]
-                return renderSectionFn
-                  ? renderSectionFn(section, index + beforeHero.length)
-                  : null
+                if (!renderSectionFn) return null
+
+                return (
+                  <React.Fragment key={section._id}>
+                    {renderSectionFn(section, index + beforeHero.length)}
+                  </React.Fragment>
+                )
               })}
             </div>
           )

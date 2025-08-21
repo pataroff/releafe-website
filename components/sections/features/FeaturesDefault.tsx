@@ -9,13 +9,11 @@ import { FeatureItem } from 'types'
 import { urlForImage } from 'lib/sanity.image'
 
 interface FeaturesDefaultProps {
-  _id: string
   title: string
   customElements: any[]
 }
 
 export const FeaturesDefault: React.FC<FeaturesDefaultProps> = ({
-  _id,
   title,
   customElements,
 }) => {
@@ -25,10 +23,7 @@ export const FeaturesDefault: React.FC<FeaturesDefaultProps> = ({
   const { featureName, featureDescription, image, ctaElement } = selectedFeature
 
   return (
-    <section
-      key={_id}
-      className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-32 xl:px-64 2xl:px-96 flex flex-col justify-center items-center"
-    >
+    <section className="mt-[4rem] lg:mt-[6rem] px-5 lg:px-32 xl:px-64 2xl:px-96 flex flex-col justify-center items-center">
       {/* Title */}
       <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center px-5">
         {title}

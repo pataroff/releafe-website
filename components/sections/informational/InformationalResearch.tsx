@@ -1,23 +1,17 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 interface InformationalResearchProps {
-  _id: string
   title: string
   body: any[]
 }
 
 export const InformationalResearch: React.FC<InformationalResearchProps> = ({
-  _id,
   title,
   body,
 }) => {
   return (
-    <div
-      key={_id}
-      className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16"
-    >
+    <div className="my-[2rem] xl:my-[4rem] flex flex-col gap-y-12 px-8 xl:px-16">
       <div
-        key={_id}
         className={`flex flex-col-reverse lg:flex-row justify-between items-center gap-x-12`}
       >
         <div className="flex flex-col gap-y-8 xl:gap-y-12 w-full">
@@ -28,7 +22,7 @@ export const InformationalResearch: React.FC<InformationalResearchProps> = ({
           <CustomPortableText
             value={body}
             headingClasses={{
-              h3: 'text-md xl:text-lg 2xl:text-xl font-sofia font-bold',
+              h3: 'text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold',
             }}
             paragraphClasses="font-sofia font-light text-md xl:text-lg 2xl:text-xl"
           />

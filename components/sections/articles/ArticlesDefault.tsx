@@ -14,14 +14,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 interface ArticlesDefaultProps {
-  _id: string
   title: string
   customElements: any[]
   ctaElement: CTAElement
 }
 
 export const ArticlesDefault: React.FC<ArticlesDefaultProps> = ({
-  _id,
   title,
   customElements,
   ctaElement,
@@ -39,10 +37,7 @@ export const ArticlesDefault: React.FC<ArticlesDefaultProps> = ({
   }
 
   return (
-    <section
-      key={_id}
-      className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-32 xl:px-64"
-    >
+    <section className="my-[4rem] lg:my-[6rem] w-full px-5 lg:px-32 xl:px-64">
       <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
         {title}
       </h1>

@@ -6,7 +6,6 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { urlForImage } from 'lib/sanity.image'
 
 interface HeroLandingProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -14,20 +13,19 @@ interface HeroLandingProps {
 }
 
 export const HeroLanding: React.FC<HeroLandingProps> = ({
-  _id,
   title,
   body,
   image,
   ctaElement,
 }) => {
   return (
-    <section key={_id} className="h-full">
+    <section className="h-full">
       {/* Hero Image */}
       <div className="relative w-full h-[200px] lg:h-[480px] 2xl:h-[580px] z-0 mb-[40px]">
         <span className="absolute w-full h-[200px] lg:h-full">
           <Image
             src={urlForImage(image).url()}
-            alt="Hero Image"
+            alt="Hero Image (Landing)"
             fill
             className="object-cover object-bottom"
             priority

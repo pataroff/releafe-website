@@ -1,17 +1,14 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 interface InformationalOverOnsProps {
-  _id: string
   body: any[]
 }
 
 export const InformationalOverOns: React.FC<InformationalOverOnsProps> = ({
-  _id,
   body,
 }) => {
   return (
     <section
-      key={_id}
       id="letter-section"
       className="bg-[#F7F7F7] scroll-mt-[4rem] xl:-scroll-mt-[1rem] flex justify-center py-14 px-8 lg:px-32 xl:px-64"
     >

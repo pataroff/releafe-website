@@ -8,7 +8,6 @@ import { urlForImage } from 'lib/sanity.image'
 import { useRouter } from 'next/router'
 
 interface HeroInformationalProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -16,7 +15,6 @@ interface HeroInformationalProps {
 }
 
 export const HeroInformational: React.FC<HeroInformationalProps> = ({
-  _id,
   title,
   body,
   image,
@@ -35,7 +33,7 @@ export const HeroInformational: React.FC<HeroInformationalProps> = ({
       : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
 
   return (
-    <section key={_id} className="xl:min-h-[calc(100vh-120px)] xl:flex">
+    <section className="xl:min-h-[calc(100vh-120px)] xl:flex">
       {/* Main Wrapper */}
       <div className="flex flex-col xl:flex-row min-h-full w-full">
         {/* Hero Text Container */}
@@ -90,10 +88,15 @@ export const HeroInformational: React.FC<HeroInformationalProps> = ({
         {/* Hero Image Container */}
         <div className="relative h-[400px] lg:h-[500px] xl:min-h-full w-full xl:w-1/2">
           <Image
+            priority
             src={urlForImage(image).url()}
-            alt="Mentale Klachten Hero Image" // @TODO Do we need alt text field in the schema?
+            alt="Hero Image (Informational)"
             fill // fill = absolute positioning, therefore container needs relative
-            className="object-cover object-center" // @TODO 'object-cover object-left' if 'mentaal-fit'?
+            className={
+              isMentaalFitPage
+                ? 'object-cover object-left'
+                : 'object-cover object-center'
+            }
           />
         </div>
       </div>

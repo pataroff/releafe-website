@@ -7,13 +7,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 interface CoreValuesDefaultProps {
-  _id: string
   title: string
   customElements: any[]
 }
 
 export const CoreValuesDefault: React.FC<CoreValuesDefaultProps> = ({
-  _id,
   title,
   customElements,
 }) => {
@@ -30,12 +28,12 @@ export const CoreValuesDefault: React.FC<CoreValuesDefaultProps> = ({
   }
 
   return (
-    <section key={_id} className="mt-[4rem] lg:mt-[6rem] w-full">
+    <section className="mt-[4rem] lg:mt-[6rem] w-full">
       <h2 className="font-sofia font-bold text-3xl xl:text-4xl text-center">
         {title}
       </h2>
       {/* Core Values Wrapper */}
-      <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px] px-8 lg:px-16 xl:px-32">
+      <div className="mt-[2rem] lg:mt-[4rem] mx-auto max-w-[1440px] px-5 lg:px-16 xl:px-32">
         {/* Core Values Container */}
         <ul className="relative h-[450px]">
           {/* Core Values Box */}

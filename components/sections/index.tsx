@@ -31,13 +31,12 @@ import { CoreValuesDefault } from './core-values/CoreValuesDefault'
 import { TeamDefault } from './team/TeamDefault'
 
 const renderHeroSection = (section: Section) => {
-  const { _id, sectionVariant, title, body, image, ctaElement } = section
+  const { sectionVariant, title, body, image, ctaElement } = section
 
   switch (sectionVariant) {
     case 'landing':
       return (
         <HeroLanding
-          _id={_id}
           title={title}
           body={body}
           image={image}
@@ -48,7 +47,6 @@ const renderHeroSection = (section: Section) => {
     case 'informational':
       return (
         <HeroInformational
-          _id={_id}
           title={title}
           body={body}
           image={image}
@@ -57,39 +55,30 @@ const renderHeroSection = (section: Section) => {
       )
     case 'informationalOverOns':
       return (
-        <HeroInformationalOverOns
-          _id={_id}
-          title={title}
-          body={body}
-          image={image}
-        />
+        <HeroInformationalOverOns title={title} body={body} image={image} />
       )
 
     case 'cta':
-      return (
-        <HeroCallToAction _id={_id} title={title} body={body} image={image} />
-      )
+      return <HeroCallToAction title={title} body={body} image={image} />
   }
 }
 
 const renderHeaderSection = (section: Section) => {
-  const { _id, sectionVariant, title, body } = section
+  const { sectionVariant, title, body } = section
 
   switch (sectionVariant) {
     case 'default':
-      return <HeaderDefault _id={_id} title={title} body={body} />
+      return <HeaderDefault title={title} body={body} />
 
     case 'informationalOverOns':
-      return <HeaderInformationalOverOns _id={_id} title={title} body={body} />
+      return <HeaderInformationalOverOns title={title} body={body} />
   }
 }
 
 const renderFeaturesSection = (section: Section) => {
-  const { _id, title, customElements } = section
+  const { title, customElements } = section
 
-  return (
-    <FeaturesDefault _id={_id} title={title} customElements={customElements} />
-  )
+  return <FeaturesDefault title={title} customElements={customElements} />
 }
 
 const renderCompaniesSection = (section: Section) => {
@@ -101,29 +90,22 @@ const renderCompaniesSection = (section: Section) => {
 }
 
 const renderCustomImageSection = (section: Section) => {
-  const { _id, image } = section
+  const { image } = section
 
-  return <CustomImageDefault _id={_id} image={image} />
+  return <CustomImageDefault image={image} />
 }
 
 const renderTestimonialsSection = (section: Section) => {
-  const { _id, title, customElements } = section
+  const { title, customElements } = section
 
-  return (
-    <TestimonialsDefault
-      _id={_id}
-      title={title}
-      customElements={customElements}
-    />
-  )
+  return <TestimonialsDefault title={title} customElements={customElements} />
 }
 
 const renderArticlesSection = (section: Section) => {
-  const { _id, title, customElements, ctaElement } = section
+  const { title, customElements, ctaElement } = section
 
   return (
     <ArticlesDefault
-      _id={_id}
       title={title}
       customElements={customElements}
       ctaElement={ctaElement}
@@ -132,9 +114,15 @@ const renderArticlesSection = (section: Section) => {
 }
 
 const renderFaqSection = (section: Section) => {
-  const { _id, title, customElements } = section
+  const { title, faqCategoryText, customElements } = section
 
-  return <FAQDefault _id={_id} title={title} customElements={customElements} />
+  return (
+    <FAQDefault
+      title={title}
+      faqCategoryText={faqCategoryText}
+      customElements={customElements}
+    />
+  )
 }
 
 const renderInformationalSection = (
@@ -147,7 +135,6 @@ const renderInformationalSection = (
   groupIndex: number,
 ) => {
   const {
-    _id,
     sectionVariant,
     customElementsVariant,
     title,
@@ -160,7 +147,6 @@ const renderInformationalSection = (
     case 'default':
       return (
         <InformationalDefault
-          _id={_id}
           title={title}
           body={body}
           image={image}
@@ -173,7 +159,6 @@ const renderInformationalSection = (
     case 'informationalGrouped':
       return (
         <InformationalGrouped
-          _id={_id}
           firstSection={firstSection}
           secondSection={secondSection}
           groupIndex={groupIndex}
@@ -183,7 +168,6 @@ const renderInformationalSection = (
     case 'informationalMockup':
       return (
         <InformationalMockup
-          _id={_id}
           index={index}
           title={title}
           body={body}
@@ -193,80 +177,57 @@ const renderInformationalSection = (
 
     case 'informationalOrganisaties':
       return (
-        <InformationalOrganisaties
-          _id={_id}
-          title={title}
-          body={body}
-          image={image}
-        />
+        <InformationalOrganisaties title={title} body={body} image={image} />
       )
 
     case 'informationalOverOns':
-      return <InformationalOverOns _id={_id} body={body} />
+      return <InformationalOverOns body={body} />
 
     case 'informationalMedia':
-      return <InformationalMedia _id={_id} customElements={customElements} />
+      return <InformationalMedia customElements={customElements} />
 
     case 'informationalArticles':
       return (
         <InformationalArticles
-          _id={_id}
           customElements={customElements}
           categories={categories}
         />
       )
 
     case 'informationalResearch':
-      return <InformationalResearch _id={_id} title={title} body={body} />
+      return <InformationalResearch title={title} body={body} />
   }
 }
 
 const renderCtaSection = (section: Section) => {
-  const { _id, ctaElement } = section
+  const { ctaElement } = section
 
-  return <CTADefault _id={_id} ctaElement={ctaElement} />
+  return <CTADefault ctaElement={ctaElement} />
 }
 
 const renderInfographicSection = (section: Section) => {
-  const { _id, title, customElements } = section
+  const { title, customElements } = section
 
-  return (
-    <InfographicDefault
-      _id={_id}
-      title={title}
-      customElements={customElements}
-    />
-  )
+  return <InfographicDefault title={title} customElements={customElements} />
 }
 
 const renderVideoSection = (section: Section) => {
-  const { _id, video } = section
+  const { video } = section
 
-  return <VideoDefault _id={_id} video={video} />
+  return <VideoDefault video={video} />
 }
 
 const renderCoreValuesSection = (section: Section) => {
-  const { _id, title, customElements } = section
+  const { title, customElements } = section
 
-  return (
-    <CoreValuesDefault
-      _id={_id}
-      title={title}
-      customElements={customElements}
-    />
-  )
+  return <CoreValuesDefault title={title} customElements={customElements} />
 }
 
 const renderTeamSection = (section: Section) => {
-  const { _id, title, body, customElements } = section
+  const { title, body, customElements } = section
 
   return (
-    <TeamDefault
-      _id={_id}
-      title={title}
-      body={body}
-      customElements={customElements}
-    />
+    <TeamDefault title={title} body={body} customElements={customElements} />
   )
 }
 

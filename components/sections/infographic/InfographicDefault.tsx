@@ -7,13 +7,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 interface InfographicDefaultProps {
-  _id: string
   title: string
   customElements: any[]
 }
 
 export const InfographicDefault: React.FC<InfographicDefaultProps> = ({
-  _id,
   title,
   customElements,
 }) => {
@@ -30,10 +28,7 @@ export const InfographicDefault: React.FC<InfographicDefaultProps> = ({
   }
 
   return (
-    <section
-      key={_id}
-      className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64"
-    >
+    <section className="mt-[4rem] lg:mt-[6rem] w-full px-8 lg:px-16 xl:px-64">
       <h1 className="text-2xl font-sofia font-bold xl:text-4xl 2xl:text-5xl text-center">
         {title}
       </h1>

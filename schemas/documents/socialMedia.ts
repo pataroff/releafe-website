@@ -13,8 +13,6 @@ export default {
           { title: 'Twitter', value: 'twitter' },
           { title: 'LinkedIn', value: 'linkedin' },
           { title: 'Instagram', value: 'instagram' },
-          { title: 'YouTube', value: 'youtube' },
-          { title: 'GitHub', value: 'github' },
         ],
         layout: 'dropdown',
       },

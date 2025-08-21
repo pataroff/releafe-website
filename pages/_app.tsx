@@ -49,6 +49,7 @@ export default function App({
   pageProps,
 }: AppProps<SharedPageProps>) {
   const { draftMode, token, settings, navbar, footer } = pageProps
+
   const isMaybeInsidePresentation = useSyncExternalStore(
     subscribe,
     () =>

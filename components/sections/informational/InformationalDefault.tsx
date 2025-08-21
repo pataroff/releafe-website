@@ -9,7 +9,6 @@ import { FearDisorders } from 'components/shared/FearDisorders'
 import { PanicDisorders } from 'components/shared/PanicDisorders'
 
 interface InformationalDefaultProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -20,7 +19,6 @@ interface InformationalDefaultProps {
 }
 
 export const InformationalDefault: React.FC<InformationalDefaultProps> = ({
-  _id,
   title,
   body,
   image,
@@ -33,10 +31,7 @@ export const InformationalDefault: React.FC<InformationalDefaultProps> = ({
   const [fearSubdisorderIndex, setFearSubdisorderIndex] = useState<number>(0)
   const [panicSubdisorderIndex, setPanicSubdisorderIndex] = useState<number>(0)
   return (
-    <section
-      key={_id}
-      className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem]"
-    >
+    <section className="mt-[2rem] xl:mt-[6rem] w-full scroll-mt-[5.5rem] xl:scroll-mt-[2.5rem]">
       <div className="my-[2rem] lg:my-[4rem] flex flex-col place-self-center gap-y-12 lg:gap-y-16 px-8 xl:px-32 max-w-[1440px]">
         <div className="flex flex-col">
           <div

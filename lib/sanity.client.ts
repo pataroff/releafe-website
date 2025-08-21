@@ -23,7 +23,16 @@ export function getClient(preview?: { token: string }) {
           return false
         }
 
-        // Everything else: keep default behavior
+        if (props.sourcePath.at(-1) === 'customElementsVariant') {
+          return false
+        }
+
+        if (
+          props.sourcePath.at(-1) === 'platform' ||
+          props.sourcePath.at(-1) === 'url'
+        ) {
+          return false
+        }
         return props.filterDefault(props)
       },
     },

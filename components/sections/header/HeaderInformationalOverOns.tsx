@@ -1,16 +1,15 @@
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 interface HeaderInformationalOverOnsProps {
-  _id: string
   title: string
   body: any[]
 }
 
 export const HeaderInformationalOverOns: React.FC<
   HeaderInformationalOverOnsProps
-> = ({ _id, title, body }) => {
+> = ({ title, body }) => {
   return (
-    <section key={_id}>
+    <section>
       <h2 className="font-sofia font-bold text-3xl xl:text-4xl 2xl:text-5xl text-center text-white">
         {title}
       </h2>

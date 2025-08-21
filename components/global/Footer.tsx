@@ -1,4 +1,5 @@
 import { LinkColumn } from 'components/shared/LinkColumn'
+import { Section } from 'types'
 
 export function Footer({ footer, route }) {
   const { sections } = footer
@@ -20,9 +21,9 @@ export function Footer({ footer, route }) {
     >
       <div className="flex flex-col justify-center gap-y-8 lg:flex-row gap-x-20 lg:gap-x-16 xl:gap-x-32">
         {/* Column Links */}
-        {sections.map((section, index) => (
+        {sections.map((section: Section) => (
           <LinkColumn
-            key={index}
+            key={section._id}
             title={section.title}
             links={section.customElements}
           />

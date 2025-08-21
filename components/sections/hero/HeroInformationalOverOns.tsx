@@ -6,7 +6,6 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 import { urlForImage } from 'lib/sanity.image'
 
 interface HeroInformationalOverOnsProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -14,12 +13,9 @@ interface HeroInformationalOverOnsProps {
 
 export const HeroInformationalOverOns: React.FC<
   HeroInformationalOverOnsProps
-> = ({ _id, title, body, image }) => {
+> = ({ title, body, image }) => {
   return (
-    <section
-      key={_id}
-      className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex xl:flex-col xl:justify-center"
-    >
+    <section className="xl:min-h-[calc(100vh-120px)] bg-[#F7F7F7] xl:flex xl:flex-col xl:justify-center">
       {/* Main Wrapper */}
       <div className="flex flex-col min-h-full w-full px-8 lg:px-16 xl:px-32 pb-4 xl:pb-8 pt-28 xl:pt-12 2xl:pt-16 max-w-[1440px] place-self-center">
         {/* Main Container */}

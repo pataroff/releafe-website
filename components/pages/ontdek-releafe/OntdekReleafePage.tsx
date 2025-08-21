@@ -1,3 +1,5 @@
+import React from 'react'
+
 import ScrollUp from 'components/shared/ScrollUp'
 
 import { Section } from 'types'
@@ -32,7 +34,13 @@ export const OntdekReleafePage = ({ page }) => {
       {/* Sections before (and including) hero */}
       {beforeHero.map((section: Section, index: number) => {
         const renderSectionFn = sectionRenderers[section.sectionType]
-        return renderSectionFn ? renderSectionFn(section, index) : null
+        if (!renderSectionFn) return null
+
+        return (
+          <React.Fragment key={section._id}>
+            {renderSectionFn(section, index)}
+          </React.Fragment>
+        )
       })}
 
       {/* Sections after hero wrapped in gradient */}
@@ -41,9 +49,13 @@ export const OntdekReleafePage = ({ page }) => {
           {/* Render other sections normally */}
           {otherSections.map((section, index) => {
             const renderSectionFn = sectionRenderers[section.sectionType]
-            return renderSectionFn
-              ? renderSectionFn(section, index + beforeHero.length)
-              : null
+            if (!renderSectionFn) return null
+
+            return (
+              <React.Fragment key={section._id}>
+                {renderSectionFn(section, index + beforeHero.length)}
+              </React.Fragment>
+            )
           })}
 
           {/* Wrap all mockup sections together */}
@@ -52,9 +64,13 @@ export const OntdekReleafePage = ({ page }) => {
               <div className="bg-white rounded-3xl shadow-xl my-[2rem] xl:my-[6rem] mx-4 lg:mx-16 xl:mx-32 py-8">
                 {mockupSections.map((section, index) => {
                   const renderSectionFn = sectionRenderers[section.sectionType]
-                  return renderSectionFn
-                    ? renderSectionFn(section, index + beforeHero.length)
-                    : null
+                  if (!renderSectionFn) return null
+
+                  return (
+                    <React.Fragment key={section._id}>
+                      {renderSectionFn(section, index + beforeHero.length)}
+                    </React.Fragment>
+                  )
                 })}
               </div>
             </div>

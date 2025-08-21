@@ -9,13 +9,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 interface TestimonialsDefaultProps {
-  _id: string
   title: string
   customElements: any[]
 }
 
 export const TestimonialsDefault: React.FC<TestimonialsDefaultProps> = ({
-  _id,
   title,
   customElements,
 }) => {
@@ -33,10 +31,7 @@ export const TestimonialsDefault: React.FC<TestimonialsDefaultProps> = ({
   }
 
   return (
-    <section
-      key={_id}
-      className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-32 xl:px-64"
-    >
+    <section className="mt-[4rem] lg:mt-[6rem] w-full px-5 lg:px-32 xl:px-64">
       <h1 className="text-2xl font-sofia font-bold md:text-4xl text-center">
         {title}
       </h1>

@@ -9,14 +9,12 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { urlForImage } from 'lib/sanity.image'
 
 interface InformationalArticlesProps {
-  _id: string
   customElements: any[]
   // FUNCTION OVERLOAD
   categories: { title: string }[]
 }
 
 export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
-  _id,
   customElements,
   categories,
 }) => {
@@ -38,10 +36,7 @@ export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
         )
 
   return (
-    <div
-      key={_id}
-      className="my-[2rem] xl:my-[4rem] px-8 xl:px-16 flex-grow flex flex-col"
-    >
+    <div className="my-[2rem] xl:my-[4rem] px-8 xl:px-16 flex-grow flex flex-col">
       <div className="relative my-6 w-fit">
         <select
           value={selectedCategory}

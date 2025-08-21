@@ -97,6 +97,7 @@ export interface Section {
   sectionVariant: string
   customElementsVariant?: string
   buttonText?: string
+  faqCategoryText?: string
   title?: string
   body?: PortableTextMarkDefinition[]
   image: Image

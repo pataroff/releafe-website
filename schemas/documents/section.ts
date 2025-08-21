@@ -71,6 +71,15 @@ export default {
       },
     },
     {
+      name: 'faqCategoryText',
+      title: 'FAQ Category Text',
+      type: 'string',
+      hidden: ({ parent }) => {
+        const allowedTypes = ['faq']
+        return !allowedTypes.includes(parent?.sectionType)
+      },
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',

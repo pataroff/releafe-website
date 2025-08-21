@@ -101,7 +101,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 15 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="absolute left-0 right-0 top-14 bg-transparent text-black"
+              className="absolute left-0 right-0 top-14 bg-transparent text-black shadow-xl rounded-3xl overflow-hidden"
             >
               <OverContent />
             </motion.div>
@@ -116,24 +116,28 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
       <div className="w-full xl:w-64 bg-white px-6 py-4">
         <div className="my-2 space-y-4">
           <Link
+            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
             href="/over-ons"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             Over ons
           </Link>
           <Link
+            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
             href="/in-de-media"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             In de media
           </Link>
           <Link
+            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
             href="/blogs"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
             Inspiratie
           </Link>
           <Link
+            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
             href="/onderzoek"
             className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
           >
@@ -166,6 +170,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   alt="Releafe App Icon Logo"
                   width={60}
                   height={60}
+                  priority
                 />
               </Link>
               {navbarItems &&
@@ -260,6 +265,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   alt="Releafe App Icon Logo"
                   width={60}
                   height={60}
+                  priority
                 />
               </Link>
               <Link href="/">
@@ -285,6 +291,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   alt="Releafe App Icon Logo"
                   width={60}
                   height={60}
+                  priority
                 />
               </Link>
 
@@ -414,6 +421,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   alt="Releafe App Icon Logo"
                   width={60}
                   height={60}
+                  priority
                 />
               </Link>
               <Link href="/">

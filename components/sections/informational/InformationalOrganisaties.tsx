@@ -4,7 +4,6 @@ import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
 interface InformationalOrganisatiesProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -12,12 +11,9 @@ interface InformationalOrganisatiesProps {
 
 export const InformationalOrganisaties: React.FC<
   InformationalOrganisatiesProps
-> = ({ _id, title, body, image }) => {
+> = ({ title, body, image }) => {
   return (
-    <div
-      key={_id}
-      className="flex flex-col-reverse xl:flex-row items-center w-full gap-x-8 gap-y-8 xl:p-8"
-    >
+    <div className="flex flex-col-reverse xl:flex-row items-center w-full gap-x-8 gap-y-8 xl:p-8">
       <div className="flex flex-col gap-y-8 w-full xl:w-1/2">
         <h2 className="text-2xl 2xl:text-4xl font-sofia font-bold">{title}</h2>
 

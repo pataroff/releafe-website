@@ -7,7 +7,6 @@ import { Section } from 'types'
 import { urlForImage } from 'lib/sanity.image'
 
 interface InformationalGroupedProps {
-  _id: string
   // FUNCTION OVERLOAD
   firstSection: Section
   secondSection?: Section
@@ -15,7 +14,6 @@ interface InformationalGroupedProps {
 }
 
 export const InformationalGrouped: React.FC<InformationalGroupedProps> = ({
-  _id,
   firstSection,
   secondSection,
   groupIndex,
@@ -31,7 +29,6 @@ export const InformationalGrouped: React.FC<InformationalGroupedProps> = ({
 
   return (
     <div
-      key={_id}
       className={`flex flex-col ${
         isEvenGroup ? 'xl:flex-row' : 'xl:flex-row-reverse'
       } items-center gap-x-12 gap-y-8`}

@@ -4,7 +4,6 @@ import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
 interface InformationalMockupProps {
-  _id: string
   title: string
   body: any[]
   image: any
@@ -13,17 +12,13 @@ interface InformationalMockupProps {
 }
 
 export const InformationalMockup: React.FC<InformationalMockupProps> = ({
-  _id,
   title,
   body,
   image,
   index,
 }) => {
   return (
-    <div
-      key={_id}
-      className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32"
-    >
+    <div className="my-[2rem] 2xl:my-[4rem] flex flex-col gap-y-24 xl:gap-y-12 2xl:gap-y-14 px-8 xl:px-24 2xl:px-32">
       <div
         className={`flex flex-col-reverse xl:${
           index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'
