@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import Image from 'next/image'
-import { NavbarItem } from 'types'
+import { NavbarItem, SublinkItem } from 'types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -33,8 +33,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
       ? 'bg-gradient-to-b from-[#a8d5ba] to-[#5c946e]'
       : 'bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b]'
 
-  const FlyoutLink = ({ children, href, FlyoutContent }) => {
-    const showFlyout = isFlyoutOpen && FlyoutContent
+  const FlyoutLink = ({ children, href, subLinks }) => {
+    const showFlyout = isFlyoutOpen && subLinks.length > 0
 
     return (
       <div
@@ -53,8 +53,10 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-3xl bg-[#96a68d] transition-transform duration-300 ease-out"
           />
         </div>
+
         {/* Transparent Hit Area */}
         <div className="absolute top-7 left-1/2 right-0 w-64 -translate-x-1/2 h-7 bg-transparent"></div>
+
         <AnimatePresence>
           {showFlyout && (
             <motion.div
@@ -66,7 +68,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               className="absolute left-1/2 top-14 bg-white text-black shadow-xl rounded-3xl overflow-hidden"
             >
               <div className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-white"></div>
-              <OverContent />
+              <OverContent subLinks={subLinks} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -74,8 +76,8 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
     )
   }
 
-  const FlyoutLinkMobile = ({ children, href, FlyoutContent }) => {
-    const showFlyout = isFlyoutOpen && FlyoutContent
+  const FlyoutLinkMobile = ({ children, href, subLinks }) => {
+    const showFlyout = isFlyoutOpen && subLinks.length > 0
 
     return (
       <div className="relative">
@@ -103,7 +105,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="absolute left-0 right-0 top-14 bg-transparent text-black shadow-xl rounded-3xl overflow-hidden"
             >
-              <OverContent />
+              <OverContent subLinks={subLinks} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -111,38 +113,22 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
     )
   }
 
-  const OverContent = () => {
+  const OverContent = ({ subLinks }: { subLinks: SublinkItem[] }) => {
+    if (!subLinks || subLinks.length === 0) return null
+
     return (
       <div className="w-full xl:w-64 bg-white px-6 py-4">
         <div className="my-2 space-y-4">
-          <Link
-            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
-            href="/over-ons"
-            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
-          >
-            Over ons
-          </Link>
-          <Link
-            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
-            href="/in-de-media"
-            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
-          >
-            In de media
-          </Link>
-          <Link
-            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
-            href="/blogs"
-            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
-          >
-            Inspiratie
-          </Link>
-          <Link
-            onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
-            href="/onderzoek"
-            className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
-          >
-            Onderzoek
-          </Link>
+          {subLinks.map((link) => (
+            <Link
+              key={link.slug}
+              onClick={() => setIsHamburgerMenuOpen(!isHamburgerMenuOpen)}
+              href={link.slug}
+              className="block font-sofia font-medium text-xl lg:text-lg hover:underline"
+            >
+              {link.title}
+            </Link>
+          ))}
         </div>
       </div>
     )
@@ -175,10 +161,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
               </Link>
               {navbarItems &&
                 navbarItems.slice(0, 3).map((menuItem) => {
-                  const href = resolveHref(
-                    menuItem._type,
-                    menuItem.slug.current,
-                  )
+                  const href = resolveHref(menuItem._type, menuItem.slug)
                   if (!href) {
                     return null
                   }
@@ -198,20 +181,17 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
             <div className="flex items-center gap-x-5 z-10">
               {navbarItems &&
                 navbarItems.slice(3, 6).map((menuItem, index) => {
-                  const href = resolveHref(
-                    menuItem._type,
-                    menuItem.slug.current,
-                  )
+                  const href = resolveHref(menuItem._type, menuItem.slug)
                   if (!href) {
                     return null
                   }
 
-                  if (index == 1) {
+                  if (menuItem.subLinks?.length > 0 && index == 1) {
                     return (
                       <FlyoutLink
                         key={index}
                         href="/over"
-                        FlyoutContent={OverContent}
+                        subLinks={menuItem.subLinks}
                       >
                         {menuItem.title}
                       </FlyoutLink>
@@ -301,10 +281,7 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   navbarItems[navbarItems.length - 1] &&
                   (() => {
                     const menuItem = navbarItems[navbarItems.length - 1]
-                    const href = resolveHref(
-                      menuItem._type,
-                      menuItem.slug.current,
-                    )
+                    const href = resolveHref(menuItem._type, menuItem.slug)
                     if (href) {
                       return (
                         <Link key={href} href={href}>
@@ -358,20 +335,20 @@ export function Navbar({ navbarItems, route }: NavbarProps) {
                   navbarItems
                     .slice(0, navbarItems.length - 1)
                     .map((menuItem, index) => {
-                      const href = resolveHref(
-                        menuItem._type,
-                        menuItem.slug.current,
-                      )
+                      const href = resolveHref(menuItem._type, menuItem.slug)
                       if (!href) {
                         return null
                       }
 
-                      if (index === navbarItems.length - 2) {
+                      if (
+                        menuItem.subLinks?.length > 0 &&
+                        index === navbarItems.length - 2
+                      ) {
                         return (
                           <FlyoutLinkMobile
                             key={index}
                             href={href}
-                            FlyoutContent={OverContent}
+                            subLinks={menuItem.subLinks}
                           >
                             {menuItem.title === 'Over' ? (
                               <button

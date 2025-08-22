@@ -12,8 +12,22 @@ export default {
     {
       name: 'callToActionLink',
       title: 'Call To Action Link',
-      type: 'url',
-      validation: (Rule) => Rule.required(),
+      type: 'string',
+      description:
+        'The link destination (can be http(s), mailto, or relative path)',
+      validation: (Rule) =>
+        Rule.required().custom((value) => {
+          if (!value) return 'Required'
+          if (
+            value.startsWith('http://') ||
+            value.startsWith('https://') ||
+            value.startsWith('mailto:') ||
+            value.startsWith('/')
+          ) {
+            return true
+          }
+          return 'Must start with "/", http://, https://, or mailto:'
+        }),
     },
     {
       name: 'callToActionTitle',

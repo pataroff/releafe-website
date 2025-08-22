@@ -4,10 +4,17 @@ import type {
 } from '@portabletext/types'
 import type { Image } from 'sanity'
 
+export interface SublinkItem {
+  title: string
+  slug: string
+}
+
 export interface NavbarItem {
   _type: string
   title: string
-  slug: { current: string }
+  slug: string
+  hasSublinks?: boolean
+  subLinks?: SublinkItem[]
 }
 
 export interface MilestoneItem {

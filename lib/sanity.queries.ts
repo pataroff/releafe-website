@@ -16,8 +16,11 @@ export const navbarQuery = groq`
       _id,
       _type,
       title,
-      slug {
-        current
+      "slug": slug.current,
+      hasSubLinks,
+      subLinks[]{
+        title,
+        "slug": slug.current
       }
     }
   }
