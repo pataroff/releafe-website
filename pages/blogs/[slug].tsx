@@ -38,6 +38,13 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     }),
   ])
 
+  if (!article) {
+    // return 404 page manually
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       article,
