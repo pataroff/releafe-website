@@ -18,13 +18,16 @@ export const InformationalResearch: React.FC<InformationalResearchProps> = ({
           <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-sofia font-bold">
             {title}
           </h2>
-
           <CustomPortableText
             value={body}
+            paragraphClasses="font-sofia font-light xl:text-lg 2xl:text-xl"
+            listItemClasses="font-sofia font-light xl:text-lg 2xl:text-xl"
+            bulletClasses="list-disc marker:text-black pl-6 space-y-4"
+            numberClasses="list-decimal marker:text-black pl-6 space-y-4"
             headingClasses={{
-              h3: 'text-xl xl:text-2xl 2xl:text-3xl font-sofia font-bold',
+              h2: 'font-sofia font-bold text-2xl xl:text-3xl mb-6',
+              h3: 'font-sofia font-bold text-xl xl:text-2xl mb-4',
             }}
-            paragraphClasses="font-sofia font-light text-md xl:text-lg 2xl:text-xl"
           />
         </div>
       </div>
