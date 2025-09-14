@@ -55,23 +55,24 @@ export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col xl:flex-row gap-x-8 gap-y-8 flex-grow flex-wrap">
-        {filteredArticles.length === 0 ? (
-          <div className="flex-grow flex items-center justify-center">
-            <p className="font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
-              Geen artikelen gevonden voor deze categorie.
-            </p>
-          </div>
-        ) : (
-          filteredArticles.map((article, index) => {
+      {filteredArticles.length === 0 ? (
+        <div className="flex-grow flex items-center justify-center">
+          <p className="font-sofia font-light text-center text-md xl:text-lg 2xl:text-xl">
+            Geen artikelen gevonden voor deze categorie.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredArticles.map((article, index) => {
             const { category, title, slug, coverImage } = article
             return (
               <Link
                 key={index}
                 href={`/blogs/${slug.current}`}
-                className="relative rounded-[2.5rem] overflow-hidden w-full xl:w-[330px] 2xl:w-[415px] h-[400px] bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col justify-between shadow-md"
+                className="relative w-full h-[400px] rounded-[2.5rem] overflow-hidden bg-gradient-to-b from-[#c5d5bc] to-[#8fa58b] flex flex-col shadow-md"
               >
-                <div className="w-full h-[260px] relative">
+                {/* Image Section */}
+                <div className="relative w-full h-[260px]">
                   {coverImage && (
                     <Image
                       src={urlForImage(coverImage).url()}
@@ -81,7 +82,9 @@ export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
                     />
                   )}
                 </div>
-                <div className="rounded-[2.5rem] rounded-t-none bg-white h-[140px] w-full absolute bottom-0 left-0 flex flex-col justify-center px-8">
+
+                {/* Text Section */}
+                <div className="rounded-[2.5rem] rounded-t-none bg-white w-full h-[140px] flex flex-col justify-center px-6 py-4">
                   <h2 className="font-sofia font-light text-md">
                     {category?.title}
                   </h2>
@@ -89,9 +92,9 @@ export const InformationalArticles: React.FC<InformationalArticlesProps> = ({
                 </div>
               </Link>
             )
-          })
-        )}
-      </div>
+          })}
+        </div>
+      )}
     </div>
   )
 }

@@ -22,6 +22,19 @@ export default defineType({
       description: 'Global default meta description for SEO.',
     },
     {
+      name: 'siteKeywords',
+      title: 'Site Keywords',
+      type: 'string',
+      description:
+        'Comma-separated keywords for the <meta name="keywords"> tag.',
+    },
+    {
+      name: 'siteRobots',
+      title: 'Site Robots',
+      type: 'text',
+      description: 'Custom robots.txt rules.',
+    },
+    {
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',

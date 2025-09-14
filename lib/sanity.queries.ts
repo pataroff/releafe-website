@@ -5,6 +5,8 @@ export const settingsQuery = groq`
   *[_type == "settings"][0]{
     siteTitle,
     siteDescription,
+    siteKeywords,
+    siteRobots,
     ogImage
   }
 `
@@ -431,6 +433,92 @@ export const probeerReleafePageQuery = groq`
           callToActionButtonText,
           callToActionLink
         }
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const privacyVerklaringPageQuery = groq`
+  *[_type == "privacyVerklaring"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      customElementsVariant,
+      buttonText,
+      faqCategoryText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+           callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
+      },
+      ctaElement->{
+        _type,
+        callToActionTitle,
+        callToActionText,
+        callToActionButtonText,
+        callToActionLink
+      }
+    }
+  }
+`
+
+export const algemeneVoorwaardenPageQuery = groq`
+  *[_type == "algemeneVoorwaarden"][0]{
+    _id,
+    sections[]->{
+      _id,
+      sectionType,
+      sectionVariant,
+      customElementsVariant,
+      buttonText,
+      faqCategoryText,
+      title,
+      body[]{
+        ...,
+        _type == "reference" => @-> {
+          _type,
+          callToActionLink,
+          callToActionButtonText
+        }
+      },
+      image,
+      video,
+      customElements[]->{
+        _id,
+        ...,
+        ctaElement->{
+          _type,
+          callToActionTitle,
+           callToActionText,
+          callToActionButtonText,
+          callToActionLink
+        },
       },
       ctaElement->{
         _type,

@@ -5,7 +5,8 @@ import { SettingsPayload } from 'types'
 import { urlForImage } from 'lib/sanity.image'
 
 export function SiteMeta({ settings }: { settings: SettingsPayload }) {
-  const { siteTitle, siteDescription, ogImage } = settings
+  const { siteTitle, siteDescription, siteKeywords, siteRobots, ogImage } =
+    settings
 
   const imageUrl =
     ogImage && urlForImage(ogImage)?.width(1200).height(627).fit('crop').url()
@@ -21,14 +22,15 @@ export function SiteMeta({ settings }: { settings: SettingsPayload }) {
         href="/favicon/releafe_favicon_32x32.png"
       />
 
-      {/* <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" /> */}
       {siteDescription && (
         <meta key="description" name="description" content={siteDescription} />
       )}
+      {siteKeywords && (
+        <meta key="keywords" name="keywords" content={siteKeywords} />
+      )}
+
+      {siteRobots && <meta name="robots" content={siteRobots} />}
+
       {imageUrl && <meta property="og:image" content={imageUrl} />}
     </Head>
   )

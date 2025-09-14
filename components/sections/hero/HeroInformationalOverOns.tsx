@@ -31,8 +31,13 @@ export const HeroInformationalOverOns: React.FC<
             />
           </div>
           {/* Image Container */}
-          <div className="relative rounded-3xl overflow-hidden w-full xl:w-[400px] xl:h-[400px] lg:h-[881px] md:h-[600px] h-[300px] shadow-md">
-            <Image src={urlForImage(image).url()} alt={'Releafe Logo'} fill />
+          <div className="relative aspect-square w-full max-w-[400px] rounded-3xl overflow-hidden shadow-md">
+            <Image
+              src={urlForImage(image).url()}
+              alt="Releafe Logo"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
         {/* Scroll Button */}

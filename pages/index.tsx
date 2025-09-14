@@ -37,6 +37,12 @@ export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
     client.fetch<PagePayload | null>(homePageQuery),
   ])
 
+  if (!page) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       // @TODO: Add proper fallbacks!

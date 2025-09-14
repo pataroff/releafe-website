@@ -48,6 +48,8 @@ import media from 'schemas/documents/media'
 import emailSubscription from 'schemas/objects/emailSubscription'
 import link from 'schemas/documents/link'
 import navbarItem from 'schemas/documents/navbarItem'
+import privacyVerklaring from 'schemas/singletons/privacyVerklaring'
+import algemeneVoorwaarden from 'schemas/singletons/algemeneVoorwaarden'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE
 
@@ -72,6 +74,8 @@ export default defineConfig({
       blogs,
       onderzoek,
       probeerReleafe,
+      algemeneVoorwaarden,
+      privacyVerklaring,
       footer,
       // Documents
       link,
@@ -120,6 +124,8 @@ export default defineConfig({
         blogs,
         onderzoek,
         probeerReleafe,
+        algemeneVoorwaarden,
+        privacyVerklaring,
         footer,
       ]),
     }),
@@ -137,6 +143,8 @@ export default defineConfig({
       blogs.name,
       onderzoek.name,
       probeerReleafe.name,
+      algemeneVoorwaarden.name,
+      privacyVerklaring.name,
       footer.name,
     ]),
     // Add an image asset source for Unsplash

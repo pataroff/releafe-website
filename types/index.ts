@@ -117,6 +117,8 @@ export interface Section {
 export interface SettingsPayload {
   siteTitle?: string
   siteDescription?: string
+  siteKeywords?: string
+  siteRobots?: string
   navbarItems?: NavbarItem[]
   ogImage?: Image
 }
